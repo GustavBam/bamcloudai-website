@@ -1,0 +1,16 @@
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bam Cloud AI">
+  <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+  <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+  <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+  <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+  <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+  <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+  <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+  <circle cx="40" cy="40" r="6.5" fill="white"/>
+</svg>

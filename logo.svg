@@ -1,0 +1,39 @@
+<svg viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bam Cloud AI — Build. Architect. Master.">
+
+  <!-- ── BACKGROUND (matches site nav) ── -->
+  <rect width="320" height="80" rx="10" fill="#0F1B2D"/>
+
+  <!-- ── SPECTRUM NODE CLUSTER ── -->
+  <!-- spokes -->
+  <line x1="40" y1="17" x2="40" y2="30" stroke="#00D4FF" stroke-width="2" stroke-linecap="round"/>
+  <line x1="63" y1="27" x2="54" y2="34" stroke="#A855F7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="63" y1="53" x2="54" y2="46" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/>
+  <line x1="40" y1="63" x2="40" y2="50" stroke="#00FF88" stroke-width="2" stroke-linecap="round"/>
+  <line x1="17" y1="53" x2="26" y2="46" stroke="#FF3CAC" stroke-width="2" stroke-linecap="round"/>
+  <line x1="17" y1="27" x2="26" y2="34" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  <!-- outer nodes -->
+  <circle cx="40" cy="11" r="6.5" fill="#00D4FF"/>
+  <circle cx="66" cy="26" r="6.5" fill="#A855F7"/>
+  <circle cx="66" cy="54" r="6.5" fill="#FF6B35"/>
+  <circle cx="40" cy="69" r="6.5" fill="#00FF88"/>
+  <circle cx="14" cy="54" r="6.5" fill="#FF3CAC"/>
+  <circle cx="14" cy="26" r="6.5" fill="#FFD700"/>
+  <!-- centre -->
+  <circle cx="40" cy="40" r="11" fill="#0078D4"/>
+  <circle cx="40" cy="40" r="6"  fill="white"/>
+
+  <!-- ── WORDMARK ── -->
+  <text x="90" y="46" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="30" letter-spacing="-0.5">
+    <tspan font-weight="800" fill="#E8621A">BAM</tspan><tspan font-weight="300" fill="#FFFFFF" dx="8"> Cloud AI</tspan>
+  </text>
+
+  <!-- ── TAGLINE (textLength forces alignment with wordmark) ── -->
+  <text x="91" y="63" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="11.5" textLength="196" lengthAdjust="spacing">
+    <tspan font-weight="700" fill="#E8621A">B</tspan><tspan font-weight="400" fill="#FFFFFF">uild</tspan>
+    <tspan fill="rgba(255,255,255,0.25)" dx="4"> · </tspan>
+    <tspan font-weight="700" fill="#E8621A">A</tspan><tspan font-weight="400" fill="#FFFFFF">rchitect</tspan>
+    <tspan fill="rgba(255,255,255,0.25)" dx="4"> · </tspan>
+    <tspan font-weight="700" fill="#E8621A">M</tspan><tspan font-weight="400" fill="#FFFFFF">aster</tspan>
+  </text>
+
+</svg>
