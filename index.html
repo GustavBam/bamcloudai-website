@@ -71,7 +71,7 @@
       --navy-mid: #1A2D44;
       --slate: #2D4059;
       --text: #1E293B;
-      --muted: #64748B;
+      --muted: #5A6B82;
       --light: #F1F5F9;
       --white: #FFFFFF;
       --border: #E2E8F0;
@@ -106,7 +106,7 @@
       max-width: 1140px;
       margin: 0 auto;
       padding: 0 24px;
-      height: 130px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -114,15 +114,15 @@
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 20px;
+      gap: 14px;
       text-decoration: none;
       line-height: 1;
     }
-    .logo .logo-icon { height: 110px; width: auto; display: block; flex-shrink: 0; }
+    .logo .logo-icon { height: 48px; width: auto; display: block; flex-shrink: 0; }
     .logo .logo-text { display: inline-grid; row-gap: 6px; }
     .logo .logo-wordmark {
       white-space: nowrap;
-      font-size: 50px;
+      font-size: 28px;
       letter-spacing: -0.5px;
       line-height: 1;
     }
@@ -132,13 +132,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 15px;
-      letter-spacing: 1.2px;
+      font-size: 10px;
+      letter-spacing: 0.8px;
       font-weight: 500;
       color: rgba(255,255,255,0.65);
     }
     .logo .logo-tagline .initial { color: rgba(232,98,26,0.88); font-weight: 700; }
-    .logo .logo-tagline .dot { color: rgba(255,255,255,0.55); letter-spacing: 0; font-size: 17px; }
+    .logo .logo-tagline .dot { color: rgba(255,255,255,0.55); letter-spacing: 0; font-size: 12px; }
     .logo .logo-tagline .last-r { letter-spacing: 0; }
     .nav-links {
       display: flex;
@@ -224,7 +224,7 @@
       border-radius: 50%;
     }
     .hero h1 {
-      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+      font-size: clamp(2.4rem, 4.5vw, 3.75rem);
       font-weight: 800;
       color: var(--white);
       line-height: 1.15;
@@ -439,11 +439,19 @@
       border: 1px solid var(--border);
       transition: all 0.2s;
       cursor: pointer;
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
     .consult-card:hover {
       border-color: var(--azure);
       box-shadow: var(--shadow);
       transform: translateY(-2px);
+    }
+    .consult-card:focus-visible {
+      outline: 2px solid var(--azure);
+      outline-offset: 2px;
+      border-color: var(--azure);
     }
     .consult-card .card-cta {
       display: inline-flex;
@@ -762,7 +770,7 @@
     }
     footer .logo { font-size: 1rem; }
     footer p {
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.45);
       font-size: 0.82rem;
     }
     footer a {
@@ -799,12 +807,12 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     @media (max-width: 640px) {
-      .nav-inner { height: 72px; }
-      .logo { gap: 10px; }
-      .logo .logo-icon { height: 52px; }
-      .logo .logo-wordmark { font-size: 26px; }
-      .logo .logo-tagline { font-size: 10px; letter-spacing: 0.7px; }
-      .logo .logo-tagline .dot { font-size: 11px; }
+      .nav-inner { height: 64px; }
+      .logo { gap: 8px; }
+      .logo .logo-icon { height: 40px; }
+      .logo .logo-wordmark { font-size: 22px; }
+      .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
+      .logo .logo-tagline .dot { font-size: 10px; }
       .hero { padding: 90px 20px 48px; }
       .nav-hamburger { display: flex; }
       .nav-links {
@@ -1044,7 +1052,7 @@
         <p class="section-intro">Architecture, design, and hands-on delivery for businesses moving to Azure or optimising their cloud environment. AZ-305 certified, real-world experience.</p>
       </div>
       <div class="consulting-grid">
-        <div class="consult-card" onclick="bmConsult('arch')" role="button" tabindex="0" aria-label="Enquire about Azure Architecture and Design">
+        <a class="consult-card" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Azure%20Architecture%20%26%20Design" aria-label="Enquire about Azure Architecture and Design">
           <h3>☁️ Azure Architecture &amp; Design</h3>
           <p>AZ-305 level architecture consulting — from initial design to implementation roadmap. Built for durability, security, and cost efficiency.</p>
           <ul class="check-list">
@@ -1054,8 +1062,8 @@
             <li>Cost optimisation reviews</li>
           </ul>
           <span class="card-cta">✉ Send an enquiry →</span>
-        </div>
-        <div class="consult-card" onclick="bmConsult('ops')" role="button" tabindex="0" aria-label="Enquire about Azure Administration and Operations">
+        </a>
+        <a class="consult-card" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Azure%20Administration%20%26%20Operations" aria-label="Enquire about Azure Administration and Operations">
           <h3>⚙️ Azure Administration &amp; Operations</h3>
           <p>Hands-on AZ-104 level administration — manage, monitor, and optimise your Azure environment with an experienced engineer.</p>
           <ul class="check-list">
@@ -1065,8 +1073,8 @@
             <li>Infrastructure-as-code (Bicep / ARM)</li>
           </ul>
           <span class="card-cta">✉ Send an enquiry →</span>
-        </div>
-        <div class="consult-card" onclick="bmConsult('m365')" role="button" tabindex="0" aria-label="Enquire about Microsoft 365 Deployments">
+        </a>
+        <a class="consult-card" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Microsoft%20365%20Deployments" aria-label="Enquire about Microsoft 365 Deployments">
           <h3>🔗 Microsoft 365 Deployments</h3>
           <p>End-to-end M365 deployment, migration, and adoption — including Copilot readiness assessments and change management for SA businesses.</p>
           <ul class="check-list">
@@ -1076,8 +1084,8 @@
             <li>End-user adoption programmes</li>
           </ul>
           <span class="card-cta">✉ Send an enquiry →</span>
-        </div>
-        <div class="consult-card" onclick="bmConsult('infra')" role="button" tabindex="0" aria-label="Enquire about Infrastructure Contracting">
+        </a>
+        <a class="consult-card" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Infrastructure%20Contracting" aria-label="Enquire about Infrastructure Contracting">
           <h3>🏗️ Infrastructure Contracting</h3>
           <p>Flexible contracting for SA businesses and MSPs that need senior Azure expertise without a full-time hire. Project-based or retainer arrangements.</p>
           <ul class="check-list">
@@ -1087,7 +1095,7 @@
             <li>Skills transfer included</li>
           </ul>
           <span class="card-cta">✉ Send an enquiry →</span>
-        </div>
+        </a>
       </div>
       <div style="margin-top: 40px; text-align: center;">
         <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="btn btn-primary">Request a Consulting Call</a>
