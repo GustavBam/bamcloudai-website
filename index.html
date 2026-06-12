@@ -76,6 +76,15 @@
       --white: #FFFFFF;
       --border: #E2E8F0;
       --green: #10B981;
+      --green-dark: #059669;
+      --purple: #8B5CF6;
+      --purple-dark: #6D28D9;
+      --cyan: #0EA5E9;
+      --cyan-dark: #0284C7;
+      --pink: #EC4899;
+      --pink-dark: #BE185D;
+      --gold: #D97706;
+      --gold-dark: #B45309;
       --radius: 12px;
       --shadow: 0 4px 24px rgba(0,0,0,0.08);
       --shadow-lg: 0 12px 48px rgba(0,0,0,0.14);
@@ -869,6 +878,36 @@
 
     /* ── ORANGE SECTION LABEL ── */
     .section-label.orange { color: var(--orange); }
+
+    /* ── SPECTRUM ACCENTS — training cards ── */
+    .card-purple { border-top: 3px solid var(--purple); }
+    .card-purple:hover { border-color: var(--purple); }
+    .card-purple .card-icon { background: linear-gradient(135deg, var(--purple), var(--purple-dark)); }
+    .card-purple .card-link { color: var(--purple); }
+    .card-purple .card-link:hover { color: var(--purple-dark); }
+
+    .card-green { border-top: 3px solid var(--green); }
+    .card-green:hover { border-color: var(--green); }
+    .card-green .card-icon { background: linear-gradient(135deg, var(--green), var(--green-dark)); }
+    .card-green .card-link { color: var(--green-dark); }
+    .card-green .card-link:hover { color: var(--green); }
+
+    /* ── SPECTRUM ACCENTS — consulting cards ── */
+    .consult-cyan { border-top: 3px solid var(--cyan); }
+    .consult-cyan:hover { border-color: var(--cyan); }
+    .consult-cyan .card-cta { color: var(--cyan-dark); }
+
+    .consult-gold { border-top: 3px solid var(--gold); }
+    .consult-gold:hover { border-color: var(--gold); }
+    .consult-gold .card-cta { color: var(--gold-dark); }
+
+    .consult-purple { border-top: 3px solid var(--purple); }
+    .consult-purple:hover { border-color: var(--purple); }
+    .consult-purple .card-cta { color: var(--purple-dark); }
+
+    .consult-pink { border-top: 3px solid var(--pink); }
+    .consult-pink:hover { border-color: var(--pink); }
+    .consult-pink .card-cta { color: var(--pink-dark); }
   </style>
 </head>
 <body>
@@ -918,9 +957,9 @@
     <div class="hero-inner">
       <div class="hero-content">
         <div class="hero-badge">Microsoft Certified · Cape Town, SA · Global</div>
-        <h1>Azure &amp; AI Training.<br/><span>Cloud Consulting.</span></h1>
+        <h1>Built It. Ran It.<br/><span>Now I'll Teach You to Master It.</span></h1>
         <p class="hero-sub">
-          Practical, certified expertise from a Microsoft-certified Azure architect with 25+ years in enterprise IT — specialising in cloud architecture, migrations, and IT training.
+          I'm Gustav Bam — AZ-305 certified Azure architect with 25+ years running production environments at enterprise scale. I bring that real-world rigour to Azure &amp; AI training, certification coaching, and cloud consulting.
         </p>
         <div class="hero-actions">
           <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="btn btn-primary">Book a Training Session</a>
@@ -1016,7 +1055,7 @@
           </div>
           <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Book a session</a>
         </div>
-        <div class="card">
+        <div class="card card-purple">
           <div class="card-icon">🔗</div>
           <h3>Azure Networking &amp; Security</h3>
           <p>Deep-dive coaching on Azure networking design and security architecture — from VNets and Private Endpoints to Zero Trust, Entra ID, and Conditional Access. Ideal for engineers preparing for AZ-700 or strengthening real-world skills.</p>
@@ -1041,7 +1080,7 @@
           </div>
           <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Book a Trial Lesson</a>
         </div>
-        <div class="card">
+        <div class="card card-green">
           <div class="card-icon">🏢</div>
           <h3>Corporate Workshops</h3>
           <p>Half-day and full-day in-person or virtual workshops for teams in South Africa. Azure fundamentals, AI readiness, Copilot adoption, or custom content for your organisation.</p>
@@ -1065,7 +1104,7 @@
         <p class="section-intro">Architecture, design, and hands-on delivery for businesses moving to Azure or optimising their cloud environment. AZ-305 certified, real-world experience.</p>
       </div>
       <div class="consulting-grid">
-        <a class="consult-card" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Azure%20Architecture%20%26%20Design" aria-label="Enquire about Azure Architecture and Design">
+        <a class="consult-card consult-cyan" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Azure%20Architecture%20%26%20Design" aria-label="Enquire about Azure Architecture and Design">
           <h3>☁️ Azure Architecture &amp; Design</h3>
           <p>AZ-305 level architecture consulting — from initial design to implementation roadmap. Built for durability, security, and cost efficiency.</p>
           <ul class="check-list">
@@ -1076,7 +1115,7 @@
           </ul>
           <span class="card-cta">✉ Send an enquiry →</span>
         </a>
-        <a class="consult-card" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Azure%20Administration%20%26%20Operations" aria-label="Enquire about Azure Administration and Operations">
+        <a class="consult-card consult-gold" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Azure%20Administration%20%26%20Operations" aria-label="Enquire about Azure Administration and Operations">
           <h3>⚙️ Azure Administration &amp; Operations</h3>
           <p>Hands-on AZ-104 level administration — manage, monitor, and optimise your Azure environment with an experienced engineer.</p>
           <ul class="check-list">
@@ -1087,7 +1126,7 @@
           </ul>
           <span class="card-cta">✉ Send an enquiry →</span>
         </a>
-        <a class="consult-card" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Microsoft%20365%20Deployments" aria-label="Enquire about Microsoft 365 Deployments">
+        <a class="consult-card consult-purple" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Microsoft%20365%20Deployments" aria-label="Enquire about Microsoft 365 Deployments">
           <h3>🔗 Microsoft 365 Deployments</h3>
           <p>End-to-end M365 deployment, migration, and adoption — including Copilot readiness assessments and change management for SA businesses.</p>
           <ul class="check-list">
@@ -1098,7 +1137,7 @@
           </ul>
           <span class="card-cta">✉ Send an enquiry →</span>
         </a>
-        <a class="consult-card" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Infrastructure%20Contracting" aria-label="Enquire about Infrastructure Contracting">
+        <a class="consult-card consult-pink" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Infrastructure%20Contracting" aria-label="Enquire about Infrastructure Contracting">
           <h3>🏗️ Infrastructure Contracting</h3>
           <p>Flexible contracting for SA businesses and MSPs that need senior Azure expertise without a full-time hire. Project-based or retainer arrangements.</p>
           <ul class="check-list">
@@ -1236,7 +1275,7 @@
         <div class="about-text">
           <span class="section-label">About</span>
           <h2>25 Years of Enterprise IT. Now Building Smarter Clouds.</h2>
-          <p>I'm Gustav Bam — a Senior Infrastructure Engineer and Microsoft-certified Azure Solutions Architect based in Durbanville, Cape Town. I've spent over 25 years designing, building, and running enterprise infrastructure across South Africa, with a particular depth in financial-sector environments.</p>
+          <p>Based in Durbanville, Cape Town, I've spent over 25 years as a Senior Infrastructure Engineer and Microsoft-certified Azure Solutions Architect — designing, building, and running enterprise infrastructure across South Africa, with a particular depth in financial-sector environments.</p>
           <p>My most defining engagement was leading the IT consolidation of multiple Sanlam Group subsidiaries into a single, centralised Group IT model — spanning Active Directory, Exchange, SQL Server, and Windows Server migrations at scale, using Quest Migration Manager. That project shaped how I think about complexity, governance, and getting things done right the first time.</p>
           <p>Bam Cloud AI brings that same rigour to Azure architecture, cloud migrations, and IT training — whether you need a trusted architect for a complex project, a coach for certification prep, or someone who can teach your team to work confidently in the cloud.</p>
           <div class="cert-grid">
