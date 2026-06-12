@@ -72,7 +72,7 @@
       --slate: #2D4059;
       --text: #1E293B;
       --muted: #5A6B82;
-      --light: #F1F5F9;
+      --light: #DCEAF8;
       --white: #FFFFFF;
       --border: #E2E8F0;
       --green: #10B981;
@@ -106,7 +106,7 @@
       max-width: 1140px;
       margin: 0 auto;
       padding: 0 24px;
-      height: 92px;
+      height: 100px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -143,10 +143,10 @@
 
     /* Nav logo sized up to be proportionate with the larger hero headline */
     nav .logo { gap: 18px; }
-    nav .logo .logo-icon { height: 60px; }
-    nav .logo .logo-wordmark { font-size: 36px; }
-    nav .logo .logo-tagline { font-size: 12px; letter-spacing: 1px; }
-    nav .logo .logo-tagline .dot { font-size: 14px; }
+    nav .logo .logo-icon { height: 70px; }
+    nav .logo .logo-wordmark { font-size: 56px; }
+    nav .logo .logo-tagline { font-size: 13px; letter-spacing: 1.05px; }
+    nav .logo .logo-tagline .dot { font-size: 15px; }
 
     .nav-links {
       display: flex;
@@ -232,7 +232,7 @@
       border-radius: 50%;
     }
     .hero h1 {
-      font-size: clamp(2.4rem, 4.5vw, 3.75rem);
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
       font-weight: 800;
       color: var(--white);
       line-height: 1.15;
@@ -362,7 +362,7 @@
     .section-header { margin-bottom: 56px; }
 
     /* ── TRAINING ── */
-    #training { background: var(--white); }
+    #training { background: var(--light); }
     .training-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -505,7 +505,7 @@
     }
 
     /* ── ABOUT ── */
-    #about { background: var(--white); }
+    #about { background: var(--light); }
     .about-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -529,7 +529,7 @@
       margin-top: 32px;
     }
     .cert-badge {
-      background: var(--light);
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 14px 16px;
@@ -615,7 +615,7 @@
     }
 
     /* ── PRICING ── */
-    #pricing { background: var(--white); }
+    #pricing { background: var(--light); }
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -788,7 +788,7 @@
       transition: color 0.2s;
     }
     footer a:hover { color: var(--azure-light); }
-    .footer-links { display: flex; gap: 24px; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
 
     /* ── HERO TWO-COLUMN ── */
     .hero-inner {
@@ -815,17 +815,17 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     @media (max-width: 640px) {
-      .nav-inner { height: 72px; }
+      .nav-inner { height: 84px; }
       .logo { gap: 8px; }
       .logo .logo-icon { height: 40px; }
       .logo .logo-wordmark { font-size: 22px; }
       .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
       .logo .logo-tagline .dot { font-size: 10px; }
-      nav .logo { gap: 10px; }
-      nav .logo .logo-icon { height: 48px; }
-      nav .logo .logo-wordmark { font-size: 26px; }
-      nav .logo .logo-tagline { font-size: 10px; letter-spacing: 0.7px; }
-      nav .logo .logo-tagline .dot { font-size: 12px; }
+      nav .logo { gap: 12px; }
+      nav .logo .logo-icon { height: 62px; }
+      nav .logo .logo-wordmark { font-size: 34px; }
+      nav .logo .logo-tagline { font-size: 12px; letter-spacing: 0.8px; }
+      nav .logo .logo-tagline .dot { font-size: 14px; }
       .hero { padding: 90px 20px 48px; }
       .nav-hamburger { display: flex; }
       .nav-links {
@@ -924,7 +924,7 @@
         </p>
         <div class="hero-actions">
           <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="btn btn-primary">Book a Training Session</a>
-          <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="btn btn-secondary">Request a Consulting Call</a>
+          <a href="https://outlook.office.com/bookwithme/user/cf6fcf5b2efc4e1c8b1c8da334e1725b@bamcloudai.com/meetingtype/wzKX1x-FrEeZxxIpzi9HWw2?anonymous&amp;ismsaljsauthenabled" target="_blank" class="btn btn-secondary">Request a Consulting Call</a>
         </div>
         <div class="hero-stats">
           <div class="stat-item">
@@ -1111,7 +1111,7 @@
         </a>
       </div>
       <div style="margin-top: 40px; text-align: center;">
-        <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="btn btn-primary">Request a Consulting Call</a>
+        <a href="https://outlook.office.com/bookwithme/user/cf6fcf5b2efc4e1c8b1c8da334e1725b@bamcloudai.com/meetingtype/wzKX1x-FrEeZxxIpzi9HWw2?anonymous&amp;ismsaljsauthenabled" target="_blank" class="btn btn-primary">Request a Consulting Call</a>
       </div>
     </div>
   </section>
@@ -1131,7 +1131,7 @@
           <h3>🎯 Free Consulting Discovery Call</h3>
           <p>30 minutes. No obligation. Let's understand your Azure challenge before you spend a cent.</p>
         </div>
-        <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="price-free-pill">Book Free — 30 min</a>
+        <a href="https://outlook.office.com/bookwithme/user/cf6fcf5b2efc4e1c8b1c8da334e1725b@bamcloudai.com/meetingtype/wzKX1x-FrEeZxxIpzi9HWw2?anonymous&amp;ismsaljsauthenabled" target="_blank" class="price-free-pill">Book Free — 30 min</a>
       </div>
 
       <div class="pricing-grid">
@@ -1176,10 +1176,6 @@
           <p class="price-desc">AZ-305 certified. Flexible engagement models — hourly advisory, project-based delivery, or retainer arrangements for ongoing support.</p>
           <div class="price-rows">
             <div class="price-row">
-              <div class="pr-label">Consulting Discovery Call<small>Free · 30 min · No obligation</small></div>
-              <div class="pr-amount free">Free</div>
-            </div>
-            <div class="price-row">
               <div class="pr-label">Hourly Advisory<small>Architecture, review, guidance</small></div>
               <div class="pr-amount">R1,100<span class="pr-sub">/ hr</span></div>
             </div>
@@ -1197,7 +1193,7 @@
             </div>
           </div>
           <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
-            <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Request a consulting call →</a>
+            <a href="https://outlook.office.com/bookwithme/user/cf6fcf5b2efc4e1c8b1c8da334e1725b@bamcloudai.com/meetingtype/wzKX1x-FrEeZxxIpzi9HWw2?anonymous&amp;ismsaljsauthenabled" target="_blank" class="card-link">Request a consulting call →</a>
             <a href="mailto:quote@bamcloudai.com?subject=Consulting%20Enquiry" class="card-link">Request a custom quote →</a>
           </div>
         </div>
@@ -1340,7 +1336,7 @@
       <p class="section-intro">Whether it's a training session, a consulting engagement, or a quick conversation — reach out and let's talk.</p>
       <div class="contact-cards">
         <a class="contact-card" href="mailto:gustav@bamcloudai.com">
-          <div class="contact-card-icon">✉️</div>
+          <div class="contact-card-icon">📧</div>
           <h4>Email</h4>
           <p>gustav@bamcloudai.com</p>
         </a>
@@ -1357,7 +1353,7 @@
       </div>
       <div class="contact-actions">
         <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="btn btn-primary">Book a Training Session</a>
-        <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="btn btn-white">Request a Consulting Call</a>
+        <a href="https://outlook.office.com/bookwithme/user/cf6fcf5b2efc4e1c8b1c8da334e1725b@bamcloudai.com/meetingtype/wzKX1x-FrEeZxxIpzi9HWw2?anonymous&amp;ismsaljsauthenabled" target="_blank" class="btn btn-white">Request a Consulting Call</a>
         <a href="mailto:gustav@bamcloudai.com" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
@@ -1392,6 +1388,11 @@
       </a>
       <p>© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
       <div class="footer-links">
+        <a href="#training">Training</a>
+        <a href="#consulting">Consulting</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
         <a href="mailto:gustav@bamcloudai.com">Email</a>
       </div>
     </div>
