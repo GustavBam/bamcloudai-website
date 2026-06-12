@@ -106,7 +106,7 @@
       max-width: 1140px;
       margin: 0 auto;
       padding: 0 24px;
-      height: 80px;
+      height: 92px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -140,6 +140,14 @@
     .logo .logo-tagline .initial { color: rgba(232,98,26,0.88); font-weight: 700; }
     .logo .logo-tagline .dot { color: rgba(255,255,255,0.55); letter-spacing: 0; font-size: 12px; }
     .logo .logo-tagline .last-r { letter-spacing: 0; }
+
+    /* Nav logo sized up to be proportionate with the larger hero headline */
+    nav .logo { gap: 18px; }
+    nav .logo .logo-icon { height: 60px; }
+    nav .logo .logo-wordmark { font-size: 36px; }
+    nav .logo .logo-tagline { font-size: 12px; letter-spacing: 1px; }
+    nav .logo .logo-tagline .dot { font-size: 14px; }
+
     .nav-links {
       display: flex;
       gap: 32px;
@@ -807,12 +815,17 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     @media (max-width: 640px) {
-      .nav-inner { height: 64px; }
+      .nav-inner { height: 72px; }
       .logo { gap: 8px; }
       .logo .logo-icon { height: 40px; }
       .logo .logo-wordmark { font-size: 22px; }
       .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
       .logo .logo-tagline .dot { font-size: 10px; }
+      nav .logo { gap: 10px; }
+      nav .logo .logo-icon { height: 48px; }
+      nav .logo .logo-wordmark { font-size: 26px; }
+      nav .logo .logo-tagline { font-size: 10px; letter-spacing: 0.7px; }
+      nav .logo .logo-tagline .dot { font-size: 12px; }
       .hero { padding: 90px 20px 48px; }
       .nav-hamburger { display: flex; }
       .nav-links {
