@@ -115,7 +115,7 @@
       max-width: 1140px;
       margin: 0 auto;
       padding: 0 24px;
-      height: 100px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -150,12 +150,12 @@
     .logo .logo-tagline .dot { color: rgba(255,255,255,0.55); letter-spacing: 0; font-size: 12px; }
     .logo .logo-tagline .last-r { letter-spacing: 0; }
 
-    /* Nav logo sized up to be proportionate with the larger hero headline */
-    nav .logo { gap: 18px; }
-    nav .logo .logo-icon { height: 70px; }
-    nav .logo .logo-wordmark { font-size: 56px; }
-    nav .logo .logo-tagline { font-size: 13px; letter-spacing: 1.05px; }
-    nav .logo .logo-tagline .dot { font-size: 15px; }
+    /* Nav logo sized to balance with nav links and fit an 80px nav bar */
+    nav .logo { gap: 14px; }
+    nav .logo .logo-icon { height: 48px; }
+    nav .logo .logo-wordmark { font-size: 28px; }
+    nav .logo .logo-tagline { font-size: 10px; letter-spacing: 0.8px; }
+    nav .logo .logo-tagline .dot { font-size: 12px; }
 
     .nav-links {
       display: flex;
@@ -241,7 +241,7 @@
       border-radius: 50%;
     }
     .hero h1 {
-      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      font-size: clamp(2.5rem, 4.5vw, 3.6rem);
       font-weight: 800;
       color: var(--white);
       line-height: 1.15;
@@ -523,6 +523,29 @@
     }
     @media (max-width: 768px) {
       .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    .about-profile {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .about-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+    .about-profile-info strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+    .about-profile-info span {
+      font-size: 0.85rem;
+      color: var(--muted);
     }
     .about-text h2 { margin-bottom: 20px; }
     .about-text p {
@@ -824,18 +847,18 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     @media (max-width: 640px) {
-      .nav-inner { height: 84px; }
+      .nav-inner { height: 72px; }
       .logo { gap: 8px; }
       .logo .logo-icon { height: 40px; }
       .logo .logo-wordmark { font-size: 22px; }
       .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
       .logo .logo-tagline .dot { font-size: 10px; }
-      nav .logo { gap: 12px; }
-      nav .logo .logo-icon { height: 62px; }
-      nav .logo .logo-wordmark { font-size: 34px; }
-      nav .logo .logo-tagline { font-size: 12px; letter-spacing: 0.8px; }
-      nav .logo .logo-tagline .dot { font-size: 14px; }
-      .hero { padding: 90px 20px 48px; }
+      nav .logo { gap: 10px; }
+      nav .logo .logo-icon { height: 40px; }
+      nav .logo .logo-wordmark { font-size: 22px; }
+      nav .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
+      nav .logo .logo-tagline .dot { font-size: 10px; }
+      .hero { padding: 88px 20px 48px; }
       .nav-hamburger { display: flex; }
       .nav-links {
         display: none; position: absolute; top: 72px; left: 0; right: 0;
@@ -1274,6 +1297,13 @@
       <div class="about-inner">
         <div class="about-text">
           <span class="section-label">About</span>
+          <div class="about-profile">
+            <img src="gustav-bam.jpg" alt="Gustav Bam, founder of Bam Cloud AI" class="about-photo" width="72" height="72" loading="lazy">
+            <div class="about-profile-info">
+              <strong>Gustav Bam</strong>
+              <span>Founder, Bam Cloud AI · Azure Solutions Architect Expert</span>
+            </div>
+          </div>
           <h2>25 Years of Enterprise IT. Now Building Smarter Clouds.</h2>
           <p>Based in Durbanville, Cape Town, I've spent over 25 years as a Senior Infrastructure Engineer and Microsoft-certified Azure Solutions Architect — designing, building, and running enterprise infrastructure across South Africa, with a particular depth in financial-sector environments.</p>
           <p>My most defining engagement was leading the IT consolidation of multiple Sanlam Group subsidiaries into a single, centralised Group IT model — spanning Active Directory, Exchange, SQL Server, and Windows Server migrations at scale, using Quest Migration Manager. That project shaped how I think about complexity, governance, and getting things done right the first time.</p>
@@ -1389,6 +1419,11 @@
           <h4>Delivery</h4>
           <p>Online globally · In-person SA</p>
         </a>
+        <a class="contact-card" href="https://www.linkedin.com/company/bam-cloud-ai/" target="_blank" rel="noopener">
+          <div class="contact-card-icon">🔗</div>
+          <h4>LinkedIn</h4>
+          <p>Bam Cloud AI</p>
+        </a>
       </div>
       <div class="contact-actions">
         <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="btn btn-primary">Book a Training Session</a>
@@ -1433,6 +1468,7 @@
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="mailto:gustav@bamcloudai.com">Email</a>
+        <a href="https://www.linkedin.com/company/bam-cloud-ai/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </footer>
