@@ -692,6 +692,14 @@
     .pr-amount { font-size: 0.88rem; font-weight: 700; color: var(--navy); white-space: nowrap; text-align: right; }
     .pr-amount .pr-sub { display: block; font-size: 0.7rem; font-weight: 400; color: var(--muted); }
     .pr-amount.free { color: var(--green); }
+    .price-fx {
+      display: block; font-size: 0.67rem; font-weight: 500;
+      color: rgba(90,107,130,0.65); margin-top: 2px; white-space: nowrap;
+    }
+    .price-rate-note {
+      text-align: center; font-size: 0.72rem; color: var(--muted);
+      margin-top: 6px; opacity: 0.65; font-style: italic;
+    }
     .price-free-banner {
       background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
       border-radius: 14px; padding: 28px 36px;
@@ -1381,23 +1389,23 @@
           <div class="price-rows">
             <div class="price-row">
               <div class="pr-label">Azure &amp; AI Certification Coaching<small>1-on-1 · AZ-104, AZ-305, AI-900</small></div>
-              <div class="pr-amount">R950<span class="pr-sub">/ hr</span></div>
+              <div class="pr-amount">R950<span class="pr-sub">/ hr</span><span class="price-fx" data-zar="950"></span></div>
             </div>
             <div class="price-row">
               <div class="pr-label">Azure Training Session<small>2 hrs · Up to 15 participants</small></div>
-              <div class="pr-amount">R2,800<span class="pr-sub">/ session</span></div>
+              <div class="pr-amount">R2,800<span class="pr-sub">/ session</span><span class="price-fx" data-zar="2800"></span></div>
             </div>
             <div class="price-row">
               <div class="pr-label">Azure Training Session<small>4 hrs · Up to 15 participants</small></div>
-              <div class="pr-amount">R4,900<span class="pr-sub">/ session</span></div>
+              <div class="pr-amount">R4,900<span class="pr-sub">/ session</span><span class="price-fx" data-zar="4900"></span></div>
             </div>
             <div class="price-row">
               <div class="pr-label">Azure Workshop – Half Day<small>4 hrs · Custom content · Online or on-site</small></div>
-              <div class="pr-amount">R8,500<span class="pr-sub">/ workshop</span></div>
+              <div class="pr-amount">R8,500<span class="pr-sub">/ workshop</span><span class="price-fx" data-zar="8500"></span></div>
             </div>
             <div class="price-row">
               <div class="pr-label">Azure Workshop – Full Day<small>8 hrs · Custom content · Online or on-site</small></div>
-              <div class="pr-amount">R14,500<span class="pr-sub">/ workshop</span></div>
+              <div class="pr-amount">R14,500<span class="pr-sub">/ workshop</span><span class="price-fx" data-zar="14500"></span></div>
             </div>
           </div>
           <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
@@ -1413,7 +1421,7 @@
           <div class="price-rows">
             <div class="price-row">
               <div class="pr-label">Hourly Advisory<small>Architecture, review, guidance</small></div>
-              <div class="pr-amount">R1,100<span class="pr-sub">/ hr</span></div>
+              <div class="pr-amount">R1,100<span class="pr-sub">/ hr</span><span class="price-fx" data-zar="1100"></span></div>
             </div>
             <div class="price-row">
               <div class="pr-label">Project-Based Engagement<small>Scoped deliverables, fixed price</small></div>
@@ -1442,11 +1450,11 @@
           <div class="price-rows">
             <div class="price-row">
               <div class="pr-label">Trial Lesson<small>25 min · First session</small></div>
-              <div class="pr-amount">$15<span class="pr-sub">USD</span></div>
+              <div class="pr-amount">$15<span class="pr-sub">USD</span><span class="price-fx" data-usd="15"></span></div>
             </div>
             <div class="price-row">
               <div class="pr-label">Standard Session<small>60 min · Business English for IT</small></div>
-              <div class="pr-amount">$35<span class="pr-sub">/ hr USD</span></div>
+              <div class="pr-amount">$35<span class="pr-sub">/ hr USD</span><span class="price-fx" data-usd="35"></span></div>
             </div>
             <div class="price-row">
               <div class="pr-label">Corporate Group Sessions<small>Teams / departments · Custom</small></div>
@@ -1461,6 +1469,7 @@
       </div>
 
       <p class="price-disclaimer">All ZAR rates exclude VAT. On-site delivery subject to travel costs. Rates valid for 2026 — contact for multi-session or corporate volume pricing.</p>
+      <p class="price-rate-note" id="priceRateNote">USD · EUR · ZAR equivalents shown per service — live rates loading…</p>
 
     </div>
   </section>
@@ -1665,6 +1674,37 @@
   </footer>
 
   <script>
+    // ── LIVE CURRENCY CONVERSION ──
+    (async function priceFx() {
+      const elems = document.querySelectorAll('.price-fx');
+      if (!elems.length) return;
+      try {
+        const [rZar, rUsd] = await Promise.all([
+          fetch('https://api.frankfurter.app/latest?from=ZAR&to=USD,EUR').then(r => r.json()),
+          fetch('https://api.frankfurter.app/latest?from=USD&to=ZAR,EUR').then(r => r.json())
+        ]);
+        const zarToUsd = rZar.rates.USD, zarToEur = rZar.rates.EUR;
+        const usdToZar = rUsd.rates.ZAR, usdToEur = rUsd.rates.EUR;
+        const fmt = (n, d = 0) => Number(n.toFixed(d)).toLocaleString('en-ZA');
+
+        document.querySelectorAll('.price-fx[data-zar]').forEach(el => {
+          const z = +el.dataset.zar;
+          el.textContent = '≈ $' + fmt(z * zarToUsd) + ' · €' + fmt(z * zarToEur);
+        });
+        document.querySelectorAll('.price-fx[data-usd]').forEach(el => {
+          const u = +el.dataset.usd;
+          el.textContent = '≈ R' + fmt(u * usdToZar) + ' · €' + fmt(u * usdToEur, 2);
+        });
+
+        const note = document.getElementById('priceRateNote');
+        if (note) note.textContent = 'Indicative USD · EUR rates · ECB via Frankfurter.app · ' + rZar.date + ' · Invoiced in ZAR';
+      } catch (_) {
+        document.querySelectorAll('.price-fx').forEach(el => el.textContent = '');
+        const note = document.getElementById('priceRateNote');
+        if (note) note.textContent = '';
+      }
+    })();
+
     // Hamburger menu toggle
     const hamburger = document.getElementById('navHamburger');
     const navLinks = document.querySelector('.nav-links');
