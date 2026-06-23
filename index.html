@@ -531,12 +531,13 @@
       margin-bottom: 20px;
     }
     .about-photo {
-      width: 72px;
-      height: 72px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid var(--border);
+      border: 3px solid var(--azure);
       flex-shrink: 0;
+      box-shadow: 0 0 0 6px rgba(0,120,212,0.12);
     }
     .about-profile-info strong {
       display: block;
@@ -692,6 +693,22 @@
     .pr-amount { font-size: 0.88rem; font-weight: 700; color: var(--navy); white-space: nowrap; text-align: right; }
     .pr-amount .pr-sub { display: block; font-size: 0.7rem; font-weight: 400; color: var(--muted); }
     .pr-amount.free { color: var(--green); }
+    /* TESTIMONIALS */
+    #testimonials { background: var(--navy); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .testimonials-grid { grid-template-columns: 1fr; gap: 16px; } }
+    .testimonial-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; }
+    .testimonial-quote { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 20px; font-style: italic; flex: 1; position: relative; padding-left: 20px; }
+    .testimonial-quote::before { content: '\201C'; position: absolute; left: 0; top: -4px; font-size: 2.2rem; color: var(--azure); line-height: 1; font-style: normal; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; margin-top: auto; }
+    .testimonial-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--azure), var(--azure-dark)); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 0.9rem; flex-shrink: 0; }
+    .testimonial-name { font-size: 0.88rem; font-weight: 700; color: var(--white); }
+    .testimonial-role { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .testimonials-linkedin-link { text-align: center; margin-top: 36px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    .testimonials-linkedin-link a { color: var(--azure); text-decoration: none; }
+    .testimonials-linkedin-link a:hover { text-decoration: underline; }
+
     .price-fx {
       display: block; font-size: 0.67rem; font-weight: 500;
       color: rgba(90,107,130,0.65); margin-top: 2px; white-space: nowrap;
@@ -1359,6 +1376,57 @@
       </div>
     </div>
   </section>
+
+  <!-- TESTIMONIALS — uncomment when you have real quotes. Replace placeholder text with actual recommendations. -->
+  <!--
+  <section id="testimonials">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">What People Say</span>
+        <h2>Trusted by IT Professionals Across Africa &amp; Beyond</h2>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">PASTE FULL RECOMMENDATION TEXT HERE. Keep it to 2–4 sentences — the most specific and credible part of what they wrote.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AB</div>
+            <div>
+              <div class="testimonial-name">Person Name</div>
+              <div class="testimonial-role">Job Title · Company</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">PASTE FULL RECOMMENDATION TEXT HERE.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">CD</div>
+            <div>
+              <div class="testimonial-name">Person Name</div>
+              <div class="testimonial-role">Job Title · Company</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">PASTE FULL RECOMMENDATION TEXT HERE.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">EF</div>
+            <div>
+              <div class="testimonial-name">Person Name</div>
+              <div class="testimonial-role">Job Title · Company</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="testimonials-linkedin-link">
+        <a href="https://www.linkedin.com/in/gustav-bam-ab8764199/" target="_blank" rel="noopener">View all recommendations on LinkedIn →</a>
+      </p>
+    </div>
+  </section>
+  -->
 
   <!-- PRICING -->
   <section id="pricing">
