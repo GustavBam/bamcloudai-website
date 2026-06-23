@@ -1,0 +1,54 @@
+name: CI — Validate Before Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate HTML & Assets
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Check required files exist
+        run: |
+          echo "Checking required files..."
+          MISSING=0
+          for f in index.html robots.txt sitemap.xml favicon.ico favicon.svg; do
+            if [ ! -f "$f" ]; then
+              echo "❌ MISSING: $f"
+              MISSING=1
+            else
+              echo "✅ Found: $f"
+            fi
+          done
+          if [ $MISSING -eq 1 ]; then exit 1; fi
+
+      - name: Validate sitemap XML
+        run: |
+          python3 -c "
+          import xml.etree.ElementTree as ET
+          tree = ET.parse('sitemap.xml')
+          root = tree.getroot()
+          urls = root.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')
+          print(f'✅ Sitemap valid — {len(urls)} URL(s) found')
+          for url in urls:
+              print(f'   {url.text}')
+          "
+
+      - name: Validate HTML (W3C-compatible)
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: .
+          css: false
+          extra: --ignore-re "Trailing slash on void elements"
+
+      - name: Confirm Cloudflare Pages will deploy
+        run: |
+          echo "✅ All checks passed. Cloudflare Pages will now auto-deploy."
+          echo "   Live at: https://bamcloudai.com"
