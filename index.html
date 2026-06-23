@@ -1676,13 +1676,14 @@
   <script>
     // ── LIVE CURRENCY CONVERSION ──
     (async function priceFx() {
-      const elems = document.querySelectorAll('.price-fx');
-      if (!elems.length) return;
+      if (!document.querySelectorAll('.price-fx').length) return;
       try {
         const [rZar, rUsd] = await Promise.all([
-          fetch('https://api.frankfurter.app/latest?from=ZAR&to=USD,EUR').then(r => r.json()),
-          fetch('https://api.frankfurter.app/latest?from=USD&to=ZAR,EUR').then(r => r.json())
+          fetch('https://open.er-api.com/v6/latest/ZAR').then(r => r.json()),
+          fetch('https://open.er-api.com/v6/latest/USD').then(r => r.json())
         ]);
+        if (rZar.result !== 'success' || rUsd.result !== 'success') throw new Error('rate error');
+
         const zarToUsd = rZar.rates.USD, zarToEur = rZar.rates.EUR;
         const usdToZar = rUsd.rates.ZAR, usdToEur = rUsd.rates.EUR;
         const fmt = (n, d = 0) => Number(n.toFixed(d)).toLocaleString('en-ZA');
@@ -1697,7 +1698,10 @@
         });
 
         const note = document.getElementById('priceRateNote');
-        if (note) note.textContent = 'Indicative USD · EUR rates · ECB via Frankfurter.app · ' + rZar.date + ' · Invoiced in ZAR';
+        if (note) {
+          const d = new Date(rZar.time_last_update_utc).toLocaleDateString('en-ZA', {day:'numeric', month:'short', year:'numeric'});
+          note.textContent = 'Indicative USD · EUR rates · Open Exchange Rates · ' + d + ' · Invoiced in ZAR';
+        }
       } catch (_) {
         document.querySelectorAll('.price-fx').forEach(el => el.textContent = '');
         const note = document.getElementById('priceRateNote');
