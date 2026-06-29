@@ -1131,6 +1131,7 @@
         <li><a href="#consulting">Consulting</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#assessment">Free assessment</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="/book.html" class="nav-cta">Book</a></li>
       </ul>
@@ -1648,6 +1649,91 @@
       </div>
     </div>
   </section>
+
+    <!-- 4 LEVELS OF AI - FREE ASSESSMENT (LEAD MAGNET) -->
+  <section id="assessment" class="assessment">
+    <div class="section-inner assessment-inner">
+      <div class="assessment-copy">
+        <span class="section-label" style="color: var(--azure-light);">Free &middot; 4 Levels of AI Assessment</span>
+        <h2 style="color: var(--white);">Find out where your organisation really is with AI</h2>
+        <p class="assessment-lead">Most companies have one AI power user and everyone else guessing. The one-page assessment I use with clients shows you which of the four levels each part of your business is on &mdash; and the single next step up. Five minutes, no jargon.</p>
+        <div class="assessment-levels">
+          <span>1 &middot; Chat</span><span>2 &middot; Automate</span><span>3 &middot; Build</span><span>4 &middot; Shared apps</span>
+        </div>
+      </div>
+      <div class="assessment-card">
+        <form id="assessmentForm" novalidate>
+          <div class="ac-title">Get the free assessment</div>
+          <div class="ac-sub">One page. Straight to your inbox.</div>
+          <label for="afName">First name</label>
+          <input id="afName" name="firstname" type="text" autocomplete="given-name" placeholder="Gustav" required>
+          <label for="afEmail">Work email</label>
+          <input id="afEmail" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+          <input type="text" name="company_website" id="afHp" class="ac-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn btn-primary ac-submit" id="afSubmit">Send me the assessment</button>
+          <p class="ac-fine">You&rsquo;ll get the assessment and the occasional practical note from me. No spam &mdash; unsubscribe anytime.</p>
+          <p class="ac-msg" id="afMsg" role="status" aria-live="polite"></p>
+        </form>
+        <div class="assessment-done" id="assessmentDone" hidden>
+          <div class="ad-check">&#10003;</div>
+          <div class="ad-title">Check your inbox shortly &mdash; and here&rsquo;s your copy.</div>
+          <a class="btn btn-primary" id="afDownload" href="/4-levels-of-ai-self-assessment.pdf" download>Download the assessment (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+    #assessment.assessment { background: var(--navy); }
+    .assessment-inner { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+    .assessment-copy { flex: 1 1 340px; }
+    .assessment-copy h2 { color: var(--white); }
+    .assessment-lead { font-size: 1.05rem; color: var(--light); line-height: 1.7; margin-bottom: 20px; max-width: 520px; }
+    .assessment-levels { display: flex; flex-wrap: wrap; gap: 8px; }
+    .assessment-levels span { background: rgba(80,160,220,0.16); border: 1px solid rgba(80,160,220,0.40); color: #9FC6EE; font-size: 0.82rem; font-weight: 600; padding: 6px 12px; border-radius: 8px; }
+    .assessment-card { flex: 0 0 360px; max-width: 100%; background: var(--white); border-radius: var(--radius); padding: 28px 26px; box-shadow: 0 16px 50px rgba(0,0,0,0.30); }
+    .ac-title { font-size: 1.15rem; font-weight: 700; color: var(--navy); }
+    .ac-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 18px; }
+    .assessment-card label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--slate); margin: 12px 0 5px; }
+    .assessment-card input { width: 100%; box-sizing: border-box; border: 1px solid var(--border); border-radius: 8px; padding: 11px 12px; font-size: 0.95rem; font-family: inherit; color: var(--text); }
+    .assessment-card input:focus { outline: none; border-color: var(--azure); box-shadow: 0 0 0 3px rgba(0,120,212,0.15); }
+    .ac-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .ac-submit { width: 100%; justify-content: center; margin-top: 18px; }
+    .ac-fine { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 12px; line-height: 1.45; }
+    .ac-msg { font-size: 0.82rem; text-align: center; margin-top: 10px; }
+    .ac-msg.err { color: #C0392B; }
+    .assessment-done { text-align: center; padding: 12px 4px; }
+    .ad-check { width: 52px; height: 52px; border-radius: 50%; background: var(--green); color: #fff; font-size: 28px; line-height: 52px; margin: 0 auto 14px; }
+    .ad-title { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 18px; line-height: 1.4; }
+    @media (max-width: 720px) { .assessment-inner { gap: 32px; } .assessment-card { flex-basis: 100%; } }
+  </style>
+  <script>
+    (function () {
+      var form = document.getElementById('assessmentForm');
+      if (!form) return;
+      var msg = document.getElementById('afMsg');
+      var btn = document.getElementById('afSubmit');
+      var ENDPOINT = 'https://api.hsforms.com/submissions/v3/integration/submit/148801143/417ec8c1-7335-47d6-a9b0-d03e68c6d50f';
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msg.textContent = ''; msg.className = 'ac-msg';
+        if (document.getElementById('afHp').value) { return; }
+        var name = document.getElementById('afName').value.trim();
+        var email = document.getElementById('afEmail').value.trim();
+        if (!email || email.indexOf('@') < 1) { msg.textContent = 'Please enter a valid email address.'; msg.className = 'ac-msg err'; return; }
+        btn.disabled = true; var label = btn.textContent; btn.textContent = 'Sending...';
+        var payload = { fields: [ { name: 'email', value: email }, { name: 'firstname', value: name } ], context: { pageUri: location.href, pageName: document.title } };
+        fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+          .then(function (r) { return r.ok ? r.json().catch(function () { return {}; }) : Promise.reject(r); })
+          .then(function () {
+            form.hidden = true;
+            document.getElementById('assessmentDone').hidden = false;
+            try { var a = document.createElement('a'); a.href = '/4-levels-of-ai-self-assessment.pdf'; a.setAttribute('download', ''); document.body.appendChild(a); a.click(); document.body.removeChild(a); } catch (err) {}
+          })
+          .catch(function () { btn.disabled = false; btn.textContent = label; msg.textContent = 'Something went wrong - please email gustav@bamcloudai.com and I will send it straight over.'; msg.className = 'ac-msg err'; });
+      });
+    })();
+  </script>
+
 
   <!-- CONTACT -->
   <section id="contact">
