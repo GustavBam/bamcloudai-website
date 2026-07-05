@@ -51,6 +51,7 @@
       "jobTitle": "Senior Infrastructure Engineer, Azure Solutions Architect Expert & Microsoft Certified Trainer",
       "knowsAbout": ["Microsoft Azure", "Cloud Architecture", "Azure AI", "Microsoft 365", "Business English for IT"]
     },
+    "sameAs": ["https://www.linkedin.com/company/bam-cloud-ai/"],
     "priceRange": "R950 - R14500",
     "makesOffer": [
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Azure & AI Certification Training" } },
@@ -937,6 +938,13 @@
     .card-purple .card-link:hover { color: var(--purple-dark); }
 
     .card-green { border-top: 3px solid var(--green); }
+    .card-wide { grid-column: 1 / -1; }
+    @media (min-width: 640px) {
+      .card-wide { display: flex; align-items: center; gap: 40px; }
+      .card-wide-main { flex: 1 1 55%; }
+      .card-wide-main p { margin-bottom: 0; }
+      .card-wide-side { flex: 0 1 300px; display: flex; flex-direction: column; gap: 14px; }
+    }
     .card-green:hover { border-color: var(--green); }
     .card-green .card-icon { background: linear-gradient(135deg, var(--green), var(--green-dark)); }
     .card-green .card-link { color: var(--green-dark); }
@@ -1272,17 +1280,21 @@
           </div>
           <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Book a trial lesson</a>
         </div>
-        <div class="card card-green">
-          <div class="card-icon">🏢</div>
-          <h3>Corporate Workshops</h3>
-          <p>Half-day and full-day in-person or virtual workshops for teams in South Africa. Azure fundamentals, AI readiness, Copilot adoption, or custom content for your organisation.</p>
-          <div class="tag-list">
-            <span class="tag">In-person (SA)</span>
-            <span class="tag">Virtual</span>
-            <span class="tag">Custom content</span>
+        <div class="card card-green card-wide">
+          <div class="card-wide-main">
+            <div class="card-icon">🏢</div>
+            <h3>Corporate Workshops</h3>
+            <p>Half-day and full-day in-person or virtual workshops for teams in South Africa. Azure fundamentals, AI readiness, Copilot adoption, or custom content for your organisation.</p>
           </div>
-          <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Request a workshop</a>
-          <a href="#training-deck" class="card-link card-link-muted">See the full training overview</a>
+          <div class="card-wide-side">
+            <div class="tag-list">
+              <span class="tag">In-person (SA)</span>
+              <span class="tag">Virtual</span>
+              <span class="tag">Custom content</span>
+            </div>
+            <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Request a workshop</a>
+            <a href="#training-deck" class="card-link card-link-muted">See the full training overview</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1608,6 +1620,7 @@
           <p>Based in Durbanville, Cape Town, I've spent over 25 years as a Senior Infrastructure Engineer and Microsoft-certified Azure Solutions Architect — designing, building, and running enterprise infrastructure across South Africa, with a particular depth in financial-sector environments.</p>
           <p>My most defining engagement was leading the IT consolidation of multiple Sanlam Group subsidiaries into a single, centralised Group IT model — spanning Active Directory, Exchange, SQL Server, and Windows Server migrations at scale, using Quest Migration Manager. That project shaped how I think about complexity, governance, and getting things done right the first time.</p>
           <p>Bam Cloud AI brings that same rigour to Azure architecture, cloud migrations, and IT training — whether you need a trusted architect for a complex project, a coach for certification prep, or someone who can teach your team to work confidently in the cloud.</p>
+          <p>The honest reason I do this: I like watching the moment someone stops guessing and starts knowing. I have spent four decades on a French horn learning that mastery is built through unglamorous, disciplined repetition, not shortcuts — and that is exactly the standard I hold training to. If a session does not leave you able to do the thing yourself, without me in the room, I have not done my job.</p>
           <div class="cert-grid">
             <div class="cert-badge">
               <div class="cert-icon">🏅</div>
@@ -1958,6 +1971,7 @@
         <a href="https://www.linkedin.com/company/bam-cloud-ai/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
+    <p class="footer-popia" style="max-width:1140px;margin:16px auto 0;font-size:0.75rem;">This site collects only the information you submit via contact and booking forms (name and email) to respond to your enquiry, in line with the Protection of Personal Information Act (POPIA). Your information is never sold or shared with third parties. To request, correct, or delete your data, contact gustav@bamcloudai.com.</p>
   </footer>
 
   <script>
