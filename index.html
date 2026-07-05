@@ -1133,6 +1133,7 @@
         <li><a href="#payment">Payment</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#assessment">Free assessment</a></li>
+        <li><a href="#training-deck">Training overview</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="/book.html" class="nav-cta">Book</a></li>
       </ul>
@@ -1775,6 +1776,90 @@
             try { var a = document.createElement('a'); a.href = '/4-levels-of-ai-self-assessment.pdf'; a.setAttribute('download', ''); document.body.appendChild(a); a.click(); document.body.removeChild(a); } catch (err) {}
           })
           .catch(function () { btn.disabled = false; btn.textContent = label; msg.textContent = 'Something went wrong - please email gustav@bamcloudai.com and I will send it straight over.'; msg.className = 'ac-msg err'; });
+      });
+    })();
+  </script>
+
+  <!-- CORPORATE TRAINING OVERVIEW - FREE DOWNLOAD (LEAD MAGNET) -->
+  <section id="training-deck" class="training-deck">
+    <div class="section-inner td-inner">
+      <div class="td-copy">
+        <span class="section-label" style="color: var(--azure);">Free &middot; Corporate Training Overview</span>
+        <h2>See exactly what a Bam Cloud AI training programme looks like</h2>
+        <p class="td-lead">The same overview I share with companies scoping Azure and AI upskilling: the certification ladder, specialised tracks, formats, pricing, and how engagements actually run &mdash; no sales call required to see it.</p>
+        <div class="td-levels">
+          <span>AZ-900</span><span>AZ-104</span><span>AZ-305</span><span>AZ-700</span><span>AI-901</span><span>Business English</span>
+        </div>
+      </div>
+      <div class="td-card">
+        <form id="deckForm" novalidate>
+          <div class="dc-title">Get the training overview</div>
+          <div class="dc-sub">11 slides. Instant download.</div>
+          <label for="dtName">First name</label>
+          <input id="dtName" name="firstname" type="text" autocomplete="given-name" placeholder="Gustav" required>
+          <label for="dtEmail">Work email</label>
+          <input id="dtEmail" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+          <input type="text" name="company_website" id="dtHp" class="dc-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn btn-primary dc-submit" id="dtSubmit">Send me the overview</button>
+          <p class="dc-fine">Downloads instantly. I&rsquo;ll only send the occasional practical note &mdash; no spam, unsubscribe anytime.</p>
+          <p class="dc-msg" id="dtMsg" role="status" aria-live="polite"></p>
+        </form>
+        <div class="td-done" id="deckDone" hidden>
+          <div class="td-check">&#10003;</div>
+          <div class="td-done-title">Your training overview is ready &mdash; grab it below.</div>
+          <a class="btn btn-primary" id="dtDownload" href="/bam-cloud-ai-corporate-training-overview.pdf" download>Download the overview (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+    #training-deck.training-deck { background: var(--white); }
+    .td-inner { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+    .td-copy { flex: 1 1 340px; }
+    .td-copy h2 { color: var(--navy); }
+    .td-lead { font-size: 1.05rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; max-width: 520px; }
+    .td-levels { display: flex; flex-wrap: wrap; gap: 8px; }
+    .td-levels span { background: rgba(0,120,212,0.08); border: 1px solid rgba(0,120,212,0.30); color: var(--azure); font-size: 0.82rem; font-weight: 600; padding: 6px 12px; border-radius: 8px; }
+    .td-card { flex: 0 0 360px; max-width: 100%; background: var(--navy); border-radius: var(--radius); padding: 28px 26px; box-shadow: 0 16px 50px rgba(0,0,0,0.30); }
+    .dc-title { font-size: 1.15rem; font-weight: 700; color: var(--white); }
+    .dc-sub { font-size: 0.85rem; color: var(--azure-light); margin-bottom: 18px; }
+    .td-card label { display: block; font-size: 0.8rem; font-weight: 600; color: #C9D6E4; margin: 12px 0 5px; }
+    .td-card input { width: 100%; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 11px 12px; font-size: 0.95rem; font-family: inherit; color: var(--text); background: var(--white); }
+    .td-card input:focus { outline: none; border-color: var(--azure-light); box-shadow: 0 0 0 3px rgba(80,160,220,0.25); }
+    .dc-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .dc-submit { width: 100%; justify-content: center; margin-top: 18px; }
+    .dc-fine { font-size: 0.72rem; color: #A9BBCF; text-align: center; margin-top: 12px; line-height: 1.45; }
+    .dc-msg { font-size: 0.82rem; text-align: center; margin-top: 10px; }
+    .dc-msg.err { color: #FF8A80; }
+    .td-done { text-align: center; padding: 12px 4px; }
+    .td-check { width: 52px; height: 52px; border-radius: 50%; background: var(--green); color: #fff; font-size: 28px; line-height: 52px; margin: 0 auto 14px; }
+    .td-done-title { font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 18px; line-height: 1.4; }
+    @media (max-width: 720px) { .td-inner { gap: 32px; } .td-card { flex-basis: 100%; } }
+  </style>
+  <script>
+    (function () {
+      var form = document.getElementById('deckForm');
+      if (!form) return;
+      var msg = document.getElementById('dtMsg');
+      var btn = document.getElementById('dtSubmit');
+      var ENDPOINT = 'https://api.hsforms.com/submissions/v3/integration/submit/148801143/417ec8c1-7335-47d6-a9b0-d03e68c6d50f';
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msg.textContent = ''; msg.className = 'dc-msg';
+        if (document.getElementById('dtHp').value) { return; }
+        var name = document.getElementById('dtName').value.trim();
+        var email = document.getElementById('dtEmail').value.trim();
+        if (!email || email.indexOf('@') < 1) { msg.textContent = 'Please enter a valid email address.'; msg.className = 'dc-msg err'; return; }
+        btn.disabled = true; var label = btn.textContent; btn.textContent = 'Sending...';
+        var payload = { fields: [ { name: 'email', value: email }, { name: 'firstname', value: name } ], context: { pageUri: location.href, pageName: 'Corporate Training Overview Download' } };
+        fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+          .then(function (r) { return r.ok ? r.json().catch(function () { return {}; }) : Promise.reject(r); })
+          .then(function () {
+            form.hidden = true;
+            document.getElementById('deckDone').hidden = false;
+            try { var a = document.createElement('a'); a.href = '/bam-cloud-ai-corporate-training-overview.pdf'; a.setAttribute('download', ''); document.body.appendChild(a); a.click(); document.body.removeChild(a); } catch (err) {}
+          })
+          .catch(function () { btn.disabled = false; btn.textContent = label; msg.textContent = 'Something went wrong - please email gustav@bamcloudai.com and I will send it straight over.'; msg.className = 'dc-msg err'; });
       });
     })();
   </script>
