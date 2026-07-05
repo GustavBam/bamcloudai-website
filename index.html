@@ -437,6 +437,8 @@
     }
     .card-link:hover { gap: 10px; }
     .card-link::after { content: '→'; transition: margin 0.2s; }
+    .card-link-muted { display: block; font-size: 0.78rem; font-weight: 500; color: var(--muted); margin-top: 8px; }
+    .card-link-muted:hover { color: var(--slate); }
     .price-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 
     /* ── CONSULTING ── */
@@ -1133,7 +1135,6 @@
         <li><a href="#payment">Payment</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#assessment">Free assessment</a></li>
-        <li><a href="#training-deck">Training overview</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="/book.html" class="nav-cta">Book</a></li>
       </ul>
@@ -1281,6 +1282,7 @@
             <span class="tag">Custom content</span>
           </div>
           <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Request a workshop</a>
+          <a href="#training-deck" class="card-link card-link-muted">See the full training overview</a>
         </div>
       </div>
     </div>
