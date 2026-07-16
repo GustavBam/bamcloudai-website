@@ -699,7 +699,7 @@
     .pr-amount.free { color: var(--green); }
     /* TESTIMONIALS */
     #testimonials { background: var(--navy); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 360px)); gap: 24px; justify-content: center; }
     @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
     @media (max-width: 640px) { .testimonials-grid { grid-template-columns: 1fr; gap: 16px; } }
     .testimonial-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; }
@@ -1393,45 +1393,22 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS — uncomment when you have real quotes. Replace placeholder text with actual recommendations. -->
-  <!--
+  <!-- TESTIMONIALS -->
   <section id="testimonials">
     <div class="section-inner">
       <div class="section-header">
         <span class="section-label">What People Say</span>
-        <h2>Trusted by IT Professionals Across Africa &amp; Beyond</h2>
+        <h2>Real Feedback From Clients &amp; Colleagues</h2>
       </div>
       <div class="testimonials-grid">
 
         <div class="testimonial-card">
-          <p class="testimonial-quote">PASTE FULL RECOMMENDATION TEXT HERE. Keep it to 2–4 sentences — the most specific and credible part of what they wrote.</p>
+          <p class="testimonial-quote">As a social worker, I never imagined AI was for someone like me. Gustav changed that. He taught me to use Microsoft Copilot with patience and zero jargon, and showed me exactly how it fits my real work — from drafting reports to planning my week. He meets you at your level and makes it genuinely useful instead of intimidating.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">AB</div>
+            <div class="testimonial-avatar">NA</div>
             <div>
-              <div class="testimonial-name">Person Name</div>
-              <div class="testimonial-role">Job Title · Company</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-quote">PASTE FULL RECOMMENDATION TEXT HERE.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">CD</div>
-            <div>
-              <div class="testimonial-name">Person Name</div>
-              <div class="testimonial-role">Job Title · Company</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-quote">PASTE FULL RECOMMENDATION TEXT HERE.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">EF</div>
-            <div>
-              <div class="testimonial-name">Person Name</div>
-              <div class="testimonial-role">Job Title · Company</div>
+              <div class="testimonial-name">Nicolene Andrews</div>
+              <div class="testimonial-role">Social Worker (MSW)</div>
             </div>
           </div>
         </div>
@@ -1442,7 +1419,6 @@
       </p>
     </div>
   </section>
-  -->
 
   <!-- PRICING -->
   <section id="pricing">
