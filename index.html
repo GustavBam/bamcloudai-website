@@ -180,7 +180,7 @@
     }
     .nav-cta:hover { background: var(--azure-dark) !important; }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1000px) {
       .nav-links { display: none; }
     }
 
@@ -375,8 +375,11 @@
     #training { background: var(--light); }
     .training-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
+    }
+    @media (max-width: 720px) {
+      .training-grid { grid-template-columns: 1fr; }
     }
     .card {
       background: var(--white);
@@ -438,8 +441,6 @@
     }
     .card-link:hover { gap: 10px; }
     .card-link::after { content: '→'; transition: margin 0.2s; }
-    .card-link-muted { display: block; font-size: 0.78rem; font-weight: 500; color: var(--muted); margin-top: 8px; }
-    .card-link-muted:hover { color: var(--slate); }
     .price-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 
     /* ── CONSULTING ── */
@@ -713,13 +714,14 @@
     .testimonials-linkedin-link a:hover { text-decoration: underline; }
 
     .price-fx {
-      display: block; font-size: 0.67rem; font-weight: 500;
-      color: rgba(90,107,130,0.65); margin-top: 2px; white-space: nowrap;
+      display: block; font-size: 0.75rem; font-weight: 500;
+      color: var(--muted); margin-top: 2px; white-space: nowrap;
     }
     .price-rate-note {
-      text-align: center; font-size: 0.72rem; color: var(--muted);
-      margin-top: 6px; opacity: 0.65; font-style: italic;
+      text-align: center; font-size: 0.78rem; color: var(--muted);
+      margin-top: 6px; font-style: italic;
     }
+    .price-rate-note a { color: inherit; text-decoration: underline; }
     .price-free-banner {
       background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
       border-radius: 14px; padding: 28px 36px;
@@ -874,6 +876,20 @@
     .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 1000px) {
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 80px; left: 0; right: 0;
+        background: rgba(15,27,45,0.98); backdrop-filter: blur(12px);
+        flex-direction: column; padding: 8px 24px 20px; gap: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { font-size: 1rem; }
+      .nav-cta { display: inline-block; margin-top: 4px; }
+    }
     @media (max-width: 640px) {
       .nav-inner { height: 72px; }
       .logo { gap: 8px; }
@@ -887,18 +903,7 @@
       nav .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
       nav .logo .logo-tagline .dot { font-size: 10px; }
       .hero { padding: 88px 20px 48px; }
-      .nav-hamburger { display: flex; }
-      .nav-links {
-        display: none; position: absolute; top: 72px; left: 0; right: 0;
-        background: rgba(15,27,45,0.98); backdrop-filter: blur(12px);
-        flex-direction: column; padding: 8px 24px 20px; gap: 0;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-      }
-      .nav-links.open { display: flex; }
-      .nav-links li { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-      .nav-links li:last-child { border-bottom: none; }
-      .nav-links a { font-size: 1rem; }
-      .nav-cta { display: inline-block; margin-top: 4px; }
+      .nav-links { top: 72px; }
     }
 
     /* ── BUSINESS ENGLISH SERVICE CARD ── */
@@ -938,13 +943,6 @@
     .card-purple .card-link:hover { color: var(--purple-dark); }
 
     .card-green { border-top: 3px solid var(--green); }
-    .card-wide { grid-column: 1 / -1; }
-    @media (min-width: 640px) {
-      .card-wide { display: flex; align-items: center; gap: 40px; }
-      .card-wide-main { flex: 1 1 55%; }
-      .card-wide-main p { margin-bottom: 0; }
-      .card-wide-side { flex: 0 1 300px; display: flex; flex-direction: column; gap: 14px; }
-    }
     .card-green:hover { border-color: var(--green); }
     .card-green .card-icon { background: linear-gradient(135deg, var(--green), var(--green-dark)); }
     .card-green .card-link { color: var(--green-dark); }
@@ -1140,9 +1138,7 @@
         <li><a href="#training">Training</a></li>
         <li><a href="#consulting">Consulting</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#payment">Payment</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#assessment">Free assessment</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="/book.html" class="nav-cta">Book</a></li>
       </ul>
@@ -1280,21 +1276,24 @@
           </div>
           <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Book a trial lesson</a>
         </div>
-        <div class="card card-green card-wide">
-          <div class="card-wide-main">
-            <div class="card-icon">🏢</div>
-            <h3>Corporate Workshops</h3>
-            <p>Half-day and full-day in-person or virtual workshops for teams in South Africa. Azure fundamentals, AI readiness, Copilot adoption, or custom content for your organisation.</p>
+        <div class="card card-green">
+          <div class="card-icon">🏢</div>
+          <h3>Corporate Workshops</h3>
+          <p>Half-day and full-day in-person or virtual workshops for teams in South Africa. Azure fundamentals, AI readiness, Copilot adoption, or custom content for your organisation.</p>
+          <div class="tag-list">
+            <span class="tag">In-person (SA)</span>
+            <span class="tag">Virtual</span>
+            <span class="tag">Custom content</span>
           </div>
-          <div class="card-wide-side">
-            <div class="tag-list">
-              <span class="tag">In-person (SA)</span>
-              <span class="tag">Virtual</span>
-              <span class="tag">Custom content</span>
-            </div>
-            <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Request a workshop</a>
-            <a href="#training-deck" class="card-link card-link-muted">See the full training overview</a>
-          </div>
+          <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Request a workshop</a>
+        </div>
+      </div>
+      <div class="motivation-box" style="margin-top: 28px;">
+        <div class="motivation-icon" aria-hidden="true">📋</div>
+        <div class="motivation-body">
+          <h4>Scoping team training?</h4>
+          <p>Get the free 11-slide corporate training overview — the certification ladder, specialised tracks, formats, and pricing. No sales call required.</p>
+          <a href="#training-deck" class="motivation-btn">Get the training overview</a>
         </div>
       </div>
     </div>
@@ -1494,7 +1493,7 @@
             </div>
           </div>
           <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
-            <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Book a training session →</a>
+            <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Book a training session</a>
           </div>
         </div>
 
@@ -1522,8 +1521,8 @@
             </div>
           </div>
           <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
-            <a href="https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled" target="_blank" class="card-link">Request a consulting call →</a>
-            <a href="mailto:quote@bamcloudai.com?subject=Consulting%20Enquiry" class="card-link">Request a custom quote →</a>
+            <a href="https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled" target="_blank" class="card-link">Request a consulting call</a>
+            <a href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Custom%20Quote" class="card-link">Request a custom quote</a>
           </div>
         </div>
 
@@ -1547,7 +1546,7 @@
             </div>
           </div>
           <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
-            <a href="https://outlook.office365.com/owa/calendar/BamCloudAIBusinessEnglish@bamcloudai.com/bookings/" target="_blank" class="card-link" style="color:var(--orange)">Book a trial lesson →</a>
+            <a href="https://outlook.office365.com/owa/calendar/BamCloudAIBusinessEnglish@bamcloudai.com/bookings/" target="_blank" class="card-link" style="color:var(--orange)">Book a trial lesson</a>
           </div>
         </div>
 
@@ -1576,7 +1575,7 @@
           <h3>🌍 Pay via Payoneer</h3>
           <p class="price-desc">For clients anywhere outside South Africa — Europe, the rest of Africa, or anywhere else in the world. Pay with your own card or local bank details; it's automatically converted to USD at the exchange rate at the time of payment. No need to hold US dollars yourself.</p>
           <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
-            <a href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Payoneer%20Payment%20Link" class="card-link">Request a secure payment link →</a>
+            <a href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Payoneer%20Payment%20Link" class="card-link">Request a secure payment link</a>
           </div>
           <p class="price-disclaimer" style="margin-top:16px;">For overseas payments only. Contact me and I'll send you a secure Payoneer payment link directly.</p>
         </div>
@@ -1595,7 +1594,7 @@
           <h3>🧾 EFT / Manual Payment</h3>
           <p class="price-desc">While PayFast is being finalised, South African clients can pay by direct EFT or invoice — just as reliable, simply a bit more manual in the meantime.</p>
           <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
-            <a href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20EFT%20Payment%20Details" class="card-link">Request EFT/invoice details →</a>
+            <a href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20EFT%20Payment%20Details" class="card-link">Request EFT/invoice details</a>
           </div>
         </div>
 
@@ -1965,6 +1964,7 @@
         <a href="#pricing">Pricing</a>
         <a href="#payment">Payment</a>
         <a href="#about">About</a>
+        <a href="#assessment">Free assessment</a>
         <a href="/book.html">Book</a>
         <a href="#contact">Contact</a>
         <a href="/terms.html">Terms</a>
@@ -2003,7 +2003,7 @@
         const note = document.getElementById('priceRateNote');
         if (note) {
           const d = new Date(rZar.time_last_update_utc).toLocaleDateString('en-ZA', {day:'numeric', month:'short', year:'numeric'});
-          note.textContent = 'Indicative USD · EUR rates · Open Exchange Rates · ' + d + ' · Invoiced in ZAR';
+          note.innerHTML = 'Indicative USD · EUR rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> · ' + d + ' · Invoiced in ZAR';
         }
       } catch (_) {
         document.querySelectorAll('.price-fx').forEach(el => el.textContent = '');

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — Bam Cloud AI</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --azure: #0078D4;
+      --azure-light: #50A0DC;
+      --azure-dark: #005A9E;
+      --orange: #D4641C;
+      --navy: #0F1B2D;
+      --navy-mid: #1A2D44;
+      --white: #FFFFFF;
+      --radius: 12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #1a3a5c 100%);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 560px; }
+    .logo-icon { height: 64px; width: auto; margin-bottom: 28px; }
+    .code {
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--azure-light); margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 14px;
+    }
+    p {
+      color: rgba(255,255,255,0.72); line-height: 1.7; margin-bottom: 32px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 36px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius);
+      font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-primary { background: var(--azure); color: var(--white); box-shadow: 0 4px 16px rgba(0,120,212,0.4); }
+    .btn-primary:hover { background: var(--azure-dark); transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.55); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.85); }
+    .links { font-size: 0.88rem; color: rgba(255,255,255,0.65); }
+    .links a { color: var(--azure-light); text-decoration: none; }
+    .links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+      <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+      <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+      <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+      <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+      <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+      <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+      <circle cx="40" cy="40" r="6.5" fill="white"/>
+    </svg>
+    <div class="code">404 · Page not found</div>
+    <h1>This page doesn't exist — but the cloud does.</h1>
+    <p>The address you followed is broken or has moved. Everything you're probably looking for is one click away.</p>
+    <div class="actions">
+      <a href="/" class="btn btn-primary">Back to Home</a>
+      <a href="/book.html" class="btn btn-secondary">Book a Session</a>
+    </div>
+    <p class="links">
+      Or jump to: <a href="/#training">Training</a> · <a href="/#consulting">Consulting</a> · <a href="/#pricing">Pricing</a> · <a href="/#contact">Contact</a>
+    </p>
+  </main>
+</body>
+</html>
