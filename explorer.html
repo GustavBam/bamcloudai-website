@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SME AI Decision Explorer — Copilot, Licensing &amp; the Flat Organisation | Bam Cloud AI</title>
+<meta name="description" content="Free interactive explorer for SME decision-makers: how ideas flow through Microsoft 365 Copilot, what each licence unlocks (2026 pricing), where your data lives, multi-cloud governance, and how to choose AI that lasts. By Gustav Bam, Azure Solutions Architect Expert &amp; MCT.">
+<link rel="canonical" href="https://bamcloudai.com/explorer.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bamcloudai.com/explorer.html">
+<meta property="og:title" content="SME AI Decision Explorer — Copilot, Licensing &amp; the Flat Organisation">
+<meta property="og:description" content="Six interactive scenes for SME leaders: the Copilot idea funnel, licensing tiers, where your data lives, multi-cloud governance, and AI decisions built to last.">
+<meta property="og:image" content="https://bamcloudai.com/og-image-v2.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "SME AI Decision Explorer",
+  "description": "Interactive decision tool for SMEs adopting Microsoft 365 Copilot: idea flow, licensing tiers, data storage and sharing, multi-cloud governance, and durable AI strategy.",
+  "url": "https://bamcloudai.com/explorer.html",
+  "educationalLevel": "Professional",
+  "isAccessibleForFree": true,
+  "inLanguage": "en",
+  "dateModified": "2026-07-18",
+  "author": {
+    "@type": "Person",
+    "name": "Gustav Bam",
+    "jobTitle": "Azure Solutions Architect Expert, Microsoft Certified Trainer",
+    "worksFor": { "@type": "Organization", "name": "Bam Cloud AI", "url": "https://bamcloudai.com" }
+  },
+  "provider": { "@type": "Organization", "name": "Bam Cloud AI", "url": "https://bamcloudai.com" }
+}
+</script>
+<style>
+  :root{
+    --bg:#0F1B2D; --panel:#1A2D44; --panel2:#223752; --line:#2D4059;
+    --txt:#e8edf7; --dim:#93a3bf; --cyan:#38c8e8; --amber:#f5b942;
+    --green:#4ade80; --red:#f87171; --violet:#a78bfa;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--txt); font-family:'Segoe UI',system-ui,sans-serif; line-height:1.5;}
+  header{padding:22px 28px 12px; border-bottom:1px solid var(--line);}
+  header h1{font-size:1.45rem; font-weight:600;}
+  header h1 span{color:var(--cyan);}
+  header p{color:var(--dim); font-size:.9rem; margin-top:4px; max-width:900px;}
+  nav{display:flex; flex-wrap:wrap; gap:6px; padding:12px 28px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); z-index:20;}
+  nav button{background:var(--panel); color:var(--dim); border:1px solid var(--line); border-radius:20px; padding:8px 16px; cursor:pointer; font-size:.85rem; transition:.2s;}
+  nav button:hover{color:var(--txt); border-color:var(--cyan);}
+  nav button.active{background:var(--cyan); color:#04222c; border-color:var(--cyan); font-weight:600;}
+  main{padding:24px 28px 60px; max-width:1180px; margin:0 auto;}
+  section{display:none; animation:fade .35s ease;}
+  section.show{display:block;}
+  @keyframes fade{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;}}
+  h2{font-size:1.2rem; margin-bottom:6px;}
+  .lead{color:var(--dim); font-size:.92rem; margin-bottom:18px; max-width:920px;}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px;}
+  .btn{background:var(--cyan); color:#04222c; border:none; border-radius:8px; padding:9px 18px; font-weight:600; cursor:pointer; font-size:.9rem;}
+  .btn.ghost{background:transparent; color:var(--cyan); border:1px solid var(--cyan);}
+  .btn:disabled{opacity:.4; cursor:default;}
+  .tag{display:inline-block; font-size:.72rem; padding:2px 9px; border-radius:10px; background:var(--panel2); color:var(--dim); border:1px solid var(--line); margin:2px;}
+  .note{border-left:3px solid var(--amber); background:var(--panel); padding:10px 14px; border-radius:0 8px 8px 0; font-size:.85rem; color:var(--dim); margin-top:16px;}
+  .note b{color:var(--amber);}
+  /* Scene 1 */
+  .flowwrap{display:grid; grid-template-columns:1fr 300px; gap:18px; align-items:start;}
+  @media(max-width:900px){.flowwrap{grid-template-columns:1fr;}}
+  #orgsvg{width:100%; height:auto; background:var(--panel); border:1px solid var(--line); border-radius:12px;}
+  .stagebox{min-height:120px;}
+  .stagebox h3{color:var(--cyan); font-size:.95rem; margin-bottom:6px;}
+  .stagebox p{font-size:.85rem; color:var(--dim);}
+  .node{fill:var(--panel2); stroke:var(--line); stroke-width:1.5;}
+  .node.hot{stroke:var(--cyan); stroke-width:2.5; filter:drop-shadow(0 0 6px rgba(56,200,232,.6));}
+  .node.green{stroke:var(--green); stroke-width:2.5; filter:drop-shadow(0 0 6px rgba(74,222,128,.6));}
+  .nlabel{fill:var(--txt); font-size:12px; text-anchor:middle; font-weight:600;}
+  .nsub{fill:var(--dim); font-size:9.5px; text-anchor:middle;}
+  .chip{fill:#0f1830; stroke:var(--violet); stroke-width:1;}
+  .chiptxt{fill:var(--violet); font-size:9px; text-anchor:middle;}
+  .flowpath{stroke:var(--line); stroke-width:1.5; fill:none; stroke-dasharray:4 4;}
+  #ideaDot{fill:var(--cyan); filter:drop-shadow(0 0 8px var(--cyan)); transition:transform 1.1s ease-in-out; opacity:0;}
+  #fbDot{fill:var(--green); filter:drop-shadow(0 0 8px var(--green)); transition:transform 1.1s ease-in-out; opacity:0;}
+  /* Scene 2 personas */
+  .pgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px;}
+  .pcard{cursor:pointer; transition:.2s; position:relative;}
+  .pcard:hover{border-color:var(--cyan); transform:translateY(-2px);}
+  .pcard h3{font-size:1rem;}
+  .pcard .role{color:var(--cyan); font-size:.75rem; text-transform:uppercase; letter-spacing:.06em;}
+  .pcard .worry{font-style:italic; color:var(--amber); font-size:.85rem; margin:8px 0;}
+  .pcard .detail{display:none; font-size:.83rem; color:var(--dim); border-top:1px solid var(--line); margin-top:10px; padding-top:10px;}
+  .pcard.open .detail{display:block;}
+  .pcard .detail b{color:var(--txt);}
+  .hint{color:var(--dim); font-size:.8rem; margin-bottom:10px;}
+  /* Scene 3 licensing */
+  .licbar{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
+  .licbar button{background:var(--panel); border:1px solid var(--line); color:var(--txt); border-radius:8px; padding:8px 14px; cursor:pointer; font-size:.85rem;}
+  .licbar button.sel{border-color:var(--amber); background:#2a2410; color:var(--amber); font-weight:600;}
+  .toggleRow{display:flex; align-items:center; gap:10px; margin-bottom:16px; flex-wrap:wrap;}
+  .price{font-size:1.5rem; font-weight:700; color:var(--amber);}
+  .price small{font-size:.8rem; color:var(--dim); font-weight:400;}
+  .capgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(215px,1fr)); gap:10px;}
+  .cap{border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:var(--panel); opacity:.32; transition:.25s; font-size:.83rem;}
+  .cap b{display:block; font-size:.88rem; margin-bottom:2px;}
+  .cap span{color:var(--dim); font-size:.78rem;}
+  .cap.on{opacity:1; border-color:var(--green); box-shadow:0 0 10px rgba(74,222,128,.15);}
+  .cap.on b::after{content:" ✓"; color:var(--green);}
+  /* Scene 4 mechanics */
+  .steps{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px;}
+  .steps .s{flex:1; min-width:120px; text-align:center; padding:8px 6px; border:1px solid var(--line); border-radius:8px; background:var(--panel); color:var(--dim); font-size:.75rem; cursor:pointer; transition:.2s;}
+  .steps .s.cur{border-color:var(--cyan); color:var(--cyan); background:#0e2230; font-weight:600;}
+  .steps .s.done{color:var(--green); border-color:#1d3a2a;}
+  .mechbody{display:grid; grid-template-columns:1.3fr 1fr; gap:18px;}
+  @media(max-width:900px){.mechbody{grid-template-columns:1fr;}}
+  .mechviz{min-height:260px; display:flex; align-items:center; justify-content:center;}
+  .mechviz svg{width:100%; height:auto;}
+  .mechtext h3{color:var(--cyan); margin-bottom:8px; font-size:1rem;}
+  .mechtext p{font-size:.87rem; color:var(--dim); margin-bottom:10px;}
+  .mechtext ul{font-size:.85rem; color:var(--dim); padding-left:18px;}
+  .mechtext li{margin-bottom:6px;}
+  .mechtext li b{color:var(--txt);}
+  /* Scene 5 boundary */
+  .cloudrow{display:grid; grid-template-columns:2fr 3fr 1.4fr; gap:12px; margin-bottom:14px;}
+  @media(max-width:800px){.cloudrow{grid-template-columns:1fr;}}
+  .cloud{border-radius:14px; padding:14px; border:1.5px solid; font-size:.83rem;}
+  .cloud h3{font-size:1rem; margin-bottom:4px;}
+  .cloud p{color:var(--dim);}
+  .cl-m365{border-color:var(--cyan); background:#0d1f2c;}
+  .cl-aws{border-color:var(--amber); background:#241d0e;}
+  .cl-az{border-color:var(--violet); background:#181433;}
+  .plane{border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin-bottom:10px; background:var(--panel); display:flex; gap:14px; align-items:baseline; flex-wrap:wrap;}
+  .plane b{color:var(--green); min-width:190px;}
+  .plane span{color:var(--dim); font-size:.85rem;}
+  .levers{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px; margin-top:14px;}
+  .lever{background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--red); border-radius:8px; padding:10px 12px; font-size:.83rem;}
+  .lever b{display:block; margin-bottom:2px;}
+  .lever span{color:var(--dim); font-size:.78rem;}
+  /* Scene 6 durability */
+  .stack{display:flex; flex-direction:column; gap:10px; margin-bottom:18px;}
+  .layer{border-radius:10px; padding:14px 18px; display:grid; grid-template-columns:1.2fr 2fr 1fr; gap:12px; align-items:center; border:1px solid var(--line);}
+  @media(max-width:800px){.layer{grid-template-columns:1fr;}}
+  .layer h3{font-size:.95rem;}
+  .layer p{font-size:.8rem; color:var(--dim);}
+  .half{font-size:.8rem; font-weight:700; text-align:right;}
+  .l-model{background:#2b1520; border-color:var(--red);} .l-model .half{color:var(--red);}
+  .l-plat{background:#242010; border-color:var(--amber);} .l-plat .half{color:var(--amber);}
+  .l-gov{background:#10251c; border-color:var(--green);} .l-gov .half{color:var(--green);}
+  .ticker{overflow:hidden; border:1px solid var(--line); border-radius:8px; background:var(--panel); padding:8px 0; position:relative;}
+  .ticker .inner{display:inline-block; white-space:nowrap; animation:scroll 26s linear infinite; font-size:.8rem; color:var(--dim);}
+  .ticker .inner b{color:var(--cyan);}
+  @keyframes scroll{from{transform:translateX(15%);} to{transform:translateX(-100%);}}
+  footer{border-top:1px solid var(--line); padding:16px 28px; color:var(--dim); font-size:.78rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+  footer b{color:var(--cyan);}
+</style>
+</head>
+<body>
+<div style="background:#0B1524; border-bottom:1px solid var(--line); padding:10px 28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+  <a href="https://bamcloudai.com/" style="color:var(--txt); text-decoration:none; font-weight:700; letter-spacing:.02em;">BAM <span style="color:var(--cyan);">Cloud AI</span> <span style="color:var(--dim); font-weight:400; font-size:.75rem;">BUILD·ARCHITECT·MASTER</span></a>
+  <div style="display:flex; gap:14px; align-items:center; font-size:.82rem;">
+    <a href="https://bamcloudai.com/#training" style="color:var(--dim); text-decoration:none;">Training</a>
+    <a href="https://bamcloudai.com/#consulting" style="color:var(--dim); text-decoration:none;">Consulting</a>
+    <a href="https://bamcloudai.com/book.html" style="background:var(--cyan); color:#04222c; padding:6px 14px; border-radius:8px; text-decoration:none; font-weight:600;">Book</a>
+  </div>
+</div>
+<header>
+  <h1><span>SME AI Decision Explorer</span> — Copilot, licensing &amp; the flat organisation</h1>
+  <p>An interactive map for SME decision-makers: how an idea travels from a new hire to the CEO through Microsoft 365 Copilot, what each licence actually unlocks, where your conversations and files live, how the multi-cloud boundary is governed — and which decisions will still be right in five years.</p>
+</header>
+
+<nav id="tabs">
+  <button data-t="s1" class="active">1 · Idea Flow</button>
+  <button data-t="s2">2 · Who Decides What</button>
+  <button data-t="s3">3 · Licensing &amp; Tools</button>
+  <button data-t="s4">4 · Where Does It Live?</button>
+  <button data-t="s5">5 · Multi-Cloud Boundary</button>
+  <button data-t="s6">6 · Built to Last</button>
+</nav>
+
+<main>
+
+<!-- ============ SCENE 1 : IDEA FLOW ============ -->
+<section id="s1" class="show">
+  <h2>The idea funnel — up and down a flattened organisation</h2>
+  <p class="lead">Copilot doesn't flatten the org chart. It makes ideas <b>legible</b> faster — collapsing the friction between "rough thought" and "decision-ready artefact", so substance travels instead of status. Press play.</p>
+  <div class="flowwrap">
+    <svg id="orgsvg" viewBox="0 0 640 470" xmlns="http://www.w3.org/2000/svg">
+      <!-- connecting paths -->
+      <path class="flowpath" d="M320 400 L320 60"/>
+      <!-- Copilot surface chips (right rail) -->
+      <g id="chips">
+        <rect class="chip" x="470" y="330" width="140" height="24" rx="12"/><text class="chiptxt" x="540" y="345">Copilot in Word / Loop</text>
+        <rect class="chip" x="470" y="255" width="140" height="24" rx="12"/><text class="chiptxt" x="540" y="270">Researcher · grounding</text>
+        <rect class="chip" x="470" y="180" width="140" height="24" rx="12"/><text class="chiptxt" x="540" y="195">Teams + @mentions</text>
+        <rect class="chip" x="470" y="105" width="140" height="24" rx="12"/><text class="chiptxt" x="540" y="120">Agent routes &amp; summarises</text>
+        <rect class="chip" x="470" y="38" width="140" height="24" rx="12"/><text class="chiptxt" x="540" y="53">Copilot brief to CEO</text>
+      </g>
+      <!-- org nodes bottom-up -->
+      <g id="nNew"><rect class="node" x="230" y="385" width="180" height="52" rx="10"/><text class="nlabel" x="320" y="407">New Hire</text><text class="nsub" x="320" y="423">day-30 spark: "why do we do X manually?"</text></g>
+      <g id="nTeam"><rect class="node" x="230" y="310" width="180" height="46" rx="10"/><text class="nlabel" x="320" y="330">Team / Peers</text><text class="nsub" x="320" y="345">co-author, stress-test in Loop</text></g>
+      <g id="nMgr"><rect class="node" x="230" y="235" width="180" height="46" rx="10"/><text class="nlabel" x="320" y="255">Manager</text><text class="nsub" x="320" y="270">forwards substance, not reformatting</text></g>
+      <g id="nExco"><rect class="node" x="230" y="160" width="180" height="46" rx="10"/><text class="nlabel" x="320" y="180">EXCO</text><text class="nsub" x="320" y="195">sees grounded numbers, not hierarchy</text></g>
+      <g id="nCeo"><rect class="node" x="230" y="20" width="180" height="52" rx="10"/><text class="nlabel" x="320" y="42">CEO</text><text class="nsub" x="320" y="58">sponsors · sends strategy back down</text></g>
+      <!-- animated dots -->
+      <circle id="ideaDot" r="8" cx="320" cy="411"/>
+      <circle id="fbDot" r="8" cx="320" cy="46"/>
+    </svg>
+    <div>
+      <div class="card stagebox">
+        <h3 id="stTitle">Ready</h3>
+        <p id="stText">Watch a raw idea become a CEO-sponsored initiative — then watch the sponsorship funnel back down. The vertical distance stays; the <i>friction</i> disappears.</p>
+      </div>
+      <div style="margin-top:12px; display:flex; gap:8px;">
+        <button class="btn" id="playBtn" onclick="playFlow()">▶ Play the flow</button>
+        <button class="btn ghost" onclick="resetFlow()">Reset</button>
+      </div>
+      <div class="note" style="margin-top:14px;"><b>The SME paradox, resolved:</b> as an SME scales, structure should move into the <i>information layer</i> — sensitivity labels, team boundaries, permissions — not into approval chains. Defined horizontal boundaries without corporate bureaucracy.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCENE 2 : PERSONAS ============ -->
+<section id="s2">
+  <h2>Who decides what — and what each person is really thinking</h2>
+  <p class="lead">AI rollouts fail on people, not technology. Click each card for the paramount concern, the decision that person owns, and the training they need.</p>
+  <p class="hint">▼ Click any card to expand</p>
+  <div class="pgrid" id="pgrid"></div>
+  <div class="note"><b>The three concerns almost nobody lists:</b> Shadow AI (staff already paste company data into personal chatbots — your governance case for sanctioned Copilot). Cost creep (Copilot Studio agents are pay-as-you-go metered; the CFO finds out in month three). The two-tier divide (frontline staff on basic licences get no Copilot while office staff do — morale and equity issue, HR's problem before it's IT's).</div>
+  <div class="card" style="margin-top:16px; display:flex; gap:16px; align-items:center; flex-wrap:wrap; justify-content:space-between;">
+    <div style="flex:1; min-width:260px;">
+      <h3 style="font-size:1rem; margin-bottom:4px;">Where is your organisation right now? The 4 Levels of AI</h3>
+      <p style="font-size:.85rem; color:var(--dim);">Most companies have one AI power user and everyone else guessing. Rate each part of your business against the four levels — and find the single next step up.</p>
+      <div style="margin-top:8px;"><span class="tag">1 · Chat</span><span class="tag">2 · Automate</span><span class="tag">3 · Build</span><span class="tag">4 · Shared apps</span></div>
+    </div>
+    <a class="btn" href="/4-levels-of-ai-self-assessment.pdf" download>Download the free one-page assessment (PDF)</a>
+  </div>
+</section>
+
+<!-- ============ SCENE 3 : LICENSING ============ -->
+<section id="s3">
+  <h2>What your licence actually unlocks <small style="color:var(--dim); font-weight:400; font-size:.75rem;">(pricing verified July 2026, USD, annual commitment)</small></h2>
+  <p class="lead">Pick a base plan, then toggle the Copilot add-on. Capabilities light up as they become available. This is the conversation to have <i>before</i> buying licences.</p>
+  <div class="licbar" id="licbar">
+    <button data-l="basic">Business Basic</button>
+    <button data-l="std" class="sel">Business Standard</button>
+    <button data-l="prem">Business Premium</button>
+    <button data-l="e3">Enterprise E3</button>
+    <button data-l="e5">Enterprise E5</button>
+    <button data-l="e7">E7 Frontier Suite</button>
+  </div>
+  <div class="toggleRow">
+    <button class="btn ghost" id="copBtn" onclick="toggleCop()">+ Add Microsoft 365 Copilot</button>
+    <div class="price" id="priceOut"></div>
+  </div>
+  <div class="capgrid" id="capgrid"></div>
+  <div class="note"><b>SME sweet spot:</b> Business Standard + Copilot bundle at $23.50/user/mo (new SKU, July 2026) — but Business Premium + Copilot ($32) buys Intune, Entra ID P1 and Defender for Business, i.e. the governance you need <i>before</i> Copilot amplifies your permissions problems. Cheapest is rarely safest.</div>
+</section>
+
+<!-- ============ SCENE 4 : WHERE DOES IT LIVE ============ -->
+<section id="s4">
+  <h2>You ask Copilot something in Word. Then what?</h2>
+  <p class="lead">The question every user asks and almost no rollout answers: where does the conversation go, where does the file live, how do colleagues get access, and how do notifications actually work. Step through it.</p>
+  <div class="steps" id="mechsteps"></div>
+  <div class="mechbody">
+    <div class="card mechviz">
+      <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" id="mechsvg">
+        <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#38c8e8"/></marker></defs>
+        <!-- You + Word -->
+        <g id="m-you"><rect class="node" x="20" y="120" width="110" height="56" rx="10"/><text class="nlabel" x="75" y="144">You, in Word</text><text class="nsub" x="75" y="160">prompt Copilot</text></g>
+        <!-- Graph -->
+        <g id="m-graph"><rect class="node" x="200" y="30" width="130" height="52" rx="10"/><text class="nlabel" x="265" y="52">Microsoft Graph</text><text class="nsub" x="265" y="68">permissions-trimmed</text></g>
+        <!-- Mailbox -->
+        <g id="m-mail"><rect class="node" x="200" y="215" width="130" height="56" rx="10"/><text class="nlabel" x="265" y="238">Your mailbox</text><text class="nsub" x="265" y="254">chat history (hidden)</text></g>
+        <!-- OneDrive -->
+        <g id="m-od"><rect class="node" x="390" y="60" width="115" height="56" rx="10"/><text class="nlabel" x="447" y="83">OneDrive</text><text class="nsub" x="447" y="99">personal · private</text></g>
+        <!-- SharePoint -->
+        <g id="m-sp"><rect class="node" x="390" y="165" width="115" height="56" rx="10"/><text class="nlabel" x="447" y="188">SharePoint site</text><text class="nsub" x="447" y="204">"company OneDrive"</text></g>
+        <!-- arrows -->
+        <path id="a1" class="flowpath" d="M130 135 Q170 100 200 70" marker-end="url(#arr)"/>
+        <path id="a2" class="flowpath" d="M130 160 Q170 200 200 230" marker-end="url(#arr)"/>
+        <path id="a3" class="flowpath" d="M130 140 L390 95" marker-end="url(#arr)"/>
+        <path id="a4" class="flowpath" d="M447 116 L447 165" marker-end="url(#arr)"/>
+      </svg>
+    </div>
+    <div class="card mechtext">
+      <h3 id="mTitle"></h3>
+      <div id="mBody"></div>
+      <div style="margin-top:14px; display:flex; gap:8px;">
+        <button class="btn ghost" id="mPrev" onclick="mechGo(-1)">‹ Back</button>
+        <button class="btn" id="mNext" onclick="mechGo(1)">Next ›</button>
+      </div>
+    </div>
+  </div>
+  <div class="note"><b>Rule of thumb to teach:</b> personal OneDrive = my drafts, private by default. SharePoint / Teams site = the company's memory, where collaboration and Copilot grounding for the whole team happens. If it matters to more than you, it doesn't belong in "My files".</div>
+</section>
+
+<!-- ============ SCENE 5 : MULTI-CLOUD BOUNDARY ============ -->
+<section id="s5">
+  <h2>M365 company, AWS-mostly infrastructure, a bit of Azure — where does the boundary end?</h2>
+  <p class="lead">It ends at <b>identity, not infrastructure</b>. You will never get one pane of glass for workloads. You can — and must — get one plane of control for people and data.</p>
+  <div class="cloudrow">
+    <div class="cloud cl-m365"><h3>Microsoft 365</h3><p>Collaboration &amp; knowledge plane — mail, files, Teams, Copilot. Where ideas and decisions live.</p></div>
+    <div class="cloud cl-aws"><h3>AWS (primary infra)</h3><p>Workloads stay here — fine. Federate AWS IAM Identity Center to Entra ID so access is granted, gated and revoked centrally.</p></div>
+    <div class="cloud cl-az"><h3>Azure (tactical)</h3><p>Native fit with the control planes below. Arc extends Azure Policy to servers anywhere.</p></div>
+  </div>
+  <div class="plane"><b>1 · Identity — Entra ID</b><span>Single sign-in for all three clouds. Conditional Access + PIM: no standing admin rights anywhere, access is time-boxed and policy-gated — including for subsidiaries.</span></div>
+  <div class="plane"><b>2 · Data — Microsoft Purview</b><span>Sensitivity labels and DLP travel with the document, not the platform. Purview scans AWS S3 too. Copilot respects labels — governance before rollout, not after.</span></div>
+  <div class="plane"><b>3 · Posture — Defender for Cloud + Arc</b><span>Connect AWS (and GCP) accounts natively; one security score, one policy set, every cloud.</span></div>
+  <h3 style="margin-top:18px; font-size:1rem;">Policy levers for loose cannons &amp; subsidiaries</h3>
+  <div class="levers">
+    <div class="lever"><b>Conditional Access</b><span>Block legacy auth, require compliant devices, geo-fence subsidiary tenants.</span></div>
+    <div class="lever"><b>Sensitivity labels + DLP</b><span>"Confidential" cannot be pasted into personal chatbots or mailed externally — the shadow-AI counter.</span></div>
+    <div class="lever"><b>Privileged Identity Mgmt</b><span>Admin rights expire in hours, with approval and an audit trail.</span></div>
+    <div class="lever"><b>Intune + app protection</b><span>Company data ring-fenced on BYOD; selective wipe without touching personal data.</span></div>
+    <div class="lever"><b>Cross-tenant access policies</b><span>Subsidiaries collaborate under YOUR terms — B2B trust settings, not open federation.</span></div>
+    <div class="lever"><b>Copilot admin controls</b><span>Model choice (Claude on/off), agent approval, Restricted SharePoint Search while permissions are cleaned up.</span></div>
+  </div>
+  <div class="note"><b>Authoritative vs definitive:</b> authoritative = the system of record (Graph for people/mail/files; ERP for finance; CRM for customers — pick ONE per domain). Definitive = the accountable human decision. No AI output is definitive; it is a draft against authoritative data, with a named human owner.</div>
+</section>
+
+<!-- ============ SCENE 6 : BUILT TO LAST ============ -->
+<section id="s6">
+  <h2>Choosing AI with longevity when models expire in months</h2>
+  <p class="lead">You cannot pick a model with longevity — and that's the answer, not the problem. Standardise the layers that survive model swaps. Microsoft proved the point by going multi-model itself.</p>
+  <div class="stack">
+    <div class="layer l-model">
+      <h3>Models <span style="color:var(--dim); font-weight:400;">— GPT · Claude · Gemini</span></h3>
+      <p>Swappable engines. Choose per workload, review quarterly. Never let a contract, a curriculum or an architecture depend on one model name.</p>
+      <div class="half">half-life: months<br><span style="font-size:.7rem; color:var(--dim);">owner: IT ops</span></div>
+    </div>
+    <div class="layer l-plat">
+      <h3>Platform &amp; orchestration <span style="color:var(--dim); font-weight:400;">— Copilot · Studio · Agent 365 · MCP</span></h3>
+      <p>Where agents are built, governed and metered. Multi-model by design. This is the real "which AI do we buy" decision.</p>
+      <div class="half">half-life: years<br><span style="font-size:.7rem; color:var(--dim);">owner: IT leadership</span></div>
+    </div>
+    <div class="layer l-gov">
+      <h3>Identity, data &amp; permissions <span style="color:var(--dim); font-weight:400;">— Entra · Purview · information architecture</span></h3>
+      <p>The durable investment. Every model you will ever use inherits this layer's quality — or its mess. Get this right and everything above is replaceable.</p>
+      <div class="half">half-life: a decade<br><span style="font-size:.7rem; color:var(--dim);">owner: EXCO</span></div>
+    </div>
+  </div>
+  <div class="ticker"><div class="inner">&nbsp;&nbsp;<b>Model velocity, lived:</b> GPT-4 (Mar 2023) → Copilot GA (Nov 2023) → GPT-4o (May 2024) → Claude 3.5 (Jun 2024) → o1 reasoning (Sep 2024) → Claude 4 (2025) → GPT-5 era (2025) → Claude in M365 Copilot, default-on (Jan 2026) → Agent 365 &amp; E7 Frontier Suite (2026) → … every layer-1 bet above went stale within a year; every layer-3 investment is still paying.&nbsp;&nbsp;</div></div>
+  <div class="note"><b>How to teach AI that isn't outdated in 6 months:</b> make layers 2–3 the curriculum spine (evergreen), and treat layer 1 as a rotating current-affairs segment. Your material stays valid; only the demos refresh.</div>
+</section>
+
+</main>
+
+<div style="max-width:1180px; margin:0 auto 40px; padding:0 28px;">
+  <div class="card" style="text-align:center; padding:30px 24px; border-color:var(--cyan);">
+    <h2 style="margin-bottom:6px;">Run this conversation with your own leadership team</h2>
+    <p style="color:var(--dim); font-size:.92rem; max-width:640px; margin:0 auto 18px;">The <b style="color:var(--txt);">SME AI Readiness Workshop</b> works through these six scenes with your actual licences, your actual data estate, and your actual people — half-day or full-day, online or in-person across South Africa.</p>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a class="btn" href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" rel="noopener">Book the workshop</a>
+      <a class="btn ghost" href="https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled" target="_blank" rel="noopener">Free 30-min discovery call</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><b>Bam Cloud AI</b> · AI &amp; Cloud Training · Azure Consulting · <a href="https://bamcloudai.com/" style="color:var(--cyan);">bamcloudai.com</a> · <a href="https://bamcloudai.com/terms.html" style="color:var(--dim);">Terms</a></div>
+  <div>© 2026 Bam Cloud AI, Durbanville, Cape Town · Pricing &amp; platform facts verified July 2026 (Microsoft Learn, Microsoft 365 blog) — reviewed quarterly</div>
+</footer>
+
+<script>
+/* ---------- tabs ---------- */
+const tabs=document.getElementById('tabs');
+tabs.addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  tabs.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  document.querySelectorAll('main > section').forEach(s=>s.classList.remove('show'));
+  document.getElementById(e.target.dataset.t).classList.add('show');
+});
+
+/* ---------- scene 1 animation ---------- */
+const stages=[
+ {n:'nNew',dy:0,t:'1 · Seed',x:'A new hire notices waste. In Word, Copilot turns a rough voice-note into a structured one-pager in minutes. The idea is now legible.'},
+ {n:'nTeam',dy:-75,t:'2 · Stress-test',x:'Shared as a Loop component in the team chat. Peers co-author live; Researcher grounds the claim in actual company data from Graph — permissions-trimmed.'},
+ {n:'nMgr',dy:-150,t:'3 · Amplify',x:'The manager forwards substance instead of rewriting it. @mention notifies EXCO via Teams activity feed and email. No translation loss.'},
+ {n:'nExco',dy:-225,t:'4 · Evaluate',x:'EXCO sees a grounded, sourced artefact — not a rumour filtered through three layers. An agent has already attached the numbers and flagged the risk.'},
+ {n:'nCeo',dy:-365,t:'5 · Sponsor',x:'The CEO reads a two-minute Copilot brief and sponsors it. Vertical distance unchanged — friction gone. Good ideas now out-compete seniority.'},
+];
+const fbStages=[
+ {n:'nExco',dy:140,t:'6 · Funnel down',x:'Sponsorship flows back: strategy becomes team-level briefs automatically — same mechanism, reverse direction, no middle-management translation loss.'},
+ {n:'nNew',dy:365,t:'7 · Credit lands',x:'The new hire owns the initiative, visibly. That is what actually flattens a culture: attribution surviving the trip up and down.'},
+];
+let playing=false;
+function setStage(t,x){document.getElementById('stTitle').textContent=t;document.getElementById('stText').textContent=x;}
+function clearHot(){document.querySelectorAll('#orgsvg .node').forEach(n=>n.classList.remove('hot','green'));}
+function playFlow(){
+  if(playing)return; playing=true; resetFlow(false);
+  const idea=document.getElementById('ideaDot'), fb=document.getElementById('fbDot');
+  idea.style.opacity=1;
+  let i=0;
+  function stepUp(){
+    if(i<stages.length){
+      const s=stages[i];
+      idea.style.transform=`translateY(${s.dy}px)`;
+      clearHot(); document.querySelector('#'+s.n+' .node').classList.add('hot');
+      setStage(s.t,s.x); i++; setTimeout(stepUp,2600);
+    } else { idea.style.opacity=0; fb.style.opacity=1; let j=0;
+      function stepDown(){
+        if(j<fbStages.length){
+          const s=fbStages[j];
+          fb.style.transform=`translateY(${s.dy}px)`;
+          clearHot(); document.querySelector('#'+s.n+' .node').classList.add('green');
+          setStage(s.t,s.x); j++; setTimeout(stepDown,2600);
+        } else { playing=false; }
+      } stepDown();
+    }
+  } stepUp();
+}
+function resetFlow(msg=true){
+  playing=false; clearHot();
+  const idea=document.getElementById('ideaDot'), fb=document.getElementById('fbDot');
+  idea.style.transition='none'; fb.style.transition='none';
+  idea.style.transform='none'; fb.style.transform='none';
+  idea.style.opacity=0; fb.style.opacity=0;
+  void idea.offsetWidth;
+  idea.style.transition='transform 1.1s ease-in-out'; fb.style.transition='transform 1.1s ease-in-out';
+  if(msg)setStage('Ready','Watch a raw idea become a CEO-sponsored initiative — then watch the sponsorship funnel back down.');
+}
+
+/* ---------- scene 2 personas ---------- */
+const personas=[
+ {r:'CEO',w:'"Show me payback — and who is liable when it leaks."',d:'<b>Owns:</b> the durability decision — platform &amp; governance layer, risk appetite, budget ceiling.<br><b>Copilot moment:</b> a two-minute Researcher brief replacing a 40-slide deck.<br><b>Training:</b> half-day exec briefing — capability, liability, cost model. Not button-clicking.'},
+ {r:'CFO',w:'"Licences are fixed. What are the metered costs I can\'t see?"',d:'<b>Owns:</b> per-seat vs bundle economics, Copilot Studio pay-as-you-go budget, ROI measurement.<br><b>Watch:</b> agent message metering — the month-three bill shock.<br><b>Training:</b> Copilot analytics dashboard + cost governance session.'},
+ {r:'CIO / IT Lead',w:'"Copilot inherits every permission mistake we ever made."',d:'<b>Owns:</b> tenant settings, model choice governance (Claude on by default since Jan 2026 outside EU/UK), oversharing remediation, shadow-AI policy.<br><b>First job:</b> SharePoint permissions hygiene BEFORE rollout — Copilot makes sloppy sharing instantly searchable.<br><b>Training:</b> admin deep-dive — Purview, Restricted SharePoint Search, DLP for Copilot.'},
+ {r:'HR Director',w:'"Will people trust it — or quietly refuse the tool auditioning their replacement?"',d:'<b>Owns:</b> adoption &amp; change management (the #1 failure cause), acceptable-use policy, the surveillance question — usage dashboards can read as monitoring.<br><b>Watch:</b> the two-tier divide — frontline staff without Copilot licences.<br><b>Training:</b> champions network + role-based paths, not one generic course.'},
+ {r:'Call Centre Worker',w:'"Does this cut my after-call work — or just measure me?"',d:'<b>Wins:</b> auto call summaries, drafted follow-ups, live answer suggestions — after-call work is where AI pays back first in SMEs.<br><b>Fear to address openly:</b> metrics being used against them.<br><b>Training:</b> 90-minute hands-on in their actual queue tool, co-designed with them.'},
+ {r:'Helpdesk / IT Support',w:'"Overnight I became first-line AI support — nobody trained me."',d:'<b>Reality:</b> ticket volume goes UP at first ("Copilot gave me the wrong answer", "why can\'t I see the button?").<br><b>Owns:</b> triage between licence issues, permission issues and model behaviour.<br><b>Training:</b> train the helpdesk FIRST, two weeks before any user sees Copilot.'},
+ {r:'Knowledge Worker',w:'"Where does my chat go, and who can see it?"',d:'<b>Wins:</b> drafting, meeting recap, "what changed in this doc", inbox triage.<br><b>Needs to know:</b> chats are stored in their own mailbox, discoverable by compliance — private from colleagues, not from the company.<br><b>Training:</b> prompt patterns per app + the storage/sharing model (Scene 4).'},
+ {r:'Frontline / Ops Worker',w:'"So the office gets AI and we get nothing?"',d:'<b>Reality:</b> F3/kiosk licences exclude the Copilot add-on tiers most SMEs buy — a genuine equity problem.<br><b>Partial answers:</b> free Copilot Chat (web-grounded), Teams-based agents built in Copilot Studio for shared devices.<br><b>Training:</b> supervisor-led micro-sessions; don\'t skip them.'},
+];
+const pg=document.getElementById('pgrid');
+personas.forEach(p=>{
+  const c=document.createElement('div');
+  c.className='card pcard';
+  c.innerHTML=`<div class="role">${p.r}</div><div class="worry">${p.w}</div><div class="detail">${p.d}</div>`;
+  c.onclick=()=>c.classList.toggle('open');
+  pg.appendChild(c);
+});
+
+/* ---------- scene 3 licensing ---------- */
+const plans={
+ basic:{name:'Business Basic',price:6,cop:21,copName:'Copilot Business',caps:['chat','web']},
+ std:{name:'Business Standard',price:12.5,cop:21,copName:'Copilot Business',bundle:'Bundle: $23.50 all-in',caps:['chat','web','desk']},
+ prem:{name:'Business Premium',price:22,cop:21,copName:'Copilot Business',bundle:'Bundle: $32 all-in',caps:['chat','web','desk','gov1']},
+ e3:{name:'Enterprise E3',price:39,cop:30,copName:'M365 Copilot',caps:['chat','web','desk','gov1']},
+ e5:{name:'Enterprise E5',price:60,cop:30,copName:'M365 Copilot',caps:['chat','web','desk','gov1','gov2']},
+ e7:{name:'E7 Frontier Suite',price:99,cop:0,copName:'included',caps:['chat','web','desk','gov1','gov2','cop','agents','models','studio','a365','entra']},
+};
+const capDefs=[
+ {id:'chat',b:'Copilot Chat (free tier)',s:'Web-grounded chat + basic agents, pay-as-you-go. No work-data grounding.'},
+ {id:'web',b:'Office web apps · Teams · Exchange',s:'Mail, calendar, SharePoint, OneDrive 1TB.'},
+ {id:'desk',b:'Desktop Office apps',s:'Word, Excel, PowerPoint, Outlook installed.'},
+ {id:'gov1',b:'Governance tier 1',s:'Intune device management, Entra ID P1, Defender for Business / core security.'},
+ {id:'gov2',b:'Governance tier 2',s:'Purview full (eDiscovery, DLP, labels), Defender P2, Entra ID P2.'},
+ {id:'cop',b:'Copilot in the apps',s:'Word, Excel, PowerPoint, Outlook, Teams — grounded in YOUR data via Graph.'},
+ {id:'agents',b:'Researcher &amp; Analyst agents',s:'Deep multi-step research over mail, files, meetings, chats.'},
+ {id:'models',b:'Model choice: GPT + Claude',s:'Claude Sonnet/Opus in Researcher &amp; Studio. No extra cost. Default-on outside EU/UK since Jan 2026.'},
+ {id:'studio',b:'Copilot Studio (full)',s:'Build custom agents. Metered pay-as-you-go — budget it.'},
+ {id:'a365',b:'Agent 365',s:'Manage a fleet of agents like a workforce. E7 only.'},
+ {id:'entra',b:'Entra Suite',s:'Full identity governance incl. agent identities. E7 only.'},
+];
+const copCaps=['cop','agents','models','studio'];
+let curPlan='std', copOn=false;
+const cg=document.getElementById('capgrid');
+capDefs.forEach(c=>{
+  const d=document.createElement('div'); d.className='cap'; d.id='cap-'+c.id;
+  d.innerHTML=`<b>${c.b}</b><span>${c.s}</span>`; cg.appendChild(d);
+});
+document.getElementById('licbar').addEventListener('click',e=>{
+  if(!e.target.dataset.l)return;
+  document.querySelectorAll('#licbar button').forEach(b=>b.classList.remove('sel'));
+  e.target.classList.add('sel'); curPlan=e.target.dataset.l;
+  if(curPlan==='e7'){copOn=true;} renderLic();
+});
+function toggleCop(){ if(curPlan==='e7')return; copOn=!copOn; renderLic(); }
+function renderLic(){
+  const p=plans[curPlan];
+  const active=new Set(p.caps);
+  if(copOn||curPlan==='e7'){ copCaps.forEach(c=>active.add(c)); }
+  capDefs.forEach(c=>document.getElementById('cap-'+c.id).classList.toggle('on',active.has(c.id)));
+  const total=curPlan==='e7'?p.price:(p.price+(copOn?p.cop:0));
+  let txt=`$${total.toFixed(2)} <small>/user/month · ${p.name}${copOn&&curPlan!=='e7'?' + '+p.copName+' ($'+p.cop+')':''}${curPlan==='e7'?' (Copilot, Agent 365 & Entra Suite included)':''}${p.bundle&&copOn?' · '+p.bundle:''}</small>`;
+  document.getElementById('priceOut').innerHTML=txt;
+  const btn=document.getElementById('copBtn');
+  btn.textContent=curPlan==='e7'?'Copilot included in E7':(copOn?'− Remove Copilot add-on':'+ Add Microsoft 365 Copilot');
+}
+renderLic();
+
+/* ---------- scene 4 mechanics ---------- */
+const mech=[
+ {s:'1 · Prompt',t:'You prompt Copilot inside Word',hl:['m-you'],arr:[],
+  b:'<p>You ask: "Turn these rough notes into a one-page proposal." Nothing has left your document yet. The prompt is processed under your identity — Copilot can never see more than <b>you</b> can see.</p>'},
+ {s:'2 · Grounding',t:'Copilot grounds itself in Microsoft Graph',hl:['m-you','m-graph'],arr:['a1'],
+  b:'<p>Copilot pulls relevant context — your files, mail, meetings, chats — via Microsoft Graph, <b>permissions-trimmed</b>: it only retrieves what your account already has access to.</p><p>This is why permissions hygiene comes before rollout: Copilot doesn\'t create leaks, it <b>surfaces</b> them.</p>'},
+ {s:'3 · Chat history',t:'Where the conversation itself is stored',hl:['m-you','m-mail'],arr:['a2'],
+  b:'<p>Copilot interactions are saved to a hidden folder in <b>your own Exchange mailbox</b>.</p><ul><li>Private from colleagues — <b>not</b> private from the company: discoverable via Purview eDiscovery, subject to retention policy.</li><li>Prompts and responses are <b>not</b> used to train the models (Anthropic and OpenAI are bound as Microsoft subprocessors under the DPA).</li></ul>'},
+ {s:'4 · The file',t:'Personal OneDrive vs the "company OneDrive"',hl:['m-od','m-sp'],arr:['a3','a4'],
+  b:'<p>The document lives wherever you saved it — and that choice decides everything downstream:</p><ul><li><b>OneDrive (personal work drive):</b> private by default. Good for drafts. Invisible to the team\'s Copilot.</li><li><b>SharePoint / Teams site:</b> the real "company OneDrive". Team members inherit access; the file becomes part of the company\'s searchable, Copilot-groundable memory.</li></ul><p>Moving a file from OneDrive to SharePoint is the moment an idea goes from <i>mine</i> to <i>ours</i>.</p>'},
+ {s:'5 · Access & notify',t:'How colleagues find out and get in',hl:['m-sp'],arr:[],
+  b:'<ul><li><b>Share link</b> — permissions set per link: anyone-in-org, specific people, view/edit.</li><li><b>@mention in a comment</b> — triggers an email + Teams activity-feed notification to that person.</li><li><b>Post to a Teams channel</b> — the file tab makes it ambient; channel members co-author live.</li><li><b>Loop components</b> — the same live content embedded in chat, mail and docs simultaneously.</li></ul>'},
+ {s:'6 · Contribute & flow',t:'Co-authoring, catch-up and workflow',hl:['m-sp','m-graph'],arr:[],
+  b:'<ul><li><b>Co-authoring:</b> simultaneous editing, per-person cursors, full version history (restore anything).</li><li><b>Copilot catch-up:</b> "what changed since I last opened this?" — summarised in seconds.</li><li><b>Workflow:</b> Power Automate approval flows, Planner tasks from comments, agents that route the doc to the right person.</li></ul><p>This chain — prompt → ground → store → share → notify → co-author → route — <b>is</b> the idea funnel from Scene 1, seen from the inside.</p>'},
+];
+let mi=0;
+const stepsEl=document.getElementById('mechsteps');
+mech.forEach((m,idx)=>{
+  const d=document.createElement('div'); d.className='s'; d.textContent=m.s;
+  d.onclick=()=>{mi=idx; renderMech();}; stepsEl.appendChild(d);
+});
+function mechGo(d){ mi=Math.min(mech.length-1,Math.max(0,mi+d)); renderMech(); }
+function renderMech(){
+  const m=mech[mi];
+  stepsEl.querySelectorAll('.s').forEach((el,idx)=>{
+    el.classList.toggle('cur',idx===mi); el.classList.toggle('done',idx<mi);
+  });
+  document.getElementById('mTitle').textContent=m.t;
+  document.getElementById('mBody').innerHTML=m.b;
+  document.querySelectorAll('#mechsvg .node').forEach(n=>n.classList.remove('hot'));
+  m.hl.forEach(id=>document.querySelector('#'+id+' .node').classList.add('hot'));
+  ['a1','a2','a3','a4'].forEach(id=>{
+    const p=document.getElementById(id);
+    p.style.stroke=m.arr.includes(id)?'var(--cyan)':'var(--line)';
+    p.style.strokeWidth=m.arr.includes(id)?'2.5':'1.5';
+  });
+  document.getElementById('mPrev').disabled=(mi===0);
+  document.getElementById('mNext').disabled=(mi===mech.length-1);
+}
+renderMech();
+</script>
+</body>
+</html>
