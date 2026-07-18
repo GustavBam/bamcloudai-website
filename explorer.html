@@ -7,6 +7,8 @@
 <meta name="description" content="Free interactive explorer for SME decision-makers: how ideas flow through Microsoft 365 Copilot, what each licence unlocks (2026 pricing), where your data lives, multi-cloud governance, and how to choose AI that lasts. By Gustav Bam, Azure Solutions Architect Expert &amp; MCT.">
 <link rel="canonical" href="https://bamcloudai.com/explorer.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bamcloudai.com/explorer.html">
 <meta property="og:title" content="SME AI Decision Explorer — Copilot, Licensing &amp; the Flat Organisation">
@@ -38,26 +40,78 @@
     --bg:#0F1B2D; --panel:#1A2D44; --panel2:#223752; --line:#2D4059;
     --txt:#e8edf7; --dim:#93a3bf; --cyan:#38c8e8; --amber:#f5b942;
     --green:#4ade80; --red:#f87171; --violet:#a78bfa;
+    --azure:#0078D4; --azure-light:#50A0DC; --azure-dark:#005A9E;
+    --orange:#D4641C; --white:#FFFFFF;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  body{background:var(--bg); color:var(--txt); font-family:'Segoe UI',system-ui,sans-serif; line-height:1.5;}
-  header{padding:22px 28px 12px; border-bottom:1px solid var(--line);}
-  header h1{font-size:1.45rem; font-weight:600;}
-  header h1 span{color:var(--cyan);}
-  header p{color:var(--dim); font-size:.9rem; margin-top:4px; max-width:900px;}
-  nav{display:flex; flex-wrap:wrap; gap:6px; padding:12px 28px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); z-index:20;}
-  nav button{background:var(--panel); color:var(--dim); border:1px solid var(--line); border-radius:20px; padding:8px 16px; cursor:pointer; font-size:.85rem; transition:.2s;}
-  nav button:hover{color:var(--txt); border-color:var(--cyan);}
-  nav button.active{background:var(--cyan); color:#04222c; border-color:var(--cyan); font-weight:600;}
+  body{background:var(--bg); color:var(--txt); font-family:'Inter',system-ui,sans-serif; line-height:1.5; padding-top:80px;}
+  .explorer-header{padding:36px 28px 22px; max-width:1180px; margin:0 auto;}
+  .explorer-badge{display:inline-flex; align-items:center; gap:8px; background:rgba(0,120,212,0.2); border:1px solid rgba(0,120,212,0.4); color:var(--azure-light); padding:6px 14px; border-radius:100px; font-size:.78rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; margin-bottom:16px;}
+  .explorer-header h1{font-size:clamp(1.7rem, 3.4vw, 2.4rem); font-weight:800; line-height:1.2;}
+  .explorer-header h1 span{color:var(--cyan);}
+  .explorer-header p{color:var(--dim); font-size:.95rem; margin-top:10px; max-width:820px; line-height:1.6;}
+  #tabs{display:flex; flex-wrap:wrap; gap:6px; padding:12px 28px; border-bottom:1px solid var(--line); position:sticky; top:80px; background:var(--bg); z-index:20;}
+  #tabs button{background:var(--panel); color:var(--dim); border:1px solid var(--line); border-radius:20px; padding:8px 16px; cursor:pointer; font-size:.85rem; transition:.2s;}
+  #tabs button:hover{color:var(--txt); border-color:var(--cyan);}
+  #tabs button.active{background:var(--cyan); color:#04222c; border-color:var(--cyan); font-weight:600;}
   main{padding:24px 28px 60px; max-width:1180px; margin:0 auto;}
+  @media (max-width:640px){ body{padding-top:72px;} #tabs{top:72px;} }
+
+  /* ── SITE NAV (matches bamcloudai.com) ── */
+  nav{
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    background: rgba(15,27,45,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner{ max-width:1140px; margin:0 auto; padding:0 24px; height:80px; display:flex; align-items:center; justify-content:space-between; }
+  .logo{ display:inline-flex; align-items:center; gap:14px; text-decoration:none; line-height:1; }
+  .logo .logo-icon{ height:48px; width:auto; display:block; flex-shrink:0; }
+  .logo .logo-text{ display:inline-grid; row-gap:6px; }
+  .logo .logo-wordmark{ white-space:nowrap; font-size:28px; letter-spacing:-0.5px; line-height:1; }
+  .logo .logo-wordmark .bam{ font-weight:800; color:var(--orange); }
+  .logo .logo-wordmark .cai{ font-weight:300; color:#FFFFFF; }
+  .logo .logo-tagline{ display:flex; justify-content:space-between; align-items:center; font-size:10px; letter-spacing:0.8px; font-weight:500; color:rgba(255,255,255,0.65); }
+  .logo .logo-tagline .initial{ color:rgba(232,98,26,0.88); font-weight:700; }
+  .logo .logo-tagline .dot{ color:rgba(255,255,255,0.55); letter-spacing:0; font-size:12px; }
+  .logo .logo-tagline .last-r{ letter-spacing:0; }
+  nav .logo{ gap:14px; }
+  .nav-links{ display:flex; gap:18px; list-style:none; white-space:nowrap; }
+  .nav-links a{ color:rgba(255,255,255,0.75); text-decoration:none; font-size:.9rem; font-weight:500; transition:color .2s; }
+  .nav-links a:hover{ color:var(--white); }
+  .nav-links a.current{ color:var(--cyan); font-weight:700; }
+  .nav-cta{ background:var(--azure); color:var(--white) !important; padding:8px 18px; border-radius:8px; transition:background .2s !important; }
+  .nav-cta:hover{ background:var(--azure-dark) !important; }
+  .nav-hamburger{ display:none; flex-direction:column; justify-content:center; gap:5px; cursor:pointer; background:none; border:none; padding:6px; border-radius:6px; }
+  .nav-hamburger span{ display:block; width:22px; height:2px; background:rgba(255,255,255,0.85); border-radius:2px; transition:all .3s; }
+  .nav-hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2){ opacity:0; transform:scaleX(0); }
+  .nav-hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  @media (max-width:1180px){
+    .nav-links{ display:none; position:absolute; top:80px; left:0; right:0; background:rgba(15,27,45,0.98); backdrop-filter:blur(12px); flex-direction:column; padding:8px 24px 20px; gap:0; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .nav-links.open{ display:flex; }
+    .nav-links li{ padding:13px 0; border-bottom:1px solid rgba(255,255,255,0.07); white-space:normal; }
+    .nav-links li:last-child{ border-bottom:none; }
+    .nav-links a{ font-size:1rem; }
+    .nav-cta{ display:inline-block; margin-top:4px; }
+    .nav-hamburger{ display:flex; }
+  }
+  @media (max-width:640px){
+    .nav-inner{ height:72px; }
+    .logo{ gap:8px; }
+    .logo .logo-icon{ height:40px; }
+    .logo .logo-wordmark{ font-size:22px; }
+    .logo .logo-tagline{ font-size:9px; letter-spacing:0.6px; }
+  }
   section{display:none; animation:fade .35s ease;}
   section.show{display:block;}
   @keyframes fade{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;}}
   h2{font-size:1.2rem; margin-bottom:6px;}
   .lead{color:var(--dim); font-size:.92rem; margin-bottom:18px; max-width:920px;}
   .card{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px;}
-  .btn{background:var(--cyan); color:#04222c; border:none; border-radius:8px; padding:9px 18px; font-weight:600; cursor:pointer; font-size:.9rem;}
-  .btn.ghost{background:transparent; color:var(--cyan); border:1px solid var(--cyan);}
+  .btn{background:var(--azure); color:var(--white); border:none; border-radius:8px; padding:9px 18px; font-weight:600; cursor:pointer; font-size:.9rem; transition:background .2s;}
+  .btn:hover:not(:disabled){background:var(--azure-dark);}
+  .btn.ghost{background:transparent; color:var(--azure-light); border:1px solid var(--azure-light);}
+  .btn.ghost:hover{background:rgba(0,120,212,0.12);}
   .btn:disabled{opacity:.4; cursor:default;}
   .tag{display:inline-block; font-size:.72rem; padding:2px 9px; border-radius:10px; background:var(--panel2); color:var(--dim); border:1px solid var(--line); margin:2px;}
   .note{border-left:3px solid var(--amber); background:var(--panel); padding:10px 14px; border-radius:0 8px 8px 0; font-size:.85rem; color:var(--dim); margin-top:16px;}
@@ -147,32 +201,74 @@
   .ticker .inner{display:inline-block; white-space:nowrap; animation:scroll 26s linear infinite; font-size:.8rem; color:var(--dim);}
   .ticker .inner b{color:var(--cyan);}
   @keyframes scroll{from{transform:translateX(15%);} to{transform:translateX(-100%);}}
-  footer{border-top:1px solid var(--line); padding:16px 28px; color:var(--dim); font-size:.78rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
-  footer b{color:var(--cyan);}
+  footer{background:#080F1A; padding:32px 24px; text-align:center; margin-top:40px;}
+  .footer-inner{max-width:1140px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px;}
+  footer .logo{font-size:1rem;}
+  footer p{color:rgba(255,255,255,0.45); font-size:.82rem;}
+  footer a{color:rgba(255,255,255,0.45); text-decoration:none; font-size:.82rem; transition:color .2s;}
+  footer a:hover{color:var(--azure-light);}
+  .footer-links{display:flex; gap:20px; flex-wrap:wrap; justify-content:center;}
 </style>
 </head>
 <body>
-<div style="background:#0B1524; border-bottom:1px solid var(--line); padding:10px 28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-  <a href="https://bamcloudai.com/" style="color:var(--txt); text-decoration:none; font-weight:700; letter-spacing:.02em;">BAM <span style="color:var(--cyan);">Cloud AI</span> <span style="color:var(--dim); font-weight:400; font-size:.75rem;">BUILD·ARCHITECT·MASTER</span></a>
-  <div style="display:flex; gap:14px; align-items:center; font-size:.82rem;">
-    <a href="https://bamcloudai.com/#training" style="color:var(--dim); text-decoration:none;">Training</a>
-    <a href="https://bamcloudai.com/#consulting" style="color:var(--dim); text-decoration:none;">Consulting</a>
-    <a href="https://bamcloudai.com/book.html" style="background:var(--cyan); color:#04222c; padding:6px 14px; border-radius:8px; text-decoration:none; font-weight:600;">Book</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
+      <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+        <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+        <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+        <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+        <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+        <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+        <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+        <circle cx="40" cy="40" r="6.5" fill="white"/>
+      </svg>
+      <div class="logo-text">
+        <div class="logo-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+        <div class="logo-tagline">
+          <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
+        </div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#training">Training</a></li>
+      <li><a href="/#consulting">Consulting</a></li>
+      <li><a href="/#cloud-journey">Cloud Journey</a></li>
+      <li><a href="/#hybrid-flow">Automation</a></li>
+      <li><a href="/explorer.html" class="current">AI Explorer</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/book.html" class="nav-cta">Book</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</div>
-<header>
+</nav>
+
+<div class="explorer-header">
+  <div class="explorer-badge">Free Interactive Tool &middot; Microsoft Certified &middot; Cape Town, SA</div>
   <h1><span>SME AI Decision Explorer</span> — Copilot, licensing &amp; the flat organisation</h1>
   <p>An interactive map for SME decision-makers: how an idea travels from a new hire to the CEO through Microsoft 365 Copilot, what each licence actually unlocks, where your conversations and files live, how the multi-cloud boundary is governed — and which decisions will still be right in five years.</p>
-</header>
+</div>
 
-<nav id="tabs">
+<div id="tabs">
   <button data-t="s1" class="active">1 · Idea Flow</button>
   <button data-t="s2">2 · Who Decides What</button>
   <button data-t="s3">3 · Licensing &amp; Tools</button>
   <button data-t="s4">4 · Where Does It Live?</button>
   <button data-t="s5">5 · Multi-Cloud Boundary</button>
   <button data-t="s6">6 · Built to Last</button>
-</nav>
+</div>
 
 <main>
 
@@ -354,8 +450,44 @@
 </div>
 
 <footer>
-  <div><b>Bam Cloud AI</b> · AI &amp; Cloud Training · Azure Consulting · <a href="https://bamcloudai.com/" style="color:var(--cyan);">bamcloudai.com</a> · <a href="https://bamcloudai.com/terms.html" style="color:var(--dim);">Terms</a></div>
-  <div>© 2026 Bam Cloud AI, Durbanville, Cape Town · Pricing &amp; platform facts verified July 2026 (Microsoft Learn, Microsoft 365 blog) — reviewed quarterly</div>
+  <div class="footer-inner">
+    <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
+      <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+        <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+        <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+        <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+        <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+        <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+        <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+        <circle cx="40" cy="40" r="6.5" fill="white"/>
+      </svg>
+      <div class="logo-text">
+        <div class="logo-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+        <div class="logo-tagline">
+          <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
+        </div>
+      </div>
+    </a>
+    <p>© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa. Pricing &amp; platform facts verified July 2026 — reviewed quarterly.</p>
+    <div class="footer-links">
+      <a href="/#training">Training</a>
+      <a href="/#consulting">Consulting</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#about">About</a>
+      <a href="/book.html">Book</a>
+      <a href="/#contact">Contact</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:gustav@bamcloudai.com">Email</a>
+      <a href="https://www.linkedin.com/company/bam-cloud-ai/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -368,6 +500,25 @@ tabs.addEventListener('click',e=>{
   document.querySelectorAll('main > section').forEach(s=>s.classList.remove('show'));
   document.getElementById(e.target.dataset.t).classList.add('show');
 });
+
+/* ---------- site nav hamburger ---------- */
+(function(){
+  const hamburger=document.getElementById('navHamburger');
+  const navLinks=document.querySelector('.nav-links');
+  if(hamburger && navLinks){
+    hamburger.addEventListener('click',()=>{
+      const isOpen=navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open',isOpen);
+      hamburger.setAttribute('aria-expanded',isOpen);
+      hamburger.setAttribute('aria-label',isOpen?'Close menu':'Open menu');
+    });
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded','false');
+    }));
+  }
+})();
 
 /* ---------- scene 1 animation ---------- */
 const stages=[
