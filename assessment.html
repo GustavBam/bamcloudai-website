@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 4 Levels of AI — Self-Assessment | Bam Cloud AI</title>
+<meta name="description" content="A 10-minute self-assessment for business leaders. Rate your organisation across 8 functions, then book your free 30-minute call already knowing your weakest link and biggest opportunity.">
+<style>
+  :root{
+    --navy:#0D1E35; --navy2:#152238; --navy3:#0F1B2D;
+    --orange:#FF6B35; --orange-dark:#C1441E;
+    --blue:#0078D4; --purple:#A855F7; --green:#00A86B;
+    --ink:#1a2332; --sub:#55627a; --line:#E2E8F0; --bg:#F7F9FC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:'Segoe UI', system-ui, Arial, Helvetica, sans-serif;
+    color:var(--ink); background:#F0F2F6; line-height:1.5;
+  }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 0 60px 0; }
+  .hero{
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, var(--navy3) 100%);
+    color:#fff; padding:28px 24px 24px 24px; border-bottom:3px solid var(--orange);
+  }
+  .hero img.logo{ height:28px; display:block; margin-bottom:16px; }
+  .kicker{
+    display:inline-block; background:rgba(255,107,53,0.16); color:#FF9466;
+    border:1px solid rgba(255,107,53,0.45); font-size:11px; font-weight:700;
+    letter-spacing:1.2px; text-transform:uppercase; padding:3px 10px;
+    border-radius:20px; margin-bottom:10px;
+  }
+  .hero h1{ font-size:26px; margin:0 0 8px 0; font-weight:700; line-height:1.25; }
+  .hero p{ font-size:14.5px; color:#B9C4D8; margin:0; max-width:520px; }
+
+  .progress-bar{ background:#fff; padding:14px 24px; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10;}
+  .progress-track{ height:6px; background:var(--line); border-radius:6px; overflow:hidden; }
+  .progress-fill{ height:100%; background:linear-gradient(90deg, var(--orange), #FF9466); border-radius:6px; transition:width .3s ease; }
+  .progress-label{ font-size:12px; color:var(--sub); margin-top:8px; display:flex; justify-content:space-between; }
+
+  .card{ background:#fff; margin:20px 24px; border-radius:10px; border:1px solid var(--line); padding:26px 26px 24px 26px; }
+  .step-title{ font-size:19px; font-weight:700; color:var(--navy); margin:0 0 4px 0; }
+  .step-sub{ font-size:13.5px; color:var(--sub); margin:0 0 20px 0; }
+  .optional-tag{ display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#8b95a8; background:#F0F3F9; border-radius:10px; padding:2px 8px; margin-left:8px; vertical-align:middle;}
+
+  /* --- level scoring key --- */
+  .levels{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:22px; }
+  .level-card{ border:1px solid var(--line); border-top:4px solid var(--lc); border-radius:6px; padding:10px 9px; }
+  .level-card .lnum{ font-size:10px; font-weight:700; color:var(--lc); text-transform:uppercase; letter-spacing:.5px;}
+  .level-card .ltitle{ font-size:13px; font-weight:700; color:var(--navy); margin:2px 0 4px 0;}
+  .level-card .ldesc{ font-size:11px; color:var(--sub); }
+  .l1{ --lc:var(--blue); } .l2{ --lc:var(--purple); } .l3{ --lc:var(--orange); } .l4{ --lc:var(--green); }
+
+  /* --- function rating rows --- */
+  .func-row{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:10px; }
+  .func-row .fname{ font-weight:700; color:var(--navy); font-size:14.5px; margin-bottom:8px; }
+  .pillgroup{ display:flex; gap:8px; flex-wrap:wrap; }
+  .pill{
+    flex:1; min-width:110px; text-align:center; border:1.5px solid var(--line); border-radius:20px;
+    padding:7px 6px; font-size:12.5px; font-weight:600; color:var(--sub); cursor:pointer; user-select:none;
+    transition:all .15s ease; background:#fff;
+  }
+  .pill:hover{ border-color:#B9C4D8; }
+  .pill.sel-l1{ background:var(--blue); border-color:var(--blue); color:#fff; }
+  .pill.sel-l2{ background:var(--purple); border-color:var(--purple); color:#fff; }
+  .pill.sel-l3{ background:var(--orange); border-color:var(--orange); color:#fff; }
+  .pill.sel-l4{ background:var(--green); border-color:var(--green); color:#fff; }
+
+  /* --- generic form fields --- */
+  label.field-label{ display:block; font-size:13px; font-weight:700; color:var(--navy); margin:16px 0 6px 0; }
+  label.field-label:first-child{ margin-top:0; }
+  .field-hint{ font-size:11.5px; color:#8b95a8; font-weight:400; margin-left:6px; }
+  input[type=text], input[type=email], input[type=tel], select, textarea{
+    width:100%; border:1.5px solid var(--line); border-radius:6px; padding:10px 12px;
+    font-size:14px; font-family:inherit; color:var(--ink); background:#fff;
+  }
+  input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--blue); }
+  textarea{ resize:vertical; min-height:64px; }
+  .req::after{ content:" *"; color:var(--orange-dark); }
+
+  .choicegrid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; margin-top:2px; }
+  .choice{
+    border:1.5px solid var(--line); border-radius:6px; padding:9px 10px; font-size:13px;
+    color:var(--sub); cursor:pointer; user-select:none; transition:all .15s ease; background:#fff;
+  }
+  .choice:hover{ border-color:#B9C4D8; }
+  .choice.selected{ background:#FFF1EA; border-color:var(--orange); color:var(--orange-dark); font-weight:600; }
+  .choice.single.selected{ background:var(--navy); border-color:var(--navy); color:#fff; }
+
+  .deepdive-note{
+    font-size:13px; color:var(--sub); background:#FFF7F0; border-left:3px solid var(--orange);
+    padding:10px 14px; border-radius:0 6px 6px 0; margin-bottom:18px;
+  }
+  .dd-block{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .dd-block .ddhead{ display:inline-block; background:var(--navy); color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:4px; margin-bottom:10px; }
+  .dd-block .ddq{ font-size:13px; color:var(--ink); margin:0 0 6px 0; font-weight:600; }
+
+  .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:22px; gap:12px; }
+  button{ font-family:inherit; cursor:pointer; border:none; border-radius:22px; font-weight:700; font-size:14px; padding:11px 22px; }
+  .btn-primary{ background:var(--orange); color:#fff; }
+  .btn-primary:hover{ background:var(--orange-dark); }
+  .btn-primary:disabled{ background:#D8DEE9; color:#9aa6bc; cursor:not-allowed; }
+  .btn-ghost{ background:transparent; color:var(--sub); border:1.5px solid var(--line); }
+  .btn-ghost:hover{ border-color:#B9C4D8; }
+
+  .skip-note{ font-size:11.5px; color:#8b95a8; text-align:center; margin-top:14px; }
+
+  .step{ display:none; }
+  .step.active{ display:block; }
+
+  .success-card{ text-align:center; padding:40px 26px; }
+  .success-card .ico{ width:56px; height:56px; border-radius:50%; background:var(--green); color:#fff; font-size:28px; line-height:56px; margin:0 auto 16px auto; }
+  .success-card h2{ color:var(--navy); font-size:21px; margin:0 0 10px 0; }
+  .success-card p{ color:var(--sub); font-size:14px; max-width:440px; margin:0 auto 18px auto; }
+  .success-card .btn-primary{ display:inline-block; text-decoration:none; }
+
+  .credentials{ margin:24px 24px 0 24px; padding-top:16px; border-top:1px solid var(--line); text-align:center; }
+  .credchips{ display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-bottom:10px; }
+  .credchip{ font-size:11px; font-weight:600; color:var(--navy); background:#F0F3F9; border:1px solid #DCE3F0; padding:3px 9px; border-radius:20px; }
+  .credchip.orange{ background:#FFF1EA; border-color:#FFD3BC; color:var(--orange-dark); }
+  .tagline{ font-style:italic; font-size:12.5px; color:var(--sub); }
+
+  .err-msg{ color:#C1441E; font-size:12px; margin-top:6px; display:none; }
+
+  @media (max-width:600px){
+    .levels{ grid-template-columns:repeat(2,1fr); }
+    .pillgroup{ flex-direction:column; }
+    .hero h1{ font-size:21px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hero">
+    <img class="logo" src="/email-logo.png" alt="Bam Cloud AI">
+    <div class="kicker">Self-Assessment · 10 minutes · online</div>
+    <h1>The 4 Levels of AI — Where Does Your Organisation Really Stand?</h1>
+    <p>Fill it in online, at your own pace. The more you share, the more useful your free 30-minute call will be — but only your name and email are required to send it through.</p>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:20%;"></div></div>
+    <div class="progress-label"><span id="stepLabel">Step 1 of 5</span><span id="stepName">Rate your organisation</span></div>
+  </div>
+
+  <form id="assessForm">
+
+  <!-- STEP 1 — MATRIX -->
+  <div class="step active" data-step="1">
+    <div class="card">
+      <div class="step-title">Rate Every Function You Own</div>
+      <div class="step-sub">Tick the highest level genuinely reached today — not where you'd like to be.</div>
+
+      <div class="levels">
+        <div class="level-card l1"><div class="lnum">Level 1</div><div class="ltitle">Chat</div><div class="ldesc">Ask AI questions, use the answer. Nothing saved or repeatable.</div></div>
+        <div class="level-card l2"><div class="lnum">Level 2</div><div class="ltitle">Automate</div><div class="ldesc">One repeated task now runs the same way every time.</div></div>
+        <div class="level-card l3"><div class="lnum">Level 3</div><div class="ltitle">Build</div><div class="ldesc">A small tool/app removes real friction — usually no code.</div></div>
+        <div class="level-card l4"><div class="lnum">Level 4</div><div class="ltitle">Shared Apps</div><div class="ldesc">Teammates or customers rely on it daily.</div></div>
+      </div>
+
+      <div id="funcRows"></div>
+
+      <label class="field-label">Your single next step <span class="field-hint">(optional — one sentence)</span></label>
+      <textarea name="assessment_next_step" placeholder="What's the one task, in your weakest area, that's begging to move up a level?"></textarea>
+    </div>
+  </div>
+
+  <!-- STEP 2 — COMPANY PROFILE -->
+  <div class="step" data-step="2">
+    <div class="card">
+      <div class="step-title">Your Company Profile <span class="optional-tag">Optional</span></div>
+      <div class="step-sub">Helps me scope the right conversation before we even talk.</div>
+
+      <label class="field-label">What does your company do? <span class="field-hint">(industry / type)</span></label>
+      <input type="text" name="company_type" placeholder="e.g. accounting firm, retailer, logistics, MSP...">
+
+      <label class="field-label">Company size <span class="field-hint">(headcount)</span></label>
+      <div class="choicegrid single" data-name="company_size_range">
+        <div class="choice">1–9</div>
+        <div class="choice">10–49</div>
+        <div class="choice">50–199</div>
+        <div class="choice">200–499</div>
+        <div class="choice">500+</div>
+        <div class="choice">Not sure</div>
+      </div>
+
+      <label class="field-label">Current Microsoft 365 / Copilot licensing</label>
+      <select name="current_ms_license">
+        <option value="">— Select —</option>
+        <option>No Microsoft 365 currently</option>
+        <option>Microsoft 365 Business Basic</option>
+        <option>Microsoft 365 Business Standard</option>
+        <option>Microsoft 365 Business Premium</option>
+        <option>Enterprise E3</option>
+        <option>Enterprise E5</option>
+        <option>Already have Copilot add-on</option>
+        <option>Not sure what we have</option>
+      </select>
+
+      <label class="field-label">Who would this be for, if we moved ahead?</label>
+      <div class="choicegrid single" data-name="rollout_scope">
+        <div class="choice">Just me right now</div>
+        <div class="choice">One team / department</div>
+        <div class="choice">The whole company</div>
+        <div class="choice">Not decided yet</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — DEEP DIVE (dynamic) -->
+  <div class="step" data-step="3">
+    <div class="card">
+      <div class="step-title">Look Deeper <span class="optional-tag">Optional</span></div>
+      <div class="deepdive-note">Based on your ratings, these are your two weakest areas. A couple of honest lines here means we skip the small talk on the call.</div>
+      <div id="deepdiveBlocks"></div>
+    </div>
+  </div>
+
+  <!-- STEP 4 — MOTIVATION & CONTEXT -->
+  <div class="step" data-step="4">
+    <div class="card">
+      <div class="step-title">Context For Our Call <span class="optional-tag">Optional but recommended</span></div>
+      <div class="step-sub">The single biggest reason these calls run long is missing context. Save us both time.</div>
+
+      <label class="field-label">Biggest concern, or what's held you back so far?</label>
+      <textarea name="biggest_concern" placeholder="Cost, data privacy, staff pushback, not knowing where to start..."></textarea>
+
+      <label class="field-label">If this works, what does success look like in 12 months?</label>
+      <textarea name="success_vision_12mo" placeholder="Hours saved, revenue per employee, faster close, something else..."></textarea>
+
+      <label class="field-label">What's the biggest win you're hoping for? <span class="field-hint">(pick as many as apply)</span></label>
+      <div class="choicegrid multi" data-name="expected_biggest_wins">
+        <div class="choice">Time saved</div>
+        <div class="choice">Revenue growth</div>
+        <div class="choice">Cost reduction</div>
+        <div class="choice">Competitive edge</div>
+        <div class="choice">Staff retention / morale</div>
+        <div class="choice">Compliance & risk reduction</div>
+        <div class="choice">Other</div>
+      </div>
+
+      <label class="field-label">Is this business-critical, or are you exploring?</label>
+      <div class="choicegrid single" data-name="urgency_level">
+        <div class="choice">Business-critical right now</div>
+        <div class="choice">Important, not urgent</div>
+        <div class="choice">Just exploring</div>
+      </div>
+
+      <label class="field-label">What kind of help do you think you'll need? <span class="field-hint">(pick as many as apply)</span></label>
+      <div class="choicegrid multi" data-name="help_needed">
+        <div class="choice">Strategy & training</div>
+        <div class="choice">Technical implementation</div>
+        <div class="choice">Design / UX</div>
+        <div class="choice">Data migration</div>
+        <div class="choice">Ongoing managed support</div>
+        <div class="choice">Not sure yet</div>
+      </div>
+
+      <label class="field-label">Who else should be involved? <span class="field-hint">(on the first call, or affected across the business)</span></label>
+      <textarea name="call_stakeholders" placeholder="e.g. my ops manager should be on the call; finance and support teams would be affected"></textarea>
+
+      <label class="field-label">Anything else worth knowing before our call?</label>
+      <textarea name="additional_notes" placeholder="Optional — anything that doesn't fit above"></textarea>
+    </div>
+  </div>
+
+  <!-- STEP 5 — CONTACT (GATE) -->
+  <div class="step" data-step="5">
+    <div class="card">
+      <div class="step-title">Your Details</div>
+      <div class="step-sub">This is the only part that's required — so I know who to prepare the call for.</div>
+
+      <label class="field-label req">First name</label>
+      <input type="text" name="firstname" required>
+
+      <label class="field-label req">Last name</label>
+      <input type="text" name="lastname" required>
+
+      <label class="field-label req">Email</label>
+      <input type="email" name="email" required>
+      <div class="err-msg" id="emailErr">Please enter a valid email address.</div>
+
+      <label class="field-label">Phone <span class="field-hint">(optional)</span></label>
+      <input type="tel" name="phone">
+
+      <label class="field-label">Company name</label>
+      <input type="text" name="company">
+
+      <label class="field-label">Your role / title</label>
+      <input type="text" name="jobtitle">
+
+      <input type="hidden" name="company_website" id="hp_field" value=""> <!-- honeypot -->
+    </div>
+  </div>
+
+  </form>
+
+  <div class="nav-row" style="margin:0 24px;">
+    <button type="button" class="btn-ghost" id="btnBack" style="visibility:hidden;">Back</button>
+    <button type="button" class="btn-primary" id="btnNext">Continue</button>
+  </div>
+  <div class="skip-note" id="skipNote">Steps 1–4 are optional — skip anything you'd rather answer live on the call.</div>
+
+  <div class="credentials">
+    <div class="credchips">
+      <span class="credchip orange">AZ-305 · Azure Solutions Architect Expert</span>
+      <span class="credchip orange">AZ-104 · Azure Administrator Associate</span>
+      <span class="credchip">Microsoft Certified Trainer (MCT)</span>
+    </div>
+    <p class="tagline">"Built It. Ran It. Now I'll Teach You to Master It." — Gustav Bam</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---- CONFIG (fill in once the dedicated HubSpot form exists) ----
+  var HUBSPOT_PORTAL_ID = "148801143";
+  var HUBSPOT_FORM_GUID = "11859039-c4da-4bb9-97d4-81e5b2c290ac";
+  var BOOKING_URL = "https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled";
+
+  var FUNCS = [
+    {id:"sales", label:"Sales / Business Dev", q:[
+      "When a lead comes in, how much of the qualifying, research, and first-draft follow-up is still typed by a human — and how long before first contact?",
+      "If your best salesperson disappeared for a month, could someone else reproduce their process from something written down?"
+    ]},
+    {id:"marketing", label:"Marketing", q:[
+      "Could you triple content output in 90 days without hiring — and if not, is the bottleneck ideas, drafting, or approval?",
+      "Do you have a repeatable way to turn one client win into five pieces of content, or does every post start from a blank page?"
+    ]},
+    {id:"finance", label:"Finance / Admin", q:[
+      "How many hours a month go into reconciliation, invoice chasing, or expense categorising that a system could do unattended?",
+      "If a key supplier's price changed tomorrow, how long would it take to see the margin impact across the business?"
+    ]},
+    {id:"operations", label:"Operations", q:[
+      "Name the one manual process that — if the person doing it left tomorrow — would stop or badly delay the business.",
+      "Where does information get re-typed from one system into another purely because the systems don't talk to each other?"
+    ]},
+    {id:"hr", label:"HR / People", q:[
+      "Is onboarding a repeatable checklist, or does it depend on whoever has time that week?",
+      "How much of screening, scheduling, or policy Q&A interrupts a manager's day that a well-built assistant could handle?"
+    ]},
+    {id:"support", label:"Customer Support", q:[
+      "What percentage of incoming questions are repeats of something you've answered ten times before?",
+      "When a support answer is wrong or out of date, how would you find out, and how long to fix it everywhere it appears?"
+    ]},
+    {id:"it", label:"IT / Engineering", q:[
+      "How many AI tools are already in use across the team that IT never approved or knows about — and what data have they touched?",
+      "If a client or regulator asked what AI tools touch their data today, could you produce that list this afternoon?"
+    ]},
+    {id:"leadership", label:"Leadership / Strategy", q:[
+      "Do you actually know which parts of the business have adopted AI, or is adoption invisible right now?",
+      "What would \"AI is working\" look like in your P&L in 12 months? If you can't name the number, that's the first problem to solve."
+    ]}
+  ];
+
+  var state = { levels:{} , choices:{}, deepdive:{} };
+  var currentStep = 1;
+  var totalSteps = 5;
+  var stepNames = {1:"Rate your organisation",2:"Company profile",3:"Look deeper",4:"Context for our call",5:"Your details"};
+
+  // Build function rows for step 1
+  var rowsEl = document.getElementById('funcRows');
+  FUNCS.forEach(function(f){
+    var row = document.createElement('div');
+    row.className = 'func-row';
+    row.innerHTML = '<div class="fname">'+f.label+'</div><div class="pillgroup" data-func="'+f.id+'">' +
+      [1,2,3,4].map(function(l){ return '<div class="pill" data-level="'+l+'">Level '+l+'</div>'; }).join('') +
+      '</div>';
+    rowsEl.appendChild(row);
+  });
+
+  // Pill click handling (single-select per row)
+  rowsEl.addEventListener('click', function(e){
+    var pill = e.target.closest('.pill');
+    if(!pill) return;
+    var group = pill.closest('.pillgroup');
+    var func = group.getAttribute('data-func');
+    var level = pill.getAttribute('data-level');
+    Array.from(group.children).forEach(function(p){ p.className = 'pill'; });
+    pill.classList.add('sel-l'+level);
+    state.levels[func] = parseInt(level,10);
+  });
+
+  // Generic choice grids (single + multi) across steps 2 & 4
+  document.querySelectorAll('.choicegrid').forEach(function(grid){
+    var name = grid.getAttribute('data-name');
+    var isMulti = grid.classList.contains('multi');
+    state.choices[name] = isMulti ? [] : null;
+    grid.addEventListener('click', function(e){
+      var choice = e.target.closest('.choice');
+      if(!choice) return;
+      var val = choice.textContent.trim();
+      if(isMulti){
+        choice.classList.toggle('selected');
+        var arr = Array.from(grid.querySelectorAll('.choice.selected')).map(function(c){return c.textContent.trim();});
+        state.choices[name] = arr;
+      } else {
+        Array.from(grid.children).forEach(function(c){ c.classList.remove('selected'); });
+        choice.classList.add('selected');
+        state.choices[name] = val;
+      }
+    });
+  });
+
+  function weakestTwo(){
+    var entries = FUNCS.map(function(f){ return {id:f.id, label:f.label, level: state.levels[f.id] || 0}; });
+    entries.sort(function(a,b){ return a.level - b.level; });
+    return entries.slice(0,2);
+  }
+
+  function buildDeepDive(){
+    var container = document.getElementById('deepdiveBlocks');
+    container.innerHTML = '';
+    var weak = weakestTwo();
+    weak.forEach(function(w, idx){
+      var f = FUNCS.filter(function(x){return x.id===w.id;})[0];
+      var block = document.createElement('div');
+      block.className = 'dd-block';
+      block.innerHTML = '<div class="ddhead">'+f.label+'</div>' +
+        f.q.map(function(q,i){
+          return '<div class="ddq">'+q+'</div><textarea data-dd="'+f.id+'_'+i+'" placeholder="Optional"></textarea>';
+        }).join('');
+      container.appendChild(block);
+    });
+    container.querySelectorAll('textarea').forEach(function(ta){
+      ta.addEventListener('input', function(){ state.deepdive[ta.getAttribute('data-dd')] = ta.value; });
+    });
+  }
+
+  function showStep(n){
+    document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
+    document.querySelector('.step[data-step="'+n+'"]').classList.add('active');
+    document.getElementById('progressFill').style.width = ((n/totalSteps)*100)+'%';
+    document.getElementById('stepLabel').textContent = 'Step '+n+' of '+totalSteps;
+    document.getElementById('stepName').textContent = stepNames[n];
+    document.getElementById('btnBack').style.visibility = n===1 ? 'hidden' : 'visible';
+    document.getElementById('btnNext').textContent = n===totalSteps ? 'Send my assessment' : 'Continue';
+    document.getElementById('skipNote').style.display = n===totalSteps ? 'none' : 'block';
+    if(n===3) buildDeepDive();
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  document.getElementById('btnBack').addEventListener('click', function(){
+    if(currentStep>1){ currentStep--; showStep(currentStep); }
+  });
+
+  document.getElementById('btnNext').addEventListener('click', function(){
+    if(currentStep < totalSteps){
+      currentStep++;
+      showStep(currentStep);
+    } else {
+      submitAssessment();
+    }
+  });
+
+  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  function collectFieldValues(){
+    var form = document.getElementById('assessForm');
+    var fields = [];
+
+    // Standard contact fields only — everything else gets consolidated below
+    // (HubSpot free tier caps custom properties, so all qualitative context
+    // is packed into 3 text-blob properties instead of ~20 discrete ones)
+    ['firstname','lastname','email','phone','company','jobtitle'].forEach(function(name){
+      var el = form.querySelector('[name="'+name+'"]');
+      fields.push({name: name, value: el ? (el.value || '') : ''});
+    });
+
+    // 1. AI Levels Summary — all 8 function ratings in one field
+    var levelsLines = FUNCS.map(function(f){
+      var lvl = state.levels[f.id];
+      return f.label + ': ' + (lvl ? ('Level ' + lvl) : 'Not rated');
+    });
+    fields.push({name:'ai_levels_summary', value: levelsLines.join('\n')});
+
+    // 2. Deep Dive Responses — the two weakest areas + whatever they answered
+    var weak = weakestTwo();
+    var ddLines = [];
+    weak.forEach(function(w){
+      var f = FUNCS.filter(function(x){return x.id===w.id;})[0];
+      ddLines.push('=== ' + f.label + ' ===');
+      f.q.forEach(function(q,i){
+        var ans = state.deepdive[f.id+'_'+i];
+        if(ans){ ddLines.push('Q: ' + q); ddLines.push('A: ' + ans); }
+      });
+    });
+    fields.push({name:'deepdive_responses', value: ddLines.join('\n')});
+
+    // 3. Assessment Context — company profile + motivation, one labeled blob
+    var ctxLines = [];
+    function addLine(label, value){
+      if(value && String(value).trim()){ ctxLines.push(label + ': ' + value); }
+    }
+    function fieldVal(name){ var el = form.querySelector('[name="'+name+'"]'); return el ? el.value : ''; }
+    addLine('What they do', fieldVal('company_type'));
+    addLine('Company size', state.choices['company_size_range']);
+    addLine('Current MS license', fieldVal('current_ms_license'));
+    addLine('Rollout scope', state.choices['rollout_scope']);
+    addLine('Biggest concern', fieldVal('biggest_concern'));
+    addLine('Success vision (12mo)', fieldVal('success_vision_12mo'));
+    addLine('Expected biggest wins', Array.isArray(state.choices['expected_biggest_wins']) ? state.choices['expected_biggest_wins'].join('; ') : '');
+    addLine('Urgency', state.choices['urgency_level']);
+    addLine('Help needed', Array.isArray(state.choices['help_needed']) ? state.choices['help_needed'].join('; ') : '');
+    addLine('Call stakeholders', fieldVal('call_stakeholders'));
+    addLine('Additional notes', fieldVal('additional_notes'));
+    addLine('Single next step', fieldVal('assessment_next_step'));
+    fields.push({name:'assessment_context', value: ctxLines.join('\n')});
+
+    return fields;
+  }
+
+  function submitAssessment(){
+    var form = document.getElementById('assessForm');
+    var firstname = form.firstname.value.trim();
+    var lastname = form.lastname.value.trim();
+    var email = form.email.value.trim();
+    var honeypot = document.getElementById('hp_field').value;
+
+    document.getElementById('emailErr').style.display = 'none';
+    if(!firstname || !lastname || !validEmail(email)){
+      document.getElementById('emailErr').style.display = 'block';
+      if(!firstname || !lastname){ alert('Please fill in your first and last name.'); }
+      return;
+    }
+    if(honeypot){ return; } // bot trap, silently drop
+
+    var btn = document.getElementById('btnNext');
+    btn.disabled = true; btn.textContent = 'Sending...';
+
+    var payload = {
+      fields: collectFieldValues(),
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title
+      }
+    };
+
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HUBSPOT_PORTAL_ID+'/'+HUBSPOT_FORM_GUID, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    }).then(function(res){
+      if(res.ok){ showSuccess(); }
+      else { res.text().then(function(t){ console.error('HubSpot submit failed', t); showError(); }); }
+    }).catch(function(err){ console.error(err); showError(); });
+  }
+
+  function showSuccess(){
+    document.querySelectorAll('.step').forEach(function(s){ s.style.display='none'; });
+    document.querySelector('.progress-bar').style.display='none';
+    document.querySelector('.nav-row').style.display='none';
+    document.getElementById('skipNote').style.display='none';
+    var card = document.createElement('div');
+    card.className = 'card success-card';
+    card.innerHTML = '<div class="ico">&#10003;</div>' +
+      '<h2>Got it — thank you.</h2>' +
+      '<p>I\'ll review your answers before we speak, so we can spend the full 30 minutes on your two weakest areas instead of a generic pitch.</p>' +
+      '<a class="btn-primary" href="'+BOOKING_URL+'" target="_blank" rel="noopener">Book your free 30-minute call &rarr;</a>';
+    document.querySelector('.wrap').insertBefore(card, document.querySelector('.credentials'));
+  }
+
+  function showError(){
+    var btn = document.getElementById('btnNext');
+    btn.disabled = false; btn.textContent = 'Send my assessment';
+    alert('Something went wrong sending your assessment — please try again, or email gustav@bamcloudai.com directly.');
+  }
+
+  showStep(1);
+})();
+</script>
+
+</body>
+</html>
