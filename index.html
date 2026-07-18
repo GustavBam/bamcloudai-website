@@ -1887,6 +1887,7 @@
 
   @media (max-width: 760px) {
     .hf-canvas { grid-template-columns: 1fr; grid-template-rows: auto 46px auto 46px auto 46px auto; padding: 36px 20px; max-width: 340px; }
+    .hf-node, .hf-connector { grid-column: 1 !important; }
     .hf-connector { height: auto; width: 6px; margin: 0 auto; background: linear-gradient(180deg, var(--c1, var(--azure)) 0%, var(--c2, var(--azure)) 100%); background-size: 100% 200%; animation: hfShimmerV 2.4s linear infinite; }
     .hf-connector::after { right: 50%; top: auto; bottom: -2px; transform: translateX(50%) rotate(90deg); }
     .hf-packet { top: 0; left: 50%; animation: hfPacketMoveV 2.4s linear infinite; }
