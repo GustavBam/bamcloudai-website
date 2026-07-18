@@ -7,119 +7,161 @@
 <meta name="description" content="A 10-minute self-assessment for business leaders. Rate your organisation across 8 functions, then book your free 30-minute call already knowing your weakest link and biggest opportunity.">
 <style>
   :root{
-    --navy:#0D1E35; --navy2:#152238; --navy3:#0F1B2D;
-    --orange:#FF6B35; --orange-dark:#C1441E;
-    --blue:#0078D4; --purple:#A855F7; --green:#00A86B;
-    --ink:#1a2332; --sub:#55627a; --line:#E2E8F0; --bg:#F7F9FC;
+    --bg:#0F1B2D; --panel:#1A2D44; --panel2:#223752; --line:#2D4059;
+    --txt:#e8edf7; --dim:#93a3bf; --cyan:#38c8e8; --amber:#f5b942;
+    --green:#4ade80; --red:#f87171; --violet:#a78bfa;
+    --azure:#0078D4; --azure-light:#50A0DC; --azure-dark:#005A9E;
+    --orange:#D4641C; --white:#FFFFFF;
   }
-  *{box-sizing:border-box;}
-  body{
-    margin:0; font-family:'Segoe UI', system-ui, Arial, Helvetica, sans-serif;
-    color:var(--ink); background:#F0F2F6; line-height:1.5;
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--txt); font-family:'Inter',system-ui,sans-serif; line-height:1.5; padding-top:80px;}
+
+  /* ── SITE NAV (matches bamcloudai.com) ── */
+  nav{
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    background: rgba(15,27,45,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
+  .nav-inner{ max-width:1140px; margin:0 auto; padding:0 24px; height:80px; display:flex; align-items:center; justify-content:space-between; }
+  .logo{ display:inline-flex; align-items:center; gap:14px; text-decoration:none; line-height:1; }
+  .logo .logo-icon{ height:48px; width:auto; display:block; flex-shrink:0; }
+  .logo .logo-text{ display:inline-grid; row-gap:6px; }
+  .logo .logo-wordmark{ white-space:nowrap; font-size:28px; letter-spacing:-0.5px; line-height:1; }
+  .logo .logo-wordmark .bam{ font-weight:800; color:var(--orange); }
+  .logo .logo-wordmark .cai{ font-weight:300; color:#FFFFFF; }
+  .logo .logo-tagline{ display:flex; justify-content:space-between; align-items:center; font-size:10px; letter-spacing:0.8px; font-weight:500; color:rgba(255,255,255,0.65); }
+  .logo .logo-tagline .initial{ color:rgba(232,98,26,0.88); font-weight:700; }
+  .logo .logo-tagline .dot{ color:rgba(255,255,255,0.55); letter-spacing:0; font-size:12px; }
+  .logo .logo-tagline .last-r{ letter-spacing:0; }
+  .nav-links{ display:flex; gap:18px; list-style:none; white-space:nowrap; }
+  .nav-links a{ color:rgba(255,255,255,0.75); text-decoration:none; font-size:.9rem; font-weight:500; transition:color .2s; }
+  .nav-links a:hover{ color:var(--white); }
+  .nav-cta{ background:var(--azure); color:var(--white) !important; padding:8px 18px; border-radius:8px; transition:background .2s !important; }
+  .nav-cta:hover{ background:var(--azure-dark) !important; }
+  .nav-hamburger{ display:none; flex-direction:column; justify-content:center; gap:5px; cursor:pointer; background:none; border:none; padding:6px; border-radius:6px; }
+  .nav-hamburger span{ display:block; width:22px; height:2px; background:rgba(255,255,255,0.85); border-radius:2px; transition:all .3s; }
+  .nav-hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2){ opacity:0; transform:scaleX(0); }
+  .nav-hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  @media (max-width:900px){
+    .nav-links{ display:none; position:absolute; top:80px; left:0; right:0; background:rgba(15,27,45,0.98); backdrop-filter:blur(12px); flex-direction:column; padding:8px 24px 20px; gap:0; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .nav-links.open{ display:flex; }
+    .nav-links li{ padding:13px 0; border-bottom:1px solid rgba(255,255,255,0.07); white-space:normal; }
+    .nav-links li:last-child{ border-bottom:none; }
+    .nav-links a{ font-size:1rem; }
+    .nav-cta{ display:inline-block; margin-top:4px; }
+    .nav-hamburger{ display:flex; }
+  }
+
   .wrap{ max-width:760px; margin:0 auto; padding:0 0 60px 0; }
-  .hero{
-    background:linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, var(--navy3) 100%);
-    color:#fff; padding:28px 24px 24px 24px; border-bottom:3px solid var(--orange);
-  }
-  .hero img.logo{ height:28px; display:block; margin-bottom:16px; }
+
+  .hero{ padding:28px 24px 22px 24px; }
   .kicker{
-    display:inline-block; background:rgba(255,107,53,0.16); color:#FF9466;
-    border:1px solid rgba(255,107,53,0.45); font-size:11px; font-weight:700;
-    letter-spacing:1.2px; text-transform:uppercase; padding:3px 10px;
-    border-radius:20px; margin-bottom:10px;
+    display:inline-flex; align-items:center; gap:8px; background:rgba(0,120,212,0.2); border:1px solid rgba(0,120,212,0.4);
+    color:var(--azure-light); font-size:.78rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    padding:6px 14px; border-radius:100px; margin-bottom:16px;
   }
-  .hero h1{ font-size:26px; margin:0 0 8px 0; font-weight:700; line-height:1.25; }
-  .hero p{ font-size:14.5px; color:#B9C4D8; margin:0; max-width:520px; }
+  .hero h1{ font-size:clamp(1.5rem, 3.4vw, 2rem); margin:0 0 8px 0; font-weight:800; line-height:1.25; }
+  .hero p{ font-size:14.5px; color:var(--dim); margin:0; max-width:560px; }
 
-  .progress-bar{ background:#fff; padding:14px 24px; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10;}
+  .progress-bar{ background:var(--bg); padding:14px 24px; border-bottom:1px solid var(--line); position:sticky; top:80px; z-index:10;}
   .progress-track{ height:6px; background:var(--line); border-radius:6px; overflow:hidden; }
-  .progress-fill{ height:100%; background:linear-gradient(90deg, var(--orange), #FF9466); border-radius:6px; transition:width .3s ease; }
-  .progress-label{ font-size:12px; color:var(--sub); margin-top:8px; display:flex; justify-content:space-between; }
+  .progress-fill{ height:100%; background:linear-gradient(90deg, var(--azure), var(--cyan)); border-radius:6px; transition:width .3s ease; }
+  .progress-label{ font-size:12px; color:var(--dim); margin-top:8px; display:flex; justify-content:space-between; }
 
-  .card{ background:#fff; margin:20px 24px; border-radius:10px; border:1px solid var(--line); padding:26px 26px 24px 26px; }
-  .step-title{ font-size:19px; font-weight:700; color:var(--navy); margin:0 0 4px 0; }
-  .step-sub{ font-size:13.5px; color:var(--sub); margin:0 0 20px 0; }
-  .optional-tag{ display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#8b95a8; background:#F0F3F9; border-radius:10px; padding:2px 8px; margin-left:8px; vertical-align:middle;}
+  .card{ background:var(--panel); margin:20px 24px; border-radius:12px; border:1px solid var(--line); padding:26px 26px 24px 26px; }
+  .step-title{ font-size:19px; font-weight:700; color:var(--txt); margin:0 0 4px 0; }
+  .step-sub{ font-size:13.5px; color:var(--dim); margin:0 0 20px 0; }
+  .optional-tag{ display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--dim); background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:2px 8px; margin-left:8px; vertical-align:middle;}
 
   /* --- level scoring key --- */
   .levels{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:22px; }
-  .level-card{ border:1px solid var(--line); border-top:4px solid var(--lc); border-radius:6px; padding:10px 9px; }
+  .level-card{ border:1px solid var(--line); border-top:4px solid var(--lc); border-radius:6px; padding:10px 9px; background:var(--panel2); }
   .level-card .lnum{ font-size:10px; font-weight:700; color:var(--lc); text-transform:uppercase; letter-spacing:.5px;}
-  .level-card .ltitle{ font-size:13px; font-weight:700; color:var(--navy); margin:2px 0 4px 0;}
-  .level-card .ldesc{ font-size:11px; color:var(--sub); }
-  .l1{ --lc:var(--blue); } .l2{ --lc:var(--purple); } .l3{ --lc:var(--orange); } .l4{ --lc:var(--green); }
+  .level-card .ltitle{ font-size:13px; font-weight:700; color:var(--txt); margin:2px 0 4px 0;}
+  .level-card .ldesc{ font-size:11px; color:var(--dim); }
+  .l1{ --lc:var(--azure-light); } .l2{ --lc:var(--violet); } .l3{ --lc:var(--orange); } .l4{ --lc:var(--green); }
 
   /* --- function rating rows --- */
-  .func-row{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:10px; }
-  .func-row .fname{ font-weight:700; color:var(--navy); font-size:14.5px; margin-bottom:8px; }
+  .func-row{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:10px; background:var(--panel2); }
+  .func-row .fname{ font-weight:700; color:var(--txt); font-size:14.5px; margin-bottom:8px; }
   .pillgroup{ display:flex; gap:8px; flex-wrap:wrap; }
   .pill{
     flex:1; min-width:110px; text-align:center; border:1.5px solid var(--line); border-radius:20px;
-    padding:7px 6px; font-size:12.5px; font-weight:600; color:var(--sub); cursor:pointer; user-select:none;
-    transition:all .15s ease; background:#fff;
+    padding:7px 6px; font-size:12.5px; font-weight:600; color:var(--dim); cursor:pointer; user-select:none;
+    transition:all .15s ease; background:var(--panel);
   }
-  .pill:hover{ border-color:#B9C4D8; }
-  .pill.sel-l1{ background:var(--blue); border-color:var(--blue); color:#fff; }
-  .pill.sel-l2{ background:var(--purple); border-color:var(--purple); color:#fff; }
+  .pill:hover{ border-color:var(--azure-light); }
+  .pill.sel-l1{ background:var(--azure); border-color:var(--azure); color:#fff; }
+  .pill.sel-l2{ background:var(--violet); border-color:var(--violet); color:#1a1330; }
   .pill.sel-l3{ background:var(--orange); border-color:var(--orange); color:#fff; }
-  .pill.sel-l4{ background:var(--green); border-color:var(--green); color:#fff; }
+  .pill.sel-l4{ background:var(--green); border-color:var(--green); color:#062712; }
 
   /* --- generic form fields --- */
-  label.field-label{ display:block; font-size:13px; font-weight:700; color:var(--navy); margin:16px 0 6px 0; }
+  label.field-label{ display:block; font-size:13px; font-weight:700; color:var(--txt); margin:16px 0 6px 0; }
   label.field-label:first-child{ margin-top:0; }
-  .field-hint{ font-size:11.5px; color:#8b95a8; font-weight:400; margin-left:6px; }
+  .field-hint{ font-size:11.5px; color:var(--dim); font-weight:400; margin-left:6px; }
   input[type=text], input[type=email], input[type=tel], select, textarea{
     width:100%; border:1.5px solid var(--line); border-radius:6px; padding:10px 12px;
-    font-size:14px; font-family:inherit; color:var(--ink); background:#fff;
+    font-size:14px; font-family:inherit; color:var(--txt); background:var(--panel2);
   }
-  input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--blue); }
+  input::placeholder, textarea::placeholder{ color:#5c6d8a; }
+  input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--azure-light); }
   textarea{ resize:vertical; min-height:64px; }
-  .req::after{ content:" *"; color:var(--orange-dark); }
+  .req::after{ content:" *"; color:var(--orange); }
+  select option{ background:var(--panel2); color:var(--txt); }
 
   .choicegrid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; margin-top:2px; }
   .choice{
     border:1.5px solid var(--line); border-radius:6px; padding:9px 10px; font-size:13px;
-    color:var(--sub); cursor:pointer; user-select:none; transition:all .15s ease; background:#fff;
+    color:var(--dim); cursor:pointer; user-select:none; transition:all .15s ease; background:var(--panel2);
   }
-  .choice:hover{ border-color:#B9C4D8; }
-  .choice.selected{ background:#FFF1EA; border-color:var(--orange); color:var(--orange-dark); font-weight:600; }
-  .choice.single.selected{ background:var(--navy); border-color:var(--navy); color:#fff; }
+  .choice:hover{ border-color:var(--azure-light); }
+  .choice.selected{ background:rgba(212,100,28,0.18); border-color:var(--orange); color:#f0a978; font-weight:600; }
+  .choice.single.selected{ background:var(--azure); border-color:var(--azure); color:#fff; }
 
   .deepdive-note{
-    font-size:13px; color:var(--sub); background:#FFF7F0; border-left:3px solid var(--orange);
+    font-size:13px; color:var(--dim); background:rgba(212,100,28,0.1); border-left:3px solid var(--orange);
     padding:10px 14px; border-radius:0 6px 6px 0; margin-bottom:18px;
   }
-  .dd-block{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:14px; }
-  .dd-block .ddhead{ display:inline-block; background:var(--navy); color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:4px; margin-bottom:10px; }
-  .dd-block .ddq{ font-size:13px; color:var(--ink); margin:0 0 6px 0; font-weight:600; }
+  .dd-block{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:14px; background:var(--panel2); }
+  .dd-block .ddhead{ display:inline-block; background:var(--azure); color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:4px; margin-bottom:10px; }
+  .dd-block .ddq{ font-size:13px; color:var(--txt); margin:0 0 6px 0; font-weight:600; }
 
   .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:22px; gap:12px; }
   button{ font-family:inherit; cursor:pointer; border:none; border-radius:22px; font-weight:700; font-size:14px; padding:11px 22px; }
-  .btn-primary{ background:var(--orange); color:#fff; }
-  .btn-primary:hover{ background:var(--orange-dark); }
-  .btn-primary:disabled{ background:#D8DEE9; color:#9aa6bc; cursor:not-allowed; }
-  .btn-ghost{ background:transparent; color:var(--sub); border:1.5px solid var(--line); }
-  .btn-ghost:hover{ border-color:#B9C4D8; }
+  .btn-primary{ background:var(--azure); color:#fff; }
+  .btn-primary:hover{ background:var(--azure-dark); }
+  .btn-primary:disabled{ background:var(--line); color:#6b7a94; cursor:not-allowed; }
+  .btn-ghost{ background:transparent; color:var(--dim); border:1.5px solid var(--line); }
+  .btn-ghost:hover{ border-color:var(--azure-light); color:var(--txt); }
 
-  .skip-note{ font-size:11.5px; color:#8b95a8; text-align:center; margin-top:14px; }
+  .skip-note{ font-size:11.5px; color:var(--dim); text-align:center; margin-top:14px; }
 
   .step{ display:none; }
   .step.active{ display:block; }
 
   .success-card{ text-align:center; padding:40px 26px; }
-  .success-card .ico{ width:56px; height:56px; border-radius:50%; background:var(--green); color:#fff; font-size:28px; line-height:56px; margin:0 auto 16px auto; }
-  .success-card h2{ color:var(--navy); font-size:21px; margin:0 0 10px 0; }
-  .success-card p{ color:var(--sub); font-size:14px; max-width:440px; margin:0 auto 18px auto; }
+  .success-card .ico{ width:56px; height:56px; border-radius:50%; background:var(--green); color:#062712; font-size:28px; line-height:56px; margin:0 auto 16px auto; }
+  .success-card h2{ color:var(--txt); font-size:21px; margin:0 0 10px 0; }
+  .success-card p{ color:var(--dim); font-size:14px; max-width:440px; margin:0 auto 18px auto; }
   .success-card .btn-primary{ display:inline-block; text-decoration:none; }
 
   .credentials{ margin:24px 24px 0 24px; padding-top:16px; border-top:1px solid var(--line); text-align:center; }
   .credchips{ display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-bottom:10px; }
-  .credchip{ font-size:11px; font-weight:600; color:var(--navy); background:#F0F3F9; border:1px solid #DCE3F0; padding:3px 9px; border-radius:20px; }
-  .credchip.orange{ background:#FFF1EA; border-color:#FFD3BC; color:var(--orange-dark); }
-  .tagline{ font-style:italic; font-size:12.5px; color:var(--sub); }
+  .credchip{ font-size:11px; font-weight:600; color:var(--txt); background:var(--panel2); border:1px solid var(--line); padding:3px 9px; border-radius:20px; }
+  .credchip.orange{ background:rgba(212,100,28,0.15); border-color:rgba(212,100,28,0.4); color:#f0a978; }
+  .tagline{ font-style:italic; font-size:12.5px; color:var(--dim); }
 
-  .err-msg{ color:#C1441E; font-size:12px; margin-top:6px; display:none; }
+  .err-msg{ color:var(--red); font-size:12px; margin-top:6px; display:none; }
+
+  footer{background:#080F1A; padding:32px 24px; text-align:center; margin-top:40px;}
+  .footer-inner{max-width:1140px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px;}
+  footer .logo{font-size:1rem;}
+  footer p{color:rgba(255,255,255,0.45); font-size:.82rem;}
+  footer a{color:rgba(255,255,255,0.45); text-decoration:none; font-size:.82rem; transition:color .2s;}
+  footer a:hover{color:var(--azure-light);}
+  .footer-links{display:flex; gap:20px; flex-wrap:wrap; justify-content:center;}
 
   @media (max-width:600px){
     .levels{ grid-template-columns:repeat(2,1fr); }
@@ -130,9 +172,52 @@
 </head>
 <body>
 
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
+      <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+        <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+        <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+        <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+        <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+        <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+        <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+        <circle cx="40" cy="40" r="6.5" fill="white"/>
+      </svg>
+      <div class="logo-text">
+        <div class="logo-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+        <div class="logo-tagline">
+          <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
+        </div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#training">Training</a></li>
+      <li><a href="/#consulting">Consulting</a></li>
+      <li><a href="/#cloud-journey">Cloud Journey</a></li>
+      <li><a href="/#hybrid-flow">Automation</a></li>
+      <li><a href="/explorer.html">AI Explorer</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/book.html" class="nav-cta">Book</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
 <div class="wrap">
   <div class="hero">
-    <img class="logo" src="/email-logo.png" alt="Bam Cloud AI">
     <div class="kicker">Self-Assessment · 10 minutes · online</div>
     <h1>The 4 Levels of AI — Where Does Your Organisation Really Stand?</h1>
     <p>Fill it in online, at your own pace. The more you share, the more useful your free 30-minute call will be — but only your name and email are required to send it through.</p>
@@ -311,12 +396,55 @@
   </div>
 </div>
 
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
+      <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="height:32px;">
+        <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+        <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+        <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+        <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+        <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+        <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+        <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+        <circle cx="40" cy="40" r="6.5" fill="white"/>
+      </svg>
+    </a>
+    <p>&copy; 2026 Bam Cloud AI · Durbanville, Cape Town, South Africa</p>
+    <div class="footer-links">
+      <a href="/explorer.html">AI Explorer</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
 <script>
 (function(){
-  // ---- CONFIG (fill in once the dedicated HubSpot form exists) ----
+  // ---- CONFIG ----
   var HUBSPOT_PORTAL_ID = "148801143";
   var HUBSPOT_FORM_GUID = "11859039-c4da-4bb9-97d4-81e5b2c290ac";
   var BOOKING_URL = "https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled";
+
+  // ---- site nav hamburger ----
+  var hamburger = document.getElementById('navHamburger');
+  var navLinks = document.querySelector('.nav-links');
+  if(hamburger && navLinks){
+    hamburger.addEventListener('click', function(){
+      var isOpen = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+    navLinks.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ navLinks.classList.remove('open'); });
+    });
+  }
 
   var FUNCS = [
     {id:"sales", label:"Sales / Business Dev", q:[
@@ -440,13 +568,34 @@
     window.scrollTo({top:0, behavior:'smooth'});
   }
 
+  // ---- Browser history integration ----
+  // Establish a base history entry for step 1 (replaceState, so a Back press
+  // while on step 1 leaves the page normally — it never got a pushed entry).
+  // Every forward step pushes a new entry, so the physical Back button and
+  // the in-page Back button both walk through the wizard identically.
+  if(window.history && window.history.replaceState){
+    history.replaceState({step:1}, '', location.pathname + location.search);
+  }
+
+  window.addEventListener('popstate', function(e){
+    var step = (e.state && e.state.step) ? e.state.step : 1;
+    currentStep = step;
+    showStep(step);
+  });
+
   document.getElementById('btnBack').addEventListener('click', function(){
-    if(currentStep>1){ currentStep--; showStep(currentStep); }
+    if(currentStep>1){
+      if(window.history && window.history.length){ history.back(); }
+      else { currentStep--; showStep(currentStep); }
+    }
   });
 
   document.getElementById('btnNext').addEventListener('click', function(){
     if(currentStep < totalSteps){
       currentStep++;
+      if(window.history && window.history.pushState){
+        history.pushState({step:currentStep}, '', location.pathname + location.search);
+      }
       showStep(currentStep);
     } else {
       submitAssessment();
