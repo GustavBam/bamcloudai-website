@@ -1,53 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment Options | Bam Cloud AI</title>
-<meta name="description" content="How to pay Bam Cloud AI — Payoneer for international clients, EFT/invoice for South African clients.">
-<link rel="canonical" href="https://bamcloudai.com/payment.html">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-<meta name="robots" content="noindex, follow">
-<style>
-  :root{--navy:#0F1B2D;--azure:#0078D4;--text:#1E293B;--muted:#5A6B82;--border:#E2E8F0;--radius:12px;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:'Segoe UI',Inter,system-ui,sans-serif;color:var(--text);line-height:1.6;background:#fff;}
-  .bar{background:var(--navy);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
-  .bar a{color:#fff;text-decoration:none;font-weight:700;}
-  .bar a span{color:#0EA5E9;}
-  main{max-width:760px;margin:0 auto;padding:48px 24px 64px;}
-  h1{font-size:1.6rem;margin-bottom:8px;}
-  .lead{color:var(--muted);margin-bottom:28px;}
-  .card{border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:16px;box-shadow:0 4px 24px rgba(0,0,0,.06);}
-  .card h2{font-size:1.05rem;margin-bottom:6px;}
-  .card p{font-size:.92rem;color:var(--muted);margin-bottom:12px;}
-  .card a.btn{display:inline-block;background:var(--azure);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-size:.9rem;font-weight:600;}
-  .tagline{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
-  footer{border-top:1px solid var(--border);padding:18px 24px;font-size:.8rem;color:var(--muted);text-align:center;}
-  footer a{color:var(--azure);}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Options | Bam Cloud AI</title>
+  <meta name="description" content="How to pay Bam Cloud AI — Payoneer for international clients, EFT/invoice for South African clients." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://bamcloudai.com/payment.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --azure: #0078D4;
+      --azure-light: #50A0DC;
+      --azure-dark: #005A9E;
+      --orange: #D4641C;
+      --orange-light: #E8844A;
+      --orange-dark: #B0510E;
+      --navy: #0F1B2D;
+      --navy-mid: #1A2D44;
+      --slate: #2D4059;
+      --text: #1E293B;
+      --muted: #5A6B82;
+      --light: #DCEAF8;
+      --white: #FFFFFF;
+      --border: #E2E8F0;
+      --green: #10B981;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV (matches site) ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(15, 27, 45, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .logo .logo-icon { height: 48px; width: auto; display: block; flex-shrink: 0; }
+    .logo .logo-text { display: inline-grid; row-gap: 6px; }
+    .logo .logo-wordmark { white-space: nowrap; font-size: 28px; letter-spacing: -0.5px; line-height: 1; }
+    .logo .logo-wordmark .bam  { font-weight: 800; color: var(--orange); }
+    .logo .logo-wordmark .cai  { font-weight: 300; color: #FFFFFF; }
+    .logo .logo-tagline { display: flex; justify-content: space-between; align-items: center; font-size: 10px; letter-spacing: 0.8px; font-weight: 500; color: rgba(255,255,255,0.65); }
+    .logo .logo-tagline .initial { color: rgba(232,98,26,0.88); font-weight: 700; }
+    .logo .logo-tagline .dot { color: rgba(255,255,255,0.55); letter-spacing: 0; font-size: 12px; }
+    .logo .logo-tagline .last-r { letter-spacing: 0; }
+    nav .logo { gap: 14px; }
+    nav .logo .logo-icon { height: 48px; }
+    nav .logo .logo-wordmark { font-size: 28px; }
+    nav .logo .logo-tagline { font-size: 10px; letter-spacing: 0.8px; }
+    nav .logo .logo-tagline .dot { font-size: 12px; }
+    .nav-links { display: flex; align-items: center; gap: 0; list-style: none; white-space: nowrap; }
+    .nav-links li:not(:last-child):not(:nth-last-child(2))::after { content: "\00b7"; margin: 0 4px; color: rgba(255,255,255,0.35); font-weight: 400; }
+    .nav-links li:last-child { margin-left: 16px; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--azure); color: var(--white) !important; padding: 8px 18px; border-radius: 8px; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--azure-dark) !important; }
+
+    /* ── HAMBURGER NAV ── */
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; border-radius: 6px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.85); border-radius: 2px; transition: all 0.3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 1180px) {
+      .nav-inner { height: 72px; }
+      .logo { gap: 8px; }
+      .logo .logo-icon { height: 40px; }
+      .logo .logo-wordmark { font-size: 22px; }
+      .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
+      .logo .logo-tagline .dot { font-size: 10px; }
+      nav .logo { gap: 10px; }
+      nav .logo .logo-icon { height: 40px; }
+      nav .logo .logo-wordmark { font-size: 22px; }
+      nav .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
+      nav .logo .logo-tagline .dot { font-size: 10px; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 72px; left: 0; right: 0;
+        background: rgba(15,27,45,0.98); backdrop-filter: blur(12px);
+        flex-direction: column; padding: 8px 24px 20px; gap: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { font-size: 1rem; }
+      .nav-cta { display: inline-block; margin-top: 4px; }
+    }
+
+    /* ── PAYMENT CONTENT ── */
+    main { max-width: 820px; margin: 0 auto; padding: 132px 24px 80px; }
+    @media (max-width: 640px) { main { padding-top: 108px; } }
+    h1 { font-size: 2rem; color: var(--navy); margin-bottom: 8px; }
+    .lead { color: var(--muted); font-size: 1rem; margin-bottom: 40px; }
+    .card { border: 1px solid var(--border); border-radius: 12px; padding: 28px 30px; margin-bottom: 20px; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+    .card .tagline { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-weight: 600; }
+    .card h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 0.98rem; margin-bottom: 18px; }
+    .card a.btn { display: inline-block; background: var(--azure); color: var(--white) !important; text-decoration: none; padding: 11px 20px; border-radius: 8px; font-size: 0.92rem; font-weight: 600; transition: background 0.2s; }
+    .card a.btn:hover { background: var(--azure-dark); }
+    .footnote { font-size: 0.9rem; color: var(--muted); margin-top: 8px; }
+    .footnote a { color: var(--azure); }
+
+    /* ── FOOTER (matches site) ── */
+    footer { background: #080F1A; padding: 32px 24px; text-align: center; }
+    .footer-inner { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+    footer .logo { font-size: 1rem; }
+    footer p { color: rgba(255,255,255,0.45); font-size: 0.82rem; }
+    footer a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    footer a:hover { color: var(--azure-light); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  </style>
 </head>
 <body>
-<div class="bar"><a href="/">BAM <span>Cloud AI</span></a><a href="/book.html" style="font-size:.85rem;background:#0EA5E9;padding:6px 14px;border-radius:8px;color:#04222c;">Book</a></div>
-<main>
-  <h1>How to Pay</h1>
-  <p class="lead">Payment details are confirmed on every invoice. Pick whichever route fits where you're based.</p>
-  <div class="card">
-    <div class="tagline">International clients</div>
-    <h2>🌍 Payoneer</h2>
-    <p>For clients outside South Africa. Pay with your own card or local bank details; conversion to USD happens automatically at the exchange rate at time of payment — no need to hold dollars. I'll send you a secure Payoneer payment link.</p>
-    <a class="btn" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Payoneer%20Payment%20Link">Request a secure payment link</a>
-  </div>
-  <div class="card">
-    <div class="tagline">South African clients</div>
-    <h2>🧾 EFT / Invoice</h2>
-    <p>Direct EFT in ZAR against invoice — banking details are on every invoice. Local card / Instant EFT via PayFast is being finalised and will appear here when live.</p>
-    <a class="btn" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20EFT%20Payment%20Details">Request EFT/invoice details</a>
-  </div>
-  <p style="font-size:.85rem;color:var(--muted);">All ZAR rates exclude VAT. See <a href="/#pricing" style="color:var(--azure);">pricing</a> and the <a href="/refund-policy.html" style="color:var(--azure);">refund policy</a>.</p>
-</main>
-<footer>© 2026 Bam Cloud AI · Durbanville, Cape Town · <a href="/">bamcloudai.com</a> · <a href="/terms.html">Terms</a></footer>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
+        <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+          <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+          <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+          <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+          <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+          <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+          <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+          <circle cx="40" cy="40" r="6.5" fill="white"/>
+        </svg>
+        <div class="logo-text">
+          <div class="logo-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+          <div class="logo-tagline">
+            <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#training">Training</a></li>
+        <li><a href="/#consulting">Consulting</a></li>
+        <li><a href="/#cloud-journey">Cloud Journey</a></li>
+        <li><a href="/#hybrid-flow">Automation</a></li>
+        <li><a href="/explorer.html">AI Explorer</a></li>
+        <li><a href="/assessment.html">AI Assessment</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/book.html" class="nav-cta">Book</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <h1>How to Pay</h1>
+    <p class="lead">Payment details are confirmed on every invoice. Pick whichever route fits where you're based.</p>
+
+    <div class="card">
+      <div class="tagline">International clients</div>
+      <h2>🌍 Payoneer</h2>
+      <p>For clients outside South Africa. Pay with your own card or local bank details; conversion to USD happens automatically at the exchange rate at time of payment — no need to hold dollars. I'll send you a secure Payoneer payment link.</p>
+      <a class="btn" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Payoneer%20Payment%20Link">Request a secure payment link</a>
+    </div>
+
+    <div class="card">
+      <div class="tagline">South African clients</div>
+      <h2>🧾 EFT / Invoice</h2>
+      <p>Direct EFT in ZAR against invoice — banking details are on every invoice. Local card / Instant EFT via PayFast is being finalised and will appear here when live.</p>
+      <a class="btn" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20EFT%20Payment%20Details">Request EFT/invoice details</a>
+    </div>
+
+    <p class="footnote">All ZAR rates exclude VAT. See <a href="/#pricing">pricing</a> and the <a href="/refund-policy.html">refund policy</a>.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/#home" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
+        <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+          <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+          <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+          <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+          <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+          <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+          <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+          <circle cx="40" cy="40" r="6.5" fill="white"/>
+        </svg>
+        <div class="logo-text">
+          <div class="logo-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+          <div class="logo-tagline">
+            <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
+          </div>
+        </div>
+      </a>
+      <p>© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
+      <div class="footer-links">
+        <a href="/#training">Training</a>
+        <a href="/#consulting">Consulting</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/payment.html">Payment</a>
+        <a href="/#about">About</a>
+        <a href="/explorer.html">AI Explorer</a>
+        <a href="/assessment.html">AI Assessment</a>
+        <a href="/book.html">Book</a>
+        <a href="/#contact">Contact</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/refund-policy.html">Refund Policy</a>
+        <a href="mailto:gustav@bamcloudai.com">Email</a>
+        <a href="https://www.linkedin.com/company/bam-cloud-ai/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('navHamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+        hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.setAttribute('aria-label', 'Open menu');
+        });
+      });
+    }
+  </script>
+
 </body>
 </html>
