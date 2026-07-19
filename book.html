@@ -104,9 +104,18 @@
     nav .logo .logo-tagline .dot { font-size: 12px; }
     .nav-links {
       display: flex;
-      gap: 32px;
+      align-items: center;
+      gap: 0;
       list-style: none;
+      white-space: nowrap;
     }
+    .nav-links li:not(:last-child):not(:nth-last-child(2))::after {
+      content: "\00b7";
+      margin: 0 8px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 400;
+    }
+    .nav-links li:last-child { margin-left: 20px; }
     .nav-links a {
       color: rgba(255,255,255,0.75);
       text-decoration: none;
@@ -138,7 +147,7 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1180px) {
       .nav-inner { height: 72px; }
       .logo { gap: 8px; }
       nav .logo .logo-icon { height: 36px; }
@@ -414,6 +423,10 @@
       <ul class="nav-links">
         <li><a href="/#training">Training</a></li>
         <li><a href="/#consulting">Consulting</a></li>
+        <li><a href="/#cloud-journey">Cloud Journey</a></li>
+        <li><a href="/#hybrid-flow">Automation</a></li>
+        <li><a href="/explorer.html">AI Explorer</a></li>
+        <li><a href="/assessment.html">AI Assessment</a></li>
         <li><a href="/#pricing">Pricing</a></li>
         <li><a href="/#about">About</a></li>
         <li><a href="/#contact">Contact</a></li>

@@ -33,7 +33,9 @@
   .logo .logo-tagline .initial{ color:rgba(232,98,26,0.88); font-weight:700; }
   .logo .logo-tagline .dot{ color:rgba(255,255,255,0.55); letter-spacing:0; font-size:12px; }
   .logo .logo-tagline .last-r{ letter-spacing:0; }
-  .nav-links{ display:flex; gap:14px; list-style:none; white-space:nowrap; }
+  .nav-links{ display:flex; align-items:center; gap:0; list-style:none; white-space:nowrap; }
+  .nav-links li:not(:last-child):not(:nth-last-child(2))::after{ content:"\00b7"; margin:0 8px; color:rgba(255,255,255,.35); font-weight:400; }
+  .nav-links li:last-child{ margin-left:20px; }
   .nav-links a{ color:rgba(255,255,255,0.75); text-decoration:none; font-size:.9rem; font-weight:500; transition:color .2s; }
   .nav-links a:hover{ color:var(--white); }
   .nav-cta{ background:var(--azure); color:var(--white) !important; padding:8px 18px; border-radius:8px; transition:background .2s !important; }
