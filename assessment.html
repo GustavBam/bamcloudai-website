@@ -22,7 +22,7 @@
     background: rgba(15,27,45,0.95); backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .nav-inner{ max-width:1140px; margin:0 auto; padding:0 24px; height:80px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-inner{ max-width:1140px; margin:0 auto; padding:0 24px; height:80px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
   .logo{ display:inline-flex; align-items:center; gap:14px; text-decoration:none; line-height:1; }
   .logo .logo-icon{ height:48px; width:auto; display:block; flex-shrink:0; }
   .logo .logo-text{ display:inline-grid; row-gap:6px; }
@@ -34,8 +34,8 @@
   .logo .logo-tagline .dot{ color:rgba(255,255,255,0.55); letter-spacing:0; font-size:12px; }
   .logo .logo-tagline .last-r{ letter-spacing:0; }
   .nav-links{ display:flex; align-items:center; gap:0; list-style:none; white-space:nowrap; }
-  .nav-links li:not(:last-child):not(:nth-last-child(2))::after{ content:"\00b7"; margin:0 8px; color:rgba(255,255,255,.35); font-weight:400; }
-  .nav-links li:last-child{ margin-left:20px; }
+  .nav-links li:not(:last-child):not(:nth-last-child(2))::after{ content:"\00b7"; margin:0 4px; color:rgba(255,255,255,.35); font-weight:400; }
+  .nav-links li:last-child{ margin-left:16px; }
   .nav-links a{ color:rgba(255,255,255,0.75); text-decoration:none; font-size:.9rem; font-weight:500; transition:color .2s; }
   .nav-links a:hover{ color:var(--white); }
   .nav-cta{ background:var(--azure); color:var(--white) !important; padding:8px 18px; border-radius:8px; transition:background .2s !important; }
