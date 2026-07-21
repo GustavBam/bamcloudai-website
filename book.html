@@ -4,18 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book a Session or Call — Bam Cloud AI</title>
-  <meta name="description" content="Book an Azure training session, consulting discovery call, or Business English coaching with Gustav Bam — Microsoft Certified Trainer and AZ-305 Azure Solutions Architect Expert. No contact forms, just pick a slot." />
+  <meta name="description" content="Book an Azure training session or a free consulting discovery call with Gustav Bam — Microsoft Certified Trainer and AZ-305 Azure Architect. No contact forms, just pick a slot." />
   <meta property="og:title" content="Book a Session — Bam Cloud AI" />
   <meta property="og:description" content="Two tracks: Azure training sessions or a free 30-min consulting discovery call. Schedule directly — no forms." />
   <meta property="og:url" content="https://bamcloudai.com/book.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://bamcloudai.com/og-image.png" />
+  <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://bamcloudai.com/book.html" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -29,7 +30,7 @@
       --navy-mid: #1A2D44;
       --slate: #2D4059;
       --text: #1E293B;
-      --muted: #5A6B82;
+      --muted: #586980;
       --light: #DCEAF8;
       --white: #FFFFFF;
       --border: #E2E8F0;
@@ -42,6 +43,17 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
+    /* ── SCROLL PROGRESS ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--azure-light), var(--orange));
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text);
@@ -395,6 +407,7 @@
 <body>
 
   <!-- NAV -->
+  <div class="scroll-progress" id="scrollProgress"></div>
   <nav>
     <div class="nav-inner">
       <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
@@ -584,5 +597,19 @@
     }
   </script>
 
+  <script>
+    (function(){
+      const progressBar = document.getElementById('scrollProgress');
+      if (!progressBar) return;
+      const updateProgress = () => {
+        const h = document.documentElement;
+        const scrolled = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+        progressBar.style.width = Math.min(100, Math.max(0, scrolled)) + '%';
+      };
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      document.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    })();
+  </script>
 </body>
 </html>

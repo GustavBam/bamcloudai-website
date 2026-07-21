@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="lPGUUvsJt5y668dDQRnm7IyAdQQWllMVRivmK7vTl7w" />
   <title>Bam Cloud AI — Azure &amp; AI Training | Cloud Consulting</title>
-  <meta name="description" content="Microsoft-certified Azure and AI training, and cloud consulting for businesses. Certification prep, corporate workshops, Business English for IT, and Azure architecture. Based in Cape Town, serving globally." />
+  <meta name="description" content="Microsoft-certified Azure and AI training and cloud consulting — certification prep, corporate workshops, and Business English for IT. Cape Town, serving globally." />
   <meta property="og:title" content="Bam Cloud AI — Azure & AI Training | Cloud Consulting" />
   <meta property="og:description" content="Practical, certified expertise from a Microsoft-certified Azure architect with 25+ years in enterprise IT." />
   <meta property="og:url" content="https://bamcloudai.com" />
@@ -24,6 +24,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
@@ -34,7 +35,7 @@
     "logo": "https://bamcloudai.com/favicon.svg",
     "url": "https://bamcloudai.com",
     "email": "mailto:gustav@bamcloudai.com",
-    "description": "Microsoft-certified Azure and AI training, and cloud consulting for businesses. Certification prep, corporate workshops, Business English for IT, and Azure architecture. Based in Cape Town, serving globally.",
+    "description": "Microsoft-certified Azure and AI training and cloud consulting — certification prep, corporate workshops, and Business English for IT. Cape Town, serving globally.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Durbanville",
@@ -68,11 +69,12 @@
       --orange: #D4641C;
       --orange-light: #E8844A;
       --orange-dark: #B0510E;
+      --orange-a11y: #A54E16;
       --navy: #0F1B2D;
       --navy-mid: #1A2D44;
       --slate: #2D4059;
       --text: #1E293B;
-      --muted: #5A6B82;
+      --muted: #586980;
       --light: #DCEAF8;
       --white: #FFFFFF;
       --border: #E2E8F0;
@@ -94,6 +96,24 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
+
+    /* ── SCROLL PROGRESS ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--azure-light), var(--orange));
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.reveal-in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -200,7 +220,7 @@
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #1a3a5c 100%);
       display: flex;
       align-items: center;
-      padding: 160px 24px 60px;
+      padding: 108px 24px 32px;
       position: relative;
       overflow: hidden;
     }
@@ -243,7 +263,7 @@
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 14px;
     }
     .hero-badge::before {
       content: '';
@@ -252,27 +272,64 @@
       border-radius: 50%;
     }
     .hero h1 {
-      font-size: clamp(2.5rem, 4.5vw, 3.6rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800;
       color: var(--white);
-      line-height: 1.15;
+      line-height: 1.12;
       letter-spacing: -0.03em;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       max-width: 720px;
     }
     .hero h1 span { color: var(--azure-light); }
     .hero-sub {
-      font-size: 1.15rem;
+      font-size: 1rem;
       color: rgba(255,255,255,0.72);
       max-width: 560px;
-      margin-bottom: 48px;
-      line-height: 1.7;
+      margin-bottom: 18px;
+      line-height: 1.6;
       font-weight: 400;
     }
     .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 560px;
+    }
+    .hero-actions .btn { justify-content: center; }
+    .hero-shortcuts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin-bottom: 14px;
+      max-width: 560px;
+    }
+    @media (max-width: 480px) {
+      .hero-shortcuts { grid-template-columns: 1fr; }
+    }
+    .hero-shortcut {
+      display: block;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 8px;
+      padding: 6px 10px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .hero-shortcut:hover {
+      background: rgba(255,255,255,0.11);
+      border-color: rgba(255,255,255,0.28);
+      transform: translateY(-1px);
+    }
+    .hero-shortcut-title {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .hero-shortcut-desc {
+      font-size: 0.66rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0;
+      line-height: 1.25;
     }
     .booking-hint {
       font-size: 0.78rem;
@@ -292,7 +349,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 14px 28px;
+      padding: 12px 24px;
       border-radius: var(--radius);
       font-size: 0.95rem;
       font-weight: 600;
@@ -454,7 +511,11 @@
     .price-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 
     /* ── CONSULTING ── */
-    #consulting { background: var(--light); }
+    #consulting {
+      background:
+        radial-gradient(circle, rgba(0,120,212,0.07) 1px, transparent 1px) 0 0/26px 26px,
+        var(--light);
+    }
     .consulting-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -528,7 +589,11 @@
     }
 
     /* ── ABOUT ── */
-    #about { background: var(--light); }
+    #about {
+      background:
+        radial-gradient(circle, rgba(0,120,212,0.07) 1px, transparent 1px) 0 0/26px 26px,
+        var(--light);
+    }
     .about-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -708,19 +773,52 @@
     .pr-amount .pr-sub { display: block; font-size: 0.7rem; font-weight: 400; color: var(--muted); }
     .pr-amount.free { color: var(--green); }
     /* TESTIMONIALS */
-    #testimonials { background: var(--navy); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 360px)); gap: 24px; justify-content: center; }
-    @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 640px) { .testimonials-grid { grid-template-columns: 1fr; gap: 16px; } }
-    .testimonial-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; }
-    .testimonial-quote { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 20px; font-style: italic; flex: 1; position: relative; padding-left: 20px; }
-    .testimonial-quote::before { content: '\201C'; position: absolute; left: 0; top: -4px; font-size: 2.2rem; color: var(--azure); line-height: 1; font-style: normal; }
-    .testimonial-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; margin-top: auto; }
-    .testimonial-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--azure), var(--azure-dark)); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 0.9rem; flex-shrink: 0; }
-    .testimonial-name { font-size: 0.88rem; font-weight: 700; color: var(--white); }
-    .testimonial-role { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
-    .testimonials-linkedin-link { text-align: center; margin-top: 36px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
-    .testimonials-linkedin-link a { color: var(--azure); text-decoration: none; }
+    #testimonials {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #16283f 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #testimonials::before {
+      content: '';
+      position: absolute;
+      top: -30%; left: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,120,212,0.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #testimonials::after {
+      content: '';
+      position: absolute;
+      bottom: -35%; right: -12%;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(232,98,26,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #testimonials .section-inner { position: relative; z-index: 1; }
+    .testimonial-feature {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 48px;
+      align-items: stretch;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 52px;
+    }
+    @media (max-width: 860px) { .testimonial-feature { grid-template-columns: 1fr; padding: 36px 28px; gap: 32px; } }
+    .testimonial-main { display: flex; flex-direction: column; }
+    .testimonial-quote-mark { font-size: 4rem; line-height: 1; color: var(--azure-light); font-family: Georgia, serif; margin-bottom: 8px; }
+    .testimonial-quote { font-size: 1.25rem; color: rgba(255,255,255,0.92); line-height: 1.7; font-weight: 500; letter-spacing: -0.01em; flex: 1; }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; margin-top: 28px; }
+    .testimonial-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--azure), var(--azure-dark)); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1.05rem; flex-shrink: 0; }
+    .testimonial-name { font-size: 0.98rem; font-weight: 700; color: var(--white); }
+    .testimonial-role { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+    .testimonial-stats { display: flex; flex-direction: column; justify-content: center; gap: 28px; border-left: 1px solid rgba(255,255,255,0.12); padding-left: 48px; }
+    @media (max-width: 860px) { .testimonial-stats { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); padding-left: 0; padding-top: 28px; flex-direction: row; flex-wrap: wrap; } }
+    .testimonial-stat-num { font-size: 1.9rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .testimonial-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+    .testimonials-linkedin-link { text-align: center; margin-top: 32px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    .testimonials-linkedin-link a { color: var(--azure-light); text-decoration: none; font-weight: 600; }
     .testimonials-linkedin-link a:hover { text-decoration: underline; }
 
     .price-fx {
@@ -869,8 +967,24 @@
       max-width: 1140px; margin: 0 auto; position: relative; z-index: 1;
       display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
     }
-    .hero-visual { display: flex; justify-content: center; align-items: center; }
-    .hero-visual svg { width: 100%; max-width: 460px; height: auto; }
+    .hero-visual { display: flex; justify-content: center; align-items: center; align-self: center; transform: translateY(-130px); }
+    .hero-visual svg { width: 100%; max-width: 460px; height: auto; overflow: visible; }
+
+    .hv-dash { stroke-dasharray: 5 4; animation: hvDashMove 2.6s linear infinite; }
+    @keyframes hvDashMove { to { stroke-dashoffset: -18; } }
+    .hv-dot { transform-box: fill-box; transform-origin: center; animation: hvPulse 2.2s ease-in-out infinite; }
+    @keyframes hvPulse { 0%, 100% { opacity: 0.45; transform: scale(1); } 50% { opacity: 1; transform: scale(1.5); } }
+    .hv-node-group { transform-box: fill-box; transform-origin: center; animation: hvFloat 4.2s ease-in-out infinite; }
+    @keyframes hvFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    .hv-hub-ring { transform-box: fill-box; transform-origin: center; animation: hvRing 2.8s cubic-bezier(0.2,0.7,0.4,1) infinite; }
+    @keyframes hvRing { 0% { transform: scale(1); opacity: 0.55; } 100% { transform: scale(1.7); opacity: 0; } }
+    .hv-hub-core { transform-box: fill-box; transform-origin: center; animation: hvHubPulse 2.8s ease-in-out infinite; }
+    @keyframes hvHubPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+    .hv-badge { transform-box: fill-box; transform-origin: center; animation: hvBadgeGlow 3.2s ease-in-out infinite; }
+    @keyframes hvBadgeGlow { 0%, 100% { stroke-opacity: 0.35; } 50% { stroke-opacity: 0.8; } }
+    @media (prefers-reduced-motion: reduce) {
+      .hv-dash, .hv-dot, .hv-node-group, .hv-hub-ring, .hv-hub-core, .hv-badge { animation: none; }
+    }
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; }
       .hero-visual { display: none; }
@@ -922,7 +1036,7 @@
     .card-english { border-top: 3px solid var(--orange); background: linear-gradient(160deg, rgba(212,100,28,0.04) 0%, var(--white) 40%); }
     .card-english:hover { border-color: var(--orange); }
     .card-english .card-icon { background: linear-gradient(135deg, var(--orange), var(--orange-dark)); }
-    .card-english .card-link { color: var(--orange); }
+    .card-english .card-link { color: var(--orange-a11y); }
     .card-english .card-link:hover { color: var(--orange-dark); }
     .card-english .tag { background: rgba(212,100,28,0.09); color: var(--orange-dark); border: 1px solid rgba(212,100,28,0.18); }
     .card-english-badge {
@@ -936,8 +1050,8 @@
     /* ── BUSINESS ENGLISH PRICING CARD ── */
     .price-english { border-top: 3px solid var(--orange) !important; background: linear-gradient(160deg,#FFF8F5 0%,var(--white) 50%) !important; }
     .price-english:hover { border-color: var(--orange) !important; }
-    .price-english .price-platform { color: var(--orange) !important; }
-    .price-english .card-link { color: var(--orange) !important; }
+    .price-english .price-platform { color: var(--orange-a11y) !important; }
+    .price-english .card-link { color: var(--orange-a11y) !important; }
     .price-english .card-link:hover { color: var(--orange-dark) !important; }
 
     /* ── ORANGE BTN ── */
@@ -945,7 +1059,7 @@
     .btn-orange:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,100,28,0.45); }
 
     /* ── ORANGE SECTION LABEL ── */
-    .section-label.orange { color: var(--orange); }
+    .section-label.orange { color: var(--orange-a11y); }
 
     /* ── SPECTRUM ACCENTS — training cards ── */
     .card-purple { border-top: 3px solid var(--purple); }
@@ -1120,6 +1234,7 @@
 <body>
 
   <!-- NAV -->
+  <div class="scroll-progress" id="scrollProgress"></div>
   <nav>
     <div class="nav-inner">
       <a href="#" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
@@ -1171,8 +1286,26 @@
         <div class="hero-badge">Microsoft Certified · Cape Town, SA · Global</div>
         <h1>Built It. Ran It.<br/><span>Now I'll Teach You to Master It.</span></h1>
         <p class="hero-sub">
-          I'm Gustav Bam — AZ-305 certified Azure architect, Microsoft Certified Trainer (MCT), and 25+ years running production environments at enterprise scale. I bring that real-world rigour to Azure &amp; AI training, certification coaching, and cloud consulting.
+          I'm Gustav Bam — AZ-305 and AZ-104 certified Azure architect, Microsoft Certified Trainer (MCT), and 25+ years running production environments at enterprise scale. I bring that real-world rigour to Azure &amp; AI training, certification coaching, and cloud consulting.
         </p>
+        <div class="hero-shortcuts">
+          <a href="#cloud-journey" class="hero-shortcut">
+            <div class="hero-shortcut-title">🚀 Cloud Journey</div>
+            <div class="hero-shortcut-desc">Interactive 7-phase Cloud Adoption Framework walkthrough</div>
+          </a>
+          <a href="#hybrid-flow" class="hero-shortcut">
+            <div class="hero-shortcut-title">⚡ Automation</div>
+            <div class="hero-shortcut-desc">How on-prem, identity, Azure &amp; customers connect</div>
+          </a>
+          <a href="/explorer.html" class="hero-shortcut">
+            <div class="hero-shortcut-title">🤖 AI Explorer</div>
+            <div class="hero-shortcut-desc">Free tool for SME Copilot &amp; AI readiness</div>
+          </a>
+          <a href="/assessment.html" class="hero-shortcut">
+            <div class="hero-shortcut-title">📋 AI Assessment</div>
+            <div class="hero-shortcut-desc">Score your org's AI readiness in minutes</div>
+          </a>
+        </div>
         <div class="hero-actions">
           <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="btn btn-primary">Book a Training Session</a>
           <a href="https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled" target="_blank" class="btn btn-secondary">Request a Consulting Call</a>
@@ -1205,42 +1338,57 @@
           <!-- Background glow -->
           <ellipse cx="230" cy="200" rx="190" ry="155" fill="rgba(0,120,212,0.06)"/>
           <!-- Connection lines -->
-          <line x1="230" y1="154" x2="230" y2="92" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="5 4"/>
-          <line x1="267" y1="170" x2="332" y2="132" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="5 4"/>
-          <line x1="267" y1="230" x2="332" y2="250" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="5 4"/>
-          <line x1="230" y1="246" x2="230" y2="308" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="5 4"/>
-          <line x1="193" y1="230" x2="128" y2="250" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="5 4"/>
-          <line x1="193" y1="170" x2="128" y2="132" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="5 4"/>
+          <line class="hv-dash" x1="230" y1="154" x2="230" y2="92" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4"/>
+          <line class="hv-dash" x1="267" y1="170" x2="332" y2="132" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" style="animation-delay:-0.4s"/>
+          <line class="hv-dash" x1="267" y1="230" x2="332" y2="250" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" style="animation-delay:-0.8s"/>
+          <line class="hv-dash" x1="230" y1="246" x2="230" y2="308" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" style="animation-delay:-1.2s"/>
+          <line class="hv-dash" x1="193" y1="230" x2="128" y2="250" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" style="animation-delay:-1.6s"/>
+          <line class="hv-dash" x1="193" y1="170" x2="128" y2="132" stroke="#0078D4" stroke-width="1.5" stroke-opacity="0.4" style="animation-delay:-2s"/>
           <!-- Mid-point pulse dots -->
-          <circle cx="230" cy="123" r="3.5" fill="#0078D4" opacity="0.55"/>
-          <circle cx="300" cy="151" r="3.5" fill="#0078D4" opacity="0.55"/>
-          <circle cx="300" cy="240" r="3.5" fill="#0078D4" opacity="0.55"/>
-          <circle cx="230" cy="277" r="3.5" fill="#0078D4" opacity="0.55"/>
-          <circle cx="160" cy="240" r="3.5" fill="#0078D4" opacity="0.55"/>
-          <circle cx="160" cy="151" r="3.5" fill="#0078D4" opacity="0.55"/>
+          <circle class="hv-dot" cx="230" cy="123" r="3.5" fill="#0078D4" style="animation-delay:0s"/>
+          <circle class="hv-dot" cx="300" cy="151" r="3.5" fill="#0078D4" style="animation-delay:-0.4s"/>
+          <circle class="hv-dot" cx="300" cy="240" r="3.5" fill="#0078D4" style="animation-delay:-0.8s"/>
+          <circle class="hv-dot" cx="230" cy="277" r="3.5" fill="#0078D4" style="animation-delay:-1.2s"/>
+          <circle class="hv-dot" cx="160" cy="240" r="3.5" fill="#0078D4" style="animation-delay:-1.6s"/>
+          <circle class="hv-dot" cx="160" cy="151" r="3.5" fill="#0078D4" style="animation-delay:-2s"/>
           <!-- Service nodes -->
-          <rect x="185" y="54" width="90" height="38" rx="9" fill="#0D1E35" stroke="#0078D4" stroke-width="1.5" filter="url(#node-glow)"/>
-          <text x="230" y="77" text-anchor="middle" fill="#50A0DC" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">Azure AI</text>
-          <rect x="332" y="113" width="84" height="38" rx="9" fill="#0D1E35" stroke="#50A0DC" stroke-width="1.5"/>
-          <text x="374" y="136" text-anchor="middle" fill="#50A0DC" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">Azure VMs</text>
-          <rect x="332" y="231" width="84" height="38" rx="9" fill="#0D1E35" stroke="#A855F7" stroke-width="1.5"/>
-          <text x="374" y="254" text-anchor="middle" fill="#A855F7" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">Storage</text>
-          <rect x="185" y="308" width="90" height="38" rx="9" fill="#0D1E35" stroke="#10B981" stroke-width="1.5"/>
-          <text x="230" y="331" text-anchor="middle" fill="#10B981" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">SQL / Cosmos</text>
-          <rect x="44" y="231" width="84" height="38" rx="9" fill="#0D1E35" stroke="#F59E0B" stroke-width="1.5"/>
-          <text x="86" y="254" text-anchor="middle" fill="#F59E0B" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">Entra ID</text>
-          <rect x="44" y="113" width="84" height="38" rx="9" fill="#0D1E35" stroke="#D4641C" stroke-width="1.5"/>
-          <text x="86" y="136" text-anchor="middle" fill="#D4641C" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">Networking</text>
+          <g class="hv-node-group" style="animation-delay:0s">
+            <rect x="185" y="54" width="90" height="38" rx="9" fill="#0D1E35" stroke="#0078D4" stroke-width="1.5" filter="url(#node-glow)"/>
+            <text x="230" y="77" text-anchor="middle" fill="#50A0DC" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">Azure AI</text>
+          </g>
+          <g class="hv-node-group" style="animation-delay:-0.7s">
+            <rect x="332" y="113" width="84" height="38" rx="9" fill="#0D1E35" stroke="#50A0DC" stroke-width="1.5"/>
+            <text x="374" y="136" text-anchor="middle" fill="#50A0DC" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">Azure VMs</text>
+          </g>
+          <g class="hv-node-group" style="animation-delay:-1.4s">
+            <rect x="332" y="231" width="84" height="38" rx="9" fill="#0D1E35" stroke="#A855F7" stroke-width="1.5"/>
+            <text x="374" y="254" text-anchor="middle" fill="#A855F7" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">Storage</text>
+          </g>
+          <g class="hv-node-group" style="animation-delay:-2.1s">
+            <rect x="185" y="308" width="90" height="38" rx="9" fill="#0D1E35" stroke="#10B981" stroke-width="1.5"/>
+            <text x="230" y="331" text-anchor="middle" fill="#10B981" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">SQL / Cosmos</text>
+          </g>
+          <g class="hv-node-group" style="animation-delay:-2.8s">
+            <rect x="44" y="231" width="84" height="38" rx="9" fill="#0D1E35" stroke="#F59E0B" stroke-width="1.5"/>
+            <text x="86" y="254" text-anchor="middle" fill="#F59E0B" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">Entra ID</text>
+          </g>
+          <g class="hv-node-group" style="animation-delay:-3.5s">
+            <rect x="44" y="113" width="84" height="38" rx="9" fill="#0D1E35" stroke="#D4641C" stroke-width="1.5"/>
+            <text x="86" y="136" text-anchor="middle" fill="#D4641C" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">Networking</text>
+          </g>
           <!-- Central Hub -->
-          <circle cx="230" cy="200" r="48" fill="#0D1E35" stroke="#0078D4" stroke-width="2" filter="url(#hub-glow)"/>
-          <circle cx="230" cy="200" r="40" fill="rgba(0,120,212,0.13)"/>
-          <text x="230" y="196" text-anchor="middle" fill="#FFFFFF" font-size="13" font-family="Inter,system-ui,sans-serif" font-weight="700" letter-spacing="1">AZURE</text>
-          <text x="230" y="212" text-anchor="middle" fill="#50A0DC" font-size="10" font-family="Inter,system-ui,sans-serif" font-weight="500">Cloud Hub</text>
+          <circle class="hv-hub-ring" cx="230" cy="200" r="48" fill="none" stroke="#0078D4" stroke-width="1.5"/>
+          <g class="hv-hub-core">
+            <circle cx="230" cy="200" r="48" fill="#0D1E35" stroke="#0078D4" stroke-width="2" filter="url(#hub-glow)"/>
+            <circle cx="230" cy="200" r="40" fill="rgba(0,120,212,0.13)"/>
+            <text x="230" y="196" text-anchor="middle" fill="#FFFFFF" font-size="13" font-family="Inter,system-ui,sans-serif" font-weight="700" letter-spacing="1">AZURE</text>
+            <text x="230" y="212" text-anchor="middle" fill="#50A0DC" font-size="10" font-family="Inter,system-ui,sans-serif" font-weight="500">Cloud Hub</text>
+          </g>
           <!-- Cert badge -->
-          <rect x="324" y="326" width="128" height="60" rx="10" fill="rgba(0,120,212,0.12)" stroke="rgba(0,120,212,0.35)" stroke-width="1.5"/>
-          <text x="388" y="348" text-anchor="middle" fill="#50A0DC" font-size="10" font-family="Inter,system-ui,sans-serif" font-weight="700" letter-spacing="0.6">MICROSOFT</text>
-          <text x="388" y="364" text-anchor="middle" fill="#FFFFFF" font-size="11" font-family="Inter,system-ui,sans-serif" font-weight="600">AZ-305 Certified</text>
-          <text x="388" y="378" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="Inter,system-ui,sans-serif">25+ Years Experience</text>
+          <rect class="hv-badge" x="324" y="326" width="128" height="60" rx="10" fill="rgba(0,120,212,0.12)" stroke="rgba(0,120,212,0.35)" stroke-width="1.5"/>
+          <text x="388" y="345" text-anchor="middle" fill="#50A0DC" font-size="9.5" font-family="Inter,system-ui,sans-serif" font-weight="700" letter-spacing="0.5">MICROSOFT</text>
+          <text x="388" y="359" text-anchor="middle" fill="#FFFFFF" font-size="10.5" font-family="Inter,system-ui,sans-serif" font-weight="600">AZ-305 · AZ-104 · MCT</text>
+          <text x="388" y="374" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="9.5" font-family="Inter,system-ui,sans-serif">25+ Years Experience</text>
         </svg>
       </div>
     </div>
@@ -2177,10 +2325,10 @@
         <span class="section-label">What People Say</span>
         <h2>Real Feedback From Clients &amp; Colleagues</h2>
       </div>
-      <div class="testimonials-grid">
-
-        <div class="testimonial-card">
-          <p class="testimonial-quote">As a social worker, I never imagined AI was for someone like me. Gustav changed that. He taught me to use Microsoft Copilot with patience and zero jargon, and showed me exactly how it fits my real work — from drafting reports to planning my week. He meets you at your level and makes it genuinely useful instead of intimidating.</p>
+      <div class="testimonial-feature">
+        <div class="testimonial-main">
+          <span class="testimonial-quote-mark">&#8220;</span>
+          <p class="testimonial-quote">As a social worker, I never imagined AI was for someone like me. Gustav changed that. He taught me to use Microsoft Copilot with patience and zero jargon, and showed me exactly how it fits my real work &mdash; from drafting reports to planning my week. He meets you at your level and makes it genuinely useful instead of intimidating.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">NA</div>
             <div>
@@ -2189,7 +2337,20 @@
             </div>
           </div>
         </div>
-
+        <div class="testimonial-stats">
+          <div>
+            <div class="testimonial-stat-num">25+</div>
+            <div class="testimonial-stat-label">Years enterprise IT</div>
+          </div>
+          <div>
+            <div class="testimonial-stat-num">AZ-305</div>
+            <div class="testimonial-stat-label">Solutions Architect Expert</div>
+          </div>
+          <div>
+            <div class="testimonial-stat-num">MCT</div>
+            <div class="testimonial-stat-label">Microsoft Certified Trainer</div>
+          </div>
+        </div>
       </div>
       <p class="testimonials-linkedin-link">
         <a href="https://www.linkedin.com/in/gustav-bam-ab8764199/" target="_blank" rel="noopener">View all recommendations on LinkedIn →</a>
@@ -2201,7 +2362,7 @@
   <section id="pricing">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-label" style="color:var(--orange)">Pricing</span>
+        <span class="section-label" style="color:var(--orange-a11y)">Pricing</span>
         <h2>Transparent, Value-Based Rates</h2>
         <p class="section-intro">No hidden fees. Rates reflect real-world expertise — AZ-305 &amp; AZ-104 certified, Microsoft Certified Trainer (MCT), 25+ years enterprise IT, delivered with the rigour of large-scale production environments.</p>
         <p style="margin-top:10px; font-size:0.95rem;"><a href="/payment.html" style="color:var(--azure-light); font-weight:600; text-decoration:underline;">View accepted payment methods (EFT / Payoneer) &rarr;</a></p>
@@ -2300,7 +2461,7 @@
             </div>
           </div>
           <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
-            <a href="https://outlook.office365.com/owa/calendar/BamCloudAIBusinessEnglish@bamcloudai.com/bookings/" target="_blank" class="card-link" style="color:var(--orange)">Book a trial lesson</a>
+            <a href="https://outlook.office365.com/owa/calendar/BamCloudAIBusinessEnglish@bamcloudai.com/bookings/" target="_blank" class="card-link" style="color:var(--orange-a11y)">Book a trial lesson</a>
           </div>
         </div>
 
@@ -2725,6 +2886,37 @@
         if (note) note.textContent = '';
       }
     })();
+
+    // Scroll progress bar
+    const progressBar = document.getElementById('scrollProgress');
+    if (progressBar) {
+      const updateProgress = () => {
+        const h = document.documentElement;
+        const scrolled = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+        progressBar.style.width = Math.min(100, Math.max(0, scrolled)) + '%';
+      };
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      document.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    }
+
+    // Scroll reveal
+    const revealSelectors = '.section-header, .training-grid > *, .consulting-grid > *, .process-step, .cj-tabs, .hf-canvas, .price-card, .price-free-banner, .motivation-box, .testimonial-feature, .about-text, .about-visual, .faq-item, .td-copy, .td-card, .contact-cards > *';
+    const revealEls = document.querySelectorAll(revealSelectors);
+    revealEls.forEach(el => el.classList.add('reveal'));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      revealEls.forEach(el => io.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('reveal-in'));
+    }
 
     // Hamburger menu toggle
     const hamburger = document.getElementById('navHamburger');
