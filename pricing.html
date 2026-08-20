@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing | Bam Cloud AI — Azure Training & Consulting Rates</title>
-  <meta name="description" content="Transparent rates for Azure & AI certification training (from R950), Azure architecture consulting (from R1,100/hr), Business English coaching (from $15), and fixed-price Microsoft Estate Deep Dive assessments from R24,500. Free 30-min discovery call." />
+  <meta name="description" content="Transparent rates for Azure & AI certification training (from R950), Azure architecture consulting (from R1,100/hr), Business English coaching (from $15), and Microsoft estate assessments from R4,500 (two-hour health check) to R39,500 (combined deep dive). Free 30-min discovery call." />
   <meta property="og:title" content="Pricing | Bam Cloud AI — Azure Training & Consulting Rates" />
-  <meta property="og:description" content="Transparent rates for Azure & AI certification training (from R950), Azure architecture consulting (from R1,100/hr), Business English coaching (from $15), and fixed-price Microsoft Estate Deep Dive assessments from R24,500. Free 30-min discovery call." />
+  <meta property="og:description" content="Transparent rates for Azure & AI certification training (from R950), Azure architecture consulting (from R1,100/hr), Business English coaching (from $15), and Microsoft estate assessments from R4,500 (two-hour health check) to R39,500 (combined deep dive). Free 30-min discovery call." />
   <meta property="og:url" content="https://bamcloudai.com/pricing.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
@@ -15,7 +15,7 @@
   <meta property="og:locale" content="en_ZA" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pricing | Bam Cloud AI — Azure Training & Consulting Rates" />
-  <meta name="twitter:description" content="Transparent rates for Azure & AI certification training (from R950), Azure architecture consulting (from R1,100/hr), Business English coaching (from $15), and fixed-price Microsoft Estate Deep Dive assessments from R24,500. Free 30-min discovery call." />
+  <meta name="twitter:description" content="Transparent rates for Azure & AI certification training (from R950), Azure architecture consulting (from R1,100/hr), Business English coaching (from $15), and Microsoft estate assessments from R4,500 (two-hour health check) to R39,500 (combined deep dive). Free 30-min discovery call." />
   <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://bamcloudai.com/pricing.html" />
@@ -1252,6 +1252,33 @@
     .dd-notes p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
     .dd-notes p:last-child { margin-bottom: 0; }
     .dd-notes strong { color: var(--navy); }
+    /* -- ENTRY-RUNG HEALTH CHECK (pricing page) -- */
+    .dd-entry {
+      position: relative; background: var(--white);
+      border: 1px solid var(--border); border-left: 3px solid var(--green);
+      border-radius: 16px; padding: 30px; margin-bottom: 28px;
+      display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.3fr);
+      gap: 4px 34px; align-items: start; transition: all 0.2s;
+    }
+    .dd-entry:hover { border-color: var(--azure); border-left-color: var(--green); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    @media (max-width: 900px) { .dd-entry { grid-template-columns: 1fr; gap: 0; } }
+    .dd-entry-badge {
+      position: absolute; top: -12px; left: 30px;
+      background: var(--green); color: var(--navy); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.09em; text-transform: uppercase; padding: 4px 14px;
+      border-radius: 100px; white-space: nowrap;
+    }
+    .dd-entry h3 { font-size: 1.18rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .dd-entry .dd-price { font-size: 1.9rem; }
+    .dd-entry .dd-desc { margin-bottom: 14px; }
+    .dd-entry-upgrade {
+      grid-column: 1 / -1; margin-top: 18px; padding-top: 16px;
+      border-top: 1px solid var(--border); font-size: 0.84rem;
+      color: var(--muted); line-height: 1.7;
+    }
+    .dd-entry-upgrade p { margin-bottom: 8px; }
+    .dd-entry-upgrade p:last-child { margin-bottom: 0; }
+    .dd-entry-upgrade strong { color: var(--navy); }
   </style>
 </head>
 <body>
@@ -1415,7 +1442,30 @@
         <div class="dd-head">
           <span class="dd-label">Fixed-Price Engagements</span>
           <h2>Microsoft Estate Deep Dive Assessments</h2>
-          <p class="dd-intro">Structured assessment engagements run against the real Microsoft frameworks &mdash; AZ-305, AZ-104, the Cloud Adoption Framework, the Well-Architected Framework, Zero Trust and the Copilot deployment blueprint. Fixed scope, fixed price, and a written report your exec team can act on.</p>
+          <p class="dd-intro">Structured assessment engagements run against the real Microsoft frameworks &mdash; AZ-305, AZ-104, the Cloud Adoption Framework, the Well-Architected Framework, Zero Trust and the Copilot deployment blueprint. Fixed scope, fixed price, and a written report your exec team can act on. Start with a two-hour health check, or go straight to a full deep dive.</p>
+        </div>
+
+        <div class="dd-entry">
+          <div class="dd-entry-badge">Start Here</div>
+          <div>
+            <div class="dd-platform">Azure or Microsoft 365</div>
+            <h3>Microsoft Estate Health Check</h3>
+            <div class="dd-price">R4,500<span class="dd-sub">fixed price &middot; 2 hours</span><span class="price-fx" data-zar="4500"></span></div>
+            <p class="dd-desc">A focused two-hour review of one estate, run live on a screen share. You pick the focus when you book. It exists to answer one question honestly: do you have a problem here worth spending real money on, or not?</p>
+            <a href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Microsoft%20Estate%20Health%20Check" class="card-link">Book a health check</a>
+          </div>
+          <ul class="dd-list">
+            <li>One two-hour working session, run live and screen-shared</li>
+            <li>Your choice of focus &mdash; Azure infrastructure, or Microsoft 365 and Copilot readiness</li>
+            <li>Findings ranked by severity, with the reasoning behind each one</li>
+            <li>A written summary of three to five pages, delivered within five business days</li>
+            <li>A straight recommendation on what to fix first &mdash; and what to leave alone</li>
+            <li>No agent to install and no credentials to hand over &mdash; the review runs against what you show me on screen</li>
+          </ul>
+          <div class="dd-entry-upgrade">
+            <p><strong>Credited against a deep dive.</strong> The full R4,500 is credited against an Azure Estate or Modern Work &amp; Copilot Deep Dive booked within 60 days. If two hours shows the problem is bigger than two hours, you do not pay twice to find that out.</p>
+            <p><strong>Payment.</strong> Invoiced on booking &mdash; EFT in South Africa, or card via Payoneer internationally.</p>
+          </div>
         </div>
 
         <div class="dd-grid">
