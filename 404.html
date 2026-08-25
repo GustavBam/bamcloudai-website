@@ -3,94 +3,896 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found — Bam Cloud AI</title>
-  <meta name="robots" content="noindex" />
+  <title>Page Not Found | Bam Cloud AI</title>
+  <meta name="description" content="One-day, hands-on Microsoft workshops in Azure, AI, Copilot, Security and Power Platform. Every delegate earns a free, permanent Microsoft Applied Skills credential. From R2,950 per delegate, or R14,500 for a private team day. AI Fast-Start bundle from R6,950." />
+  <meta property="og:title" content="Workshops | Bam Cloud AI — Hands-On Microsoft Applied Skills Training" />
+  <meta property="og:description" content="One-day, hands-on Microsoft workshops in Azure, AI, Copilot, Security and Power Platform. Every delegate earns a free, permanent Microsoft Applied Skills credential. From R2,950 per delegate. AI Fast-Start bundle from R6,950." />
+  <meta property="og:url" content="https://bamcloudai.com/workshops.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_ZA" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Workshops | Bam Cloud AI — Hands-On Microsoft Applied Skills Training" />
+  <meta name="twitter:description" content="One-day, hands-on Microsoft workshops. Every delegate earns a free, permanent Microsoft Applied Skills credential. From R2,950 per delegate." />
+  <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://bamcloudai.com/404.html" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --azure: #0078D4;
       --azure-light: #50A0DC;
       --azure-dark: #005A9E;
       --orange: #D4641C;
+      --orange-light: #E8844A;
+      --orange-dark: #B0510E;
+      --orange-a11y: #A54E16;
       --navy: #0F1B2D;
       --navy-mid: #1A2D44;
+      --slate: #2D4059;
+      --text: #1E293B;
+      --muted: #586980;
+      --light: #D6E8FA;
+      --canvas-1: #F3F8FD;
+      --canvas-2: #E7F0FB;
+      --canvas-3: #D6E8FA;
+      --canvas-4: #C3DCF6;
       --white: #FFFFFF;
+      --border: #E2E8F0;
+      --green: #10B981;
+      --green-dark: #059669;
+      --purple: #8B5CF6;
+      --purple-dark: #6D28D9;
+      --cyan: #0EA5E9;
+      --cyan-dark: #0284C7;
+      --pink: #EC4899;
+      --pink-dark: #BE185D;
+      --gold: #D97706;
+      --gold-dark: #B45309;
       --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.14);
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    /* ── SCROLL PROGRESS ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--azure-light), var(--orange));
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.reveal-in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #1a3a5c 100%);
-      color: var(--white);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      text-align: center;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--canvas-1);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 560px; }
-    .logo-icon { height: 64px; width: auto; margin-bottom: 28px; }
-    .code {
-      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--azure-light); margin-bottom: 12px;
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(15, 27, 45, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .logo .logo-icon { height: 48px; width: auto; display: block; flex-shrink: 0; }
+    .logo .logo-text { display: inline-grid; row-gap: 6px; }
+    .logo .logo-wordmark {
+      white-space: nowrap;
+      font-size: 28px;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .logo .logo-wordmark .bam  { font-weight: 800; color: var(--orange); }
+    .logo .logo-wordmark .cai  { font-weight: 300; color: #FFFFFF; }
+    .logo .logo-tagline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      letter-spacing: 0.8px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+    }
+    .logo .logo-tagline .initial { color: rgba(232,98,26,0.88); font-weight: 700; }
+    .logo .logo-tagline .dot { color: rgba(255,255,255,0.55); letter-spacing: 0; font-size: 12px; }
+    .logo .logo-tagline .last-r { letter-spacing: 0; }
+
+    nav .logo { gap: 14px; }
+    nav .logo .logo-icon { height: 48px; }
+    nav .logo .logo-wordmark { font-size: 28px; }
+    nav .logo .logo-tagline { font-size: 10px; letter-spacing: 0.8px; }
+    nav .logo .logo-tagline .dot { font-size: 12px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      white-space: nowrap;
+    }
+    .nav-links > li { display: flex; align-items: center; }
+    .nav-links li:last-child { margin-left: 6px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.current { color: var(--white); }
+    .nav-cta {
+      background: var(--azure);
+      color: var(--white) !important;
+      padding: 8px 18px;
+      border-radius: 8px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--azure-dark) !important; }
+
+    /* ── NAV DROPDOWN ── */
+    .nav-dropdown { position: relative; }
+    .nav-drop-toggle {
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-family: inherit; font-size: 0.9rem; font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      display: inline-flex; align-items: center; gap: 5px;
+      transition: color 0.2s;
+    }
+    .nav-drop-toggle:hover, .nav-drop-toggle[aria-expanded="true"] { color: var(--white); }
+    .nav-drop-toggle .caret { font-size: 0.62rem; transition: transform 0.2s; }
+    .nav-drop-toggle[aria-expanded="true"] .caret { transform: rotate(180deg); }
+    .nav-drop-menu {
+      position: absolute; top: 100%; left: 50%; margin-top: 12px;
+      transform: translateX(-50%) translateY(6px);
+      background: rgba(15,27,45,0.98); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+      padding: 8px; min-width: 190px; list-style: none;
+      display: flex; flex-direction: column; gap: 2px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      z-index: 110; box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .nav-drop-menu.open {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-links .nav-drop-menu li { padding: 0 !important; }
+    .nav-links .nav-drop-menu li::after { content: none !important; }
+    .nav-drop-menu a {
+      display: block; padding: 9px 14px; border-radius: 8px; white-space: nowrap;
+      color: rgba(255,255,255,0.8) !important; font-size: 0.88rem; font-weight: 500;
+    }
+    .nav-drop-menu a:hover { background: rgba(255,255,255,0.08); color: var(--white) !important; }
+    .nav-drop-menu a.current { color: var(--azure-light) !important; }
+
+    @media (max-width: 1180px) {
+      .nav-links { display: none; }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--azure);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(0,120,212,0.4);
+    }
+    .btn-primary:hover {
+      background: var(--azure-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(0,120,212,0.5);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 24px; }
+    .section-inner { max-width: 1140px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      color: var(--azure);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
     }
     h1 {
-      font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800;
-      letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 14px;
+      font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
     }
-    p {
-      color: rgba(255,255,255,0.72); line-height: 1.7; margin-bottom: 32px;
+    h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
     }
-    .actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 36px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 26px; border-radius: var(--radius);
-      font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.2s;
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 640px;
+      line-height: 1.75;
     }
-    .btn-primary { background: var(--azure); color: var(--white); box-shadow: 0 4px 16px rgba(0,120,212,0.4); }
-    .btn-primary:hover { background: var(--azure-dark); transform: translateY(-1px); }
-    .btn-secondary { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.55); }
-    .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.85); }
-    .links { font-size: 0.88rem; color: rgba(255,255,255,0.65); }
-    .links a { color: var(--azure-light); text-decoration: none; }
-    .links a:hover { text-decoration: underline; }
+    .section-header { margin-bottom: 40px; }
+
+    /* Sky-wash: the page's first section carries a gentle blue gradient from
+       the nav down into the body tone, instead of every page being flat
+       white beneath a dark nav. Deliberately targets only the FIRST
+       top-level section so it reads as one hero wash, not repeated banding
+       down a long page. Pages needing pure flat reading backgrounds (terms,
+       refund-policy, payment) are untouched by this rule — it lives in the
+       shell only. */
+    main > section:first-of-type {
+      background: linear-gradient(180deg, var(--canvas-3) 0%, var(--canvas-2) 18%, var(--canvas-1) 46%, var(--canvas-1) 100%);
+    }
+
+    /* ── PRICING CARDS ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .price-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 26px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .price-card:hover { border-color: var(--azure); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .price-card.featured { border-color: var(--azure); background: linear-gradient(160deg,#f0f8ff 0%,var(--white) 60%); }
+    .price-badge {
+      position: absolute;
+      top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--azure); color: white;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 100px; white-space: nowrap;
+    }
+    .price-platform {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--azure-light); margin-bottom: 6px;
+    }
+    .price-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .price-headline {
+      font-size: 1.9rem; font-weight: 800; color: var(--navy); letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 4px;
+    }
+    .price-headline .ph-sub { display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 3px; }
+    .price-fx {
+      display: block; font-size: 0.75rem; font-weight: 500;
+      color: var(--muted); margin-top: 2px; white-space: nowrap;
+    }
+    .price-card .price-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.7; margin: 14px 0 16px; }
+    .price-card .dd-list { margin-top: auto; }
+
+    /* ── FREE CREDENTIAL BANNER ── */
+    .price-free-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+      border-radius: 14px; padding: 28px 36px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 28px; margin-bottom: 28px; flex-wrap: wrap;
+    }
+    .price-free-text h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .price-free-text p { font-size: 0.86rem; color: rgba(255,255,255,0.62); line-height: 1.6; max-width: 620px; }
+    .price-free-pill {
+      background: var(--green); color: var(--navy);
+      font-size: 1.02rem; font-weight: 800; padding: 10px 26px;
+      border-radius: 100px; white-space: nowrap; letter-spacing: -0.01em;
+    }
+
+    /* ── DEEP-DIVE / CATALOGUE BLOCK ── */
+    .dd-block { margin: 40px 0 8px; padding: 40px 0 0; border-top: 1px solid var(--border); }
+    .dd-head { text-align: center; max-width: 780px; margin: 0 auto 30px; }
+    .dd-label {
+      display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--orange-a11y); margin-bottom: 8px;
+    }
+    .dd-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .dd-intro { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+    .dd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+    @media (max-width: 900px) { .dd-grid { grid-template-columns: 1fr; } }
+    .dd-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px 24px; position: relative; transition: all 0.2s; display: flex; flex-direction: column;
+    }
+    .dd-card:hover { border-color: var(--azure); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .dd-platform {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--azure-light); margin-bottom: 6px;
+    }
+    .dd-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+    .dd-price {
+      font-size: 1.55rem; font-weight: 800; color: var(--navy); letter-spacing: -0.03em;
+      line-height: 1.1; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .dd-price .dd-sub {
+      display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted);
+      letter-spacing: 0; margin-top: 3px;
+    }
+    .dd-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+    .dd-list { list-style: none; padding: 0; margin: 0; }
+    .dd-list li {
+      position: relative; padding: 0 0 9px 21px; font-size: 0.82rem;
+      color: var(--slate); line-height: 1.55;
+    }
+    .dd-list li:last-child { padding-bottom: 0; }
+    .dd-list li::before {
+      content: '✓'; position: absolute; left: 0; top: 0;
+      color: var(--green); font-weight: 700; font-size: 0.85rem;
+    }
+    .dd-notes {
+      margin-top: 26px; background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--azure); border-radius: var(--radius); padding: 22px 26px;
+    }
+    .dd-notes p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
+    .dd-notes p:last-child { margin-bottom: 0; }
+    .dd-notes strong { color: var(--navy); }
+
+    /* ── FLAGSHIP BUNDLE (entry-rung style) ── */
+    .dd-entry {
+      position: relative; background: var(--white);
+      border: 1px solid var(--border); border-left: 3px solid var(--green);
+      border-radius: 16px; padding: 32px; margin-bottom: 40px;
+      display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.3fr);
+      gap: 4px 34px; align-items: start; transition: all 0.2s;
+    }
+    .dd-entry:hover { border-color: var(--azure); border-left-color: var(--green); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    @media (max-width: 900px) { .dd-entry { grid-template-columns: 1fr; gap: 0; } }
+    .dd-entry-badge {
+      position: absolute; top: -12px; left: 30px;
+      background: var(--green); color: var(--navy); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.09em; text-transform: uppercase; padding: 4px 14px;
+      border-radius: 100px; white-space: nowrap;
+    }
+    .dd-entry h3 { font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .dd-entry .dd-price { font-size: 1.95rem; }
+    .dd-entry .dd-desc { margin-bottom: 14px; }
+    .dd-entry-upgrade {
+      grid-column: 1 / -1; margin-top: 18px; padding-top: 16px;
+      border-top: 1px solid var(--border); font-size: 0.84rem;
+      color: var(--muted); line-height: 1.7;
+    }
+    .dd-entry-upgrade p { margin-bottom: 8px; }
+    .dd-entry-upgrade p:last-child { margin-bottom: 0; }
+    .dd-entry-upgrade strong { color: var(--navy); }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--azure);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 18px;
+    }
+    .card-link:hover { gap: 10px; }
+    .card-link::after { content: '→'; transition: margin 0.2s; }
+
+    /* ── WORKSHOP-SPECIFIC BITS ── */
+    .ws-tag {
+      display: inline-flex; align-items: center;
+      background: var(--green); color: var(--navy);
+      font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em;
+      padding: 2px 9px; border-radius: 100px; margin-left: 8px; vertical-align: middle;
+    }
+    .ws-meta {
+      margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border);
+      font-size: 0.76rem; color: var(--muted); line-height: 1.6;
+    }
+    .ws-meta strong { color: var(--navy); font-weight: 700; }
+    .ws-cred {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.28);
+      color: var(--green-dark); font-size: 0.7rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 100px; margin-bottom: 14px;
+    }
+
+    .price-disclaimer {
+      text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 18px; line-height: 1.6;
+    }
+    .price-rate-note {
+      text-align: center; font-size: 0.78rem; color: var(--muted);
+      margin-top: 6px; font-style: italic;
+    }
+    .price-rate-note a { color: inherit; text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 -24px 40px -24px rgba(0,0,0,0.55);
+      color: rgba(255,255,255,0.6);
+      padding: 48px 24px 32px;
+      margin-top: 0;
+      position: relative;
+    }
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+    .footer-inner .logo { margin-bottom: 4px; }
+    .footer-inner p { font-size: 0.85rem; }
+    .footer-links {
+      display: flex; flex-wrap: wrap; gap: 20px;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.83rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-blurb { color: rgba(255,255,255,0.55); font-size: 0.86rem; line-height: 1.6; max-width: 620px; margin: 2px 0 6px; }
+    .footer-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px;
+      width: 100%; max-width: 1000px; margin: 6px 0 8px; text-align: left;
+    }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 30px; } }
+    @media (max-width: 460px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-col { display: flex; flex-direction: column; gap: 9px; }
+    .footer-col h4 {
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin: 0 0 4px; font-weight: 700;
+    }
+    .footer-col-links { display: flex; flex-direction: column; gap: 9px; }
+    .footer-col a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-copyright { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 8px; }
+    .footer-popia { color: rgba(255,255,255,0.42) !important; }
+    .footer-hint { display: none; }
+
+    /* Footer collapse-on-default, hover/focus-to-reveal (desktop only).
+       ALL FIVE columns' link lists (marked .collapsible, including Legal &
+       Payment) collapse to zero height by default — only the column
+       headings, logo/blurb and the copyright + POPIA paragraph stay
+       visible, matching Gustav's reference screenshots. The copyright/
+       POPIA paragraph is permanently visible and carries the core POPIA
+       disclosure + contact email, so the required notice is never behind
+       an interaction — only the Payment/Terms/Refund Policy/Email
+       shortcut LINKS require a hover to reach, same as every other
+       column's links. Because every column collapses together, the whole
+       grid ROW shrinks (grid row height = tallest cell, and now every
+       cell is 0) — that's what actually frees up the real estate; a
+       single exempt column previously forced the whole row to stay tall
+       even while the others faded out. Touch/narrow screens (no hover)
+       get the full footer expanded by default, same as before — there is
+       no reliable "hover" gesture there to reveal anything. */
+    @media (hover: hover) and (min-width: 1181px) {
+      .footer-hint {
+        display: block; font-size: 0.72rem; color: rgba(255,255,255,0.32);
+        font-style: italic; margin-top: -6px; transition: opacity 0.2s ease;
+      }
+      .footer-col-links.collapsible {
+        opacity: 0; max-height: 0; overflow: hidden; pointer-events: none;
+        transition: opacity 0.25s ease, max-height 0.25s ease;
+      }
+      footer:hover .footer-col-links.collapsible,
+      footer:focus-within .footer-col-links.collapsible {
+        opacity: 1; max-height: 160px; pointer-events: auto;
+      }
+      footer:hover .footer-hint, footer:focus-within .footer-hint {
+        opacity: 0; height: 0; margin: 0; overflow: hidden; pointer-events: none;
+      }
+    }
+
+    /* ── HAMBURGER NAV ── */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; border-radius: 6px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: rgba(255,255,255,0.85); border-radius: 2px; transition: all 0.3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 1180px) {
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 80px; left: 0; right: 0;
+        background: rgba(15,27,45,0.98); backdrop-filter: blur(12px);
+        flex-direction: column; padding: 8px 24px 20px; gap: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.07); white-space: normal; }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links li::after { content: none !important; }
+      .nav-links a { font-size: 1rem; }
+      .nav-cta { display: inline-block; margin-top: 4px; }
+      .nav-drop-toggle { width: 100%; justify-content: space-between; font-size: 1rem; padding: 0; color: rgba(255,255,255,0.75); }
+      .nav-dropdown::after { content: none; }
+      .nav-drop-menu {
+        position: static; transform: none; opacity: 1; visibility: visible; pointer-events: auto;
+        margin: 0; padding: 4px 0 2px 14px; min-width: 0; gap: 0;
+        background: none; border: none; box-shadow: none; backdrop-filter: none;
+        display: none;
+      }
+      .nav-drop-menu.open { display: flex; }
+      .nav-links .nav-drop-menu li { border-bottom: none; }
+      .nav-drop-menu a { padding: 11px 0; font-size: 0.95rem; }
+    }
+    @media (max-width: 640px) {
+      .nav-inner { height: 72px; }
+      .logo { gap: 8px; }
+      .logo .logo-icon { height: 40px; }
+      .logo .logo-wordmark { font-size: 22px; }
+      .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
+      .logo .logo-tagline .dot { font-size: 10px; }
+      nav .logo { gap: 10px; }
+      nav .logo .logo-icon { height: 40px; }
+      nav .logo .logo-wordmark { font-size: 22px; }
+      nav .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
+      nav .logo .logo-tagline .dot { font-size: 10px; }
+      .nav-links { top: 72px; }
+      section { padding: 72px 20px; }
+      .dd-entry { padding: 28px 22px; }
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
-      <circle cx="65" cy="22" r="7" fill="#A855F7"/>
-      <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
-      <circle cx="40" cy="73" r="7" fill="#00FF88"/>
-      <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
-      <circle cx="15" cy="22" r="7" fill="#FFD700"/>
-      <circle cx="40" cy="40" r="12" fill="#0078D4"/>
-      <circle cx="40" cy="40" r="6.5" fill="white"/>
-    </svg>
-    <div class="code">404 · Page not found</div>
-    <h1>This page doesn't exist — but the cloud does.</h1>
-    <p>The address you followed is broken or has moved. Everything you're probably looking for is one click away.</p>
-    <div class="actions">
-      <a href="/" class="btn btn-primary">Back to Home</a>
-      <a href="/book.html" class="btn btn-secondary">Book a Session</a>
+
+  <!-- NAV -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
+        <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+          <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+          <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+          <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+          <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+          <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+          <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+          <circle cx="40" cy="40" r="6.5" fill="white"/>
+        </svg>
+        <div class="logo-text">
+          <div class="logo-wordmark" id="nav-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+          <div class="logo-tagline" id="nav-tagline">
+            <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Training <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/training.html">Training Overview</a></li>
+            <li><a href="/certification-courses.html">Certification Courses</a></li>
+            <li><a href="/workshops.html">Applied Skills Workshops</a></li>
+            <li><a href="/business-english.html">Business English for IT</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Consulting <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/consulting.html">Azure Architecture &amp; Advisory</a></li>
+            <li><a href="/assessments.html">Estate Deep-Dive Assessments</a></li>
+            <li><a href="/msp-partnership.html">MSP White-Label</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Tools <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/explorer.html">AI Decision Explorer</a></li>
+            <li><a href="/assessment.html">AI Readiness Assessment</a></li>
+            <li><a href="/automation.html">Automation</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+          </ul>
+        </li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">About <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/testimonials.html">Testimonials</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="/book.html" class="nav-cta">Book a Call</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <p class="links">
-      Or jump to: <a href="/#training">Training</a> · <a href="/#consulting">Consulting</a> · <a href="/pricing.html">Pricing</a> · <a href="/#contact">Contact</a>
-    </p>
-  </main>
+  </nav>
+
+<main>
+  <section style="min-height:58vh; display:flex; align-items:center;">
+    <div class="section-inner" style="text-align:center; max-width:640px;">
+      <span class="section-label" style="color:var(--orange-a11y)">Error 404</span>
+      <h1>Page not found</h1>
+      <p class="section-intro" style="margin:0 auto 26px;">The page you're looking for has moved or never existed. Let's get you back on track &mdash; use the menu above, or one of these:</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="/" class="btn btn-primary">Back to home</a>
+        <a href="/contact.html" class="btn btn-primary" style="background:var(--green); color:var(--navy); box-shadow:0 4px 16px rgba(16,185,129,0.35);">Contact us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+    <div class="footer-inner">
+      <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
+        <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+          <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+          <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+          <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+          <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+          <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+          <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+          <circle cx="40" cy="40" r="6.5" fill="white"/>
+        </svg>
+        <div class="logo-text">
+          <div class="logo-wordmark" id="footer-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+          <div class="logo-tagline" id="footer-tagline">
+            <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
+          </div>
+        </div>
+      </a>
+      <p class="footer-blurb">Microsoft Azure &amp; AI training and consulting — Durbanville, Cape Town. Online worldwide &amp; in-person across South Africa.</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Training</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/certification-courses.html">Certification Courses</a>
+            <a href="/workshops.html">Applied Skills Workshops</a>
+            <a href="/business-english.html">Business English for IT</a>
+            <a href="/pricing.html">Pricing</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Consulting</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/consulting.html">Azure Architecture</a>
+            <a href="/assessments.html">Estate Assessments</a>
+            <a href="/msp-partnership.html">MSP White-Label</a>
+            <a href="/book.html">Book a Call</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/explorer.html">AI Decision Explorer</a>
+            <a href="/assessment.html">AI Readiness Assessment</a>
+            <a href="/automation.html">Automation</a>
+            <a href="/faq.html">FAQ</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/about.html">About</a>
+            <a href="/testimonials.html">Testimonials</a>
+            <a href="/contact.html">Contact</a>
+            <a href="https://www.linkedin.com/company/bam-cloud-ai/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Legal &amp; Payment</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/payment.html">Payment Methods</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/refund-policy.html">Refund Policy</a>
+            <a href="mailto:gustav@bamcloudai.com">Email</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-hint">Hover for the full site map &#8595;</p>
+      <p class="footer-copyright">© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
+    </div>
+    <p class="footer-popia" style="max-width:900px;margin:16px auto 0;font-size:0.75rem;text-align:justify;text-align-last:center;">This site collects only the information you submit via contact and booking forms (name and email) to respond to your enquiry, in line with the Protection of Personal Information Act (POPIA). Your information is never sold or shared with third parties. To request, correct, or delete your data, contact gustav@bamcloudai.com.</p>
+  </footer>
+
+  <script>
+    // ── LIVE CURRENCY CONVERSION ──
+    (async function priceFx() {
+      if (!document.querySelectorAll('.price-fx').length) return;
+      try {
+        const rZar = await fetch('https://open.er-api.com/v6/latest/ZAR').then(r => r.json());
+        if (rZar.result !== 'success') throw new Error('rate error');
+        const zarToUsd = rZar.rates.USD, zarToEur = rZar.rates.EUR;
+        const fmt = (n, d = 0) => Number(n.toFixed(d)).toLocaleString('en-ZA');
+
+        document.querySelectorAll('.price-fx[data-zar]').forEach(el => {
+          const z = +el.dataset.zar;
+          el.textContent = '≈ $' + fmt(z * zarToUsd) + ' · €' + fmt(z * zarToEur);
+        });
+
+        const note = document.getElementById('priceRateNote');
+        if (note) {
+          const d = new Date(rZar.time_last_update_utc).toLocaleDateString('en-ZA', {day:'numeric', month:'short', year:'numeric'});
+          note.innerHTML = 'Indicative USD · EUR rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> · ' + d + ' · Invoiced in ZAR';
+        }
+      } catch (_) {
+        document.querySelectorAll('.price-fx').forEach(el => el.textContent = '');
+        const note = document.getElementById('priceRateNote');
+        if (note) note.textContent = '';
+      }
+    })();
+
+    // Scroll progress bar
+    const progressBar = document.getElementById('scrollProgress');
+    if (progressBar) {
+      const updateProgress = () => {
+        const h = document.documentElement;
+        const scrolled = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+        progressBar.style.width = Math.min(100, Math.max(0, scrolled)) + '%';
+      };
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      document.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    }
+
+    // Scroll reveal
+    const revealSelectors = '.section-header, .price-free-banner, .dd-entry, .pricing-grid > *, .dd-head, .dd-grid > *, .dd-notes';
+    const revealEls = document.querySelectorAll(revealSelectors);
+    revealEls.forEach(el => el.classList.add('reveal'));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      revealEls.forEach(el => io.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('reveal-in'));
+    }
+
+    // Nav dropdown: one state machine (the "open" class) driven by hover-intent on
+    // desktop (with a short close-delay so crossing the gap to a wide menu never
+    // drops it) and by click on touch/keyboard. Previously hover was a *separate*
+    // CSS-only mechanism running in parallel with the click-driven "open" class,
+    // which is why the menu behaved inconsistently — hover and click disagreed
+    // about whether the menu was open. Now there is exactly one source of truth.
+    // On desktop, a mouse click always ENSURES the menu is open rather than
+    // toggling it — a real mouse hovers the button before it clicks, so a plain
+    // toggle would immediately close what hover had just opened. Closing on
+    // desktop happens via mouseleave (delayed), an outside click, or Escape.
+    // On touch/narrow screens (no hover), click keeps its original open/close toggle.
+    const hoverCapable = () => window.matchMedia('(hover: hover) and (min-width: 1181px)').matches;
+    document.querySelectorAll('.nav-dropdown').forEach(drop => {
+      const toggle = drop.querySelector('.nav-drop-toggle');
+      const menu = drop.querySelector('.nav-drop-menu');
+      if (!toggle || !menu) return;
+      let closeTimer = null;
+      const openMenu = () => { clearTimeout(closeTimer); menu.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); };
+      const closeMenu = () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
+      drop.addEventListener('mouseenter', () => { if (hoverCapable()) openMenu(); });
+      drop.addEventListener('mouseleave', () => { if (hoverCapable()) { clearTimeout(closeTimer); closeTimer = setTimeout(closeMenu, 300); } });
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearTimeout(closeTimer);
+        if (hoverCapable()) { openMenu(); }
+        else { menu.classList.contains('open') ? closeMenu() : openMenu(); }
+      });
+    });
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.nav-drop-menu.open').forEach(menu => {
+        if (!menu.parentElement.contains(e.target)) {
+          menu.classList.remove('open');
+          const t = menu.previousElementSibling;
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      document.querySelectorAll('.nav-drop-menu.open').forEach(menu => {
+        menu.classList.remove('open');
+        const t = menu.previousElementSibling;
+        if (t) { t.setAttribute('aria-expanded', 'false'); t.focus(); }
+      });
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('navHamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+        hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.setAttribute('aria-label', 'Open menu');
+        });
+      });
+    }
+  </script>
+
 </body>
 </html>

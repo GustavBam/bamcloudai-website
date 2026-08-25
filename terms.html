@@ -178,7 +178,84 @@
     }
     .footer-links a:hover { color: var(--white); }
     
-  </style>
+  
+/* ===== NEW SITE CHROME (retrofit) ===== */
+/* Some retrofitted pages (explorer.html, assessment.html) have their own dark
+   theme whose --bg equals the same navy the site footer uses, so the footer's
+   OWN pre-existing "background: var(--bg)" rule made it blend invisibly into
+   the page above it. Force the real footer color + a visible seam so the
+   footer always reads as a distinct, separate band regardless of what the
+   page's own theme happens to use. */
+footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.18) !important; box-shadow:0 -24px 40px -24px rgba(0,0,0,0.55) !important; position:relative !important; }
+.nav-links { display:flex; align-items:center; gap:22px; list-style:none; white-space:nowrap; }
+.nav-links > li { display:flex; align-items:center; }
+.nav-links li:last-child { margin-left:6px; }
+.nav-links li::after { content:none !important; }
+.nav-links a.current { color:#fff; }
+.nav-dropdown { position:relative; }
+.nav-drop-toggle { background:none; border:none; cursor:pointer; padding:0; font-family:inherit; font-size:0.9rem; font-weight:500; color:rgba(255,255,255,0.75); display:inline-flex; align-items:center; gap:5px; transition:color .2s; }
+.nav-drop-toggle:hover, .nav-drop-toggle[aria-expanded="true"] { color:#fff; }
+.nav-drop-toggle .caret { font-size:0.62rem; transition:transform .2s; }
+.nav-drop-toggle[aria-expanded="true"] .caret { transform:rotate(180deg); }
+.nav-drop-menu { position:absolute; top:100%; left:50%; margin-top:12px; transform:translateX(-50%) translateY(6px); background:rgba(15,27,45,0.98); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:8px; min-width:190px; list-style:none; display:flex; flex-direction:column; gap:2px; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s, transform .2s, visibility .2s; z-index:110; box-shadow:0 12px 40px rgba(0,0,0,0.4); }
+.nav-drop-menu.open { opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+.nav-links .nav-drop-menu li { padding:0 !important; }
+.nav-links .nav-drop-menu li::after { content:none !important; }
+.nav-drop-menu a { display:block; padding:9px 14px; border-radius:8px; white-space:nowrap; color:rgba(255,255,255,0.8) !important; font-size:0.88rem; font-weight:500; }
+.nav-drop-menu a:hover { background:rgba(255,255,255,0.08); color:#fff !important; }
+.nav-drop-menu a.current { color:var(--azure-light) !important; }
+@media (max-width:1180px) {
+  .nav-drop-toggle { width:100%; justify-content:space-between; font-size:1rem; padding:0; color:rgba(255,255,255,0.75); }
+  .nav-dropdown::after { content:none; }
+  .nav-drop-menu { position:static; transform:none; opacity:1; visibility:visible; pointer-events:auto; margin:0; padding:4px 0 2px 14px; min-width:0; gap:0; background:none; border:none; box-shadow:none; backdrop-filter:none; display:none; }
+  .nav-drop-menu.open { display:flex; }
+  .nav-links .nav-drop-menu li { border-bottom:none; }
+  .nav-drop-menu a { padding:11px 0; font-size:0.95rem; }
+}
+.footer-blurb { color:rgba(255,255,255,0.55); font-size:0.86rem; line-height:1.6; max-width:620px; margin:2px 0 6px; }
+.footer-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:26px; width:100%; max-width:1000px; margin:6px 0 8px; text-align:left; }
+@media (max-width:860px) { .footer-grid { grid-template-columns:repeat(2,1fr); gap:24px 30px; } }
+@media (max-width:460px) { .footer-grid { grid-template-columns:1fr; } }
+.footer-col { display:flex; flex-direction:column; gap:9px; }
+.footer-col h4 { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin:0 0 4px; font-weight:700; }
+.footer-col-links { display:flex; flex-direction:column; gap:9px; }
+.footer-col a { color:rgba(255,255,255,0.72); text-decoration:none; font-size:0.85rem; transition:color .2s; }
+.footer-col a:hover { color:#fff; }
+.footer-copyright { font-size:0.82rem; color:rgba(255,255,255,0.5); margin-top:8px; }
+.footer-popia { color:rgba(255,255,255,0.42) !important; }
+.footer-hint { display:none; }
+
+/* Footer collapse-on-default, hover/focus-to-reveal (desktop only). ALL FIVE
+   columns' link lists (marked .collapsible, including Legal & Payment)
+   collapse to zero height by default — only headings, logo/blurb and the
+   copyright + POPIA paragraph stay visible. The copyright/POPIA paragraph
+   is permanently visible and carries the core POPIA disclosure + contact
+   email, so the required notice is never behind an interaction; only the
+   Payment/Terms/Refund Policy/Email shortcut links need a hover. Because
+   every column collapses together the whole grid ROW shrinks (row height =
+   tallest cell, now 0 everywhere) — that's what actually frees up space.
+   Touch/narrow screens (no hover) get the full footer expanded by default. */
+@media (hover:hover) and (min-width:1181px) {
+  .footer-hint { display:block; font-size:0.72rem; color:rgba(255,255,255,0.32); font-style:italic; margin-top:-6px; transition:opacity .2s ease; }
+  .footer-col-links.collapsible { opacity:0; max-height:0; overflow:hidden; pointer-events:none; transition:opacity .25s ease, max-height .25s ease; }
+  footer:hover .footer-col-links.collapsible, footer:focus-within .footer-col-links.collapsible { opacity:1; max-height:160px; pointer-events:auto; }
+  footer:hover .footer-hint, footer:focus-within .footer-hint { opacity:0; height:0; margin:0; overflow:hidden; pointer-events:none; }
+}
+
+
+/* ===== CANVAS COLOR SYSTEM (2026-08-25, light pages only) ===== */
+:root {
+  --light: #D6E8FA;
+  --canvas-1: #F3F8FD;
+  --canvas-2: #E7F0FB;
+  --canvas-3: #D6E8FA;
+  --canvas-4: #C3DCF6;
+}
+body { background: var(--canvas-1) !important; }
+.price-free-pill { color: var(--navy) !important; }
+.btn-green { color: var(--navy) !important; }
+
+</style>
 </head>
 <body>
 
@@ -204,23 +281,49 @@
           <circle cx="40" cy="40" r="6.5" fill="white"/>
         </svg>
         <div class="logo-text">
-          <div class="logo-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
-          <div class="logo-tagline">
+          <div class="logo-wordmark" id="nav-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+          <div class="logo-tagline" id="nav-tagline">
             <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
           </div>
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="/#training">Training</a></li>
-        <li><a href="/#consulting">Consulting</a></li>
-        <li><a href="/#cloud-journey">Cloud Journey</a></li>
-        <li><a href="/automation.html">Automation</a></li>
-        <li><a href="/explorer.html">AI Explorer</a></li>
-        <li><a href="/assessment.html">AI Assessment</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Training <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/training.html">Training Overview</a></li>
+            <li><a href="/certification-courses.html">Certification Courses</a></li>
+            <li><a href="/workshops.html">Applied Skills Workshops</a></li>
+            <li><a href="/business-english.html">Business English for IT</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Consulting <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/consulting.html">Azure Architecture &amp; Advisory</a></li>
+            <li><a href="/assessments.html">Estate Deep-Dive Assessments</a></li>
+            <li><a href="/msp-partnership.html">MSP White-Label</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Tools <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/explorer.html">AI Decision Explorer</a></li>
+            <li><a href="/assessment.html">AI Readiness Assessment</a></li>
+            <li><a href="/automation.html">Automation</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+          </ul>
+        </li>
         <li><a href="/pricing.html">Pricing</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/#contact">Contact</a></li>
-        <li><a href="/book.html" class="nav-cta">Book</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">About <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/testimonials.html">Testimonials</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="/book.html" class="nav-cta">Book a Call</a></li>
       </ul>
       <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -296,30 +399,64 @@
           <circle cx="40" cy="40" r="6.5" fill="white"/>
         </svg>
         <div class="logo-text">
-          <div class="logo-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
-          <div class="logo-tagline">
+          <div class="logo-wordmark" id="footer-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+          <div class="logo-tagline" id="footer-tagline">
             <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
           </div>
         </div>
       </a>
-      <p>© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
-      <div class="footer-links">
-        <a href="/#training">Training</a>
-        <a href="/#consulting">Consulting</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="/payment.html">Payment</a>
-        <a href="/about.html">About</a>
-        <a href="/explorer.html">AI Explorer</a>
-        <a href="/assessment.html">AI Assessment</a>
-        <a href="/book.html">Book</a>
-        <a href="/#contact">Contact</a>
-        <a href="/terms.html">Terms</a>
-        <a href="/refund-policy.html">Refund Policy</a>
-        <a href="mailto:gustav@bamcloudai.com">Email</a>
-        <a href="https://www.linkedin.com/company/bam-cloud-ai/" target="_blank" rel="noopener">LinkedIn</a>
+      <p class="footer-blurb">Microsoft Azure &amp; AI training and consulting — Durbanville, Cape Town. Online worldwide &amp; in-person across South Africa.</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Training</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/certification-courses.html">Certification Courses</a>
+            <a href="/workshops.html">Applied Skills Workshops</a>
+            <a href="/business-english.html">Business English for IT</a>
+            <a href="/pricing.html">Pricing</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Consulting</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/consulting.html">Azure Architecture</a>
+            <a href="/assessments.html">Estate Assessments</a>
+            <a href="/msp-partnership.html">MSP White-Label</a>
+            <a href="/book.html">Book a Call</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/explorer.html">AI Decision Explorer</a>
+            <a href="/assessment.html">AI Readiness Assessment</a>
+            <a href="/automation.html">Automation</a>
+            <a href="/faq.html">FAQ</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/about.html">About</a>
+            <a href="/testimonials.html">Testimonials</a>
+            <a href="/contact.html">Contact</a>
+            <a href="https://www.linkedin.com/company/bam-cloud-ai/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Legal &amp; Payment</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/payment.html">Payment Methods</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/refund-policy.html">Refund Policy</a>
+            <a href="mailto:gustav@bamcloudai.com">Email</a>
+          </div>
+        </div>
       </div>
+      <p class="footer-hint">Hover for the full site map &#8595;</p>
+      <p class="footer-copyright">© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
     </div>
-    <p class="footer-popia" style="max-width:1140px;margin:16px auto 0;font-size:0.75rem;">This site collects only the information you submit via contact and booking forms (name and email) to respond to your enquiry, in line with the Protection of Personal Information Act (POPIA). Your information is never sold or shared with third parties. To request, correct, or delete your data, contact gustav@bamcloudai.com.</p>
+    <p class="footer-popia" style="max-width:900px;margin:16px auto 0;font-size:0.75rem;text-align:justify;text-align-last:center;">This site collects only the information you submit via contact and booking forms (name and email) to respond to your enquiry, in line with the Protection of Personal Information Act (POPIA). Your information is never sold or shared with third parties. To request, correct, or delete your data, contact gustav@bamcloudai.com.</p>
   </footer>
 
   <script>
@@ -358,5 +495,46 @@
       updateProgress();
     })();
   </script>
+<script>
+(function(){
+  // One state machine (the "open" class) driven by hover-intent on desktop (with a
+  // short close-delay so crossing the gap to a wide menu never drops it) and by
+  // click on touch/keyboard — replaces the old parallel CSS-hover + click-class
+  // mechanism, which is why the menu used to behave inconsistently. On desktop a
+  // mouse click always ENSURES the menu is open rather than toggling it (a real
+  // mouse hovers the button before it clicks, so a plain toggle would immediately
+  // close what hover just opened); closing on desktop happens via mouseleave
+  // (delayed), an outside click, or Escape. Touch/narrow screens keep the original
+  // open/close toggle on click, since there is no hover there.
+  function hoverCapable(){ return window.matchMedia('(hover: hover) and (min-width: 1181px)').matches; }
+  document.querySelectorAll('.nav-dropdown').forEach(function(drop){
+    var toggle = drop.querySelector('.nav-drop-toggle');
+    var menu = drop.querySelector('.nav-drop-menu');
+    if(!toggle || !menu) return;
+    var closeTimer = null;
+    function openMenu(){ clearTimeout(closeTimer); menu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); }
+    function closeMenu(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+    drop.addEventListener('mouseenter', function(){ if(hoverCapable()) openMenu(); });
+    drop.addEventListener('mouseleave', function(){ if(hoverCapable()){ clearTimeout(closeTimer); closeTimer = setTimeout(closeMenu, 300); } });
+    toggle.addEventListener('click', function(e){
+      e.stopPropagation(); clearTimeout(closeTimer);
+      if(hoverCapable()){ openMenu(); } else { menu.classList.contains('open') ? closeMenu() : openMenu(); }
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-drop-menu.open').forEach(function(menu){
+      if(!menu.parentElement.contains(e.target)){ menu.classList.remove('open'); var t=menu.previousElementSibling; if(t) t.setAttribute('aria-expanded','false'); }
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key !== 'Escape') return;
+    document.querySelectorAll('.nav-drop-menu.open').forEach(function(menu){
+      menu.classList.remove('open');
+      var t = menu.previousElementSibling;
+      if(t){ t.setAttribute('aria-expanded','false'); t.focus(); }
+    });
+  });
+})();
+</script>
 </body>
 </html>

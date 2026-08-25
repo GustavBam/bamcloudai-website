@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing | Bam Cloud AI — Azure Training & Consulting Rates</title>
-  <meta name="description" content="Transparent rates for Azure & AI certification training (from R950), Azure architecture consulting (from R1,100/hr), Business English coaching (from $15), and Microsoft estate assessments from R4,500 (two-hour health check) to R39,500 (combined deep dive). Free 30-min discovery call." />
-  <meta property="og:title" content="Pricing | Bam Cloud AI — Azure Training & Consulting Rates" />
-  <meta property="og:description" content="Transparent rates for Azure & AI certification training (from R950), Azure architecture consulting (from R1,100/hr), Business English coaching (from $15), and Microsoft estate assessments from R4,500 (two-hour health check) to R39,500 (combined deep dive). Free 30-min discovery call." />
+  <title>Pricing | Bam Cloud AI — Training, Consulting &amp; Assessment Rates</title>
+  <meta name="description" content="Transparent Bam Cloud AI rates in one place: certification coaching from R950/hr, Applied Skills workshops from R2,950, Azure consulting from R1,100/hr, and fixed-price estate assessments from R4,500. Free 30-minute discovery call." />
+  <meta property="og:title" content="Pricing | Bam Cloud AI" />
+  <meta property="og:description" content="Transparent Bam Cloud AI rates in one place: certification coaching from R950/hr, Applied Skills workshops from R2,950, Azure consulting from R1,100/hr, and fixed-price estate assessments from R4,500. Free 30-minute discovery call." />
   <meta property="og:url" content="https://bamcloudai.com/pricing.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
@@ -14,8 +14,8 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_ZA" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pricing | Bam Cloud AI — Azure Training & Consulting Rates" />
-  <meta name="twitter:description" content="Transparent rates for Azure & AI certification training (from R950), Azure architecture consulting (from R1,100/hr), Business English coaching (from $15), and Microsoft estate assessments from R4,500 (two-hour health check) to R39,500 (combined deep dive). Free 30-min discovery call." />
+  <meta name="twitter:title" content="Pricing | Bam Cloud AI" />
+  <meta name="twitter:description" content="Transparent Bam Cloud AI rates in one place: certification coaching from R950/hr, Applied Skills workshops from R2,950, Azure consulting from R1,100/hr, and fixed-price estate assessments from R4,500. Free 30-minute discovery call." />
   <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://bamcloudai.com/pricing.html" />
@@ -39,7 +39,11 @@
       --slate: #2D4059;
       --text: #1E293B;
       --muted: #586980;
-      --light: #DCEAF8;
+      --light: #D6E8FA;
+      --canvas-1: #F3F8FD;
+      --canvas-2: #E7F0FB;
+      --canvas-3: #D6E8FA;
+      --canvas-4: #C3DCF6;
       --white: #FFFFFF;
       --border: #E2E8F0;
       --green: #10B981;
@@ -82,7 +86,7 @@
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text);
-      background: var(--white);
+      background: var(--canvas-1);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -136,7 +140,6 @@
     .logo .logo-tagline .dot { color: rgba(255,255,255,0.55); letter-spacing: 0; font-size: 12px; }
     .logo .logo-tagline .last-r { letter-spacing: 0; }
 
-    /* Nav logo sized to balance with nav links and fit an 80px nav bar */
     nav .logo { gap: 14px; }
     nav .logo .logo-icon { height: 48px; }
     nav .logo .logo-wordmark { font-size: 28px; }
@@ -146,17 +149,12 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 0;
+      gap: 22px;
       list-style: none;
       white-space: nowrap;
     }
-    .nav-links li:not(:last-child):not(:nth-last-child(2))::after {
-      content: "\00b7";
-      margin: 0 4px;
-      color: rgba(255,255,255,0.35);
-      font-weight: 400;
-    }
-    .nav-links li:last-child { margin-left: 16px; }
+    .nav-links > li { display: flex; align-items: center; }
+    .nav-links li:last-child { margin-left: 6px; }
     .nav-links a {
       color: rgba(255,255,255,0.75);
       text-decoration: none;
@@ -165,6 +163,7 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--white); }
+    .nav-links a.current { color: var(--white); }
     .nav-cta {
       background: var(--azure);
       color: var(--white) !important;
@@ -174,141 +173,46 @@
     }
     .nav-cta:hover { background: var(--azure-dark) !important; }
 
+    /* ── NAV DROPDOWN ── */
+    .nav-dropdown { position: relative; }
+    .nav-drop-toggle {
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-family: inherit; font-size: 0.9rem; font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      display: inline-flex; align-items: center; gap: 5px;
+      transition: color 0.2s;
+    }
+    .nav-drop-toggle:hover, .nav-drop-toggle[aria-expanded="true"] { color: var(--white); }
+    .nav-drop-toggle .caret { font-size: 0.62rem; transition: transform 0.2s; }
+    .nav-drop-toggle[aria-expanded="true"] .caret { transform: rotate(180deg); }
+    .nav-drop-menu {
+      position: absolute; top: 100%; left: 50%; margin-top: 12px;
+      transform: translateX(-50%) translateY(6px);
+      background: rgba(15,27,45,0.98); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+      padding: 8px; min-width: 190px; list-style: none;
+      display: flex; flex-direction: column; gap: 2px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      z-index: 110; box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .nav-drop-menu.open {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-links .nav-drop-menu li { padding: 0 !important; }
+    .nav-links .nav-drop-menu li::after { content: none !important; }
+    .nav-drop-menu a {
+      display: block; padding: 9px 14px; border-radius: 8px; white-space: nowrap;
+      color: rgba(255,255,255,0.8) !important; font-size: 0.88rem; font-weight: 500;
+    }
+    .nav-drop-menu a:hover { background: rgba(255,255,255,0.08); color: var(--white) !important; }
+    .nav-drop-menu a.current { color: var(--azure-light) !important; }
+
     @media (max-width: 1180px) {
       .nav-links { display: none; }
     }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #1a3a5c 100%);
-      display: flex;
-      align-items: center;
-      padding: 108px 24px 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -40%;
-      right: -20%;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(0,120,212,0.18) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      left: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(0,168,232,0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-inner {
-      max-width: 1140px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0,120,212,0.2);
-      border: 1px solid rgba(0,120,212,0.4);
-      color: var(--azure-light);
-      padding: 6px 14px;
-      border-radius: 100px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .hero-badge::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--azure-light);
-      border-radius: 50%;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-      max-width: 720px;
-    }
-    .hero h1 span { color: var(--azure-light); }
-    .hero-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.72);
-      max-width: 560px;
-      margin-bottom: 18px;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-    .hero-actions {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      max-width: 560px;
-    }
-    .hero-actions .btn { justify-content: center; }
-    .hero-shortcuts {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 6px;
-      margin-bottom: 14px;
-      max-width: 560px;
-    }
-    @media (max-width: 480px) {
-      .hero-shortcuts { grid-template-columns: 1fr; }
-    }
-    .hero-shortcut {
-      display: block;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 8px;
-      padding: 6px 10px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .hero-shortcut:hover {
-      background: rgba(255,255,255,0.11);
-      border-color: rgba(255,255,255,0.28);
-      transform: translateY(-1px);
-    }
-    .hero-shortcut-title {
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: var(--white);
-    }
-    .hero-shortcut-desc {
-      font-size: 0.66rem;
-      color: rgba(255,255,255,0.55);
-      margin-top: 0;
-      line-height: 1.25;
-    }
-    .booking-hint {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.5);
-      margin-top: 10px;
-      letter-spacing: 0.02em;
-    }
-    .booking-hint em { font-style: normal; color: rgba(255,255,255,0.75); font-weight: 600; }
-    .section-booking-hint {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: -8px;
-      margin-bottom: 32px;
-    }
-    .section-booking-hint em { font-style: normal; font-weight: 600; color: var(--navy); }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -332,47 +236,6 @@
       transform: translateY(-1px);
       box-shadow: 0 8px 24px rgba(0,120,212,0.5);
     }
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.55);
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.85);
-      transform: translateY(-1px);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.08);
-    }
-    .hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      margin-top: 44px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .stat-item { text-align: left; }
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.03em;
-    }
-    .stat-label {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.55);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-top: 2px;
-    }
 
     /* ── SECTIONS ── */
     section { padding: 96px 24px; }
@@ -386,6 +249,14 @@
       letter-spacing: 0.1em;
       margin-bottom: 12px;
     }
+    h1 {
+      font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
     h2 {
       font-size: clamp(1.9rem, 3.5vw, 2.6rem);
       font-weight: 800;
@@ -397,309 +268,30 @@
     .section-intro {
       font-size: 1.05rem;
       color: var(--muted);
-      max-width: 560px;
+      max-width: 640px;
       line-height: 1.75;
     }
-    .section-header { margin-bottom: 56px; }
+    .section-header { margin-bottom: 40px; }
 
-    /* ── TRAINING ── */
-    #training { background: var(--light); }
-    .training-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 720px) {
-      .training-grid { grid-template-columns: 1fr; }
-    }
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      transition: all 0.2s;
-    }
-    .card:hover {
-      border-color: var(--azure);
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
-    }
-    .card-icon {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, var(--azure), var(--azure-dark));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      font-size: 1.4rem;
-    }
-    .card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-      letter-spacing: -0.01em;
-    }
-    .card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .tag {
-      background: var(--light);
-      color: var(--slate);
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
-    }
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--azure);
-      font-size: 0.88rem;
-      font-weight: 600;
-      text-decoration: none;
-      margin-top: 20px;
-    }
-    .card-link:hover { gap: 10px; }
-    .card-link::after { content: '→'; transition: margin 0.2s; }
-    .price-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
-
-    /* ── CONSULTING ── */
-    #consulting {
-      background:
-        radial-gradient(circle, rgba(0,120,212,0.07) 1px, transparent 1px) 0 0/26px 26px,
-        var(--light);
-    }
-    .consulting-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    @media (max-width: 720px) {
-      .consulting-grid { grid-template-columns: 1fr; }
-    }
-    .consult-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 32px;
-      border: 1px solid var(--border);
-      transition: all 0.2s;
-      cursor: pointer;
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-    .consult-card:hover {
-      border-color: var(--azure);
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
-    }
-    .consult-card:focus-visible {
-      outline: 2px solid var(--azure);
-      outline-offset: 2px;
-      border-color: var(--azure);
-    }
-    .consult-card .card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 16px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--azure);
-      letter-spacing: 0.03em;
-    }
-    .consult-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-    .consult-card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .check-list {
-      list-style: none;
-      margin-top: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .check-list li {
-      font-size: 0.88rem;
-      color: var(--slate);
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-    }
-    .check-list li::before {
-      content: '✓';
-      color: var(--green);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
+    /* Sky-wash: the page's first section carries a gentle blue gradient from
+       the nav down into the body tone, instead of every page being flat
+       white beneath a dark nav. Deliberately targets only the FIRST
+       top-level section so it reads as one hero wash, not repeated banding
+       down a long page. Pages needing pure flat reading backgrounds (terms,
+       refund-policy, payment) are untouched by this rule — it lives in the
+       shell only. */
+    main > section:first-of-type {
+      background: linear-gradient(180deg, var(--canvas-3) 0%, var(--canvas-2) 18%, var(--canvas-1) 46%, var(--canvas-1) 100%);
     }
 
-    /* ── ABOUT ── */
-    #about {
-      background:
-        radial-gradient(circle, rgba(0,120,212,0.07) 1px, transparent 1px) 0 0/26px 26px,
-        var(--light);
-    }
-    .about-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    @media (max-width: 768px) {
-      .about-inner { grid-template-columns: 1fr; gap: 48px; }
-    }
-    .about-profile {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    .about-photo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--azure);
-      flex-shrink: 0;
-      box-shadow: 0 0 0 6px rgba(0,120,212,0.12);
-    }
-    .about-profile-info strong {
-      display: block;
-      font-size: 1rem;
-      color: var(--navy);
-    }
-    .about-profile-info span {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    .about-text h2 { margin-bottom: 20px; }
-    .about-text p {
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-    .cert-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 32px;
-    }
-    .cert-badge {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .cert-icon {
-      width: 32px; height: 32px;
-      background: linear-gradient(135deg, var(--azure), var(--azure-dark));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      flex-shrink: 0;
-    }
-    .cert-name {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.3;
-    }
-    .cert-sub {
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-    .about-visual {
-      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
-      border-radius: 20px;
-      padding: 48px 40px;
-      color: var(--white);
-    }
-    .about-visual h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 28px;
-      color: var(--white);
-    }
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      position: relative;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 14px; top: 0; bottom: 0;
-      width: 2px;
-      background: rgba(255,255,255,0.1);
-    }
-    .timeline-item {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      position: relative;
-    }
-    .tl-dot {
-      width: 30px; height: 30px;
-      background: rgba(0,120,212,0.3);
-      border: 2px solid var(--azure-light);
-      border-radius: 50%;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--azure-light);
-      z-index: 1;
-    }
-    .tl-content strong {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 2px;
-    }
-    .tl-content span {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.55);
-    }
-
-    /* ── PRICING ── */
-    #pricing { background: var(--light); }
+    /* ── PRICING CARDS ── */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-bottom: 28px;
+      margin-bottom: 12px;
     }
-    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 580px) { .pricing-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
     .price-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -723,185 +315,160 @@
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
       color: var(--azure-light); margin-bottom: 6px;
     }
-    .price-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-    .price-card .price-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
-    .price-rows { border-top: 1px solid var(--border); flex: 1; }
-    .price-row {
-      display: flex; justify-content: space-between; align-items: baseline;
-      padding: 11px 0; border-bottom: 1px solid var(--border); gap: 14px;
+    .price-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .price-headline {
+      font-size: 1.9rem; font-weight: 800; color: var(--navy); letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 4px;
     }
-    .price-row:last-child { border-bottom: none; }
-    .pr-label { font-size: 0.83rem; color: var(--slate); font-weight: 500; line-height: 1.4; }
-    .pr-label small { display: block; font-size: 0.73rem; color: var(--muted); font-weight: 400; margin-top: 1px; }
-    .pr-amount { font-size: 0.88rem; font-weight: 700; color: var(--navy); white-space: nowrap; text-align: right; }
-    .pr-amount .pr-sub { display: block; font-size: 0.7rem; font-weight: 400; color: var(--muted); }
-    .pr-amount.free { color: var(--green); }
-    /* TESTIMONIALS */
-    #testimonials {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #16283f 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    #testimonials::before {
-      content: '';
-      position: absolute;
-      top: -30%; left: -10%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,120,212,0.16) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    #testimonials::after {
-      content: '';
-      position: absolute;
-      bottom: -35%; right: -12%;
-      width: 560px; height: 560px;
-      background: radial-gradient(circle, rgba(232,98,26,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    #testimonials .section-inner { position: relative; z-index: 1; }
-    .testimonial-feature {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 48px;
-      align-items: stretch;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px;
-      padding: 52px;
-    }
-    @media (max-width: 860px) { .testimonial-feature { grid-template-columns: 1fr; padding: 36px 28px; gap: 32px; } }
-    .testimonial-feature + .testimonial-feature { margin-top: 24px; }
-    .testimonial-main { display: flex; flex-direction: column; }
-    .testimonial-quote-mark { font-size: 4rem; line-height: 1; color: var(--azure-light); font-family: Georgia, serif; margin-bottom: 8px; }
-    .testimonial-quote { font-size: 1.25rem; color: rgba(255,255,255,0.92); line-height: 1.7; font-weight: 500; letter-spacing: -0.01em; flex: 1; }
-    .testimonial-author { display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; margin-top: 28px; }
-    .testimonial-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--azure), var(--azure-dark)); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1.05rem; flex-shrink: 0; }
-    .testimonial-name { font-size: 0.98rem; font-weight: 700; color: var(--white); }
-    .testimonial-role { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
-    .testimonial-stats { display: flex; flex-direction: column; justify-content: center; gap: 28px; border-left: 1px solid rgba(255,255,255,0.12); padding-left: 48px; }
-    @media (max-width: 860px) { .testimonial-stats { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); padding-left: 0; padding-top: 28px; flex-direction: row; flex-wrap: wrap; } }
-    .testimonial-stat-num { font-size: 1.9rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
-    .testimonial-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
-    .testimonials-linkedin-link { text-align: center; margin-top: 32px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
-    .testimonials-linkedin-link a { color: var(--azure-light); text-decoration: none; font-weight: 600; }
-    .testimonials-linkedin-link a:hover { text-decoration: underline; }
-
+    .price-headline .ph-sub { display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 3px; }
     .price-fx {
       display: block; font-size: 0.75rem; font-weight: 500;
       color: var(--muted); margin-top: 2px; white-space: nowrap;
+    }
+    .price-card .price-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.7; margin: 14px 0 16px; }
+    .price-card .dd-list { margin-top: auto; }
+
+    /* ── FREE CREDENTIAL BANNER ── */
+    .price-free-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+      border-radius: 14px; padding: 28px 36px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 28px; margin-bottom: 28px; flex-wrap: wrap;
+    }
+    .price-free-text h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .price-free-text p { font-size: 0.86rem; color: rgba(255,255,255,0.62); line-height: 1.6; max-width: 620px; }
+    .price-free-pill {
+      background: var(--green); color: var(--navy);
+      font-size: 1.02rem; font-weight: 800; padding: 10px 26px;
+      border-radius: 100px; white-space: nowrap; letter-spacing: -0.01em;
+    }
+
+    /* ── DEEP-DIVE / CATALOGUE BLOCK ── */
+    .dd-block { margin: 40px 0 8px; padding: 40px 0 0; border-top: 1px solid var(--border); }
+    .dd-head { text-align: center; max-width: 780px; margin: 0 auto 30px; }
+    .dd-label {
+      display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--orange-a11y); margin-bottom: 8px;
+    }
+    .dd-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .dd-intro { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+    .dd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+    @media (max-width: 900px) { .dd-grid { grid-template-columns: 1fr; } }
+    .dd-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px 24px; position: relative; transition: all 0.2s; display: flex; flex-direction: column;
+    }
+    .dd-card:hover { border-color: var(--azure); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .dd-platform {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--azure-light); margin-bottom: 6px;
+    }
+    .dd-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+    .dd-price {
+      font-size: 1.55rem; font-weight: 800; color: var(--navy); letter-spacing: -0.03em;
+      line-height: 1.1; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .dd-price .dd-sub {
+      display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted);
+      letter-spacing: 0; margin-top: 3px;
+    }
+    .dd-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+    .dd-list { list-style: none; padding: 0; margin: 0; }
+    .dd-list li {
+      position: relative; padding: 0 0 9px 21px; font-size: 0.82rem;
+      color: var(--slate); line-height: 1.55;
+    }
+    .dd-list li:last-child { padding-bottom: 0; }
+    .dd-list li::before {
+      content: '✓'; position: absolute; left: 0; top: 0;
+      color: var(--green); font-weight: 700; font-size: 0.85rem;
+    }
+    .dd-notes {
+      margin-top: 26px; background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--azure); border-radius: var(--radius); padding: 22px 26px;
+    }
+    .dd-notes p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
+    .dd-notes p:last-child { margin-bottom: 0; }
+    .dd-notes strong { color: var(--navy); }
+
+    /* ── FLAGSHIP BUNDLE (entry-rung style) ── */
+    .dd-entry {
+      position: relative; background: var(--white);
+      border: 1px solid var(--border); border-left: 3px solid var(--green);
+      border-radius: 16px; padding: 32px; margin-bottom: 40px;
+      display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.3fr);
+      gap: 4px 34px; align-items: start; transition: all 0.2s;
+    }
+    .dd-entry:hover { border-color: var(--azure); border-left-color: var(--green); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    @media (max-width: 900px) { .dd-entry { grid-template-columns: 1fr; gap: 0; } }
+    .dd-entry-badge {
+      position: absolute; top: -12px; left: 30px;
+      background: var(--green); color: var(--navy); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.09em; text-transform: uppercase; padding: 4px 14px;
+      border-radius: 100px; white-space: nowrap;
+    }
+    .dd-entry h3 { font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .dd-entry .dd-price { font-size: 1.95rem; }
+    .dd-entry .dd-desc { margin-bottom: 14px; }
+    .dd-entry-upgrade {
+      grid-column: 1 / -1; margin-top: 18px; padding-top: 16px;
+      border-top: 1px solid var(--border); font-size: 0.84rem;
+      color: var(--muted); line-height: 1.7;
+    }
+    .dd-entry-upgrade p { margin-bottom: 8px; }
+    .dd-entry-upgrade p:last-child { margin-bottom: 0; }
+    .dd-entry-upgrade strong { color: var(--navy); }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--azure);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 18px;
+    }
+    .card-link:hover { gap: 10px; }
+    .card-link::after { content: '→'; transition: margin 0.2s; }
+
+    /* ── WORKSHOP-SPECIFIC BITS ── */
+    .ws-tag {
+      display: inline-flex; align-items: center;
+      background: var(--green); color: var(--navy);
+      font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em;
+      padding: 2px 9px; border-radius: 100px; margin-left: 8px; vertical-align: middle;
+    }
+    .ws-meta {
+      margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border);
+      font-size: 0.76rem; color: var(--muted); line-height: 1.6;
+    }
+    .ws-meta strong { color: var(--navy); font-weight: 700; }
+    .ws-cred {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.28);
+      color: var(--green-dark); font-size: 0.7rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 100px; margin-bottom: 14px;
+    }
+
+    .price-disclaimer {
+      text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 18px; line-height: 1.6;
     }
     .price-rate-note {
       text-align: center; font-size: 0.78rem; color: var(--muted);
       margin-top: 6px; font-style: italic;
     }
     .price-rate-note a { color: inherit; text-decoration: underline; }
-    .price-free-banner {
-      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
-      border-radius: 14px; padding: 28px 36px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 28px; margin-bottom: 24px; flex-wrap: wrap;
-    }
-    .price-free-text h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-    .price-free-text p { font-size: 0.86rem; color: rgba(255,255,255,0.6); }
-    .price-free-pill {
-      background: var(--green); color: white;
-      font-size: 1.05rem; font-weight: 800; padding: 10px 26px;
-      border-radius: 100px; white-space: nowrap; letter-spacing: -0.02em;
-    }
-    .motivation-box {
-      background: #FFF7F3;
-      border: 1px solid rgba(232,98,26,0.18);
-      border-left: 4px solid var(--orange);
-      border-radius: 12px;
-      padding: 28px 30px;
-      display: flex; align-items: flex-start; gap: 22px; flex-wrap: wrap;
-    }
-    .motivation-icon { font-size: 2rem; flex-shrink: 0; line-height: 1; padding-top: 2px; }
-    .motivation-body { flex: 1; min-width: 200px; }
-    .motivation-body h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-    .motivation-body p { font-size: 0.86rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
-    .motivation-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--orange); color: white;
-      font-size: 0.84rem; font-weight: 700;
-      padding: 10px 20px; border-radius: 8px;
-      text-decoration: none; transition: all 0.2s;
-    }
-    .motivation-btn:hover { background: var(--orange-dark); }
-    .motivation-btn::after { content: '→'; transition: margin 0.15s; }
-    .motivation-btn:hover::after { margin-left: 4px; }
-    .price-disclaimer {
-      text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 14px; line-height: 1.6;
-    }
-
-    /* ── CONTACT ── */
-    #contact {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-      padding: 96px 24px;
-    }
-    #contact .section-inner { text-align: center; }
-    #contact h2 { color: var(--white); }
-    #contact .section-intro { color: rgba(255,255,255,0.65); margin: 0 auto 48px; }
-    .contact-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-    .contact-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius);
-      text-decoration: none;
-      cursor: pointer;
-      padding: 28px 36px;
-      min-width: 220px;
-      text-align: center;
-      transition: all 0.2s;
-    }
-    .contact-card:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.25);
-    }
-    .contact-card-icon {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-    }
-    .contact-card h4 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-    }
-    .contact-card p {
-      font-size: 0.95rem;
-      color: var(--white);
-      font-weight: 500;
-    }
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-    }
-    .btn-white {
-      background: var(--white);
-      color: var(--navy);
-    }
-    .btn-white:hover {
-      background: var(--light);
-      transform: translateY(-1px);
-    }
 
     /* ── FOOTER ── */
     footer {
       background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 -24px 40px -24px rgba(0,0,0,0.55);
       color: rgba(255,255,255,0.6);
       padding: 48px 24px 32px;
       margin-top: 0;
+      position: relative;
     }
     .footer-inner {
       max-width: 1140px;
@@ -925,34 +492,57 @@
       transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--white); }
-    
-
-    /* ── HERO TWO-COLUMN ── */
-    .hero-inner {
-      max-width: 1140px; margin: 0 auto; position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    .footer-blurb { color: rgba(255,255,255,0.55); font-size: 0.86rem; line-height: 1.6; max-width: 620px; margin: 2px 0 6px; }
+    .footer-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px;
+      width: 100%; max-width: 1000px; margin: 6px 0 8px; text-align: left;
     }
-    .hero-visual { display: flex; justify-content: center; align-items: center; align-self: center; transform: translateY(-130px); }
-    .hero-visual svg { width: 100%; max-width: 460px; height: auto; overflow: visible; }
-
-    .hv-dash { stroke-dasharray: 5 4; animation: hvDashMove 2.6s linear infinite; }
-    @keyframes hvDashMove { to { stroke-dashoffset: -18; } }
-    .hv-dot { transform-box: fill-box; transform-origin: center; animation: hvPulse 2.2s ease-in-out infinite; }
-    @keyframes hvPulse { 0%, 100% { opacity: 0.45; transform: scale(1); } 50% { opacity: 1; transform: scale(1.5); } }
-    .hv-node-group { transform-box: fill-box; transform-origin: center; animation: hvFloat 4.2s ease-in-out infinite; }
-    @keyframes hvFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-    .hv-hub-ring { transform-box: fill-box; transform-origin: center; animation: hvRing 2.8s cubic-bezier(0.2,0.7,0.4,1) infinite; }
-    @keyframes hvRing { 0% { transform: scale(1); opacity: 0.55; } 100% { transform: scale(1.7); opacity: 0; } }
-    .hv-hub-core { transform-box: fill-box; transform-origin: center; animation: hvHubPulse 2.8s ease-in-out infinite; }
-    @keyframes hvHubPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
-    .hv-badge { transform-box: fill-box; transform-origin: center; animation: hvBadgeGlow 3.2s ease-in-out infinite; }
-    @keyframes hvBadgeGlow { 0%, 100% { stroke-opacity: 0.35; } 50% { stroke-opacity: 0.8; } }
-    @media (prefers-reduced-motion: reduce) {
-      .hv-dash, .hv-dot, .hv-node-group, .hv-hub-ring, .hv-hub-core, .hv-badge { animation: none; }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 30px; } }
+    @media (max-width: 460px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-col { display: flex; flex-direction: column; gap: 9px; }
+    .footer-col h4 {
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin: 0 0 4px; font-weight: 700;
     }
-    @media (max-width: 960px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
+    .footer-col-links { display: flex; flex-direction: column; gap: 9px; }
+    .footer-col a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-copyright { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 8px; }
+    .footer-popia { color: rgba(255,255,255,0.42) !important; }
+    .footer-hint { display: none; }
+
+    /* Footer collapse-on-default, hover/focus-to-reveal (desktop only).
+       ALL FIVE columns' link lists (marked .collapsible, including Legal &
+       Payment) collapse to zero height by default — only the column
+       headings, logo/blurb and the copyright + POPIA paragraph stay
+       visible, matching Gustav's reference screenshots. The copyright/
+       POPIA paragraph is permanently visible and carries the core POPIA
+       disclosure + contact email, so the required notice is never behind
+       an interaction — only the Payment/Terms/Refund Policy/Email
+       shortcut LINKS require a hover to reach, same as every other
+       column's links. Because every column collapses together, the whole
+       grid ROW shrinks (grid row height = tallest cell, and now every
+       cell is 0) — that's what actually frees up the real estate; a
+       single exempt column previously forced the whole row to stay tall
+       even while the others faded out. Touch/narrow screens (no hover)
+       get the full footer expanded by default, same as before — there is
+       no reliable "hover" gesture there to reveal anything. */
+    @media (hover: hover) and (min-width: 1181px) {
+      .footer-hint {
+        display: block; font-size: 0.72rem; color: rgba(255,255,255,0.32);
+        font-style: italic; margin-top: -6px; transition: opacity 0.2s ease;
+      }
+      .footer-col-links.collapsible {
+        opacity: 0; max-height: 0; overflow: hidden; pointer-events: none;
+        transition: opacity 0.25s ease, max-height 0.25s ease;
+      }
+      footer:hover .footer-col-links.collapsible,
+      footer:focus-within .footer-col-links.collapsible {
+        opacity: 1; max-height: 160px; pointer-events: auto;
+      }
+      footer:hover .footer-hint, footer:focus-within .footer-hint {
+        opacity: 0; height: 0; margin: 0; overflow: hidden; pointer-events: none;
+      }
     }
 
     /* ── HAMBURGER NAV ── */
@@ -978,8 +568,20 @@
       .nav-links.open { display: flex; }
       .nav-links li { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.07); white-space: normal; }
       .nav-links li:last-child { border-bottom: none; }
+      .nav-links li::after { content: none !important; }
       .nav-links a { font-size: 1rem; }
       .nav-cta { display: inline-block; margin-top: 4px; }
+      .nav-drop-toggle { width: 100%; justify-content: space-between; font-size: 1rem; padding: 0; color: rgba(255,255,255,0.75); }
+      .nav-dropdown::after { content: none; }
+      .nav-drop-menu {
+        position: static; transform: none; opacity: 1; visibility: visible; pointer-events: auto;
+        margin: 0; padding: 4px 0 2px 14px; min-width: 0; gap: 0;
+        background: none; border: none; box-shadow: none; backdrop-filter: none;
+        display: none;
+      }
+      .nav-drop-menu.open { display: flex; }
+      .nav-links .nav-drop-menu li { border-bottom: none; }
+      .nav-drop-menu a { padding: 11px 0; font-size: 0.95rem; }
     }
     @media (max-width: 640px) {
       .nav-inner { height: 72px; }
@@ -993,293 +595,17 @@
       nav .logo .logo-wordmark { font-size: 22px; }
       nav .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
       nav .logo .logo-tagline .dot { font-size: 10px; }
-      .hero { padding: 88px 20px 48px; }
       .nav-links { top: 72px; }
+      section { padding: 72px 20px; }
+      .dd-entry { padding: 28px 22px; }
     }
-
-    /* ── BUSINESS ENGLISH SERVICE CARD ── */
-    .card-english { border-top: 3px solid var(--orange); background: linear-gradient(160deg, rgba(212,100,28,0.04) 0%, var(--white) 40%); }
-    .card-english:hover { border-color: var(--orange); }
-    .card-english .card-icon { background: linear-gradient(135deg, var(--orange), var(--orange-dark)); }
-    .card-english .card-link { color: var(--orange-a11y); }
-    .card-english .card-link:hover { color: var(--orange-dark); }
-    .card-english .tag { background: rgba(212,100,28,0.09); color: var(--orange-dark); border: 1px solid rgba(212,100,28,0.18); }
-    .card-english-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(212,100,28,0.1); border: 1px solid rgba(212,100,28,0.25);
-      color: var(--orange); font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.07em;
-      padding: 3px 10px; border-radius: 100px; margin-bottom: 14px;
-    }
-
-    /* ── BUSINESS ENGLISH PRICING CARD ── */
-    .price-english { border-top: 3px solid var(--orange) !important; background: linear-gradient(160deg,#FFF8F5 0%,var(--white) 50%) !important; }
-    .price-english:hover { border-color: var(--orange) !important; }
-    .price-english .price-platform { color: var(--orange-a11y) !important; }
-    .price-english .card-link { color: var(--orange-a11y) !important; }
-    .price-english .card-link:hover { color: var(--orange-dark) !important; }
-
-    /* ── ORANGE BTN ── */
-    .btn-orange { background: var(--orange); color: var(--white); box-shadow: 0 4px 16px rgba(212,100,28,0.35); }
-    .btn-orange:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,100,28,0.45); }
-
-    /* ── ORANGE SECTION LABEL ── */
-    .section-label.orange { color: var(--orange-a11y); }
-
-    /* ── SPECTRUM ACCENTS — training cards ── */
-    .card-purple { border-top: 3px solid var(--purple); }
-    .card-purple:hover { border-color: var(--purple); }
-    .card-purple .card-icon { background: linear-gradient(135deg, var(--purple), var(--purple-dark)); }
-    .card-purple .card-link { color: var(--purple); }
-    .card-purple .card-link:hover { color: var(--purple-dark); }
-
-    .card-green { border-top: 3px solid var(--green); }
-    .card-green:hover { border-color: var(--green); }
-    .card-green .card-icon { background: linear-gradient(135deg, var(--green), var(--green-dark)); }
-    .card-green .card-link { color: var(--green-dark); }
-    .card-green .card-link:hover { color: var(--green); }
-
-    /* ── SPECTRUM ACCENTS — consulting cards ── */
-    .consult-cyan { border-top: 3px solid var(--cyan); }
-    .consult-cyan:hover { border-color: var(--cyan); }
-    .consult-cyan .card-cta { color: var(--cyan-dark); }
-
-    .consult-gold { border-top: 3px solid var(--gold); }
-    .consult-gold:hover { border-color: var(--gold); }
-    .consult-gold .card-cta { color: var(--gold-dark); }
-
-    .consult-purple { border-top: 3px solid var(--purple); }
-    .consult-purple:hover { border-color: var(--purple); }
-    .consult-purple .card-cta { color: var(--purple-dark); }
-
-    .consult-pink { border-top: 3px solid var(--pink); }
-    .consult-pink:hover { border-color: var(--pink); }
-    .consult-pink .card-cta { color: var(--pink-dark); }
-
-    /* ── HOW IT WORKS ── */
-    #process { background: var(--white); }
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      position: relative;
-    }
-    @media (max-width: 768px) {
-      .process-grid { grid-template-columns: 1fr; gap: 24px; }
-      .process-connector { display: none; }
-    }
-    .process-step {
-      text-align: center;
-      padding: 36px 24px;
-      background: var(--light);
-      border-radius: var(--radius);
-      position: relative;
-    }
-    .step-num {
-      width: 56px; height: 56px;
-      background: linear-gradient(135deg, var(--azure), var(--azure-dark));
-      color: white;
-      font-size: 1.4rem;
-      font-weight: 800;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-    }
-    .process-step h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-    .process-step p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .process-step .step-tag {
-      display: inline-block;
-      background: rgba(0,120,212,0.1);
-      color: var(--azure-dark);
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      padding: 3px 10px;
-      border-radius: 100px;
-      margin-bottom: 16px;
-    }
-    .process-arrows {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0;
-      margin: 0 -16px;
-      position: relative;
-    }
-    @media (max-width: 768px) {
-      .process-arrows { display: none; }
-    }
-
-    /* ── MCT FEATURED CERT ── */
-    .cert-badge.cert-mct {
-      background: linear-gradient(135deg, rgba(0,120,212,0.08) 0%, rgba(0,120,212,0.02) 100%);
-      border-color: var(--azure);
-      border-width: 1.5px;
-      grid-column: span 2;
-    }
-    .cert-mct-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(0,120,212,0.12);
-      color: var(--azure);
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 2px 8px;
-      border-radius: 100px;
-      margin-top: 3px;
-    }
-
-    /* ── BOOKING TRACKS (Contact section) ── */
-    .booking-tracks {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 36px;
-    }
-    @media (max-width: 640px) {
-      .booking-tracks { grid-template-columns: 1fr; }
-    }
-    .booking-track {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 14px;
-      padding: 28px 24px;
-      text-align: center;
-      text-decoration: none;
-      transition: all 0.2s;
-      display: block;
-    }
-    .booking-track:hover {
-      background: rgba(255,255,255,0.13);
-      border-color: rgba(255,255,255,0.3);
-      transform: translateY(-2px);
-    }
-    .booking-track-icon { font-size: 2rem; margin-bottom: 12px; }
-    .booking-track h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-    .booking-track p {
-      font-size: 0.83rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.65;
-      margin-bottom: 16px;
-    }
-    .booking-track-cta {
-      display: inline-block;
-      background: rgba(0,120,212,0.85);
-      color: white;
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 9px 20px;
-      border-radius: 8px;
-    }
-    .track-consult .booking-track-cta {
-      background: rgba(16,185,129,0.85);
-    }
-  </style>
-
-
-  <style>
-    /* ── DEEP DIVE ASSESSMENTS (pricing page) ── */
-    .dd-block { margin: 8px 0 34px; padding: 34px 0 0; border-top: 1px solid var(--border); }
-    .dd-head { text-align: center; max-width: 780px; margin: 0 auto 30px; }
-    .dd-label {
-      display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em;
-      text-transform: uppercase; color: var(--orange-a11y); margin-bottom: 8px;
-    }
-    .dd-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; letter-spacing: -0.02em; }
-    .dd-intro { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
-    .dd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
-    @media (max-width: 900px) { .dd-grid { grid-template-columns: 1fr; } }
-    .dd-card {
-      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
-      padding: 30px 26px; position: relative; transition: all 0.2s;
-    }
-    .dd-card:hover { border-color: var(--azure); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-    .dd-featured { border-color: var(--azure); background: linear-gradient(160deg,#f0f8ff 0%,var(--white) 60%); }
-    .dd-badge {
-      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-      background: var(--azure); color: #fff; font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.09em; text-transform: uppercase; padding: 4px 14px;
-      border-radius: 100px; white-space: nowrap;
-    }
-    .dd-platform {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
-      color: var(--azure-light); margin-bottom: 6px;
-    }
-    .dd-card h3 { font-size: 1.08rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
-    .dd-price {
-      font-size: 1.75rem; font-weight: 800; color: var(--navy); letter-spacing: -0.03em;
-      line-height: 1.1; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border);
-    }
-    .dd-price .dd-sub {
-      display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted);
-      letter-spacing: 0; margin-top: 3px;
-    }
-    .dd-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
-    .dd-list { list-style: none; padding: 0; margin: 0; }
-    .dd-list li {
-      position: relative; padding: 0 0 9px 21px; font-size: 0.82rem;
-      color: var(--slate); line-height: 1.55;
-    }
-    .dd-list li:last-child { padding-bottom: 0; }
-    .dd-list li::before {
-      content: '✓'; position: absolute; left: 0; top: 0;
-      color: var(--green); font-weight: 700; font-size: 0.85rem;
-    }
-    .dd-notes {
-      margin-top: 26px; background: var(--white); border: 1px solid var(--border);
-      border-left: 3px solid var(--azure); border-radius: var(--radius); padding: 20px 24px;
-    }
-    .dd-notes p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
-    .dd-notes p:last-child { margin-bottom: 0; }
-    .dd-notes strong { color: var(--navy); }
-    /* -- ENTRY-RUNG HEALTH CHECK (pricing page) -- */
-    .dd-entry {
-      position: relative; background: var(--white);
-      border: 1px solid var(--border); border-left: 3px solid var(--green);
-      border-radius: 16px; padding: 30px; margin-bottom: 28px;
-      display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.3fr);
-      gap: 4px 34px; align-items: start; transition: all 0.2s;
-    }
-    .dd-entry:hover { border-color: var(--azure); border-left-color: var(--green); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-    @media (max-width: 900px) { .dd-entry { grid-template-columns: 1fr; gap: 0; } }
-    .dd-entry-badge {
-      position: absolute; top: -12px; left: 30px;
-      background: var(--green); color: var(--navy); font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.09em; text-transform: uppercase; padding: 4px 14px;
-      border-radius: 100px; white-space: nowrap;
-    }
-    .dd-entry h3 { font-size: 1.18rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
-    .dd-entry .dd-price { font-size: 1.9rem; }
-    .dd-entry .dd-desc { margin-bottom: 14px; }
-    .dd-entry-upgrade {
-      grid-column: 1 / -1; margin-top: 18px; padding-top: 16px;
-      border-top: 1px solid var(--border); font-size: 0.84rem;
-      color: var(--muted); line-height: 1.7;
-    }
-    .dd-entry-upgrade p { margin-bottom: 8px; }
-    .dd-entry-upgrade p:last-child { margin-bottom: 0; }
-    .dd-entry-upgrade strong { color: var(--navy); }
-  </style>
+  
+    .pr-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(228px,1fr)); gap:18px; }
+    .pr-card { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:24px 22px; transition:all .2s; display:flex; flex-direction:column; }
+    .pr-card:hover { border-color:var(--azure); box-shadow:var(--shadow-lg); transform:translateY(-3px); }
+    .pr-card h3 { font-size:1.02rem; font-weight:700; color:var(--navy); margin:0 0 12px; line-height:1.3; }
+    .pr-card .card-link { margin-top:14px; }
+</style>
 </head>
 <body>
 
@@ -1312,16 +638,42 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="/#training">Training</a></li>
-        <li><a href="/#consulting">Consulting</a></li>
-        <li><a href="/#cloud-journey">Cloud Journey</a></li>
-        <li><a href="/automation.html">Automation</a></li>
-        <li><a href="/explorer.html">AI Explorer</a></li>
-        <li><a href="/assessment.html">AI Assessment</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Training <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/training.html">Training Overview</a></li>
+            <li><a href="/certification-courses.html">Certification Courses</a></li>
+            <li><a href="/workshops.html">Applied Skills Workshops</a></li>
+            <li><a href="/business-english.html">Business English for IT</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Consulting <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/consulting.html">Azure Architecture &amp; Advisory</a></li>
+            <li><a href="/assessments.html">Estate Deep-Dive Assessments</a></li>
+            <li><a href="/msp-partnership.html">MSP White-Label</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Tools <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/explorer.html">AI Decision Explorer</a></li>
+            <li><a href="/assessment.html">AI Readiness Assessment</a></li>
+            <li><a href="/automation.html">Automation</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+          </ul>
+        </li>
         <li><a href="/pricing.html" class="current">Pricing</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/#contact">Contact</a></li>
-        <li><a href="/book.html" class="nav-cta">Book</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">About <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/testimonials.html">Testimonials</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="/book.html" class="nav-cta">Book a Call</a></li>
       </ul>
       <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -1334,204 +686,67 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-label" style="color:var(--orange-a11y)">Pricing</span>
-        <h1>Transparent, Value-Based Rates</h1>
-        <p class="section-intro">No hidden fees. Rates reflect real-world expertise — AZ-305 &amp; AZ-104 certified, Microsoft Certified Trainer (MCT), 25+ years enterprise IT, delivered with the rigour of large-scale production environments.</p>
-        <p style="margin-top:10px; font-size:0.95rem;"><a href="/payment.html" style="color:var(--azure-light); font-weight:600; text-decoration:underline;">View accepted payment methods (EFT / Payoneer) &rarr;</a></p>
+        <h1>Transparent Rates, One Place</h1>
+        <p class="section-intro">Every service's starting price at a glance &mdash; no hidden fees. The full detail lives on each service page; this is the map to it. <a href="/payment.html" style="color:var(--azure-light);font-weight:600;">Accepted payment methods &rarr;</a></p>
       </div>
 
-      <!-- Free Discovery Call Banner -->
       <div class="price-free-banner">
-        <div class="price-free-text">
-          <h3>🎯 Free Consulting Discovery Call</h3>
-          <p>30 minutes. No obligation. Let's understand your Azure challenge before you spend a cent.</p>
-        </div>
+        <div class="price-free-text"><h3>🎯 Free 30-minute discovery call</h3><p>For consulting and assessments &mdash; let's understand your challenge before you spend a cent.</p></div>
         <a href="https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled" target="_blank" class="price-free-pill">Book Free — 30 min</a>
       </div>
 
-      <div class="pricing-grid">
-
-        <!-- Azure Training Card (featured) -->
-        <div class="price-card featured">
-          <div class="price-badge">Most Popular</div>
-          <div class="price-platform">Azure &amp; AI Training</div>
-          <h3>Certification &amp; Skills Training</h3>
-          <p class="price-desc">Online delivery via Microsoft Teams. Corporate rates available for groups of 5+. All sessions include recording and follow-up resources.</p>
-          <div class="price-rows">
-            <div class="price-row">
-              <div class="pr-label">Azure &amp; AI Certification Coaching<small>1-on-1 · AZ-104, AZ-305, AI-900</small></div>
-              <div class="pr-amount">R950<span class="pr-sub">/ hr</span><span class="price-fx" data-zar="950"></span></div>
-            </div>
-            <div class="price-row">
-              <div class="pr-label">Azure Training Session<small>2 hrs · Up to 15 participants</small></div>
-              <div class="pr-amount">R2,800<span class="pr-sub">/ session</span><span class="price-fx" data-zar="2800"></span></div>
-            </div>
-            <div class="price-row">
-              <div class="pr-label">Azure Training Session<small>4 hrs · Up to 15 participants</small></div>
-              <div class="pr-amount">R4,900<span class="pr-sub">/ session</span><span class="price-fx" data-zar="4900"></span></div>
-            </div>
-            <div class="price-row">
-              <div class="pr-label">Azure Workshop – Half Day<small>4 hrs · Custom content · Online or on-site</small></div>
-              <div class="pr-amount">R8,500<span class="pr-sub">/ workshop</span><span class="price-fx" data-zar="8500"></span></div>
-            </div>
-            <div class="price-row">
-              <div class="pr-label">Azure Workshop – Full Day<small>8 hrs · Custom content · Online or on-site</small></div>
-              <div class="pr-amount">R14,500<span class="pr-sub">/ workshop</span><span class="price-fx" data-zar="14500"></span></div>
-            </div>
-          </div>
-          <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
-            <a href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank" class="card-link">Book a training session</a>
-          </div>
+      <div class="pr-grid">
+        <div class="pr-card">
+          <div class="dd-platform">1-on-1, online</div>
+          <h3>Certification Coaching</h3>
+          <div class="dd-price">R950<span class="dd-sub">per hour</span></div>
+          <a href="/certification-courses.html" class="card-link">View details</a>
         </div>
-
-        <!-- Azure Consulting Card -->
-        <div class="price-card">
-          <div class="price-platform">Azure Consulting</div>
-          <h3>Architecture &amp; Cloud Consulting</h3>
-          <p class="price-desc">AZ-305 certified. Flexible engagement models — hourly advisory, project-based delivery, or retainer arrangements for ongoing support.</p>
-          <div class="price-rows">
-            <div class="price-row">
-              <div class="pr-label">Hourly Advisory<small>Architecture, review, guidance</small></div>
-              <div class="pr-amount">R1,100<span class="pr-sub">/ hr</span><span class="price-fx" data-zar="1100"></span></div>
-            </div>
-            <div class="price-row">
-              <div class="pr-label">Project-Based Engagement<small>Scoped deliverables, fixed price</small></div>
-              <div class="pr-amount">On request</div>
-            </div>
-            <div class="price-row">
-              <div class="pr-label">Monthly Retainer<small>Ongoing advisory &amp; support</small></div>
-              <div class="pr-amount">On request</div>
-            </div>
-            <div class="price-row">
-              <div class="pr-label">MSP White-Label Partnership<small>Sub-contract · Project or retainer</small></div>
-              <div class="pr-amount">On request</div>
-            </div>
-          </div>
-          <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
-            <a href="https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled" target="_blank" class="card-link">Request a consulting call</a>
-            <a href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Custom%20Quote" class="card-link">Request a custom quote</a>
-          </div>
+        <div class="pr-card">
+          <div class="dd-platform">Group, on-site or online</div>
+          <h3>Custom Workshops</h3>
+          <div class="dd-price">R8,500<span class="dd-sub">from &middot; half-day</span></div>
+          <a href="/certification-courses.html" class="card-link">View details</a>
         </div>
-
-        <!-- Business English Card -->
-        <div class="price-card price-english">
-          <div class="price-platform">Business English for IT</div>
-          <h3>English Coaching for IT Professionals</h3>
-          <p class="price-desc">Microsoft Certified Trainer (MCT). Specialised in IT and cloud terminology. Delivered via iTalki and Preply for global learners — book directly on platform.</p>
-          <div class="price-rows">
-            <div class="price-row">
-              <div class="pr-label">Trial Lesson<small>25 min · First session</small></div>
-              <div class="pr-amount">$15<span class="pr-sub">USD</span><span class="price-fx" data-usd="15"></span></div>
-            </div>
-            <div class="price-row">
-              <div class="pr-label">Standard Session<small>60 min · Business English for IT</small></div>
-              <div class="pr-amount">$35<span class="pr-sub">/ hr USD</span><span class="price-fx" data-usd="35"></span></div>
-            </div>
-            <div class="price-row">
-              <div class="pr-label">Corporate Group Sessions<small>Teams / departments · Custom</small></div>
-              <div class="pr-amount">On request</div>
-            </div>
-          </div>
-          <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
-            <a href="https://outlook.office365.com/owa/calendar/BamCloudAIBusinessEnglish@bamcloudai.com/bookings/" target="_blank" class="card-link" style="color:var(--orange-a11y)">Book a trial lesson</a>
-          </div>
+        <div class="pr-card">
+          <div class="dd-platform">1 day, free credential</div>
+          <h3>Applied Skills Workshops</h3>
+          <div class="dd-price">R2,950<span class="dd-sub">per delegate</span></div>
+          <a href="/workshops.html" class="card-link">View details</a>
         </div>
-
-      </div>
-
-      <div class="dd-block">
-        <div class="dd-head">
-          <span class="dd-label">Fixed-Price Engagements</span>
-          <h2>Microsoft Estate Deep Dive Assessments</h2>
-          <p class="dd-intro">Structured assessment engagements run against the real Microsoft frameworks &mdash; AZ-305, AZ-104, the Cloud Adoption Framework, the Well-Architected Framework, Zero Trust and the Copilot deployment blueprint. Fixed scope, fixed price, and a written report your exec team can act on. Start with a two-hour health check, or go straight to a full deep dive.</p>
+        <div class="pr-card">
+          <div class="dd-platform">Online, iTalki &amp; Preply</div>
+          <h3>Business English for IT</h3>
+          <div class="dd-price">$35<span class="dd-sub">USD per hour</span></div>
+          <a href="/business-english.html" class="card-link">View details</a>
         </div>
-
-        <div class="dd-entry">
-          <div class="dd-entry-badge">Start Here</div>
-          <div>
-            <div class="dd-platform">Azure or Microsoft 365</div>
-            <h3>Microsoft Estate Health Check</h3>
-            <div class="dd-price">R4,500<span class="dd-sub">fixed price &middot; 2 hours</span><span class="price-fx" data-zar="4500"></span></div>
-            <p class="dd-desc">A focused two-hour review of one estate, run live on a screen share. You pick the focus when you book. It exists to answer one question honestly: do you have a problem here worth spending real money on, or not?</p>
-            <a href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Microsoft%20Estate%20Health%20Check" class="card-link">Book a health check</a>
-          </div>
-          <ul class="dd-list">
-            <li>One two-hour working session, run live and screen-shared</li>
-            <li>Your choice of focus &mdash; Azure infrastructure, or Microsoft 365 and Copilot readiness</li>
-            <li>Findings ranked by severity, with the reasoning behind each one</li>
-            <li>A written summary of three to five pages, delivered within five business days</li>
-            <li>A straight recommendation on what to fix first &mdash; and what to leave alone</li>
-            <li>No agent to install and no credentials to hand over &mdash; the review runs against what you show me on screen</li>
-          </ul>
-          <div class="dd-entry-upgrade">
-            <p><strong>Credited against a deep dive.</strong> The full R4,500 is credited against an Azure Estate or Modern Work &amp; Copilot Deep Dive booked within 60 days. If two hours shows the problem is bigger than two hours, you do not pay twice to find that out.</p>
-            <p><strong>Payment.</strong> Invoiced on booking &mdash; EFT in South Africa, or card via Payoneer internationally.</p>
-          </div>
+        <div class="pr-card">
+          <div class="dd-platform">Advisory &middot; project &middot; retainer</div>
+          <h3>Azure Consulting</h3>
+          <div class="dd-price">R1,100<span class="dd-sub">per hour</span></div>
+          <a href="/consulting.html" class="card-link">View details</a>
         </div>
-
-        <div class="dd-grid">
-
-          <div class="dd-card">
-            <div class="dd-platform">Azure</div>
-            <h3>Azure Estate Deep Dive</h3>
-            <div class="dd-price">R24,500<span class="dd-sub">fixed price</span><span class="price-fx" data-zar="24500"></span></div>
-            <p class="dd-desc">A full architectural review of your Azure and infrastructure estate &mdash; where you are, where you should be, and what it costs to get there.</p>
-            <ul class="dd-list">
-              <li>Two half-day working sessions, run live with your team</li>
-              <li>Six phases: engagement framing, current state, target design, Well-Architected review, delivery plan, success criteria</li>
-              <li>Landing zones, identity, networking, compute, storage, data platform, backup and BCDR, monitoring, DevOps</li>
-              <li>Written findings report with prioritised, costed remediation</li>
-              <li>RAID log &mdash; risks, assumptions, issues, dependencies</li>
-              <li>Executive summary written for board-level decisions</li>
-              <li>Delivered within 10 business days of the final session</li>
-            </ul>
-          </div>
-
-          <div class="dd-card dd-featured">
-            <div class="dd-badge">Best Value</div>
-            <div class="dd-platform">Azure + Microsoft 365</div>
-            <h3>Combined Microsoft Estate Review</h3>
-            <div class="dd-price">R39,500<span class="dd-sub">fixed price &middot; saves R9,500</span><span class="price-fx" data-zar="39500"></span></div>
-            <p class="dd-desc">Both assessments, then reconciled into a single view. For most organisations this is the first time anyone has seen the whole Microsoft estate &mdash; and the whole Microsoft bill &mdash; in one place.</p>
-            <ul class="dd-list">
-              <li>Everything in the Azure Estate and Modern Work &amp; Copilot deep dives</li>
-              <li>Cross-checked findings where the two estates disagree on identity, devices, backup or AI readiness</li>
-              <li>Total Microsoft spend as a single annualised figure &mdash; per-user licensing alongside Azure consumption</li>
-              <li>One prioritised remediation list ordered by severity, not by which review found it</li>
-              <li>A single executive summary instead of two competing ones</li>
-            </ul>
-          </div>
-
-          <div class="dd-card">
-            <div class="dd-platform">Microsoft 365</div>
-            <h3>Modern Work &amp; Copilot Deep Dive</h3>
-            <div class="dd-price">R24,500<span class="dd-sub">fixed price</span><span class="price-fx" data-zar="24500"></span></div>
-            <p class="dd-desc">A full review of your Microsoft 365 tenant, security posture and Copilot readiness &mdash; including whether Copilot is worth the licence spend for your organisation.</p>
-            <ul class="dd-list">
-              <li>Two half-day working sessions, run live with your team</li>
-              <li>Identity and access, Intune and endpoints, Exchange Online, SharePoint and OneDrive, Teams and telephony</li>
-              <li>Purview information protection, threat protection, Power Platform governance</li>
-              <li>Copilot readiness assessment and costed business case &mdash; seat modelling against real benefit</li>
-              <li>On-premises Active Directory decommission path, where applicable</li>
-              <li>Written findings report, RAID log and executive summary</li>
-              <li>Delivered within 10 business days of the final session</li>
-            </ul>
-          </div>
-
+        <div class="pr-card">
+          <div class="dd-platform">2-hour review + report</div>
+          <h3>Microsoft Estate Health Check</h3>
+          <div class="dd-price">R4,500<span class="dd-sub">fixed price</span></div>
+          <a href="/assessments.html" class="card-link">View details</a>
         </div>
-
-        <div class="dd-notes">
-          <p><strong>Credited against implementation.</strong> The full assessment fee is credited against a follow-on implementation engagement of R100,000 or more booked within 90 days. If we go on to do the work, the assessment effectively costs nothing.</p>
-          <p><strong>How it runs.</strong> Assessments are delivered live and screen-shared &mdash; your team answers, I probe and interpret in the room. The assessment instrument itself remains Bam Cloud AI intellectual property; you receive the complete written report, RAID log and executive summary as your deliverables.</p>
-          <p><strong>Scope.</strong> Prices assume a single organisation up to roughly 250 users and a single Azure tenant. Larger or multi-tenant estates are quoted after the free discovery call.</p>
+        <div class="pr-card">
+          <div class="dd-platform">Full assessment</div>
+          <h3>Estate Deep Dive</h3>
+          <div class="dd-price">R24,500<span class="dd-sub">fixed &middot; combined R39,500</span></div>
+          <a href="/assessments.html" class="card-link">View details</a>
         </div>
       </div>
 
-      <p class="price-disclaimer">All ZAR rates exclude VAT. On-site delivery subject to travel costs. Rates valid for 2026 — contact for multi-session or corporate volume pricing.</p>
-      <p class="price-rate-note" id="priceRateNote">USD · EUR · ZAR equivalents shown per service — live rates loading…</p>
-
+      <div class="dd-notes" style="margin-top:22px;">
+        <p><strong>Fees that credit forward.</strong> The R4,500 Health Check credits against a deep dive booked within 60 days; the full assessment fee credits against an implementation of R100,000+ booked within 90 days.</p>
+        <p><strong>How you pay.</strong> Invoiced on booking &mdash; EFT in South Africa, or card via Payoneer internationally. Platform training (iTalki, Preply, Udemy) is paid on-platform.</p>
+      </div>
+      <p class="price-disclaimer">All ZAR rates exclude VAT and are indicative starting prices. On-site delivery subject to travel costs. Current for 2026.</p>
     </div>
   </section>
-
 </main>
 
 <footer>
@@ -1560,24 +775,58 @@
           </div>
         </div>
       </a>
-      <p>© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
-      <div class="footer-links">
-        <a href="/#training">Training</a>
-        <a href="/#consulting">Consulting</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="/payment.html">Payment</a>
-        <a href="/about.html">About</a>
-        <a href="/explorer.html">AI Explorer</a>
-        <a href="/assessment.html">AI Assessment</a>
-        <a href="/book.html">Book</a>
-        <a href="/#contact">Contact</a>
-        <a href="/terms.html">Terms</a>
-        <a href="/refund-policy.html">Refund Policy</a>
-        <a href="mailto:gustav@bamcloudai.com">Email</a>
-        <a href="https://www.linkedin.com/company/bam-cloud-ai/" target="_blank" rel="noopener">LinkedIn</a>
+      <p class="footer-blurb">Microsoft Azure &amp; AI training and consulting — Durbanville, Cape Town. Online worldwide &amp; in-person across South Africa.</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Training</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/certification-courses.html">Certification Courses</a>
+            <a href="/workshops.html">Applied Skills Workshops</a>
+            <a href="/business-english.html">Business English for IT</a>
+            <a href="/pricing.html">Pricing</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Consulting</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/consulting.html">Azure Architecture</a>
+            <a href="/assessments.html">Estate Assessments</a>
+            <a href="/msp-partnership.html">MSP White-Label</a>
+            <a href="/book.html">Book a Call</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/explorer.html">AI Decision Explorer</a>
+            <a href="/assessment.html">AI Readiness Assessment</a>
+            <a href="/automation.html">Automation</a>
+            <a href="/faq.html">FAQ</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/about.html">About</a>
+            <a href="/testimonials.html">Testimonials</a>
+            <a href="/contact.html">Contact</a>
+            <a href="https://www.linkedin.com/company/bam-cloud-ai/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Legal &amp; Payment</h4>
+          <div class="footer-col-links collapsible">
+            <a href="/payment.html">Payment Methods</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/refund-policy.html">Refund Policy</a>
+            <a href="mailto:gustav@bamcloudai.com">Email</a>
+          </div>
+        </div>
       </div>
+      <p class="footer-hint">Hover for the full site map &#8595;</p>
+      <p class="footer-copyright">© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
     </div>
-    <p class="footer-popia" style="max-width:1140px;margin:16px auto 0;font-size:0.75rem;">This site collects only the information you submit via contact and booking forms (name and email) to respond to your enquiry, in line with the Protection of Personal Information Act (POPIA). Your information is never sold or shared with third parties. To request, correct, or delete your data, contact gustav@bamcloudai.com.</p>
+    <p class="footer-popia" style="max-width:900px;margin:16px auto 0;font-size:0.75rem;text-align:justify;text-align-last:center;">This site collects only the information you submit via contact and booking forms (name and email) to respond to your enquiry, in line with the Protection of Personal Information Act (POPIA). Your information is never sold or shared with third parties. To request, correct, or delete your data, contact gustav@bamcloudai.com.</p>
   </footer>
 
   <script>
@@ -1585,23 +834,14 @@
     (async function priceFx() {
       if (!document.querySelectorAll('.price-fx').length) return;
       try {
-        const [rZar, rUsd] = await Promise.all([
-          fetch('https://open.er-api.com/v6/latest/ZAR').then(r => r.json()),
-          fetch('https://open.er-api.com/v6/latest/USD').then(r => r.json())
-        ]);
-        if (rZar.result !== 'success' || rUsd.result !== 'success') throw new Error('rate error');
-
+        const rZar = await fetch('https://open.er-api.com/v6/latest/ZAR').then(r => r.json());
+        if (rZar.result !== 'success') throw new Error('rate error');
         const zarToUsd = rZar.rates.USD, zarToEur = rZar.rates.EUR;
-        const usdToZar = rUsd.rates.ZAR, usdToEur = rUsd.rates.EUR;
         const fmt = (n, d = 0) => Number(n.toFixed(d)).toLocaleString('en-ZA');
 
         document.querySelectorAll('.price-fx[data-zar]').forEach(el => {
           const z = +el.dataset.zar;
           el.textContent = '≈ $' + fmt(z * zarToUsd) + ' · €' + fmt(z * zarToEur);
-        });
-        document.querySelectorAll('.price-fx[data-usd]').forEach(el => {
-          const u = +el.dataset.usd;
-          el.textContent = '≈ R' + fmt(u * usdToZar) + ' · €' + fmt(u * usdToEur, 2);
         });
 
         const note = document.getElementById('priceRateNote');
@@ -1630,7 +870,7 @@
     }
 
     // Scroll reveal
-    const revealSelectors = '.section-header, .training-grid > *, .consulting-grid > *, .process-step, .cj-tabs, .hf-canvas, .price-card, .price-free-banner, .motivation-box, .testimonial-feature, .about-text, .about-visual, .faq-item, .td-copy, .td-card, .contact-cards > *';
+    const revealSelectors = '.section-header, .price-free-banner, .dd-entry, .pricing-grid > *, .dd-head, .dd-grid > *, .dd-notes';
     const revealEls = document.querySelectorAll(revealSelectors);
     revealEls.forEach(el => el.classList.add('reveal'));
     if ('IntersectionObserver' in window) {
@@ -1647,6 +887,52 @@
       revealEls.forEach(el => el.classList.add('reveal-in'));
     }
 
+    // Nav dropdown: one state machine (the "open" class) driven by hover-intent on
+    // desktop (with a short close-delay so crossing the gap to a wide menu never
+    // drops it) and by click on touch/keyboard. Previously hover was a *separate*
+    // CSS-only mechanism running in parallel with the click-driven "open" class,
+    // which is why the menu behaved inconsistently — hover and click disagreed
+    // about whether the menu was open. Now there is exactly one source of truth.
+    // On desktop, a mouse click always ENSURES the menu is open rather than
+    // toggling it — a real mouse hovers the button before it clicks, so a plain
+    // toggle would immediately close what hover had just opened. Closing on
+    // desktop happens via mouseleave (delayed), an outside click, or Escape.
+    // On touch/narrow screens (no hover), click keeps its original open/close toggle.
+    const hoverCapable = () => window.matchMedia('(hover: hover) and (min-width: 1181px)').matches;
+    document.querySelectorAll('.nav-dropdown').forEach(drop => {
+      const toggle = drop.querySelector('.nav-drop-toggle');
+      const menu = drop.querySelector('.nav-drop-menu');
+      if (!toggle || !menu) return;
+      let closeTimer = null;
+      const openMenu = () => { clearTimeout(closeTimer); menu.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); };
+      const closeMenu = () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
+      drop.addEventListener('mouseenter', () => { if (hoverCapable()) openMenu(); });
+      drop.addEventListener('mouseleave', () => { if (hoverCapable()) { clearTimeout(closeTimer); closeTimer = setTimeout(closeMenu, 300); } });
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearTimeout(closeTimer);
+        if (hoverCapable()) { openMenu(); }
+        else { menu.classList.contains('open') ? closeMenu() : openMenu(); }
+      });
+    });
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.nav-drop-menu.open').forEach(menu => {
+        if (!menu.parentElement.contains(e.target)) {
+          menu.classList.remove('open');
+          const t = menu.previousElementSibling;
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      document.querySelectorAll('.nav-drop-menu.open').forEach(menu => {
+        menu.classList.remove('open');
+        const t = menu.previousElementSibling;
+        if (t) { t.setAttribute('aria-expanded', 'false'); t.focus(); }
+      });
+    });
+
     // Hamburger menu toggle
     const hamburger = document.getElementById('navHamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -1657,7 +943,6 @@
         hamburger.setAttribute('aria-expanded', isOpen);
         hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
       });
-      // Close menu when a link is clicked
       navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           navLinks.classList.remove('open');
