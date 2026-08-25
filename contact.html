@@ -315,7 +315,7 @@
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
       color: var(--azure-light); margin-bottom: 6px;
     }
-    .price-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .price-card h2, .price-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
     .price-headline {
       font-size: 1.9rem; font-weight: 800; color: var(--navy); letter-spacing: -0.03em;
       line-height: 1.1; margin-bottom: 4px;
@@ -335,7 +335,7 @@
       display: flex; align-items: center; justify-content: space-between;
       gap: 28px; margin-bottom: 28px; flex-wrap: wrap;
     }
-    .price-free-text h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .price-free-text h2, .price-free-text h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
     .price-free-text p { font-size: 0.86rem; color: rgba(255,255,255,0.62); line-height: 1.6; max-width: 620px; }
     .price-free-pill {
       background: var(--green); color: var(--navy);
@@ -407,7 +407,7 @@
       letter-spacing: 0.09em; text-transform: uppercase; padding: 4px 14px;
       border-radius: 100px; white-space: nowrap;
     }
-    .dd-entry h3 { font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .dd-entry h2, .dd-entry h3 { font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
     .dd-entry .dd-price { font-size: 1.95rem; }
     .dd-entry .dd-desc { margin-bottom: 14px; }
     .dd-entry-upgrade {
@@ -500,7 +500,12 @@
     @media (max-width: 860px) { .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 30px; } }
     @media (max-width: 460px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-col { display: flex; flex-direction: column; gap: 9px; }
-    .footer-col h4 {
+    /* Column labels are a <p>, not a heading — a footer's column labels
+       shouldn't participate in the page's document outline (they'd create
+       spurious "skipped heading level" errors on pages whose own content
+       doesn't happen to reach h3 before the footer, e.g. 404.html and
+       book.html — caught by W3C validation on 2026-08-25). */
+    .footer-col-heading {
       font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
       color: rgba(255,255,255,0.5); margin: 0 0 4px; font-weight: 700;
     }
@@ -605,7 +610,7 @@
     .contact-card { background:var(--white); border:1px solid var(--border); border-radius:14px; padding:26px; box-shadow:var(--shadow); text-decoration:none; display:block; transition:all .2s; }
     .contact-card:hover { border-color:var(--azure); box-shadow:var(--shadow-lg); transform:translateY(-2px); }
     .contact-card .contact-icon { font-size:1.5rem; margin-bottom:10px; }
-    .contact-card h3 { font-size:1.05rem; color:var(--navy); margin:0 0 6px; font-weight:700; }
+    .contact-card h2, .contact-card h3 { font-size:1.05rem; color:var(--navy); margin:0 0 6px; font-weight:700; }
     .contact-card p { font-size:.9rem; color:var(--muted); margin:0; line-height:1.6; }
     .contact-note { text-align:center; color:var(--muted); font-size:.9rem; max-width:640px; margin:26px auto 0; line-height:1.7; }
 </style>
@@ -694,7 +699,7 @@
       </div>
       <div class="contact-grid">
         <a class="contact-card" href="https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled" target="_blank">
-          <div class="contact-icon">🎯</div><h3>Free Discovery Call</h3><p>30 minutes, no obligation &mdash; for consulting and assessments. Let's understand your challenge first.</p>
+          <div class="contact-icon">🎯</div><h2>Free Discovery Call</h2><p>30 minutes, no obligation &mdash; for consulting and assessments. Let's understand your challenge first.</p>
         </a>
         <a class="contact-card" href="https://outlook.office365.com/owa/calendar/BamCloudAI1@bamcloudai.com/bookings/" target="_blank">
           <div class="contact-icon">📅</div><h3>Book Training</h3><p>Schedule a certification session or workshop for yourself or your team.</p>
@@ -746,7 +751,7 @@
       <p class="footer-blurb">Microsoft Azure &amp; AI training and consulting — Durbanville, Cape Town. Online worldwide &amp; in-person across South Africa.</p>
       <div class="footer-grid">
         <div class="footer-col">
-          <h4>Training</h4>
+          <p class="footer-col-heading">Training</p>
           <div class="footer-col-links collapsible">
             <a href="/certification-courses.html">Certification Courses</a>
             <a href="/workshops.html">Applied Skills Workshops</a>
@@ -755,7 +760,7 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>Consulting</h4>
+          <p class="footer-col-heading">Consulting</p>
           <div class="footer-col-links collapsible">
             <a href="/consulting.html">Azure Architecture</a>
             <a href="/assessments.html">Estate Assessments</a>
@@ -764,7 +769,7 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>Tools</h4>
+          <p class="footer-col-heading">Tools</p>
           <div class="footer-col-links collapsible">
             <a href="/explorer.html">AI Decision Explorer</a>
             <a href="/assessment.html">AI Readiness Assessment</a>
@@ -773,7 +778,7 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>Company</h4>
+          <p class="footer-col-heading">Company</p>
           <div class="footer-col-links collapsible">
             <a href="/about.html">About</a>
             <a href="/testimonials.html">Testimonials</a>
@@ -782,7 +787,7 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>Legal &amp; Payment</h4>
+          <p class="footer-col-heading">Legal &amp; Payment</p>
           <div class="footer-col-links collapsible">
             <a href="/payment.html">Payment Methods</a>
             <a href="/terms.html">Terms</a>
