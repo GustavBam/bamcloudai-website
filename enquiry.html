@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The 4 Levels of AI — Self-Assessment | Bam Cloud AI</title>
-<meta name="description" content="A 10-minute self-assessment for business leaders — rate 8 functions, then book your free call already knowing your biggest opportunity.">
-  <meta property="og:title" content="The 4 Levels of AI — Self-Assessment | Bam Cloud AI" />
-  <meta property="og:description" content="A 10-minute self-assessment for business leaders — rate your organisation, then book your free call already knowing your biggest opportunity." />
-  <meta property="og:url" content="https://bamcloudai.com/assessment.html" />
+<title>Tell Us What You Need | Bam Cloud AI</title>
+<meta name="description" content="Training, workshops, Azure consulting, or an estate assessment — tell us what you need, individual, company, or group, then book a free 30-minute call to work out the details together. No pricing surprises, no wrong-size booking.">
+  <meta property="og:title" content="Tell Us What You Need | Bam Cloud AI" />
+  <meta property="og:description" content="Tell us what you need, then book a free 30-minute call to work out the details together." />
+  <meta property="og:url" content="https://bamcloudai.com/enquiry.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The 4 Levels of AI — Self-Assessment | Bam Cloud AI" />
-  <meta name="twitter:description" content="A 10-minute self-assessment for business leaders — rate your organisation, then book your free call already knowing your biggest opportunity." />
+  <meta name="twitter:title" content="Tell Us What You Need | Bam Cloud AI" />
+  <meta name="twitter:description" content="Tell us what you need, then book a free 30-minute call to work out the details together." />
   <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
-<link rel="canonical" href="https://bamcloudai.com/assessment.html">
+<link rel="canonical" href="https://bamcloudai.com/enquiry.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -90,29 +90,6 @@
   .step-sub{ font-size:13.5px; color:var(--dim); margin:0 0 20px 0; }
   .optional-tag{ display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--dim); background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:2px 8px; margin-left:8px; vertical-align:middle;}
 
-  /* --- level scoring key --- */
-  .levels{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:22px; }
-  .level-card{ border:1px solid var(--line); border-top:4px solid var(--lc); border-radius:6px; padding:10px 9px; background:var(--panel2); }
-  .level-card .lnum{ font-size:10px; font-weight:700; color:var(--lc); text-transform:uppercase; letter-spacing:.5px;}
-  .level-card .ltitle{ font-size:13px; font-weight:700; color:var(--txt); margin:2px 0 4px 0;}
-  .level-card .ldesc{ font-size:11px; color:var(--dim); }
-  .l1{ --lc:var(--azure-light); } .l2{ --lc:var(--violet); } .l3{ --lc:var(--orange); } .l4{ --lc:var(--green); }
-
-  /* --- function rating rows --- */
-  .func-row{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:10px; background:var(--panel2); }
-  .func-row .fname{ font-weight:700; color:var(--txt); font-size:14.5px; margin-bottom:8px; }
-  .pillgroup{ display:flex; gap:8px; flex-wrap:wrap; }
-  .pill{
-    flex:1; min-width:110px; text-align:center; border:1.5px solid var(--line); border-radius:20px;
-    padding:7px 6px; font-size:12.5px; font-weight:600; color:var(--dim); cursor:pointer; user-select:none;
-    transition:all .15s ease; background:var(--panel);
-  }
-  .pill:hover{ border-color:var(--azure-light); }
-  .pill.sel-l1{ background:var(--azure); border-color:var(--azure); color:#fff; }
-  .pill.sel-l2{ background:var(--violet); border-color:var(--violet); color:#1a1330; }
-  .pill.sel-l3{ background:var(--orange-dark); border-color:var(--orange-dark); color:#fff; }
-  .pill.sel-l4{ background:var(--green); border-color:var(--green); color:#062712; }
-
   /* --- generic form fields --- */
   label.field-label{ display:block; font-size:13px; font-weight:700; color:var(--txt); margin:16px 0 6px 0; }
   label.field-label:first-child{ margin-top:0; }
@@ -136,14 +113,6 @@
   .choice.selected{ background:rgba(212,100,28,0.18); border-color:var(--orange); color:#f0a978; font-weight:600; }
   .choice.single.selected{ background:var(--azure); border-color:var(--azure); color:#fff; }
 
-  .deepdive-note{
-    font-size:13px; color:var(--dim); background:rgba(212,100,28,0.1); border-left:3px solid var(--orange);
-    padding:10px 14px; border-radius:0 6px 6px 0; margin-bottom:18px;
-  }
-  .dd-block{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:14px; background:var(--panel2); }
-  .dd-block .ddhead{ display:inline-block; background:var(--azure); color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:4px; margin-bottom:10px; }
-  .dd-block .ddq{ font-size:13px; color:var(--txt); margin:0 0 6px 0; font-weight:600; }
-
   .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:22px; gap:12px; }
   button{ font-family:inherit; cursor:pointer; border:none; border-radius:22px; font-weight:700; font-size:14px; padding:11px 22px; }
   .btn-primary{ background:var(--azure); color:#fff; }
@@ -162,6 +131,7 @@
   .success-card h2{ color:var(--txt); font-size:21px; margin:0 0 10px 0; }
   .success-card p{ color:var(--dim); font-size:14px; max-width:440px; margin:0 auto 18px auto; }
   .success-card .btn-primary{ display:inline-block; text-decoration:none; }
+  .success-card .btn-ghost-link{ display:inline-block; margin-top:14px; font-size:12.5px; color:var(--dim); text-decoration:underline; }
 
   .credentials{ margin:24px 24px 0 24px; padding-top:16px; border-top:1px solid var(--line); text-align:center; }
   .credchips{ display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-bottom:10px; }
@@ -188,31 +158,12 @@
     }
     .footer-inner .logo { margin-bottom: 4px; }
     .footer-inner p { font-size: 0.85rem; }
-    .footer-links {
-      display: flex; flex-wrap: wrap; gap: 20px;
-      justify-content: center;
-    }
-    .footer-links a {
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      font-size: 0.83rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--white); }
 
   @media (max-width:600px){
-    .levels{ grid-template-columns:repeat(2,1fr); }
-    .pillgroup{ flex-direction:column; }
     .hero h1{ font-size:21px; }
   }
 
 /* ===== NEW SITE CHROME (retrofit) ===== */
-/* Some retrofitted pages (explorer.html, assessment.html) have their own dark
-   theme whose --bg equals the same navy the site footer uses, so the footer's
-   OWN pre-existing "background: var(--bg)" rule made it blend invisibly into
-   the page above it. Force the real footer color + a visible seam so the
-   footer always reads as a distinct, separate band regardless of what the
-   page's own theme happens to use. */
 footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.18) !important; box-shadow:0 -24px 40px -24px rgba(0,0,0,0.55) !important; position:relative !important; }
 .nav-links { display:flex; align-items:center; gap:22px; list-style:none; white-space:nowrap; }
 .nav-links > li { display:flex; align-items:center; }
@@ -254,16 +205,6 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
 .footer-popia { color:rgba(255,255,255,0.42) !important; }
 .footer-hint { display:none; }
 
-/* Footer collapse-on-default, hover/focus-to-reveal (desktop only). ALL FIVE
-   columns' link lists (marked .collapsible, including Legal & Payment)
-   collapse to zero height by default — only headings, logo/blurb and the
-   copyright + POPIA paragraph stay visible. The copyright/POPIA paragraph
-   is permanently visible and carries the core POPIA disclosure + contact
-   email, so the required notice is never behind an interaction; only the
-   Payment/Terms/Refund Policy/Email shortcut links need a hover. Because
-   every column collapses together the whole grid ROW shrinks (row height =
-   tallest cell, now 0 everywhere) — that's what actually frees up space.
-   Touch/narrow screens (no hover) get the full footer expanded by default. */
 @media (hover:hover) and (min-width:1181px) {
   .footer-hint { display:block; font-size:0.72rem; color:rgba(255,255,255,0.32); font-style:italic; margin-top:-6px; transition:opacity .2s ease; }
   .footer-col-links.collapsible { opacity:0; max-height:0; overflow:hidden; pointer-events:none; transition:opacity .25s ease, max-height .25s ease; }
@@ -276,7 +217,6 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
 <body>
 
 <!-- NAV -->
-<div class="scroll-progress" id="scrollProgress"></div>
   <nav>
     <div class="nav-inner">
       <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
@@ -327,7 +267,7 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
           <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Tools <span class="caret" aria-hidden="true">▾</span></button>
           <ul class="nav-drop-menu">
             <li><a href="/explorer.html">AI Decision Explorer</a></li>
-            <li><a href="/assessment.html" class="current">AI Readiness Assessment</a></li>
+            <li><a href="/assessment.html">AI Readiness Assessment</a></li>
             <li><a href="/automation.html">Automation</a></li>
             <li><a href="/faq.html">FAQ</a></li>
           </ul>
@@ -351,161 +291,107 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
 
 <div class="wrap">
   <div class="hero">
-    <div class="kicker">Self-Assessment · 10 minutes · online</div>
-    <h1>The 4 Levels of AI — Where Does Your Organisation Really Stand?</h1>
-    <p>Fill it in online, at your own pace. The more you share, the more useful your free 30-minute call will be — but only your name and email are required to send it through.</p>
+    <div class="kicker">Tell Us What You Need · 2 minutes · everything optional</div>
+    <h1 id="heroTitle">Tell Us What You Need</h1>
+    <p>Every question below is optional — skip anything you'd rather answer live on the call. The more you share, the more useful your free 30-minute call will be, but only your name and email are required to send it through.</p>
   </div>
 
   <div class="progress-bar">
-    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:20%;"></div></div>
-    <div class="progress-label"><span id="stepLabel">Step 1 of 5</span><span id="stepName">Rate your organisation</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:33%;"></div></div>
+    <div class="progress-label"><span id="stepLabel">Step 1 of 3</span><span id="stepName">Who's this for</span></div>
   </div>
 
-  <form id="assessForm">
+  <form id="enquiryForm">
 
-  <!-- STEP 1 — MATRIX -->
+  <!-- STEP 1 — WHO'S THIS FOR -->
   <div class="step active" data-step="1">
     <div class="card">
-      <div class="step-title">Rate Every Function You Own</div>
-      <div class="step-sub">Tick the highest level genuinely reached today — not where you'd like to be.</div>
+      <div class="step-title">Who's This For? <span class="optional-tag">Optional</span></div>
+      <div class="step-sub">Helps me prepare the right conversation before we even talk.</div>
 
-      <div class="levels">
-        <div class="level-card l1"><div class="lnum">Level 1</div><div class="ltitle">Chat</div><div class="ldesc">Ask AI questions, use the answer. Nothing saved or repeatable.</div></div>
-        <div class="level-card l2"><div class="lnum">Level 2</div><div class="ltitle">Automate</div><div class="ldesc">One repeated task now runs the same way every time.</div></div>
-        <div class="level-card l3"><div class="lnum">Level 3</div><div class="ltitle">Build</div><div class="ldesc">A small tool/app removes real friction — usually no code.</div></div>
-        <div class="level-card l4"><div class="lnum">Level 4</div><div class="ltitle">Shared Apps</div><div class="ldesc">Teammates or customers rely on it daily.</div></div>
-      </div>
-
-      <div id="funcRows"></div>
-
-      <label class="field-label">Your single next step <span class="field-hint">(optional — one sentence)</span></label>
-      <textarea name="assessment_next_step" placeholder="What's the one task, in your weakest area, that's begging to move up a level?"></textarea>
-    </div>
-  </div>
-
-  <!-- STEP 2 — COMPANY PROFILE -->
-  <div class="step" data-step="2">
-    <div class="card">
-      <div class="step-title">Your Company Profile <span class="optional-tag">Optional</span></div>
-      <div class="step-sub">Helps me scope the right conversation before we even talk.</div>
-
-      <label class="field-label">What does your company do? <span class="field-hint">(industry / type)</span></label>
-      <input type="text" name="company_type" placeholder="e.g. accounting firm, retailer, logistics, MSP...">
-
-      <label class="field-label">Company size <span class="field-hint">(headcount)</span></label>
-      <div class="choicegrid single" data-name="company_size_range">
-        <div class="choice">1–9</div>
-        <div class="choice">10–49</div>
-        <div class="choice">50–199</div>
-        <div class="choice">200–499</div>
-        <div class="choice">500+</div>
-        <div class="choice">Not sure</div>
-      </div>
-
-      <label class="field-label">Current Microsoft 365 / Copilot licensing</label>
-      <select name="current_ms_license">
-        <option value="">— Select —</option>
-        <option>No Microsoft 365 currently</option>
-        <option>Microsoft 365 Business Basic</option>
-        <option>Microsoft 365 Business Standard</option>
-        <option>Microsoft 365 Business Premium</option>
-        <option>Enterprise E3</option>
-        <option>Enterprise E5</option>
-        <option>Already have Copilot add-on</option>
-        <option>Not sure what we have</option>
-      </select>
-
-      <label class="field-label">Who would this be for, if we moved ahead?</label>
-      <div class="choicegrid single" data-name="rollout_scope">
-        <div class="choice">Just me right now</div>
-        <div class="choice">One team / department</div>
-        <div class="choice">The whole company</div>
-        <div class="choice">Not decided yet</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STEP 3 — DEEP DIVE (dynamic) -->
-  <div class="step" data-step="3">
-    <div class="card">
-      <div class="step-title">Look Deeper <span class="optional-tag">Optional</span></div>
-      <div class="deepdive-note">Based on your ratings, these are your two weakest areas. A couple of honest lines here means we skip the small talk on the call.</div>
-      <div id="deepdiveBlocks"></div>
-    </div>
-  </div>
-
-  <!-- STEP 4 — MOTIVATION & CONTEXT -->
-  <div class="step" data-step="4">
-    <div class="card">
-      <div class="step-title">Context For Our Call <span class="optional-tag">Optional but recommended</span></div>
-      <div class="step-sub">The single biggest reason these calls run long is missing context. Save us both time.</div>
-
-      <label class="field-label">Biggest concern, or what's held you back so far?</label>
-      <textarea name="biggest_concern" placeholder="Cost, data privacy, staff pushback, not knowing where to start..."></textarea>
-
-      <label class="field-label">If this works, what does success look like in 12 months?</label>
-      <textarea name="success_vision_12mo" placeholder="Hours saved, revenue per employee, faster close, something else..."></textarea>
-
-      <label class="field-label">What's the biggest win you're hoping for? <span class="field-hint">(pick as many as apply)</span></label>
-      <div class="choicegrid multi" data-name="expected_biggest_wins">
-        <div class="choice">Time saved</div>
-        <div class="choice">Revenue growth</div>
-        <div class="choice">Cost reduction</div>
-        <div class="choice">Competitive edge</div>
-        <div class="choice">Staff retention / morale</div>
-        <div class="choice">Compliance & risk reduction</div>
-        <div class="choice">Other</div>
-      </div>
-
-      <label class="field-label">Is this business-critical, or are you exploring?</label>
-      <div class="choicegrid single" data-name="urgency_level">
-        <div class="choice">Business-critical right now</div>
-        <div class="choice">Important, not urgent</div>
-        <div class="choice">Just exploring</div>
-      </div>
-
-      <label class="field-label">What kind of help do you think you'll need? <span class="field-hint">(pick as many as apply)</span></label>
-      <div class="choicegrid multi" data-name="help_needed">
-        <div class="choice">Strategy & training</div>
-        <div class="choice">Technical implementation</div>
-        <div class="choice">Design / UX</div>
-        <div class="choice">Data migration</div>
-        <div class="choice">Ongoing managed support</div>
+      <label class="field-label">Booking as</label>
+      <div class="choicegrid single" data-name="audience_type">
+        <div class="choice">Just me (individual)</div>
+        <div class="choice">Me, for my company</div>
+        <div class="choice">A group / multiple attendees</div>
         <div class="choice">Not sure yet</div>
       </div>
 
-      <label class="field-label">Who else should be involved? <span class="field-hint">(on the first call, or affected across the business)</span></label>
-      <textarea name="call_stakeholders" placeholder="e.g. my ops manager should be on the call; finance and support teams would be affected"></textarea>
+      <label class="field-label" for="companyField">Company name <span class="field-hint">(if applicable)</span></label>
+      <input type="text" name="company" id="companyField" placeholder="Leave blank if this is just for you">
 
-      <label class="field-label">Anything else worth knowing before our call?</label>
-      <textarea name="additional_notes" placeholder="Optional — anything that doesn't fit above"></textarea>
+      <label class="field-label" for="attendeeField">Number of people attending <span class="field-hint">(leave blank if it's just you)</span></label>
+      <input type="text" name="attendee_count" id="attendeeField" placeholder="e.g. just me, or 8 people across 2 teams">
+
+      <label class="field-label" for="jobtitleField">Your role / title</label>
+      <input type="text" name="jobtitle" id="jobtitleField" placeholder="Optional">
     </div>
   </div>
 
-  <!-- STEP 5 — CONTACT (GATE) -->
-  <div class="step" data-step="5">
+  <!-- STEP 2 — WHAT YOU NEED -->
+  <div class="step" data-step="2">
+    <div class="card">
+      <div class="step-title">What You're Looking For <span class="optional-tag">Optional</span></div>
+      <div class="step-sub">Rough answers are fine — we'll nail down the details on the call.</div>
+
+      <label class="field-label">What kind of enquiry is this?</label>
+      <div class="choicegrid single" data-name="enquiry_type">
+        <div class="choice">Certification training</div>
+        <div class="choice">Team / group workshop</div>
+        <div class="choice">Custom workshop</div>
+        <div class="choice">Azure consulting</div>
+        <div class="choice">Estate assessment</div>
+        <div class="choice">MSP / reseller partnership</div>
+        <div class="choice">Automation</div>
+        <div class="choice">Business English</div>
+        <div class="choice">Not sure yet</div>
+      </div>
+
+      <label class="field-label" for="topicField">Specifics <span class="field-hint">(which course, workshop, or project)</span></label>
+      <input type="text" name="topic_of_interest" id="topicField" placeholder="e.g. AZ-104, a team training day, Azure architecture review, estate health check...">
+
+      <label class="field-label" for="environmentField">Current Microsoft / Azure setup <span class="field-hint">(if relevant)</span></label>
+      <input type="text" name="current_environment" id="environmentField" placeholder="e.g. Microsoft 365 E3, Azure with ~40 VMs, on-prem AD not yet migrated, existing MSP/reseller relationship...">
+
+      <label class="field-label">Preferred format</label>
+      <div class="choicegrid single" data-name="format_pref">
+        <div class="choice">Online</div>
+        <div class="choice">In-person (South Africa)</div>
+        <div class="choice">Either works</div>
+      </div>
+
+      <label class="field-label" for="timeframeField">Rough timeframe or dates in mind</label>
+      <input type="text" name="timeframe" id="timeframeField" placeholder="e.g. next 2-3 weeks, sometime in October, no rush">
+
+      <label class="field-label" for="timezoneField">Your timezone</label>
+      <input type="text" name="timezone" id="timezoneField" placeholder="e.g. SAST / GMT+2, EST, CET...">
+
+      <label class="field-label" for="goalsField">What are you hoping to get out of it?</label>
+      <textarea name="goals" id="goalsField" placeholder="e.g. pass an exam, upskill a team, solve a specific work problem..."></textarea>
+
+      <label class="field-label" for="notesField">Anything else worth knowing before our call?</label>
+      <textarea name="additional_notes" id="notesField" placeholder="Optional — anything that doesn't fit above"></textarea>
+    </div>
+  </div>
+
+  <!-- STEP 3 — CONTACT (GATE) -->
+  <div class="step" data-step="3">
     <div class="card">
       <div class="step-title">Your Details</div>
       <div class="step-sub">This is the only part that's required — so I know who to prepare the call for.</div>
 
-      <label class="field-label req">First name</label>
-      <input type="text" name="firstname" required>
+      <label class="field-label req" for="firstnameField">First name</label>
+      <input type="text" name="firstname" id="firstnameField" required>
 
-      <label class="field-label req">Last name</label>
-      <input type="text" name="lastname" required>
+      <label class="field-label req" for="lastnameField">Last name</label>
+      <input type="text" name="lastname" id="lastnameField" required>
 
-      <label class="field-label req">Email</label>
-      <input type="email" name="email" required>
+      <label class="field-label req" for="emailField">Email</label>
+      <input type="email" name="email" id="emailField" required>
       <div class="err-msg" id="emailErr">Please enter a valid email address.</div>
 
-      <label class="field-label">Phone <span class="field-hint">(optional)</span></label>
-      <input type="tel" name="phone">
-
-      <label class="field-label">Company name</label>
-      <input type="text" name="company">
-
-      <label class="field-label">Your role / title</label>
-      <input type="text" name="jobtitle">
+      <label class="field-label" for="phoneField">Phone <span class="field-hint">(optional)</span></label>
+      <input type="tel" name="phone" id="phoneField">
 
       <input type="hidden" name="company_website" id="hp_field" value=""> <!-- honeypot -->
     </div>
@@ -517,7 +403,7 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
     <button type="button" class="btn-ghost" id="btnBack" style="visibility:hidden;">Back</button>
     <button type="button" class="btn-primary" id="btnNext">Continue</button>
   </div>
-  <div class="skip-note" id="skipNote">Steps 1–4 are optional — skip anything you'd rather answer live on the call.</div>
+  <div class="skip-note" id="skipNote">Steps 1–2 are optional — skip anything you'd rather answer live on the call.</div>
 
   <div class="credentials">
     <div class="credchips">
@@ -614,8 +500,18 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
 (function(){
   // ---- CONFIG ----
   var HUBSPOT_PORTAL_ID = "148801143";
-  var HUBSPOT_FORM_GUID = "11859039-c4da-4bb9-97d4-81e5b2c290ac";
+  var HUBSPOT_FORM_GUID = "9ff1664e-3a82-458b-8ee3-668b618b51d1"; // Training & Workshop Enquiry (cloned from the AI-assessment form)
   var BOOKING_URL = "https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled";
+
+  // ---- pre-fill "course of interest" from ?for= query param ----
+  var params = new URLSearchParams(window.location.search);
+  var forParam = params.get('for');
+  if(forParam){
+    var topicField = document.getElementById('topicField');
+    if(topicField) topicField.value = forParam;
+    var heroTitle = document.getElementById('heroTitle');
+    if(heroTitle) heroTitle.textContent = 'Tell Me About Your ' + forParam + ' Needs';
+  }
 
   // ---- site nav hamburger ----
   var hamburger = document.getElementById('navHamburger');
@@ -632,114 +528,24 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
     });
   }
 
-  var FUNCS = [
-    {id:"sales", label:"Sales / Business Dev", q:[
-      "When a lead comes in, how much of the qualifying, research, and first-draft follow-up is still typed by a human — and how long before first contact?",
-      "If your best salesperson disappeared for a month, could someone else reproduce their process from something written down?"
-    ]},
-    {id:"marketing", label:"Marketing", q:[
-      "Could you triple content output in 90 days without hiring — and if not, is the bottleneck ideas, drafting, or approval?",
-      "Do you have a repeatable way to turn one client win into five pieces of content, or does every post start from a blank page?"
-    ]},
-    {id:"finance", label:"Finance / Admin", q:[
-      "How many hours a month go into reconciliation, invoice chasing, or expense categorising that a system could do unattended?",
-      "If a key supplier's price changed tomorrow, how long would it take to see the margin impact across the business?"
-    ]},
-    {id:"operations", label:"Operations", q:[
-      "Name the one manual process that — if the person doing it left tomorrow — would stop or badly delay the business.",
-      "Where does information get re-typed from one system into another purely because the systems don't talk to each other?"
-    ]},
-    {id:"hr", label:"HR / People", q:[
-      "Is onboarding a repeatable checklist, or does it depend on whoever has time that week?",
-      "How much of screening, scheduling, or policy Q&A interrupts a manager's day that a well-built assistant could handle?"
-    ]},
-    {id:"support", label:"Customer Support", q:[
-      "What percentage of incoming questions are repeats of something you've answered ten times before?",
-      "When a support answer is wrong or out of date, how would you find out, and how long to fix it everywhere it appears?"
-    ]},
-    {id:"it", label:"IT / Engineering", q:[
-      "How many AI tools are already in use across the team that IT never approved or knows about — and what data have they touched?",
-      "If a client or regulator asked what AI tools touch their data today, could you produce that list this afternoon?"
-    ]},
-    {id:"leadership", label:"Leadership / Strategy", q:[
-      "Do you actually know which parts of the business have adopted AI, or is adoption invisible right now?",
-      "What would \"AI is working\" look like in your P&L in 12 months? If you can't name the number, that's the first problem to solve."
-    ]}
-  ];
-
-  var state = { levels:{} , choices:{}, deepdive:{} };
+  var state = { choices:{} };
   var currentStep = 1;
-  var totalSteps = 5;
-  var stepNames = {1:"Rate your organisation",2:"Company profile",3:"Look deeper",4:"Context for our call",5:"Your details"};
+  var totalSteps = 3;
+  var stepNames = {1:"Who's this for", 2:"What you need", 3:"Your details"};
 
-  // Build function rows for step 1
-  var rowsEl = document.getElementById('funcRows');
-  FUNCS.forEach(function(f){
-    var row = document.createElement('div');
-    row.className = 'func-row';
-    row.innerHTML = '<div class="fname">'+f.label+'</div><div class="pillgroup" data-func="'+f.id+'">' +
-      [1,2,3,4].map(function(l){ return '<div class="pill" data-level="'+l+'">Level '+l+'</div>'; }).join('') +
-      '</div>';
-    rowsEl.appendChild(row);
-  });
-
-  // Pill click handling (single-select per row)
-  rowsEl.addEventListener('click', function(e){
-    var pill = e.target.closest('.pill');
-    if(!pill) return;
-    var group = pill.closest('.pillgroup');
-    var func = group.getAttribute('data-func');
-    var level = pill.getAttribute('data-level');
-    Array.from(group.children).forEach(function(p){ p.className = 'pill'; });
-    pill.classList.add('sel-l'+level);
-    state.levels[func] = parseInt(level,10);
-  });
-
-  // Generic choice grids (single + multi) across steps 2 & 4
+  // Generic choice grids (single-select) across steps 1 & 2
   document.querySelectorAll('.choicegrid').forEach(function(grid){
     var name = grid.getAttribute('data-name');
-    var isMulti = grid.classList.contains('multi');
-    state.choices[name] = isMulti ? [] : null;
+    state.choices[name] = null;
     grid.addEventListener('click', function(e){
       var choice = e.target.closest('.choice');
       if(!choice) return;
       var val = choice.textContent.trim();
-      if(isMulti){
-        choice.classList.toggle('selected');
-        var arr = Array.from(grid.querySelectorAll('.choice.selected')).map(function(c){return c.textContent.trim();});
-        state.choices[name] = arr;
-      } else {
-        Array.from(grid.children).forEach(function(c){ c.classList.remove('selected'); });
-        choice.classList.add('selected');
-        state.choices[name] = val;
-      }
+      Array.from(grid.children).forEach(function(c){ c.classList.remove('selected'); });
+      choice.classList.add('selected');
+      state.choices[name] = val;
     });
   });
-
-  function weakestTwo(){
-    var entries = FUNCS.map(function(f){ return {id:f.id, label:f.label, level: state.levels[f.id] || 0}; });
-    entries.sort(function(a,b){ return a.level - b.level; });
-    return entries.slice(0,2);
-  }
-
-  function buildDeepDive(){
-    var container = document.getElementById('deepdiveBlocks');
-    container.innerHTML = '';
-    var weak = weakestTwo();
-    weak.forEach(function(w, idx){
-      var f = FUNCS.filter(function(x){return x.id===w.id;})[0];
-      var block = document.createElement('div');
-      block.className = 'dd-block';
-      block.innerHTML = '<div class="ddhead">'+f.label+'</div>' +
-        f.q.map(function(q,i){
-          return '<div class="ddq">'+q+'</div><textarea data-dd="'+f.id+'_'+i+'" placeholder="Optional"></textarea>';
-        }).join('');
-      container.appendChild(block);
-    });
-    container.querySelectorAll('textarea').forEach(function(ta){
-      ta.addEventListener('input', function(){ state.deepdive[ta.getAttribute('data-dd')] = ta.value; });
-    });
-  }
 
   function showStep(n){
     document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
@@ -748,17 +554,11 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
     document.getElementById('stepLabel').textContent = 'Step '+n+' of '+totalSteps;
     document.getElementById('stepName').textContent = stepNames[n];
     document.getElementById('btnBack').style.visibility = n===1 ? 'hidden' : 'visible';
-    document.getElementById('btnNext').textContent = n===totalSteps ? 'Send my assessment' : 'Continue';
+    document.getElementById('btnNext').textContent = n===totalSteps ? 'Send my enquiry' : 'Continue';
     document.getElementById('skipNote').style.display = n===totalSteps ? 'none' : 'block';
-    if(n===3) buildDeepDive();
     window.scrollTo({top:0, behavior:'smooth'});
   }
 
-  // ---- Browser history integration ----
-  // Establish a base history entry for step 1 (replaceState, so a Back press
-  // while on step 1 leaves the page normally — it never got a pushed entry).
-  // Every forward step pushes a new entry, so the physical Back button and
-  // the in-page Back button both walk through the wizard identically.
   if(window.history && window.history.replaceState){
     history.replaceState({step:1}, '', location.pathname + location.search);
   }
@@ -784,69 +584,46 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       }
       showStep(currentStep);
     } else {
-      submitAssessment();
+      submitEnquiry();
     }
   });
 
   function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
   function collectFieldValues(){
-    var form = document.getElementById('assessForm');
+    var form = document.getElementById('enquiryForm');
     var fields = [];
 
-    // Standard contact fields only — everything else gets consolidated below
-    // (HubSpot free tier caps custom properties, so all qualitative context
-    // is packed into 3 text-blob properties instead of ~20 discrete ones)
+    // Standard contact fields — same set the AI-assessment form already accepts
     ['firstname','lastname','email','phone','company','jobtitle'].forEach(function(name){
       var el = form.querySelector('[name="'+name+'"]');
       fields.push({name: name, value: el ? (el.value || '') : ''});
     });
 
-    // 1. AI Levels Summary — all 8 function ratings in one field
-    var levelsLines = FUNCS.map(function(f){
-      var lvl = state.levels[f.id];
-      return f.label + ': ' + (lvl ? ('Level ' + lvl) : 'Not rated');
-    });
-    fields.push({name:'ai_levels_summary', value: levelsLines.join('\n')});
-
-    // 2. Deep Dive Responses — the two weakest areas + whatever they answered
-    var weak = weakestTwo();
-    var ddLines = [];
-    weak.forEach(function(w){
-      var f = FUNCS.filter(function(x){return x.id===w.id;})[0];
-      ddLines.push('=== ' + f.label + ' ===');
-      f.q.forEach(function(q,i){
-        var ans = state.deepdive[f.id+'_'+i];
-        if(ans){ ddLines.push('Q: ' + q); ddLines.push('A: ' + ans); }
-      });
-    });
-    fields.push({name:'deepdive_responses', value: ddLines.join('\n')});
-
-    // 3. Assessment Context — company profile + motivation, one labeled blob
+    // Everything else packed into the SAME "Assessment Context" blob property
+    // the duplicated form already has — no new HubSpot property needed.
     var ctxLines = [];
     function addLine(label, value){
       if(value && String(value).trim()){ ctxLines.push(label + ': ' + value); }
     }
     function fieldVal(name){ var el = form.querySelector('[name="'+name+'"]'); return el ? el.value : ''; }
-    addLine('What they do', fieldVal('company_type'));
-    addLine('Company size', state.choices['company_size_range']);
-    addLine('Current MS license', fieldVal('current_ms_license'));
-    addLine('Rollout scope', state.choices['rollout_scope']);
-    addLine('Biggest concern', fieldVal('biggest_concern'));
-    addLine('Success vision (12mo)', fieldVal('success_vision_12mo'));
-    addLine('Expected biggest wins', Array.isArray(state.choices['expected_biggest_wins']) ? state.choices['expected_biggest_wins'].join('; ') : '');
-    addLine('Urgency', state.choices['urgency_level']);
-    addLine('Help needed', Array.isArray(state.choices['help_needed']) ? state.choices['help_needed'].join('; ') : '');
-    addLine('Call stakeholders', fieldVal('call_stakeholders'));
+    addLine('Enquiry type', state.choices['enquiry_type']);
+    addLine('Booking as', state.choices['audience_type']);
+    addLine('Number of attendees', fieldVal('attendee_count'));
+    addLine('Specifics', fieldVal('topic_of_interest'));
+    addLine('Current Microsoft/Azure setup', fieldVal('current_environment'));
+    addLine('Preferred format', state.choices['format_pref']);
+    addLine('Timeframe / dates in mind', fieldVal('timeframe'));
+    addLine('Timezone', fieldVal('timezone'));
+    addLine('Goals', fieldVal('goals'));
     addLine('Additional notes', fieldVal('additional_notes'));
-    addLine('Single next step', fieldVal('assessment_next_step'));
     fields.push({name:'assessment_context', value: ctxLines.join('\n')});
 
     return fields;
   }
 
-  function submitAssessment(){
-    var form = document.getElementById('assessForm');
+  function submitEnquiry(){
+    var form = document.getElementById('enquiryForm');
     var firstname = form.firstname.value.trim();
     var lastname = form.lastname.value.trim();
     var email = form.email.value.trim();
@@ -890,46 +667,23 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
     card.className = 'card success-card';
     card.innerHTML = '<div class="ico">&#10003;</div>' +
       '<h2>Got it — thank you.</h2>' +
-      '<p>I\'ll review your answers before we speak, so we can spend the full 30 minutes on your two weakest areas instead of a generic pitch.</p>' +
-      '<a class="btn-primary" href="'+BOOKING_URL+'" target="_blank" rel="noopener">Book your free 30-minute call &rarr;</a>';
+      '<p>I\'ll read this before we speak, so we can spend the full 30 minutes on what you actually need instead of a generic pitch.</p>' +
+      '<a class="btn-primary" href="'+BOOKING_URL+'" target="_blank" rel="noopener">Book your free 30-minute call &rarr;</a>' +
+      '<br><a class="btn-ghost-link" href="mailto:gustav@bamcloudai.com">Prefer email instead? gustav@bamcloudai.com</a>';
     document.querySelector('.wrap').insertBefore(card, document.querySelector('.credentials'));
   }
 
   function showError(){
     var btn = document.getElementById('btnNext');
-    btn.disabled = false; btn.textContent = 'Send my assessment';
-    alert('Something went wrong sending your assessment — please try again, or email gustav@bamcloudai.com directly.');
+    btn.disabled = false; btn.textContent = 'Send my enquiry';
+    alert('Something went wrong sending your enquiry — please try again, or email gustav@bamcloudai.com directly.');
   }
 
   showStep(1);
 })();
 </script>
-
-  <script>
-    (function(){
-      const progressBar = document.getElementById('scrollProgress');
-      if (!progressBar) return;
-      const updateProgress = () => {
-        const h = document.documentElement;
-        const scrolled = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-        progressBar.style.width = Math.min(100, Math.max(0, scrolled)) + '%';
-      };
-      window.addEventListener('scroll', updateProgress, { passive: true });
-      document.addEventListener('scroll', updateProgress, { passive: true });
-      updateProgress();
-    })();
-  </script>
 <script>
 (function(){
-  // One state machine (the "open" class) driven by hover-intent on desktop (with a
-  // short close-delay so crossing the gap to a wide menu never drops it) and by
-  // click on touch/keyboard — replaces the old parallel CSS-hover + click-class
-  // mechanism, which is why the menu used to behave inconsistently. On desktop a
-  // mouse click always ENSURES the menu is open rather than toggling it (a real
-  // mouse hovers the button before it clicks, so a plain toggle would immediately
-  // close what hover just opened); closing on desktop happens via mouseleave
-  // (delayed), an outside click, or Escape. Touch/narrow screens keep the original
-  // open/close toggle on click, since there is no hover there.
   function hoverCapable(){ return window.matchMedia('(hover: hover) and (min-width: 1181px)').matches; }
   document.querySelectorAll('.nav-dropdown').forEach(function(drop){
     var toggle = drop.querySelector('.nav-drop-toggle');
@@ -943,19 +697,15 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
     toggle.addEventListener('click', function(e){
       e.stopPropagation(); clearTimeout(closeTimer);
       if(hoverCapable()){ openMenu(); } else { menu.classList.contains('open') ? closeMenu() : openMenu(); }
+      document.querySelectorAll('.nav-dropdown').forEach(function(other){
+        if(other !== drop){ other.querySelector('.nav-drop-menu').classList.remove('open'); other.querySelector('.nav-drop-toggle').setAttribute('aria-expanded','false'); }
+      });
     });
-  });
-  document.addEventListener('click', function(e){
-    document.querySelectorAll('.nav-drop-menu.open').forEach(function(menu){
-      if(!menu.parentElement.contains(e.target)){ menu.classList.remove('open'); var t=menu.previousElementSibling; if(t) t.setAttribute('aria-expanded','false'); }
+    document.addEventListener('click', function(e){
+      if(!drop.contains(e.target)) closeMenu();
     });
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key !== 'Escape') return;
-    document.querySelectorAll('.nav-drop-menu.open').forEach(function(menu){
-      menu.classList.remove('open');
-      var t = menu.previousElementSibling;
-      if(t){ t.setAttribute('aria-expanded','false'); t.focus(); }
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeMenu();
     });
   });
 })();

@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Payment Options | Bam Cloud AI</title>
-  <meta name="description" content="How to pay Bam Cloud AI — Payoneer for international clients, EFT/invoice for South African clients." />
-  <meta property="og:title" content="Payment Options | Bam Cloud AI" />
-  <meta property="og:description" content="How to pay Bam Cloud AI — Payoneer for international clients, EFT/invoice for South African clients." />
-  <meta property="og:url" content="https://bamcloudai.com/payment.html" />
+    <title>Payment Received | Bam Cloud AI</title>
+  <meta name="description" content="Your payment to Bam Cloud AI has been received. Here's what happens next." />
+  <meta property="og:title" content="Payment Received | Bam Cloud AI" />
+  <meta property="og:description" content="Your payment to Bam Cloud AI has been received. Here's what happens next." />
+  <meta property="og:url" content="https://bamcloudai.com/payment-success.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Payment Options | Bam Cloud AI" />
-  <meta name="twitter:description" content="How to pay Bam Cloud AI — Payoneer for international clients, EFT/invoice for South African clients." />
+  <meta name="twitter:title" content="Payment Received | Bam Cloud AI" />
+  <meta name="twitter:description" content="Your payment to Bam Cloud AI has been received. Here's what happens next." />
   <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
-  <meta name="robots" content="noindex, follow" />
-  <link rel="canonical" href="https://bamcloudai.com/payment.html" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://bamcloudai.com/payment-success.html" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -334,33 +334,56 @@ body { background: var(--canvas-1) !important; }
     </div>
   </nav>
 
-  <main>
-    <h1>How to Pay</h1>
-    <p class="lead">Payment details are confirmed on every invoice. Pick whichever route fits where you're based.</p>
+  <main style="text-align:center;">
+    <div style="font-size:3rem; margin-bottom:12px;">✅</div>
+    <h1>Payment Received — Thank You</h1>
+    <p class="lead" id="ps-lead">Your payment has gone through successfully. Here's what happens next.</p>
 
-    <div class="card">
-      <div class="tagline">International clients</div>
-      <h2>🌍 Payoneer</h2>
-      <p>For clients outside South Africa. Pay with your own card or local bank details; conversion to USD happens automatically at the exchange rate at time of payment — no need to hold dollars. I'll send you a secure Payoneer payment link.</p>
-      <a class="btn" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20Payoneer%20Payment%20Link">Request a secure payment link</a>
+    <div class="card" style="text-align:left;" id="ps-card">
+      <div class="tagline">What happens now</div>
+      <h2 id="ps-heading">I'll be in touch within 1 business day</h2>
+      <p id="ps-body-1">You'll receive a confirmation from PayFast by email for your records. I'll email you separately within one business day to schedule your session at a time that works for you.</p>
+      <p id="ps-body-2">If you'd like to get ahead of that and suggest times now, just reply to the confirmation email or reach out directly.</p>
+      <a class="btn" id="ps-cta" href="mailto:gustav@bamcloudai.com?subject=Scheduling%3A%20Payment%20Received">Suggest a time by email</a>
     </div>
 
-    <div class="card">
-      <div class="tagline">South African clients — instant</div>
-      <h2>💳 Card / Instant EFT (PayFast)</h2>
-      <p>Pay by card, Instant EFT, SnapScan or Zapper through PayFast, South Africa's local payment gateway. After we've agreed the scope on your free call, request a payment link for the exact amount.</p>
-      <a class="btn" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20PayFast%20Payment%20Link">Request a PayFast payment link</a>
-    </div>
-
-    <div class="card">
-      <div class="tagline">South African clients — invoiced</div>
-      <h2>🧾 EFT / Invoice</h2>
-      <p>Direct EFT in ZAR against invoice — banking details are on every invoice.</p>
-      <a class="btn" href="mailto:gustav@bamcloudai.com?subject=Enquiry%3A%20EFT%20Payment%20Details">Request EFT/invoice details</a>
-    </div>
-
-    <p class="footnote">All ZAR rates exclude VAT. See <a href="/pricing.html">pricing</a> and the <a href="/refund-policy.html">refund policy</a>.</p>
+    <p class="footnote">Questions about your payment or booking? Contact <a href="mailto:gustav@bamcloudai.com">gustav@bamcloudai.com</a>. See the <a href="/refund-policy.html">refund policy</a>.</p>
   </main>
+
+  <script>
+  (function(){
+    function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+    var params = new URLSearchParams(window.location.search);
+    var service = params.get('service');
+    var book = params.get('book');
+    var note = params.get('note');
+
+    // Only trust a booking link that actually points at Microsoft Bookings —
+    // never render an arbitrary URL from the query string as a clickable button.
+    var bookOk = false;
+    if (book) {
+      try {
+        var u = new URL(book, window.location.href);
+        bookOk = u.protocol === 'https:' && /(^|\.)microsoft\.com$|(^|\.)bookings\.cloud\.microsoft$|(^|\.)office365\.com$|(^|\.)office\.com$/.test(u.hostname);
+      } catch (e) { bookOk = false; }
+    }
+
+    if (service && bookOk) {
+      document.getElementById('ps-lead').textContent = 'Your payment for ' + service + ' has gone through successfully. One more step \u2014 pick your time.';
+      document.getElementById('ps-heading').textContent = 'Book your session now';
+      document.getElementById('ps-body-1').innerHTML = 'Your payment for <strong>' + esc(service) + '</strong> is confirmed \u2014 you\'ll get a receipt from PayFast by email. Now pick a time that works for you below and it\'s locked in immediately.';
+      var body2 = document.getElementById('ps-body-2');
+      if (note) { body2.textContent = note; } else { body2.style.display = 'none'; }
+      var cta = document.getElementById('ps-cta');
+      cta.href = book;
+      cta.textContent = 'Book your session';
+    } else if (service) {
+      // Trust the service name for display, but with no safe booking link, fall back to email scheduling.
+      document.getElementById('ps-body-1').textContent = 'Your payment for ' + service + ' has gone through successfully. I\'ll email you separately within one business day to schedule your session at a time that works for you.';
+      document.getElementById('ps-cta').href = 'mailto:gustav@bamcloudai.com?subject=' + encodeURIComponent('Scheduling: ' + service);
+    }
+  })();
+  </script>
 
   <!-- FOOTER -->
   <footer>
