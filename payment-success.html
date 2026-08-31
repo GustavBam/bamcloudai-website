@@ -344,7 +344,7 @@ body { background: var(--canvas-1) !important; }
       <h2 id="ps-heading">I'll be in touch within 1 business day</h2>
       <p id="ps-body-1">You'll receive a confirmation from PayFast by email for your records. I'll email you separately within one business day to schedule your session at a time that works for you.</p>
       <p id="ps-body-2">If you'd like to get ahead of that and suggest times now, just reply to the confirmation email or reach out directly.</p>
-      <a class="btn" id="ps-cta" href="mailto:gustav@bamcloudai.com?subject=Scheduling%3A%20Payment%20Received">Suggest a time by email</a>
+      <a class="btn" id="ps-cta" href="mailto:gustav@bamcloudai.com?subject=Scheduling%3A%20Payment%20Received">Questions about scheduling? Email me</a>
     </div>
 
     <p class="footnote">Questions about your payment or booking? Contact <a href="mailto:gustav@bamcloudai.com">gustav@bamcloudai.com</a>. See the <a href="/refund-policy.html">refund policy</a>.</p>
@@ -380,7 +380,9 @@ body { background: var(--canvas-1) !important; }
     } else if (service) {
       // Trust the service name for display, but with no safe booking link, fall back to email scheduling.
       document.getElementById('ps-body-1').textContent = 'Your payment for ' + service + ' has gone through successfully. I\'ll email you separately within one business day to schedule your session at a time that works for you.';
-      document.getElementById('ps-cta').href = 'mailto:gustav@bamcloudai.com?subject=' + encodeURIComponent('Scheduling: ' + service);
+      var ctaFallback = document.getElementById('ps-cta');
+      ctaFallback.href = 'mailto:gustav@bamcloudai.com?subject=' + encodeURIComponent('Scheduling: ' + service);
+      ctaFallback.textContent = 'Questions about scheduling? Email me';
     }
   })();
   </script>
