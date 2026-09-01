@@ -613,6 +613,12 @@
       align-items: center;
       gap: 10px;
     }
+    /* ── VERIFIABLE CREDENTIAL BADGES (added 2026-09-01) ── */
+    .cert-img { width: 32px; height: 32px; flex-shrink: 0; display: block; object-fit: contain; }
+    a.cert-badge { text-decoration: none; color: inherit; transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease; }
+    a.cert-badge:hover, a.cert-badge:focus-visible { border-color: var(--azure); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    a.cert-badge:focus-visible { outline: 2px solid var(--azure); outline-offset: 2px; }
+    .cert-verify { display: block; margin-top: 4px; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.03em; color: var(--azure); }
     .cert-icon {
       width: 32px; height: 32px;
       background: linear-gradient(135deg, var(--azure), var(--azure-dark));
@@ -1371,20 +1377,22 @@ body { background: var(--canvas-1) !important; }
           <p>Bam Cloud AI brings that same rigour to Azure architecture, cloud migrations, and IT training — whether you need a trusted architect for a complex project, a coach for certification prep, or someone who can teach your team to work confidently in the cloud.</p>
           <p>The honest reason I do this: I like watching the moment someone stops guessing and starts knowing. I have spent four decades on a French horn learning that mastery is built through unglamorous, disciplined repetition, not shortcuts — and that is exactly the standard I hold training to. If a session does not leave you able to do the thing yourself, without me in the room, I have not done my job.</p>
           <div class="cert-grid">
-            <div class="cert-badge">
-              <div class="cert-icon">🏅</div>
+            <a class="cert-badge cert-verified" href="https://learn.microsoft.com/api/credentials/share/en-us/GustavBam-1239/C05F5C3BF5601811?sharingId=56B7A859828BC447" target="_blank" rel="noopener noreferrer">
+              <img class="cert-img" src="/badges/az-305-expert.svg" alt="Microsoft Certified: Azure Solutions Architect Expert badge" width="32" height="32" loading="lazy">
               <div>
                 <div class="cert-name">AZ-305</div>
                 <div class="cert-sub">Solutions Architect Expert</div>
+                <span class="cert-verify">Verify on Microsoft Learn &#8599;</span>
               </div>
-            </div>
-            <div class="cert-badge">
-              <div class="cert-icon">🏅</div>
+            </a>
+            <a class="cert-badge cert-verified" href="https://learn.microsoft.com/api/credentials/share/en-us/GustavBam-1239/BBD30E9208FF93FC?sharingId=56B7A859828BC447" target="_blank" rel="noopener noreferrer">
+              <img class="cert-img" src="/badges/az-104-associate.svg" alt="Microsoft Certified: Azure Administrator Associate badge" width="32" height="32" loading="lazy">
               <div>
                 <div class="cert-name">AZ-104</div>
                 <div class="cert-sub">Azure Administrator</div>
+                <span class="cert-verify">Verify on Microsoft Learn &#8599;</span>
               </div>
-            </div>
+            </a>
             <div class="cert-badge">
               <div class="cert-icon">🏅</div>
               <div>
@@ -1399,14 +1407,15 @@ body { background: var(--canvas-1) !important; }
                 <div class="cert-sub">VMware Certified Professional</div>
               </div>
             </div>
-            <div class="cert-badge cert-mct">
-              <div class="cert-icon">🏅</div>
+            <a class="cert-badge cert-mct cert-verified" href="https://www.credly.com/badges/9fb24bfc-48d3-4784-a421-834cf2dba34c" target="_blank" rel="noopener noreferrer">
+              <img class="cert-img" src="/badges/mct-2026.png" alt="Microsoft Certified Trainer 2026 badge" width="32" height="32" loading="lazy">
               <div>
                 <div class="cert-name">MCT</div>
                 <div class="cert-sub">Microsoft Certified Trainer</div>
                 <span class="cert-mct-label">● Active · 2026</span>
+                <span class="cert-verify">Verify on Credly &#8599;</span>
               </div>
-            </div>
+            </a>
             <div class="cert-badge">
               <div class="cert-icon">🗣️</div>
               <div>
