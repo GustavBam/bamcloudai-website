@@ -9,7 +9,7 @@
 - **Azure Administration & Operations** — AZ-104-level hands-on management, monitoring, automation, backup/DR, infrastructure-as-code (Bicep/ARM).
 - **Microsoft 365 & Copilot Deployments** — tenant setup, migrations, Copilot readiness assessments, adoption and change management for SA businesses.
 - **Corporate Workshops** — including the SME AI Readiness Workshop (Copilot adoption, licensing decisions, AI governance for leadership teams), delivered in-person (SA) or virtually.
-- **Business English for IT Professionals** — 1-on-1 coaching for non-native English speakers in IT roles, delivered via iTalki and Preply.
+- **Business English for IT Professionals** — 1-on-1 coaching for non-native English speakers in IT roles, delivered online worldwide over Microsoft Teams.
 - **Infrastructure Contracting** — project-based or retainer Azure expertise for SA businesses and MSPs, including MSP white-label partnerships.
 
 ## Free tools (ungated, no signup required)
