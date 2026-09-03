@@ -46,7 +46,7 @@ jobs:
         with:
           root: .
           css: false
-          extra: --ignore-re Trailing\s+slash\s+on\s+void\s+elements error:\s+CSS:
+          extra: --ignore-re "Trailing slash on void elements"
 
       - name: Confirm Cloudflare Pages will deploy
         run: |
