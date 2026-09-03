@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Business English for IT | Bam Cloud AI — Coaching for IT Professionals</title>
-  <meta name="description" content="TEFL-certified Business English for IT and cloud professionals. Specialised in Azure and Microsoft 365 vocabulary for non-native speakers. Trial lesson from $15, standard sessions $35/hr, corporate groups on request. Delivered online worldwide over Microsoft Teams." />
+  <meta name="description" content="Business English for IT and cloud professionals. Specialised in Azure and Microsoft 365 vocabulary for non-native speakers. Trial lesson from $10, standard sessions $35/hr, corporate groups on request. Delivered online worldwide over Microsoft Teams." />
   <meta property="og:title" content="Business English for IT | Bam Cloud AI — Coaching for IT Professionals" />
-  <meta property="og:description" content="TEFL-certified Business English for IT and cloud professionals. Specialised in Azure and Microsoft 365 vocabulary for non-native speakers. Trial lesson from $15, standard sessions $35/hr, corporate groups on request. Delivered online worldwide over Microsoft Teams." />
+  <meta property="og:description" content="Business English for IT and cloud professionals. Specialised in Azure and Microsoft 365 vocabulary for non-native speakers. Trial lesson from $10, standard sessions $35/hr, corporate groups on request. Delivered online worldwide over Microsoft Teams." />
   <meta property="og:url" content="https://bamcloudai.com/business-english.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
@@ -15,7 +15,7 @@
   <meta property="og:locale" content="en_ZA" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Business English for IT | Bam Cloud AI — Coaching for IT Professionals" />
-  <meta name="twitter:description" content="TEFL-certified Business English for IT and cloud professionals. Specialised in Azure and Microsoft 365 vocabulary for non-native speakers. Trial lesson from $15, standard sessions $35/hr, corporate groups on request. Delivered online worldwide over Microsoft Teams." />
+  <meta name="twitter:description" content="Business English for IT and cloud professionals. Specialised in Azure and Microsoft 365 vocabulary for non-native speakers. Trial lesson from $10, standard sessions $35/hr, corporate groups on request. Delivered online worldwide over Microsoft Teams." />
   <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://bamcloudai.com/business-english.html" />
@@ -604,7 +604,24 @@
       section { padding: 72px 20px; }
       .dd-entry { padding: 28px 22px; }
     }
-  </style>
+      /* ── REGIONAL PRICING CONTROL ── */
+    .rate-region { margin: 0 0 30px; padding: 16px 20px; background: var(--canvas-1, #F3F8FD);
+      border: 1px solid #C9D9EC; border-radius: 12px; }
+    .rr-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+    .rr-label { font-size: 0.9rem; font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .rr-select { font: inherit; font-size: 0.92rem; padding: 8px 12px; border-radius: 8px;
+      border: 1.5px solid #7D94AF; background: #fff; color: var(--navy); min-width: 230px; cursor: pointer; }
+    .rr-select:focus-visible { outline: 3px solid #005A9E; outline-offset: 2px; }
+    .rr-note { flex: 1 1 280px; margin: 0; font-size: 0.85rem; color: #4A5A6E; line-height: 1.55; }
+    .rr-note b { color: var(--navy); }
+    .rr-note a { color: #005A9E; }
+    .card-rate-switch { display: inline-block; margin-top: 10px; font-size: 0.82rem; font-weight: 600;
+      color: #005A9E; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+      background: none; border: 0; padding: 0; font-family: inherit; text-align: left; }
+    .card-rate-switch:hover { color: var(--navy); }
+    .card-rate-switch:focus-visible { outline: 2px solid #005A9E; outline-offset: 3px; border-radius: 3px; }
+    .price-local { display: block; font-size: 0.85rem; font-weight: 500; color: #4A5A6E; margin-top: 3px; }
+</style>
 </head>
 <body>
 
@@ -688,14 +705,22 @@
       <div class="section-header">
         <span class="section-label" style="color:var(--orange-a11y)">Business English for IT</span>
         <h1>English Coaching for IT Professionals</h1>
-        <p class="section-intro">TEFL-certified Business English for the people who run cloud and IT &mdash; specialised in Azure, Microsoft 365 and the vocabulary of technical work. For non-native speakers who need to lead meetings, write clearly, and present with confidence. Delivered online worldwide over Microsoft Teams.</p>
+        <p class="section-intro">Business English for the people who run cloud and IT &mdash; specialised in Azure, Microsoft 365 and the vocabulary of technical work. For non-native speakers who need to lead meetings, write clearly, and present with confidence. Delivered online worldwide over Microsoft Teams.</p>
+
+      <div class="rate-region" id="rateRegion">
+        <div class="rr-row">
+          <label class="rr-label" for="rrCountry">Show prices for</label>
+          <select class="rr-select" id="rrCountry" aria-describedby="rrNote"></select>
+          <p class="rr-note" id="rrNote">Choose your country to see the rate card that applies to you.</p>
+        </div>
+      </div>
       </div>
 
       <div class="pricing-grid">
         <div class="price-card">
           <div class="price-platform">Try It</div>
           <h2>Trial Lesson</h2>
-          <div class="price-headline">$15<span class="ph-sub">USD · 25 min</span><span class="price-fx" data-usd="15"></span></div>
+          <div class="price-headline" data-price-usd="$10">$10<span class="ph-sub">USD · 25 min</span></div>
           <p class="price-desc">A first session to set your goals and see how coaching built around IT works for you.</p>
           <ul class="dd-list">
             <li>25 minutes, one-on-one</li>
@@ -707,7 +732,7 @@
           <div class="price-badge">Most Popular</div>
           <div class="price-platform">Ongoing</div>
           <h3>Standard Session</h3>
-          <div class="price-headline">$35<span class="ph-sub">USD / hour</span><span class="price-fx" data-usd="35"></span></div>
+          <div class="price-headline" data-price-usd="$35">$35<span class="ph-sub">USD / hour</span></div>
           <p class="price-desc">Business English built on real IT and cloud scenarios &mdash; stand-ups, design reviews, client calls, written comms.</p>
           <ul class="dd-list">
             <li>60 minutes, one-on-one</li>
@@ -718,12 +743,13 @@
         <div class="price-card">
           <div class="price-platform">Teams</div>
           <h3>Corporate Groups</h3>
-          <div class="price-headline">On request<span class="ph-sub">departments &amp; teams</span></div>
+          <div class="price-headline" data-price-usd="from $900">from $900<span class="ph-sub">12 sessions &middot; up to 6</span></div>
           <p class="price-desc">Group coaching for an IT department or a delivery team, tailored to your stack and your clients.</p>
           <ul class="dd-list">
             <li>Custom curriculum</li>
             <li>Scheduled around your team</li>
-            <li>Quoted after a short scoping call</li>
+            <li>12 x 1-hour sessions, up to 6 participants</li>
+            <li>Scoped and confirmed on a short call</li>
           </ul>
         </div>
       </div>
@@ -736,7 +762,6 @@
         <a href="https://outlook.office365.com/owa/calendar/BamCloudAIBusinessEnglish@bamcloudai.com/bookings/" target="_blank" class="btn btn-primary" style="background:var(--orange); box-shadow:0 4px 16px rgba(212,100,28,0.35);">Book a trial lesson</a>
         <a href="/enquiry.html?for=Corporate%20Business%20English" class="btn btn-primary">Enquire for a team</a>
       </div>
-      <p class="price-rate-note" id="priceRateNote">ZAR · EUR equivalents shown — live rates loading…</p>
     </div>
   </section>
 </main>
@@ -817,36 +842,61 @@
         </div>
       </div>
       <p class="footer-hint">Hover for the full site map &#8595;</p>
-      <p class="footer-copyright">© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
+      <p class="footer-copyright">© 2026 Bam Cloud AI (Pty) Ltd · Reg. 2026/578688/07 · Durbanville, Cape Town, South Africa.</p>
     </div>
     <p class="footer-popia" style="max-width:900px;margin:16px auto 0;font-size:0.75rem;text-align:justify;text-align-last:center;">This site collects only the information you submit via contact and booking forms (name and email) to respond to your enquiry, in line with the Protection of Personal Information Act (POPIA). Your information is never sold or shared with third parties. To request, correct, or delete your data, contact gustav@bamcloudai.com.</p>
   </footer>
 
   <script>
-    // ── LIVE CURRENCY CONVERSION ──
-    (async function priceFx() {
-      if (!document.querySelectorAll('.price-fx').length) return;
+    // ── REGIONAL PRICING ──────────────────────────────────────────────────
+    // Two rate cards: ZAR for South Africa, USD everywhere else. The visitor
+    // picks their country; we never display two prices for one service. The
+    // applicable rate is confirmed on the invoice, not by the browser.
+    var BCI_MK = [
+      ['South Africa', 'zar', 'ZAR', 'R'],
+      ['— Africa —', '', '', ''],
+      ['Botswana', 'usd', 'BWP', 'P'], ['Egypt', 'usd', 'EGP', 'E£'],
+      ['Ghana', 'usd', 'GHS', 'GH₵'], ['Kenya', 'usd', 'KES', 'KSh'],
+      ['Lesotho', 'usd', 'ZAR', 'R'], ['Mauritius', 'usd', 'MUR', '₨'],
+      ['Morocco', 'usd', 'MAD', 'MAD'], ['Namibia', 'usd', 'NAD', 'N$'],
+      ['Nigeria', 'usd', 'NGN', '₦'], ['Rwanda', 'usd', 'RWF', 'FRw'],
+      ['Tanzania', 'usd', 'TZS', 'TSh'], ['Uganda', 'usd', 'UGX', 'USh'],
+      ['Zambia', 'usd', 'ZMW', 'K'], ['Zimbabwe', 'usd', 'USD', '$'],
+      ['— Europe —', '', '', ''],
+      ['Euro area', 'usd', 'EUR', '€'], ['United Kingdom', 'usd', 'GBP', '£'],
+      ['Switzerland', 'usd', 'CHF', 'CHF'], ['Norway', 'usd', 'NOK', 'kr'],
+      ['Sweden', 'usd', 'SEK', 'kr'], ['Denmark', 'usd', 'DKK', 'kr'],
+      ['Poland', 'usd', 'PLN', 'zł'], ['Czechia', 'usd', 'CZK', 'Kč'],
+      ['Hungary', 'usd', 'HUF', 'Ft'], ['Romania', 'usd', 'RON', 'lei'],
+      ['Türkiye', 'usd', 'TRY', '₺'], ['Iceland', 'usd', 'ISK', 'kr'],
+      ['— Middle East & Asia —', '', '', ''],
+      ['United Arab Emirates', 'usd', 'AED', 'AED'], ['Saudi Arabia', 'usd', 'SAR', 'SAR'],
+      ['Israel', 'usd', 'ILS', '₪'], ['India', 'usd', 'INR', '₹'],
+      ['Singapore', 'usd', 'SGD', 'S$'], ['Malaysia', 'usd', 'MYR', 'RM'],
+      ['Japan', 'usd', 'JPY', '¥'],
+      ['— Americas & Pacific —', '', '', ''],
+      ['United States', 'usd', 'USD', '$'], ['Canada', 'usd', 'CAD', 'C$'],
+      ['Brazil', 'usd', 'BRL', 'R$'], ['Mexico', 'usd', 'MXN', 'MX$'],
+      ['Australia', 'usd', 'AUD', 'A$'], ['New Zealand', 'usd', 'NZD', 'NZ$'],
+      ['— Other —', '', '', ''],
+      ['Anywhere else (USD)', 'usd', 'USD', '$']
+    ];
+
+    var bciPick = (function () {
+      try { var s = localStorage.getItem('bci-country'); if (s) { return s; } } catch (_) {}
       try {
-        const rZar = await fetch('https://open.er-api.com/v6/latest/ZAR').then(r => r.json());
-        if (rZar.result !== 'success') throw new Error('rate error');
-        const zarToUsd = rZar.rates.USD, zarToEur = rZar.rates.EUR;
-        const fmt = (n, d = 0) => Number(n.toFixed(d)).toLocaleString('en-ZA');
-
-        document.querySelectorAll('.price-fx[data-zar]').forEach(el => {
-          const z = +el.dataset.zar;
-          el.textContent = '≈ $' + fmt(z * zarToUsd) + ' · €' + fmt(z * zarToEur);
-        });
-
-        const note = document.getElementById('priceRateNote');
-        if (note) {
-          const d = new Date(rZar.time_last_update_utc).toLocaleDateString('en-ZA', {day:'numeric', month:'short', year:'numeric'});
-          note.innerHTML = 'Indicative USD · EUR rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> · ' + d + ' · Invoiced in ZAR';
-        }
-      } catch (_) {
-        document.querySelectorAll('.price-fx').forEach(el => el.textContent = '');
-        const note = document.getElementById('priceRateNote');
-        if (note) note.textContent = '';
-      }
+        var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (/Johannesburg/.test(tz)) { return 'South Africa'; }
+        if (/Africa\/Windhoek/.test(tz)) { return 'Namibia'; }
+        if (/Africa\/Gaborone/.test(tz)) { return 'Botswana'; }
+        if (/Africa\/Maseru/.test(tz)) { return 'Lesotho'; }
+        if (/Africa\/Nairobi/.test(tz)) { return 'Kenya'; }
+        if (/Africa\/Lagos/.test(tz)) { return 'Nigeria'; }
+        if (/Europe\/London/.test(tz)) { return 'United Kingdom'; }
+        if (/^America\//.test(tz)) { return 'United States'; }
+        if (/^Europe\//.test(tz)) { return 'Euro area'; }
+      } catch (_) {}
+      return 'South Africa';
     })();
 
     // Scroll progress bar

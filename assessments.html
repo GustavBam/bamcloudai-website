@@ -607,6 +607,23 @@
   
     .dd-featured { border-color: var(--azure); background: linear-gradient(160deg,#f0f8ff 0%,var(--white) 60%); }
     .dd-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--azure); color:#fff; font-size:0.68rem; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; padding:4px 14px; border-radius:100px; white-space:nowrap; }
+    /* ── REGIONAL PRICING CONTROL ── */
+    .rate-region { margin: 0 0 30px; padding: 16px 20px; background: var(--canvas-1, #F3F8FD);
+      border: 1px solid #C9D9EC; border-radius: 12px; }
+    .rr-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+    .rr-label { font-size: 0.9rem; font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .rr-select { font: inherit; font-size: 0.92rem; padding: 8px 12px; border-radius: 8px;
+      border: 1.5px solid #7D94AF; background: #fff; color: var(--navy); min-width: 230px; cursor: pointer; }
+    .rr-select:focus-visible { outline: 3px solid #005A9E; outline-offset: 2px; }
+    .rr-note { flex: 1 1 280px; margin: 0; font-size: 0.85rem; color: #4A5A6E; line-height: 1.55; }
+    .rr-note b { color: var(--navy); }
+    .rr-note a { color: #005A9E; }
+    .card-rate-switch { display: inline-block; margin-top: 10px; font-size: 0.82rem; font-weight: 600;
+      color: #005A9E; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+      background: none; border: 0; padding: 0; font-family: inherit; text-align: left; }
+    .card-rate-switch:hover { color: var(--navy); }
+    .card-rate-switch:focus-visible { outline: 2px solid #005A9E; outline-offset: 3px; border-radius: 3px; }
+    .price-local { display: block; font-size: 0.85rem; font-weight: 500; color: #4A5A6E; margin-top: 3px; }
 </style>
 </head>
 <body>
@@ -692,6 +709,14 @@
         <span class="section-label" style="color:var(--orange-a11y)">Fixed-Price Engagements</span>
         <h1>Microsoft Estate Deep-Dive Assessments</h1>
         <p class="section-intro">Structured assessments run against the real Microsoft frameworks &mdash; AZ-305, AZ-104, the Cloud Adoption Framework, the Well-Architected Framework, Zero Trust and the Copilot deployment blueprint. Fixed scope, fixed price, and a written report your exec team can act on. Start with a two-hour health check, or go straight to a full deep dive.</p>
+
+      <div class="rate-region" id="rateRegion">
+        <div class="rr-row">
+          <label class="rr-label" for="rrCountry">Show prices for</label>
+          <select class="rr-select" id="rrCountry" aria-describedby="rrNote"></select>
+          <p class="rr-note" id="rrNote">Choose your country to see the rate card that applies to you.</p>
+        </div>
+      </div>
       </div>
 
       <div class="dd-entry">
@@ -699,7 +724,7 @@
         <div>
           <div class="dd-platform">Azure or Microsoft 365</div>
           <h2>Microsoft Estate Health Check</h2>
-          <div class="dd-price">R4,500<span class="dd-sub">fixed price &middot; 2 hours</span><span class="price-fx" data-zar="4500"></span></div>
+          <div class="dd-price" data-intl="$650">R4,500<span class="dd-sub">fixed price &middot; 2 hours</span></div>
           <p class="dd-desc">A focused two-hour review of one estate, run live on a screen share. You pick the focus when you book. It answers one question honestly: do you have a problem here worth spending real money on, or not?</p>
           <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:6px;">
             <a href="/enquiry.html?for=Estate%20Health%20Check" class="btn btn-primary" style="padding:9px 18px; font-size:0.86rem;">Tell us about your estate</a>
@@ -715,7 +740,7 @@
           <li>No agent to install and no credentials to hand over</li>
         </ul>
         <div class="dd-entry-upgrade">
-          <p><strong>Credited against a deep dive.</strong> The full R4,500 is credited against an Azure Estate or Modern Work &amp; Copilot Deep Dive booked within 60 days. If two hours shows the problem is bigger than two hours, you don't pay twice to find that out.</p>
+          <p data-intl-text="<strong>Credited against a deep dive.</strong> The full $650 is credited against an Azure Estate or Modern Work &amp; Copilot Deep Dive booked within 60 days. If two hours shows the problem is bigger than two hours, you don't pay twice to find that out."><strong>Credited against a deep dive.</strong> The full R4,500 is credited against an Azure Estate or Modern Work &amp; Copilot Deep Dive booked within 60 days. If two hours shows the problem is bigger than two hours, you don't pay twice to find that out.</p>
           <p><strong>Payment.</strong> Arranged after our free call &mdash; instant by card or Instant EFT (PayFast, South Africa), or invoiced on booking with card via Payoneer internationally.</p>
         </div>
       </div>
@@ -730,7 +755,7 @@
           <div class="dd-card">
             <div class="dd-platform">Azure</div>
             <h3>Azure Estate Deep Dive</h3>
-            <div class="dd-price">R24,500<span class="dd-sub">fixed price</span><span class="price-fx" data-zar="24500"></span></div>
+            <div class="dd-price" data-intl="$3,500">R24,500<span class="dd-sub">fixed price</span></div>
             <p class="dd-desc">A full architectural review of your Azure and infrastructure estate against the Well-Architected Framework.</p>
             <ul class="dd-list">
               <li>Landing zones, identity, networking, compute, storage, data platform</li>
@@ -743,7 +768,7 @@
             <div class="dd-badge">Best Value</div>
             <div class="dd-platform">Azure + Microsoft 365</div>
             <h3>Combined Microsoft Estate Review</h3>
-            <div class="dd-price">R39,500<span class="dd-sub">fixed price &middot; saves R9,500</span><span class="price-fx" data-zar="39500"></span></div>
+            <div class="dd-price" data-intl="$5,650">R39,500<span class="dd-sub" data-intl-text="fixed price &middot; saves $1,350">fixed price &middot; saves R9,500</span></div>
             <p class="dd-desc">Both assessments, reconciled into a single view. For most organisations the first time anyone has seen the whole Microsoft estate &mdash; and bill &mdash; in one place.</p>
             <ul class="dd-list">
               <li>Everything in both deep dives</li>
@@ -755,7 +780,7 @@
           <div class="dd-card">
             <div class="dd-platform">Microsoft 365</div>
             <h3>Modern Work &amp; Copilot Deep Dive</h3>
-            <div class="dd-price">R24,500<span class="dd-sub">fixed price</span><span class="price-fx" data-zar="24500"></span></div>
+            <div class="dd-price" data-intl="$3,500">R24,500<span class="dd-sub">fixed price</span></div>
             <p class="dd-desc">A full review of your Microsoft 365 tenant, security posture and Copilot readiness &mdash; including whether Copilot is worth the licence spend.</p>
             <ul class="dd-list">
               <li>Identity and access, Intune and endpoints, Exchange, SharePoint, Teams</li>
@@ -766,7 +791,7 @@
           </div>
         </div>
         <div class="dd-notes">
-          <p><strong>Credited against implementation.</strong> The full assessment fee is credited against a follow-on implementation of R100,000 or more booked within 90 days. If we go on to do the work, the assessment effectively costs nothing.</p>
+          <p data-intl-text="<strong>Credited against implementation.</strong> The full assessment fee is credited against a follow-on implementation of $12,000 or more booked within 90 days. If we go on to do the work, the assessment effectively costs nothing."><strong>Credited against implementation.</strong> The full assessment fee is credited against a follow-on implementation of R100,000 or more booked within 90 days. If we go on to do the work, the assessment effectively costs nothing.</p>
           <p><strong>How it runs.</strong> Delivered live and screen-shared &mdash; your team answers, I probe and interpret in the room. The assessment instrument stays Bam Cloud AI IP; you receive the complete written report, RAID log and executive summary.</p>
           <p><strong>Scope.</strong> Prices assume a single organisation up to roughly 250 users and a single Azure tenant. Larger or multi-tenant estates are quoted after the free discovery call.</p>
         </div>
@@ -774,8 +799,7 @@
           <a href="/enquiry.html?for=Estate%20Deep%20Dive" class="btn btn-primary" style="background:var(--green); color:var(--navy); box-shadow:0 4px 16px rgba(16,185,129,0.35);">Tell us about your estate</a>
         </div>
       </div>
-      <p class="price-disclaimer">All ZAR rates exclude VAT. Current for 2026.</p>
-      <p class="price-rate-note" id="priceRateNote">USD · EUR equivalents shown per engagement — live rates loading…</p>
+      <p class="price-disclaimer">No VAT is charged &mdash; Bam Cloud AI is not a VAT vendor, so the price shown is the price you pay. Current for 2026.</p>
     </div>
   </section>
 </main>
@@ -856,36 +880,150 @@
         </div>
       </div>
       <p class="footer-hint">Hover for the full site map &#8595;</p>
-      <p class="footer-copyright">© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
+      <p class="footer-copyright">© 2026 Bam Cloud AI (Pty) Ltd · Reg. 2026/578688/07 · Durbanville, Cape Town, South Africa.</p>
     </div>
     <p class="footer-popia" style="max-width:900px;margin:16px auto 0;font-size:0.75rem;text-align:justify;text-align-last:center;">This site collects only the information you submit via contact and booking forms (name and email) to respond to your enquiry, in line with the Protection of Personal Information Act (POPIA). Your information is never sold or shared with third parties. To request, correct, or delete your data, contact gustav@bamcloudai.com.</p>
   </footer>
 
   <script>
-    // ── LIVE CURRENCY CONVERSION ──
-    (async function priceFx() {
-      if (!document.querySelectorAll('.price-fx').length) return;
+    // ── REGIONAL PRICING ──────────────────────────────────────────────────
+    // Two rate cards: ZAR for South Africa, USD everywhere else. The visitor
+    // picks their country; we never display two prices for one service. The
+    // applicable rate is confirmed on the invoice, not by the browser.
+    var BCI_MK = [
+      ['South Africa', 'zar', 'ZAR', 'R'],
+      ['— Africa —', '', '', ''],
+      ['Botswana', 'usd', 'BWP', 'P'], ['Egypt', 'usd', 'EGP', 'E£'],
+      ['Ghana', 'usd', 'GHS', 'GH₵'], ['Kenya', 'usd', 'KES', 'KSh'],
+      ['Lesotho', 'usd', 'ZAR', 'R'], ['Mauritius', 'usd', 'MUR', '₨'],
+      ['Morocco', 'usd', 'MAD', 'MAD'], ['Namibia', 'usd', 'NAD', 'N$'],
+      ['Nigeria', 'usd', 'NGN', '₦'], ['Rwanda', 'usd', 'RWF', 'FRw'],
+      ['Tanzania', 'usd', 'TZS', 'TSh'], ['Uganda', 'usd', 'UGX', 'USh'],
+      ['Zambia', 'usd', 'ZMW', 'K'], ['Zimbabwe', 'usd', 'USD', '$'],
+      ['— Europe —', '', '', ''],
+      ['Euro area', 'usd', 'EUR', '€'], ['United Kingdom', 'usd', 'GBP', '£'],
+      ['Switzerland', 'usd', 'CHF', 'CHF'], ['Norway', 'usd', 'NOK', 'kr'],
+      ['Sweden', 'usd', 'SEK', 'kr'], ['Denmark', 'usd', 'DKK', 'kr'],
+      ['Poland', 'usd', 'PLN', 'zł'], ['Czechia', 'usd', 'CZK', 'Kč'],
+      ['Hungary', 'usd', 'HUF', 'Ft'], ['Romania', 'usd', 'RON', 'lei'],
+      ['Türkiye', 'usd', 'TRY', '₺'], ['Iceland', 'usd', 'ISK', 'kr'],
+      ['— Middle East & Asia —', '', '', ''],
+      ['United Arab Emirates', 'usd', 'AED', 'AED'], ['Saudi Arabia', 'usd', 'SAR', 'SAR'],
+      ['Israel', 'usd', 'ILS', '₪'], ['India', 'usd', 'INR', '₹'],
+      ['Singapore', 'usd', 'SGD', 'S$'], ['Malaysia', 'usd', 'MYR', 'RM'],
+      ['Japan', 'usd', 'JPY', '¥'],
+      ['— Americas & Pacific —', '', '', ''],
+      ['United States', 'usd', 'USD', '$'], ['Canada', 'usd', 'CAD', 'C$'],
+      ['Brazil', 'usd', 'BRL', 'R$'], ['Mexico', 'usd', 'MXN', 'MX$'],
+      ['Australia', 'usd', 'AUD', 'A$'], ['New Zealand', 'usd', 'NZD', 'NZ$'],
+      ['— Other —', '', '', ''],
+      ['Anywhere else (USD)', 'usd', 'USD', '$']
+    ];
+
+    var bciPick = (function () {
+      try { var s = localStorage.getItem('bci-country'); if (s) { return s; } } catch (_) {}
       try {
-        const rZar = await fetch('https://open.er-api.com/v6/latest/ZAR').then(r => r.json());
-        if (rZar.result !== 'success') throw new Error('rate error');
-        const zarToUsd = rZar.rates.USD, zarToEur = rZar.rates.EUR;
-        const fmt = (n, d = 0) => Number(n.toFixed(d)).toLocaleString('en-ZA');
+        var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (/Johannesburg/.test(tz)) { return 'South Africa'; }
+        if (/Africa\/Windhoek/.test(tz)) { return 'Namibia'; }
+        if (/Africa\/Gaborone/.test(tz)) { return 'Botswana'; }
+        if (/Africa\/Maseru/.test(tz)) { return 'Lesotho'; }
+        if (/Africa\/Nairobi/.test(tz)) { return 'Kenya'; }
+        if (/Africa\/Lagos/.test(tz)) { return 'Nigeria'; }
+        if (/Europe\/London/.test(tz)) { return 'United Kingdom'; }
+        if (/^America\//.test(tz)) { return 'United States'; }
+        if (/^Europe\//.test(tz)) { return 'Euro area'; }
+      } catch (_) {}
+      return 'South Africa';
+    })();
 
-        document.querySelectorAll('.price-fx[data-zar]').forEach(el => {
-          const z = +el.dataset.zar;
-          el.textContent = '≈ $' + fmt(z * zarToUsd) + ' · €' + fmt(z * zarToEur);
+    function bciMarket(name) {
+      for (var i = 0; i < BCI_MK.length; i++) { if (BCI_MK[i][0] === name && BCI_MK[i][1]) { return BCI_MK[i]; } }
+      return BCI_MK[0];
+    }
+
+    (function bciRegionalPricing() {
+      var sel = document.getElementById('rrCountry');
+      var note = document.getElementById('rrNote');
+      var mk = bciMarket(bciPick);
+      // A page with no data-intl attributes prices in USD for everyone
+      // (Business English on the international platforms).
+      var usdOnly = !document.querySelectorAll('[data-intl]').length;
+      var isZA = mk[1] === 'zar' && !usdOnly;
+
+      // 1. Swap the rate card. ZAR stays as authored; USD comes from data-intl.
+      if (!isZA) {
+        document.documentElement.setAttribute('data-rate', 'usd');
+        document.querySelectorAll('[data-intl]').forEach(function (el) {
+          var n = el.firstChild;
+          if (n && n.nodeType === 3) { n.nodeValue = el.dataset.intl; }
         });
-
-        const note = document.getElementById('priceRateNote');
-        if (note) {
-          const d = new Date(rZar.time_last_update_utc).toLocaleDateString('en-ZA', {day:'numeric', month:'short', year:'numeric'});
-          note.innerHTML = 'Indicative USD · EUR rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> · ' + d + ' · Invoiced in ZAR';
-        }
-      } catch (_) {
-        document.querySelectorAll('.price-fx').forEach(el => el.textContent = '');
-        const note = document.getElementById('priceRateNote');
-        if (note) note.textContent = '';
+        document.querySelectorAll('[data-intl-text]').forEach(function (el) {
+          el.innerHTML = el.dataset.intlText;
+        });
       }
+
+      // 2. Build the country selector.
+      if (sel) {
+        var grp = null;
+        BCI_MK.forEach(function (m) {
+          if (!m[1]) { grp = document.createElement('optgroup'); grp.label = m[0].replace(/—/g, '').trim(); sel.appendChild(grp); return; }
+          var o = document.createElement('option');
+          o.value = m[0]; o.textContent = m[0];
+          if (m[0] === mk[0]) { o.selected = true; }
+          (grp || sel).appendChild(o);
+        });
+        sel.addEventListener('change', function () {
+          try { localStorage.setItem('bci-country', sel.value); } catch (_) {}
+          location.reload();
+        });
+      }
+
+      // 3. Per-card switch — flips the whole page, as requested.
+      var other = isZA ? 'United States' : 'South Africa';
+      var otherLabel = isZA ? 'See the international rate (USD)' : 'See the South African rate (ZAR)';
+      document.querySelectorAll('[data-intl]').forEach(function (el) {
+        var host = el.parentNode;
+        if (!host || host.querySelector('.card-rate-switch')) { return; }
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'card-rate-switch'; b.textContent = otherLabel;
+        b.addEventListener('click', function () {
+          try { localStorage.setItem('bci-country', other); } catch (_) {}
+          location.reload();
+        });
+        el.insertAdjacentElement('afterend', b);
+      });
+
+      // 4. Note line + indicative conversion into the visitor's own currency.
+      var cardCur = isZA ? 'ZAR' : 'USD';
+      var priceEls = document.querySelectorAll('[data-intl], [data-price-usd]');
+      var payLine = isZA
+        ? 'Rates in <b>South African rand</b>, invoiced in ZAR &mdash; EFT or card/Instant EFT via PayFast. No VAT is added.'
+        : 'Rates on the <b>international schedule in US dollars</b>, invoiced in USD via Payoneer. This is a separate rate card for remote international delivery, not a currency conversion of the ZAR rate. No VAT or South African tax is added.';
+      if (note) { note.innerHTML = payLine + ' The rate that applies is set by your billing country and confirmed on your invoice.'; }
+
+      if (mk[2] === cardCur) { return; }
+      fetch('https://open.er-api.com/v6/latest/' + cardCur)
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!d || d.result !== 'success' || !d.rates || !d.rates[mk[2]]) { return; }
+          var rate = d.rates[mk[2]];
+          var fmt = function (n) { return Number(n.toFixed(0)).toLocaleString('en-US'); };
+          priceEls.forEach(function (el) {
+            var txt = (el.firstChild && el.firstChild.nodeValue) || '';
+            var num = parseFloat(txt.replace(/[^0-9.]/g, ''));
+            if (!num) { return; }
+            var s = document.createElement('span');
+            s.className = 'price-local';
+            s.textContent = '≈ ' + mk[3] + fmt(num * rate) + ' ' + mk[2] + ' at today’s rate';
+            el.appendChild(s);
+          });
+          if (note) {
+            var when = new Date(d.time_last_update_utc).toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' });
+            note.innerHTML += ' ' + mk[2] + ' figures are indicative only, converted at the rate published by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> on ' + when + '.';
+          }
+        })
+        .catch(function () {});
     })();
 
     // Scroll progress bar

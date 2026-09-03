@@ -4,7 +4,7 @@
 
 ## Services
 
-- **Azure & AI Certification Training** — 1-on-1 and group coaching for AZ-104, AZ-305, AZ-900, AZ-700, AI-900/AI-102. Online globally.
+- **Azure & AI Certification Training** — 1-on-1 and group coaching for AZ-900, AZ-104 and AZ-305. Online globally.
 - **Azure Architecture & Cloud Consulting** — AZ-305-level architecture design, landing zones, governance, hybrid/multi-cloud, security and identity (Entra ID, Zero Trust), cost optimisation.
 - **Azure Administration & Operations** — AZ-104-level hands-on management, monitoring, automation, backup/DR, infrastructure-as-code (Bicep/ARM).
 - **Microsoft 365 & Copilot Deployments** — tenant setup, migrations, Copilot readiness assessments, adoption and change management for SA businesses.
@@ -22,7 +22,7 @@
 - [Homepage](https://bamcloudai.com/) — services, pricing, process, about
 - [Book a training session](https://bamcloudai.com/book.html)
 - [Free 30-minute consulting discovery call](https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled)
-- [Pricing](https://bamcloudai.com/#pricing)
+- [Pricing](https://bamcloudai.com/pricing.html)
 
 ## Contact
 

@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Workshops | Bam Cloud AI — Hands-On Microsoft Applied Skills Training</title>
-  <meta name="description" content="One-day, hands-on Microsoft workshops in Azure, AI, Copilot, Security and Power Platform. Every delegate earns a free, permanent Microsoft Applied Skills credential. From R2,950 per delegate, or R14,500 for a private team day. AI Fast-Start bundle from R6,950." />
+  <meta name="description" content="One-day, hands-on Microsoft workshops in Azure, AI, Copilot, Security and Power Platform. Twelve of the fourteen workshops end in a free, permanent Microsoft Applied Skills credential. From R2,950 per delegate, or R14,500 for a private team day. AI Fast-Start bundle from R6,950." />
   <meta property="og:title" content="Workshops | Bam Cloud AI — Hands-On Microsoft Applied Skills Training" />
-  <meta property="og:description" content="One-day, hands-on Microsoft workshops in Azure, AI, Copilot, Security and Power Platform. Every delegate earns a free, permanent Microsoft Applied Skills credential. From R2,950 per delegate. AI Fast-Start bundle from R6,950." />
+  <meta property="og:description" content="One-day, hands-on Microsoft workshops in Azure, AI, Copilot, Security and Power Platform. Twelve of the fourteen workshops end in a free, permanent Microsoft Applied Skills credential. From R2,950 per delegate. AI Fast-Start bundle from R6,950." />
   <meta property="og:url" content="https://bamcloudai.com/workshops.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
@@ -15,7 +15,7 @@
   <meta property="og:locale" content="en_ZA" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Workshops | Bam Cloud AI — Hands-On Microsoft Applied Skills Training" />
-  <meta name="twitter:description" content="One-day, hands-on Microsoft workshops. Every delegate earns a free, permanent Microsoft Applied Skills credential. From R2,950 per delegate." />
+  <meta name="twitter:description" content="One-day, hands-on Microsoft workshops. Twelve of the fourteen workshops end in a free, permanent Microsoft Applied Skills credential. From R2,950 per delegate." />
   <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://bamcloudai.com/workshops.html" />
@@ -604,6 +604,23 @@
       section { padding: 72px 20px; }
       .dd-entry { padding: 28px 22px; }
     }
+
+    /* ── REGIONAL PRICING CONTROL ── */
+    .rate-region { margin: 0 0 30px; padding: 16px 20px; background: var(--canvas-1);
+      border: 1px solid var(--line-soft, #D6E3F2); border-radius: 12px; }
+    .rr-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+    .rr-label { font-size: 0.9rem; font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .rr-select { font: inherit; font-size: 0.92rem; padding: 8px 12px; border-radius: 8px;
+      border: 1.5px solid #8FA6C0; background: #fff; color: var(--navy); min-width: 220px; cursor: pointer; }
+    .rr-select:focus-visible { outline: 3px solid var(--azure); outline-offset: 2px; }
+    .rr-note { flex: 1 1 260px; margin: 0; font-size: 0.86rem; color: var(--muted); line-height: 1.5; }
+    .rr-note b { color: var(--navy); }
+    .card-rate-switch { display: inline-block; margin-top: 8px; font-size: 0.8rem; font-weight: 600;
+      color: #005A9E; text-decoration: underline; text-underline-offset: 2px; cursor: pointer;
+      background: none; border: 0; padding: 0; font-family: inherit; }
+    .card-rate-switch:hover { color: var(--navy); }
+    .card-rate-switch:focus-visible { outline: 2px solid #005A9E; outline-offset: 2px; border-radius: 3px; }
+    .price-local { display: block; font-size: 0.84rem; font-weight: 500; color: var(--muted); margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -687,8 +704,16 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-label" style="color:var(--orange-a11y)">Hands-On Workshops</span>
-        <h1>Microsoft Workshops That End in a Real, Earned Credential</h1>
+        <h1>Microsoft Workshops That End in Something You Can Actually Do</h1>
         <p class="section-intro">One focused day, one working outcome. Each workshop maps to a Microsoft <strong>Applied Skills</strong> credential &mdash; a lab-based, exam-free Microsoft badge your delegates earn by <em>doing the work</em>, not sitting a written exam. Delivered live by an AZ-305 &amp; AZ-104 certified Microsoft Certified Trainer, online worldwide or in-person across South Africa.</p>
+
+      <div class="rate-region" id="rateRegion">
+        <div class="rr-row">
+          <label class="rr-label" for="rrCountry">Show prices for</label>
+          <select class="rr-select" id="rrCountry" aria-describedby="rrNote"></select>
+          <p class="rr-note" id="rrNote">Choose your country to see the rate card that applies to you.</p>
+        </div>
+      </div>
         <p style="margin-top:10px; font-size:0.95rem;"><a href="/pricing.html" style="color:var(--azure-light); font-weight:600; text-decoration:underline;">See full certification-track training &amp; consulting rates &rarr;</a></p>
       </div>
 
@@ -707,7 +732,7 @@
         <div>
           <div class="dd-platform">AI &amp; Copilot · 3-Workshop Programme</div>
           <h3>AI Fast-Start</h3>
-          <div class="dd-price">R6,950<span class="dd-sub">per delegate &middot; 3 full days &middot; saves R1,900</span><span class="price-fx" data-zar="6950"></span></div>
+          <div class="dd-price" data-intl="$1,050">R6,950<span class="dd-sub" data-intl-text="per delegate &middot; 3 full days &middot; saves $300">per delegate &middot; 3 full days &middot; saves R1,900</span></div>
           <p class="dd-desc">The fastest route from &ldquo;we should do something with AI&rdquo; to a team that has actually built one. Three back-to-back workshops that leave each delegate with a working AI agent, the skills to keep it safe, and the automation to put it to work &mdash; plus two Microsoft Applied Skills credentials.</p>
           <a href="/enquiry.html?for=AI%20Fast-Start%20Programme" class="card-link">Tell us about your AI Fast-Start needs</a>
         </div>
@@ -719,23 +744,24 @@
           <li>All practice runs in free Microsoft trial environments &mdash; nothing to license up front</li>
         </ul>
         <div class="dd-entry-upgrade">
-          <p><strong>Private team option.</strong> Run the whole programme in-house for one team of up to 10 &mdash; <strong>R37,500 for all three days</strong> (saves R6,000 against booking the days separately), scheduled around your calendar.</p>
+          <p data-intl-text="<strong>Private team option.</strong> Run the whole programme in-house for one team of up to 6 &mdash; <strong>$4,500 for all three days</strong> (saves $750 against booking the days separately), scheduled around your calendar. Additional delegates $175 each per day."><strong>Private team option.</strong> Run the whole programme in-house for one team of up to 6 &mdash; <strong>R37,500 for all three days</strong> (saves R6,000 against booking the days separately), scheduled around your calendar. Additional delegates R1,450 each per day.</p>
           <p><strong>Payment.</strong> Invoiced on booking &mdash; EFT or card/Instant EFT via PayFast for South African clients, or card via Payoneer for international clients.</p>
         </div>
       </div>
 
-      <!-- ============ TWO WAYS TO BOOK ============ -->
+      <!-- ============ THREE WAYS TO BOOK ============ -->
       <div class="pricing-grid">
         <div class="price-card">
           <div class="price-platform">Open Enrolment</div>
           <h3>Per Delegate</h3>
-          <div class="price-headline">R2,950<span class="ph-sub">per delegate &middot; one full day</span><span class="price-fx" data-zar="2950"></span></div>
+          <div class="price-headline" data-intl="$450">R2,950<span class="ph-sub">per delegate &middot; one full day</span></div>
           <p class="price-desc">Join a scheduled online cohort. Ideal for individuals and one or two people from a team.</p>
           <ul class="dd-list">
             <li>Live, instructor-led full day (~7 hours)</li>
-            <li>The free Microsoft credential for that workshop</li>
+            <li>The free Microsoft credential, where the workshop carries one</li>
             <li>Session recording &amp; follow-up resources</li>
             <li>Minimum 4 delegates to run a public date</li>
+            <li data-intl-text="<strong>Founding-cohort rate</strong> &mdash; held at $450 to 31 December 2026"><strong>Founding-cohort rate</strong> &mdash; held at R2,950 to 31 December 2026</li>
           </ul>
         </div>
 
@@ -743,26 +769,26 @@
           <div class="price-badge">Best Value</div>
           <div class="price-platform">Team Bundle</div>
           <h3>AI Fast-Start</h3>
-          <div class="price-headline">R6,950<span class="ph-sub">per delegate &middot; 3 workshops</span><span class="price-fx" data-zar="6950"></span></div>
+          <div class="price-headline" data-intl="$1,050">R6,950<span class="ph-sub">per delegate &middot; 3 workshops</span></div>
           <p class="price-desc">The three AI workshops as one programme &mdash; the quickest way to make a team genuinely AI-capable.</p>
           <ul class="dd-list">
             <li>Copilot agent + Secure AI + Power Automate</li>
-            <li>Three Microsoft credentials earned</li>
-            <li>Saves R1,900 vs booking singly</li>
-            <li>Private team of 10: R37,500 for all three days</li>
+            <li>Two Microsoft credentials earned</li>
+            <li data-intl-text="Saves $300 vs booking singly">Saves R1,900 vs booking singly</li>
+            <li data-intl-text="Private team of 6: $4,500 for all three days">Private team of 6: R37,500 for all three days</li>
           </ul>
         </div>
 
         <div class="price-card">
           <div class="price-platform">Private / In-House</div>
           <h3>Private Team Day</h3>
-          <div class="price-headline">R14,500<span class="ph-sub">per workshop &middot; up to 10 delegates</span><span class="price-fx" data-zar="14500"></span></div>
+          <div class="price-headline" data-intl="$1,750">R14,500<span class="ph-sub">per workshop &middot; up to 6 delegates</span></div>
           <p class="price-desc">One workshop delivered just for your team, online or on-site, tailored to your environment.</p>
           <ul class="dd-list">
             <li>Dedicated full day for your team alone</li>
             <li>Content tuned to your real estate &amp; examples</li>
-            <li>Free Microsoft credential for every delegate</li>
-            <li>Additional delegates beyond 10: R950 each</li>
+            <li>Free Microsoft credential for every delegate, where the workshop carries one</li>
+            <li data-intl-text="Additional delegates beyond 6: $175 each">Additional delegates beyond 6: R1,450 each</li>
           </ul>
         </div>
       </div>
@@ -772,7 +798,7 @@
         <div class="dd-head">
           <span class="dd-label">The Workshop Catalogue</span>
           <h2>Choose Your Workshop</h2>
-          <p class="dd-intro">Fourteen hands-on workshops across the skills South African and international teams are actually hiring for. Every price shown is per delegate for a public date &mdash; the same workshop runs as a private team day at R14,500 for up to 10. Prices exclude the Microsoft credential, which is always free.</p>
+          <p class="dd-intro" data-intl-text="Fourteen hands-on workshops across the skills South African and international teams are actually hiring for. Every price shown is per delegate for a public date &mdash; the same workshop runs as a private team day at $1,750 for up to 6. Prices exclude the Microsoft credential, which is always free.">Fourteen hands-on workshops across the skills South African and international teams are actually hiring for. Every price shown is per delegate for a public date &mdash; the same workshop runs as a private team day at R14,500 for up to 6. Prices exclude the Microsoft credential, which is always free.</p>
         </div>
 
         <div class="dd-grid">
@@ -781,7 +807,7 @@
           <div class="dd-card">
             <div class="dd-platform">AI &amp; Copilot<span class="ws-tag">Fast-Start</span></div>
             <h3>Build an Agent in Microsoft Copilot Studio</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">The flagship AI skill. Go from an empty canvas to a working, published no-code agent tied to a real business process.</p>
             <ul class="dd-list">
               <li>Build, test and publish a working agent in the day</li>
@@ -795,7 +821,7 @@
           <div class="dd-card">
             <div class="dd-platform">AI &amp; Copilot<span class="ws-tag">Fast-Start</span></div>
             <h3>Secure AI Solutions in the Cloud</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">The conversation every board is now having: how do we deploy AI without opening a hole? Guardrails and governance, done hands-on.</p>
             <ul class="dd-list">
               <li>Configure AI security controls with Defender for Cloud &amp; Foundry</li>
@@ -809,7 +835,7 @@
           <div class="dd-card">
             <div class="dd-platform">Power Platform<span class="ws-tag">Fast-Start</span></div>
             <h3>Automate Processes with Power Automate</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">Kill the repetitive work. Build automated flows that connect the apps a business already runs on &mdash; and give your AI agent something to actually do.</p>
             <ul class="dd-list">
               <li>Build multi-step automated flows end to end</li>
@@ -823,7 +849,7 @@
           <div class="dd-card">
             <div class="dd-platform">AI &amp; Development</div>
             <h3>Accelerate Development with GitHub Copilot</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">AI pair-programming that actually ships. Explain, document, refactor and test real code with Copilot Chat alongside you.</p>
             <ul class="dd-list">
               <li>Drive Copilot Chat through real coding tasks</li>
@@ -837,7 +863,7 @@
           <div class="dd-card">
             <div class="dd-platform">AI &amp; Data</div>
             <h3>Build AI Solutions with Azure PostgreSQL (RAG)</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">The pattern behind every serious AI product: retrieval-augmented generation. Build it hands-on with embeddings and semantic search.</p>
             <ul class="dd-list">
               <li>Implement embeddings, semantic search and RAG</li>
@@ -852,7 +878,7 @@
           <div class="dd-card">
             <div class="dd-platform">Security Operations</div>
             <h3>Microsoft Sentinel Foundations for Azure Teams</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">Get Sentinel deployed properly on an Azure estate &mdash; connected to the right data sources, with ingestion costs under control and your first analytics rules working.</p>
             <ul class="dd-list">
               <li>Deploy Sentinel and connect Azure and M365 data sources</li>
@@ -866,7 +892,7 @@
           <div class="dd-card">
             <div class="dd-platform">Security Operations</div>
             <h3>Defender for Cloud &amp; Compliance</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">Prove your cloud is compliant. Secure Azure services and workloads against real regulatory controls, with the posture reporting to show it.</p>
             <ul class="dd-list">
               <li>Secure workloads with Defender for Cloud</li>
@@ -880,7 +906,7 @@
           <div class="dd-card">
             <div class="dd-platform">Security Operations</div>
             <h3>Information Protection &amp; DLP with Purview</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">Find the sensitive data you already hold, label it, and stop it walking out the door. The practical answer when someone asks what you are actually doing about POPIA.</p>
             <ul class="dd-list">
               <li>Discover and classify sensitive data across Microsoft 365</li>
@@ -896,7 +922,7 @@
           <div class="dd-card">
             <div class="dd-platform">Azure Infrastructure</div>
             <h3>Deploy &amp; Configure Azure Monitor</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">See what your cloud is actually doing. Build the metrics, logs, alerts and workbooks that keep an Azure estate honest.</p>
             <ul class="dd-list">
               <li>Configure metrics, logs, alerts and workbooks</li>
@@ -910,7 +936,7 @@
           <div class="dd-card">
             <div class="dd-platform">Azure Infrastructure</div>
             <h3>Secure Access with Azure Networking</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">Lock down how workloads are reached. Network security groups, private access and segmentation done the way a review would want to see it.</p>
             <ul class="dd-list">
               <li>Configure NSGs, private access and segmentation</li>
@@ -924,7 +950,7 @@
           <div class="dd-card">
             <div class="dd-platform">Identity &amp; Access</div>
             <h3>Entra ID Identities &amp; Access</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">Who can reach what, and why. Users, groups, roles, MFA and conditional access in Microsoft Entra ID &mdash; the layer every other control depends on.</p>
             <ul class="dd-list">
               <li>Manage users, groups, licences and role assignments</li>
@@ -939,7 +965,7 @@
           <div class="dd-card">
             <div class="dd-platform">Azure Infrastructure</div>
             <h3>Secure Azure Files &amp; Blob Storage</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">Company data sits in storage accounts long after everyone forgets who opened them. Lock them down properly &mdash; access, tiers, encryption, networking and data protection.</p>
             <ul class="dd-list">
               <li>Configure storage accounts, redundancy and secure transfer</li>
@@ -954,7 +980,7 @@
           <div class="dd-card">
             <div class="dd-platform">Azure Infrastructure</div>
             <h3>Administer Active Directory Domain Services</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">The domain most South African businesses still run on. Domain controllers, users, groups, OUs and group policy &mdash; plus the security housekeeping that keeps AD healthy before it ever syncs to the cloud.</p>
             <ul class="dd-list">
               <li>Deploy domain controllers and transfer FSMO roles</li>
@@ -970,7 +996,7 @@
           <div class="dd-card">
             <div class="dd-platform">Power Platform</div>
             <h3>Create Canvas Apps with Power Apps</h3>
-            <div class="dd-price">R2,950<span class="dd-sub">per delegate &middot; 1 day</span><span class="price-fx" data-zar="2950"></span></div>
+            <div class="dd-price" data-intl="$450">R2,950<span class="dd-sub">per delegate &middot; 1 day</span></div>
             <p class="dd-desc">The fastest win for non-developers in any organisation: build and publish a working business app, no code required.</p>
             <ul class="dd-list">
               <li>Build and publish a working canvas app</li>
@@ -987,7 +1013,7 @@
           <p><strong>What every delegate needs.</strong> A laptop, a current browser and stable broadband &mdash; nothing more. The hands-on labs run in Microsoft&rsquo;s own cloud, so your machine doesn&rsquo;t need to be powerful. A second screen (or a phone/tablet as a second screen) makes the hands-on courses far easier, letting you keep the lab instructions in view while you work.</p>
           <p><strong>What&rsquo;s included.</strong> Live instructor-led delivery, all practice environments on free Microsoft trials, a session recording, follow-up resources, and guided preparation for the free Microsoft Applied Skills assessment &mdash; which each delegate completes in a free, Microsoft-hosted lab.</p>
           <p><strong>How the credential works.</strong> Applied Skills are earned by completing real tasks in a lab, not by sitting a written exam. The credential and the assessment are free and never expire &mdash; the workshop is the guided path to earning it with confidence.</p>
-          <p><strong>Payment &amp; scope.</strong> Invoiced on booking &mdash; EFT in South Africa, or card via Payoneer internationally. Private team days assume up to 10 delegates and one organisation; larger cohorts are quoted after a quick call.</p>
+          <p data-intl-text="<strong>Payment &amp; scope.</strong> Invoiced on booking &mdash; card via Payoneer. Private team days assume up to 6 delegates and one organisation; additional delegates are $175 each, and larger cohorts are quoted after a quick call."><strong>Payment &amp; scope.</strong> Invoiced on booking &mdash; EFT or card/Instant EFT via PayFast in South Africa, or card via Payoneer internationally. Private team days assume up to 6 delegates and one organisation; additional delegates are R1,450 each, and larger cohorts are quoted after a quick call.</p>
         </div>
 
         <div style="text-align:center; margin-top:32px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
@@ -996,8 +1022,7 @@
         </div>
       </div>
 
-      <p class="price-disclaimer">All ZAR rates exclude VAT and are per delegate for a public date unless stated otherwise. On-site delivery subject to travel costs. Microsoft Applied Skills credentials are provided free by Microsoft and are subject to Microsoft&rsquo;s catalogue, which is refreshed periodically — this page is reviewed quarterly. Rates valid for 2026.</p>
-      <p class="price-rate-note" id="priceRateNote">USD · EUR equivalents shown per workshop — live rates loading…</p>
+      <p class="price-disclaimer">No VAT is charged &mdash; Bam Cloud AI is not a VAT vendor, so the price shown is the price you pay. Rates are per delegate for a public date unless stated otherwise. On-site delivery subject to travel costs. Microsoft Applied Skills credentials are provided free by Microsoft and are subject to Microsoft&rsquo;s catalogue, which is refreshed periodically — this page is reviewed quarterly. Rates valid for 2026.</p>
 
     </div>
   </section>
@@ -1079,36 +1104,150 @@
         </div>
       </div>
       <p class="footer-hint">Hover for the full site map &#8595;</p>
-      <p class="footer-copyright">© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
+      <p class="footer-copyright">© 2026 Bam Cloud AI (Pty) Ltd · Reg. 2026/578688/07 · Durbanville, Cape Town, South Africa.</p>
     </div>
     <p class="footer-popia" style="max-width:900px;margin:16px auto 0;font-size:0.75rem;text-align:justify;text-align-last:center;">This site collects only the information you submit via contact and booking forms (name and email) to respond to your enquiry, in line with the Protection of Personal Information Act (POPIA). Your information is never sold or shared with third parties. To request, correct, or delete your data, contact gustav@bamcloudai.com.</p>
   </footer>
 
   <script>
-    // ── LIVE CURRENCY CONVERSION ──
-    (async function priceFx() {
-      if (!document.querySelectorAll('.price-fx').length) return;
+    // ── REGIONAL PRICING ──────────────────────────────────────────────────
+    // Two rate cards: ZAR for South Africa, USD everywhere else. The visitor
+    // picks their country; we never display two prices for one service. The
+    // applicable rate is confirmed on the invoice, not by the browser.
+    var BCI_MK = [
+      ['South Africa', 'zar', 'ZAR', 'R'],
+      ['— Africa —', '', '', ''],
+      ['Botswana', 'usd', 'BWP', 'P'], ['Egypt', 'usd', 'EGP', 'E£'],
+      ['Ghana', 'usd', 'GHS', 'GH₵'], ['Kenya', 'usd', 'KES', 'KSh'],
+      ['Lesotho', 'usd', 'ZAR', 'R'], ['Mauritius', 'usd', 'MUR', '₨'],
+      ['Morocco', 'usd', 'MAD', 'MAD'], ['Namibia', 'usd', 'NAD', 'N$'],
+      ['Nigeria', 'usd', 'NGN', '₦'], ['Rwanda', 'usd', 'RWF', 'FRw'],
+      ['Tanzania', 'usd', 'TZS', 'TSh'], ['Uganda', 'usd', 'UGX', 'USh'],
+      ['Zambia', 'usd', 'ZMW', 'K'], ['Zimbabwe', 'usd', 'USD', '$'],
+      ['— Europe —', '', '', ''],
+      ['Euro area', 'usd', 'EUR', '€'], ['United Kingdom', 'usd', 'GBP', '£'],
+      ['Switzerland', 'usd', 'CHF', 'CHF'], ['Norway', 'usd', 'NOK', 'kr'],
+      ['Sweden', 'usd', 'SEK', 'kr'], ['Denmark', 'usd', 'DKK', 'kr'],
+      ['Poland', 'usd', 'PLN', 'zł'], ['Czechia', 'usd', 'CZK', 'Kč'],
+      ['Hungary', 'usd', 'HUF', 'Ft'], ['Romania', 'usd', 'RON', 'lei'],
+      ['Türkiye', 'usd', 'TRY', '₺'], ['Iceland', 'usd', 'ISK', 'kr'],
+      ['— Middle East & Asia —', '', '', ''],
+      ['United Arab Emirates', 'usd', 'AED', 'AED'], ['Saudi Arabia', 'usd', 'SAR', 'SAR'],
+      ['Israel', 'usd', 'ILS', '₪'], ['India', 'usd', 'INR', '₹'],
+      ['Singapore', 'usd', 'SGD', 'S$'], ['Malaysia', 'usd', 'MYR', 'RM'],
+      ['Japan', 'usd', 'JPY', '¥'],
+      ['— Americas & Pacific —', '', '', ''],
+      ['United States', 'usd', 'USD', '$'], ['Canada', 'usd', 'CAD', 'C$'],
+      ['Brazil', 'usd', 'BRL', 'R$'], ['Mexico', 'usd', 'MXN', 'MX$'],
+      ['Australia', 'usd', 'AUD', 'A$'], ['New Zealand', 'usd', 'NZD', 'NZ$'],
+      ['— Other —', '', '', ''],
+      ['Anywhere else (USD)', 'usd', 'USD', '$']
+    ];
+
+    var bciPick = (function () {
+      try { var s = localStorage.getItem('bci-country'); if (s) { return s; } } catch (_) {}
       try {
-        const rZar = await fetch('https://open.er-api.com/v6/latest/ZAR').then(r => r.json());
-        if (rZar.result !== 'success') throw new Error('rate error');
-        const zarToUsd = rZar.rates.USD, zarToEur = rZar.rates.EUR;
-        const fmt = (n, d = 0) => Number(n.toFixed(d)).toLocaleString('en-ZA');
+        var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (/Johannesburg/.test(tz)) { return 'South Africa'; }
+        if (/Africa\/Windhoek/.test(tz)) { return 'Namibia'; }
+        if (/Africa\/Gaborone/.test(tz)) { return 'Botswana'; }
+        if (/Africa\/Maseru/.test(tz)) { return 'Lesotho'; }
+        if (/Africa\/Nairobi/.test(tz)) { return 'Kenya'; }
+        if (/Africa\/Lagos/.test(tz)) { return 'Nigeria'; }
+        if (/Europe\/London/.test(tz)) { return 'United Kingdom'; }
+        if (/^America\//.test(tz)) { return 'United States'; }
+        if (/^Europe\//.test(tz)) { return 'Euro area'; }
+      } catch (_) {}
+      return 'South Africa';
+    })();
 
-        document.querySelectorAll('.price-fx[data-zar]').forEach(el => {
-          const z = +el.dataset.zar;
-          el.textContent = '≈ $' + fmt(z * zarToUsd) + ' · €' + fmt(z * zarToEur);
+    function bciMarket(name) {
+      for (var i = 0; i < BCI_MK.length; i++) { if (BCI_MK[i][0] === name && BCI_MK[i][1]) { return BCI_MK[i]; } }
+      return BCI_MK[0];
+    }
+
+    (function bciRegionalPricing() {
+      var sel = document.getElementById('rrCountry');
+      var note = document.getElementById('rrNote');
+      var mk = bciMarket(bciPick);
+      // A page with no data-intl attributes prices in USD for everyone
+      // (Business English on the international platforms).
+      var usdOnly = !document.querySelectorAll('[data-intl]').length;
+      var isZA = mk[1] === 'zar' && !usdOnly;
+
+      // 1. Swap the rate card. ZAR stays as authored; USD comes from data-intl.
+      if (!isZA) {
+        document.documentElement.setAttribute('data-rate', 'usd');
+        document.querySelectorAll('[data-intl]').forEach(function (el) {
+          var n = el.firstChild;
+          if (n && n.nodeType === 3) { n.nodeValue = el.dataset.intl; }
         });
-
-        const note = document.getElementById('priceRateNote');
-        if (note) {
-          const d = new Date(rZar.time_last_update_utc).toLocaleDateString('en-ZA', {day:'numeric', month:'short', year:'numeric'});
-          note.innerHTML = 'Indicative USD · EUR rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> · ' + d + ' · Invoiced in ZAR';
-        }
-      } catch (_) {
-        document.querySelectorAll('.price-fx').forEach(el => el.textContent = '');
-        const note = document.getElementById('priceRateNote');
-        if (note) note.textContent = '';
+        document.querySelectorAll('[data-intl-text]').forEach(function (el) {
+          el.innerHTML = el.dataset.intlText;
+        });
       }
+
+      // 2. Build the country selector.
+      if (sel) {
+        var grp = null;
+        BCI_MK.forEach(function (m) {
+          if (!m[1]) { grp = document.createElement('optgroup'); grp.label = m[0].replace(/—/g, '').trim(); sel.appendChild(grp); return; }
+          var o = document.createElement('option');
+          o.value = m[0]; o.textContent = m[0];
+          if (m[0] === mk[0]) { o.selected = true; }
+          (grp || sel).appendChild(o);
+        });
+        sel.addEventListener('change', function () {
+          try { localStorage.setItem('bci-country', sel.value); } catch (_) {}
+          location.reload();
+        });
+      }
+
+      // 3. Per-card switch — flips the whole page, as requested.
+      var other = isZA ? 'United States' : 'South Africa';
+      var otherLabel = isZA ? 'See the international rate (USD)' : 'See the South African rate (ZAR)';
+      document.querySelectorAll('[data-intl]').forEach(function (el) {
+        var host = el.parentNode;
+        if (!host || host.querySelector('.card-rate-switch')) { return; }
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'card-rate-switch'; b.textContent = otherLabel;
+        b.addEventListener('click', function () {
+          try { localStorage.setItem('bci-country', other); } catch (_) {}
+          location.reload();
+        });
+        el.insertAdjacentElement('afterend', b);
+      });
+
+      // 4. Note line + indicative conversion into the visitor's own currency.
+      var cardCur = isZA ? 'ZAR' : 'USD';
+      var priceEls = document.querySelectorAll('[data-intl], [data-price-usd]');
+      var payLine = isZA
+        ? 'Rates in <b>South African rand</b>, invoiced in ZAR &mdash; EFT or card/Instant EFT via PayFast. No VAT is added.'
+        : 'Rates on the <b>international schedule in US dollars</b>, invoiced in USD via Payoneer. This is a separate rate card for remote international delivery, not a currency conversion of the ZAR rate. No VAT or South African tax is added.';
+      if (note) { note.innerHTML = payLine + ' The rate that applies is set by your billing country and confirmed on your invoice.'; }
+
+      if (mk[2] === cardCur) { return; }
+      fetch('https://open.er-api.com/v6/latest/' + cardCur)
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!d || d.result !== 'success' || !d.rates || !d.rates[mk[2]]) { return; }
+          var rate = d.rates[mk[2]];
+          var fmt = function (n) { return Number(n.toFixed(0)).toLocaleString('en-US'); };
+          priceEls.forEach(function (el) {
+            var txt = (el.firstChild && el.firstChild.nodeValue) || '';
+            var num = parseFloat(txt.replace(/[^0-9.]/g, ''));
+            if (!num) { return; }
+            var s = document.createElement('span');
+            s.className = 'price-local';
+            s.textContent = '≈ ' + mk[3] + fmt(num * rate) + ' ' + mk[2] + ' at today’s rate';
+            el.appendChild(s);
+          });
+          if (note) {
+            var when = new Date(d.time_last_update_utc).toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' });
+            note.innerHTML += ' ' + mk[2] + ' figures are indicative only, converted at the rate published by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> on ' + when + '.';
+          }
+        })
+        .catch(function () {});
     })();
 
     // Scroll progress bar

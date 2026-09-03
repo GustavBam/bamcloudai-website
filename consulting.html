@@ -613,6 +613,23 @@
     .pillar p { font-size:0.9rem; color:var(--muted); line-height:1.65; margin:0 0 16px; }
     .pillar .card-link { margin-top:auto; }
     .pillar .price-platform { margin-bottom:8px; }
+    /* ── REGIONAL PRICING CONTROL ── */
+    .rate-region { margin: 0 0 30px; padding: 16px 20px; background: var(--canvas-1, #F3F8FD);
+      border: 1px solid #C9D9EC; border-radius: 12px; }
+    .rr-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+    .rr-label { font-size: 0.9rem; font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .rr-select { font: inherit; font-size: 0.92rem; padding: 8px 12px; border-radius: 8px;
+      border: 1.5px solid #7D94AF; background: #fff; color: var(--navy); min-width: 230px; cursor: pointer; }
+    .rr-select:focus-visible { outline: 3px solid #005A9E; outline-offset: 2px; }
+    .rr-note { flex: 1 1 280px; margin: 0; font-size: 0.85rem; color: #4A5A6E; line-height: 1.55; }
+    .rr-note b { color: var(--navy); }
+    .rr-note a { color: #005A9E; }
+    .card-rate-switch { display: inline-block; margin-top: 10px; font-size: 0.82rem; font-weight: 600;
+      color: #005A9E; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+      background: none; border: 0; padding: 0; font-family: inherit; text-align: left; }
+    .card-rate-switch:hover { color: var(--navy); }
+    .card-rate-switch:focus-visible { outline: 2px solid #005A9E; outline-offset: 3px; border-radius: 3px; }
+    .price-local { display: block; font-size: 0.85rem; font-weight: 500; color: #4A5A6E; margin-top: 3px; }
 </style>
 </head>
 <body>
@@ -698,6 +715,14 @@
         <span class="section-label" style="color:var(--orange-a11y)">Cloud &amp; Infrastructure Consulting</span>
         <h1>Azure Architecture &amp; Advisory</h1>
         <p class="section-intro">AZ-305 certified architecture and AZ-104 level operations for South African businesses and MSPs. Twenty-five years of enterprise IT behind every recommendation &mdash; delivered with the rigour of large-scale production environments, priced for a growing business.</p>
+
+      <div class="rate-region" id="rateRegion">
+        <div class="rr-row">
+          <label class="rr-label" for="rrCountry">Show prices for</label>
+          <select class="rr-select" id="rrCountry" aria-describedby="rrNote"></select>
+          <p class="rr-note" id="rrNote">Choose your country to see the rate card that applies to you.</p>
+        </div>
+      </div>
       </div>
 
       <div class="pillar-grid">
@@ -737,7 +762,7 @@
           <div class="price-badge">Most Flexible</div>
           <div class="price-platform">Advisory</div>
           <h3>Hourly Advisory</h3>
-          <div class="price-headline">R1,100<span class="ph-sub">per hour</span><span class="price-fx" data-zar="1100"></span></div>
+          <div class="price-headline" data-intl="$150">R1,100<span class="ph-sub">per hour</span></div>
           <p class="price-desc">Architecture, review and guidance when you need a senior pair of eyes.</p>
           <ul class="dd-list"><li>AZ-305 certified</li><li>Remote or on-site (SA)</li><li>No minimum retainer</li></ul>
         </div>
@@ -760,7 +785,6 @@
       <div style="text-align:center; margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
         <a href="/enquiry.html?for=Azure%20Consulting" class="btn btn-primary" style="background:var(--green); color:var(--navy); box-shadow:0 4px 16px rgba(16,185,129,0.35);">Tell us about your project</a>
       </div>
-      <p class="price-rate-note" id="priceRateNote">USD · EUR equivalents shown — live rates loading…</p>
     </div>
   </section>
 </main>
@@ -841,36 +865,150 @@
         </div>
       </div>
       <p class="footer-hint">Hover for the full site map &#8595;</p>
-      <p class="footer-copyright">© 2026 Bam Cloud AI. Durbanville, Cape Town, South Africa.</p>
+      <p class="footer-copyright">© 2026 Bam Cloud AI (Pty) Ltd · Reg. 2026/578688/07 · Durbanville, Cape Town, South Africa.</p>
     </div>
     <p class="footer-popia" style="max-width:900px;margin:16px auto 0;font-size:0.75rem;text-align:justify;text-align-last:center;">This site collects only the information you submit via contact and booking forms (name and email) to respond to your enquiry, in line with the Protection of Personal Information Act (POPIA). Your information is never sold or shared with third parties. To request, correct, or delete your data, contact gustav@bamcloudai.com.</p>
   </footer>
 
   <script>
-    // ── LIVE CURRENCY CONVERSION ──
-    (async function priceFx() {
-      if (!document.querySelectorAll('.price-fx').length) return;
+    // ── REGIONAL PRICING ──────────────────────────────────────────────────
+    // Two rate cards: ZAR for South Africa, USD everywhere else. The visitor
+    // picks their country; we never display two prices for one service. The
+    // applicable rate is confirmed on the invoice, not by the browser.
+    var BCI_MK = [
+      ['South Africa', 'zar', 'ZAR', 'R'],
+      ['— Africa —', '', '', ''],
+      ['Botswana', 'usd', 'BWP', 'P'], ['Egypt', 'usd', 'EGP', 'E£'],
+      ['Ghana', 'usd', 'GHS', 'GH₵'], ['Kenya', 'usd', 'KES', 'KSh'],
+      ['Lesotho', 'usd', 'ZAR', 'R'], ['Mauritius', 'usd', 'MUR', '₨'],
+      ['Morocco', 'usd', 'MAD', 'MAD'], ['Namibia', 'usd', 'NAD', 'N$'],
+      ['Nigeria', 'usd', 'NGN', '₦'], ['Rwanda', 'usd', 'RWF', 'FRw'],
+      ['Tanzania', 'usd', 'TZS', 'TSh'], ['Uganda', 'usd', 'UGX', 'USh'],
+      ['Zambia', 'usd', 'ZMW', 'K'], ['Zimbabwe', 'usd', 'USD', '$'],
+      ['— Europe —', '', '', ''],
+      ['Euro area', 'usd', 'EUR', '€'], ['United Kingdom', 'usd', 'GBP', '£'],
+      ['Switzerland', 'usd', 'CHF', 'CHF'], ['Norway', 'usd', 'NOK', 'kr'],
+      ['Sweden', 'usd', 'SEK', 'kr'], ['Denmark', 'usd', 'DKK', 'kr'],
+      ['Poland', 'usd', 'PLN', 'zł'], ['Czechia', 'usd', 'CZK', 'Kč'],
+      ['Hungary', 'usd', 'HUF', 'Ft'], ['Romania', 'usd', 'RON', 'lei'],
+      ['Türkiye', 'usd', 'TRY', '₺'], ['Iceland', 'usd', 'ISK', 'kr'],
+      ['— Middle East & Asia —', '', '', ''],
+      ['United Arab Emirates', 'usd', 'AED', 'AED'], ['Saudi Arabia', 'usd', 'SAR', 'SAR'],
+      ['Israel', 'usd', 'ILS', '₪'], ['India', 'usd', 'INR', '₹'],
+      ['Singapore', 'usd', 'SGD', 'S$'], ['Malaysia', 'usd', 'MYR', 'RM'],
+      ['Japan', 'usd', 'JPY', '¥'],
+      ['— Americas & Pacific —', '', '', ''],
+      ['United States', 'usd', 'USD', '$'], ['Canada', 'usd', 'CAD', 'C$'],
+      ['Brazil', 'usd', 'BRL', 'R$'], ['Mexico', 'usd', 'MXN', 'MX$'],
+      ['Australia', 'usd', 'AUD', 'A$'], ['New Zealand', 'usd', 'NZD', 'NZ$'],
+      ['— Other —', '', '', ''],
+      ['Anywhere else (USD)', 'usd', 'USD', '$']
+    ];
+
+    var bciPick = (function () {
+      try { var s = localStorage.getItem('bci-country'); if (s) { return s; } } catch (_) {}
       try {
-        const rZar = await fetch('https://open.er-api.com/v6/latest/ZAR').then(r => r.json());
-        if (rZar.result !== 'success') throw new Error('rate error');
-        const zarToUsd = rZar.rates.USD, zarToEur = rZar.rates.EUR;
-        const fmt = (n, d = 0) => Number(n.toFixed(d)).toLocaleString('en-ZA');
+        var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (/Johannesburg/.test(tz)) { return 'South Africa'; }
+        if (/Africa\/Windhoek/.test(tz)) { return 'Namibia'; }
+        if (/Africa\/Gaborone/.test(tz)) { return 'Botswana'; }
+        if (/Africa\/Maseru/.test(tz)) { return 'Lesotho'; }
+        if (/Africa\/Nairobi/.test(tz)) { return 'Kenya'; }
+        if (/Africa\/Lagos/.test(tz)) { return 'Nigeria'; }
+        if (/Europe\/London/.test(tz)) { return 'United Kingdom'; }
+        if (/^America\//.test(tz)) { return 'United States'; }
+        if (/^Europe\//.test(tz)) { return 'Euro area'; }
+      } catch (_) {}
+      return 'South Africa';
+    })();
 
-        document.querySelectorAll('.price-fx[data-zar]').forEach(el => {
-          const z = +el.dataset.zar;
-          el.textContent = '≈ $' + fmt(z * zarToUsd) + ' · €' + fmt(z * zarToEur);
+    function bciMarket(name) {
+      for (var i = 0; i < BCI_MK.length; i++) { if (BCI_MK[i][0] === name && BCI_MK[i][1]) { return BCI_MK[i]; } }
+      return BCI_MK[0];
+    }
+
+    (function bciRegionalPricing() {
+      var sel = document.getElementById('rrCountry');
+      var note = document.getElementById('rrNote');
+      var mk = bciMarket(bciPick);
+      // A page with no data-intl attributes prices in USD for everyone
+      // (Business English on the international platforms).
+      var usdOnly = !document.querySelectorAll('[data-intl]').length;
+      var isZA = mk[1] === 'zar' && !usdOnly;
+
+      // 1. Swap the rate card. ZAR stays as authored; USD comes from data-intl.
+      if (!isZA) {
+        document.documentElement.setAttribute('data-rate', 'usd');
+        document.querySelectorAll('[data-intl]').forEach(function (el) {
+          var n = el.firstChild;
+          if (n && n.nodeType === 3) { n.nodeValue = el.dataset.intl; }
         });
-
-        const note = document.getElementById('priceRateNote');
-        if (note) {
-          const d = new Date(rZar.time_last_update_utc).toLocaleDateString('en-ZA', {day:'numeric', month:'short', year:'numeric'});
-          note.innerHTML = 'Indicative USD · EUR rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> · ' + d + ' · Invoiced in ZAR';
-        }
-      } catch (_) {
-        document.querySelectorAll('.price-fx').forEach(el => el.textContent = '');
-        const note = document.getElementById('priceRateNote');
-        if (note) note.textContent = '';
+        document.querySelectorAll('[data-intl-text]').forEach(function (el) {
+          el.innerHTML = el.dataset.intlText;
+        });
       }
+
+      // 2. Build the country selector.
+      if (sel) {
+        var grp = null;
+        BCI_MK.forEach(function (m) {
+          if (!m[1]) { grp = document.createElement('optgroup'); grp.label = m[0].replace(/—/g, '').trim(); sel.appendChild(grp); return; }
+          var o = document.createElement('option');
+          o.value = m[0]; o.textContent = m[0];
+          if (m[0] === mk[0]) { o.selected = true; }
+          (grp || sel).appendChild(o);
+        });
+        sel.addEventListener('change', function () {
+          try { localStorage.setItem('bci-country', sel.value); } catch (_) {}
+          location.reload();
+        });
+      }
+
+      // 3. Per-card switch — flips the whole page, as requested.
+      var other = isZA ? 'United States' : 'South Africa';
+      var otherLabel = isZA ? 'See the international rate (USD)' : 'See the South African rate (ZAR)';
+      document.querySelectorAll('[data-intl]').forEach(function (el) {
+        var host = el.parentNode;
+        if (!host || host.querySelector('.card-rate-switch')) { return; }
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'card-rate-switch'; b.textContent = otherLabel;
+        b.addEventListener('click', function () {
+          try { localStorage.setItem('bci-country', other); } catch (_) {}
+          location.reload();
+        });
+        el.insertAdjacentElement('afterend', b);
+      });
+
+      // 4. Note line + indicative conversion into the visitor's own currency.
+      var cardCur = isZA ? 'ZAR' : 'USD';
+      var priceEls = document.querySelectorAll('[data-intl], [data-price-usd]');
+      var payLine = isZA
+        ? 'Rates in <b>South African rand</b>, invoiced in ZAR &mdash; EFT or card/Instant EFT via PayFast. No VAT is added.'
+        : 'Rates on the <b>international schedule in US dollars</b>, invoiced in USD via Payoneer. This is a separate rate card for remote international delivery, not a currency conversion of the ZAR rate. No VAT or South African tax is added.';
+      if (note) { note.innerHTML = payLine + ' The rate that applies is set by your billing country and confirmed on your invoice.'; }
+
+      if (mk[2] === cardCur) { return; }
+      fetch('https://open.er-api.com/v6/latest/' + cardCur)
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!d || d.result !== 'success' || !d.rates || !d.rates[mk[2]]) { return; }
+          var rate = d.rates[mk[2]];
+          var fmt = function (n) { return Number(n.toFixed(0)).toLocaleString('en-US'); };
+          priceEls.forEach(function (el) {
+            var txt = (el.firstChild && el.firstChild.nodeValue) || '';
+            var num = parseFloat(txt.replace(/[^0-9.]/g, ''));
+            if (!num) { return; }
+            var s = document.createElement('span');
+            s.className = 'price-local';
+            s.textContent = '≈ ' + mk[3] + fmt(num * rate) + ' ' + mk[2] + ' at today’s rate';
+            el.appendChild(s);
+          });
+          if (note) {
+            var when = new Date(d.time_last_update_utc).toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' });
+            note.innerHTML += ' ' + mk[2] + ' figures are indicative only, converted at the rate published by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> on ' + when + '.';
+          }
+        })
+        .catch(function () {});
     })();
 
     // Scroll progress bar
