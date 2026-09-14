@@ -14,15 +14,15 @@
 
 ## Free tools (ungated, no signup required)
 
-- [SME AI Decision Explorer](https://bamcloudai.com/explorer.html) — interactive tool covering Copilot licensing, persona-based use cases, data storage and governance for Microsoft 365 Copilot adoption.
-- [4 Levels of AI — Self-Assessment](https://bamcloudai.com/assessment.html) — a short wizard that scores an organisation's AI maturity.
+- [SME AI Decision Explorer](https://bamcloudai.com/explorer) — interactive tool covering Copilot licensing, persona-based use cases, data storage and governance for Microsoft 365 Copilot adoption.
+- [4 Levels of AI — Self-Assessment](https://bamcloudai.com/assessment) — a short wizard that scores an organisation's AI maturity.
 
 ## Key pages
 
 - [Homepage](https://bamcloudai.com/) — services, pricing, process, about
-- [Book a training session](https://bamcloudai.com/book.html)
+- [Book a training session](https://bamcloudai.com/book)
 - [Free 30-minute consulting discovery call](https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled)
-- [Pricing](https://bamcloudai.com/pricing.html)
+- [Pricing](https://bamcloudai.com/pricing)
 
 ## Contact
 

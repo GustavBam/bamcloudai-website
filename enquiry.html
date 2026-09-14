@@ -7,14 +7,14 @@
 <meta name="description" content="Training, workshops, Azure consulting, or an estate assessment — tell us what you need, individual, company, or group, then book a free 30-minute call to work out the details together. No pricing surprises, no wrong-size booking.">
   <meta property="og:title" content="Tell Us What You Need | Bam Cloud AI" />
   <meta property="og:description" content="Tell us what you need, then book a free 30-minute call to work out the details together." />
-  <meta property="og:url" content="https://bamcloudai.com/enquiry.html" />
+  <meta property="og:url" content="https://bamcloudai.com/enquiry" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tell Us What You Need | Bam Cloud AI" />
   <meta name="twitter:description" content="Tell us what you need, then book a free 30-minute call to work out the details together." />
   <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
-<link rel="canonical" href="https://bamcloudai.com/enquiry.html">
+<link rel="canonical" href="https://bamcloudai.com/enquiry">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -319,13 +319,13 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       </div>
 
       <label class="field-label" for="companyField">Company name <span class="field-hint">(if applicable)</span></label>
-      <input type="text" name="company" id="companyField" placeholder="Leave blank if this is just for you">
+      <input type="text" name="company" id="companyField" autocomplete="organization" placeholder="Leave blank if this is just for you">
 
       <label class="field-label" for="attendeeField">Number of people attending <span class="field-hint">(leave blank if it's just you)</span></label>
       <input type="text" name="attendee_count" id="attendeeField" placeholder="e.g. just me, or 8 people across 2 teams">
 
       <label class="field-label" for="jobtitleField">Your role / title</label>
-      <input type="text" name="jobtitle" id="jobtitleField" placeholder="Optional">
+      <input type="text" name="jobtitle" id="jobtitleField" autocomplete="organization-title" placeholder="Optional">
     </div>
   </div>
 
@@ -382,19 +382,19 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       <div class="step-sub">This is the only part that's required — so I know who to prepare the call for.</div>
 
       <label class="field-label req" for="firstnameField">First name</label>
-      <input type="text" name="firstname" id="firstnameField" required>
+      <input type="text" name="firstname" id="firstnameField" autocomplete="given-name" required>
 
       <label class="field-label req" for="lastnameField">Last name</label>
-      <input type="text" name="lastname" id="lastnameField" required>
+      <input type="text" name="lastname" id="lastnameField" autocomplete="family-name" required>
 
       <label class="field-label req" for="emailField">Email</label>
-      <input type="email" name="email" id="emailField" required>
+      <input type="email" name="email" id="emailField" autocomplete="email" required>
       <div class="err-msg" id="emailErr">Please enter a valid email address.</div>
 
       <label class="field-label" for="phoneField">Phone <span class="field-hint">(optional)</span></label>
-      <input type="tel" name="phone" id="phoneField">
+      <input type="tel" name="phone" id="phoneField" autocomplete="tel">
 
-      <input type="hidden" name="company_website" id="hp_field" value=""> <!-- honeypot -->
+      <input type="hidden" name="company_website" id="hp_field" autocomplete="off" value=""> <!-- honeypot -->
     </div>
   </div>
 
