@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Testimonials | Bam Cloud AI — What Clients &amp; Colleagues Say</title>
-  <meta name="description" content="Recommendations for Gustav Bam and Bam Cloud AI from executives who managed the work over 15+ years at the Sanlam Group, and from learners who sat in the room. AZ-305 certified, Microsoft Certified Trainer." />
-  <meta property="og:title" content="Testimonials | Bam Cloud AI — What Clients &amp; Colleagues Say" />
-  <meta property="og:description" content="Recommendations for Gustav Bam and Bam Cloud AI from executives who managed the work over 15+ years at the Sanlam Group, and from learners who sat in the room. AZ-305 certified, Microsoft Certified Trainer." />
-  <meta property="og:url" content="https://bamcloudai.com/testimonials.html" />
+  <title>AI Exposure Audit &mdash; What Your Staff Are Putting Into AI | Bam Cloud AI</title>
+  <meta name="description" content="Fixed-price AI exposure audit: which AI tools your staff use, with what data, and where that leaves you. From R8,500. Delivered by an AZ-305 and AZ-104 certified Microsoft Certified Trainer. Durbanville, Cape Town &mdash; remote worldwide." />
+  <meta property="og:title" content="AI Exposure Audit &mdash; What Your Staff Are Putting Into AI | Bam Cloud AI" />
+  <meta property="og:description" content="Fixed-price AI exposure audit: which AI tools your staff use, with what data, and where that leaves you. From R8,500. Delivered by an AZ-305 and AZ-104 certified Microsoft Certified Trainer. Durbanville, Cape Town &mdash; remote worldwide." />
+  <meta property="og:url" content="https://bamcloudai.com/ai-exposure-audit.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_ZA" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Testimonials | Bam Cloud AI — What Clients &amp; Colleagues Say" />
-  <meta name="twitter:description" content="Recommendations for Gustav Bam and Bam Cloud AI from executives who managed the work over 15+ years at the Sanlam Group, and from learners who sat in the room. AZ-305 certified, Microsoft Certified Trainer." />
+  <meta name="twitter:title" content="AI Exposure Audit &mdash; What Your Staff Are Putting Into AI | Bam Cloud AI" />
+  <meta name="twitter:description" content="Fixed-price AI exposure audit: which AI tools your staff use, with what data, and where that leaves you. From R8,500. Delivered by an AZ-305 and AZ-104 certified Microsoft Certified Trainer. Durbanville, Cape Town &mdash; remote worldwide." />
   <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://bamcloudai.com/testimonials.html" />
+  <link rel="canonical" href="https://bamcloudai.com/ai-exposure-audit.html" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -383,6 +383,7 @@
       content: '✓'; position: absolute; left: 0; top: 0;
       color: var(--green); font-weight: 700; font-size: 0.85rem;
     }
+    .dd-list li.no::before { content: "\2717"; color: var(--orange-a11y); }
     .dd-notes {
       margin-top: 26px; background: var(--white); border: 1px solid var(--border);
       border-left: 3px solid var(--azure); border-radius: var(--radius); padding: 22px 26px;
@@ -605,16 +606,25 @@
       .dd-entry { padding: 28px 22px; }
     }
   
-    .tm-wrap { display:flex; flex-direction:column; gap:20px; max-width:860px; margin:0 auto; }
-    .tm { background:var(--white); border:1px solid var(--border); border-left:3px solid var(--azure); border-radius:16px; padding:32px 34px; box-shadow:var(--shadow); }
-    .tm-quote-mark { font-size:2.6rem; line-height:.4; color:var(--azure-light); font-family:Georgia,serif; display:block; height:22px; }
-    .tm-quote { font-size:1.08rem; color:var(--slate); line-height:1.7; font-weight:500; margin:0 0 20px; }
-    .tm-author { display:flex; align-items:center; gap:14px; border-top:1px solid var(--border); padding-top:18px; }
-    .tm-avatar { width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--azure),var(--azure-dark)); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; flex-shrink:0; }
-    .tm-name { font-weight:700; color:var(--navy); }
-    .tm-role { font-size:.83rem; color:var(--muted); margin-top:2px; }
-    .tm-cta { text-align:center; margin-top:28px; font-size:.9rem; color:var(--muted); }
-    .tm-cta a { color:var(--azure-light); font-weight:600; text-decoration:none; }
+    .dd-featured { border-color: var(--azure); background: linear-gradient(160deg,#f0f8ff 0%,var(--white) 60%); }
+    .dd-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--azure); color:#fff; font-size:0.68rem; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; padding:4px 14px; border-radius:100px; white-space:nowrap; }
+    /* ── REGIONAL PRICING CONTROL ── */
+    .rate-region { margin: 0 0 30px; padding: 16px 20px; background: var(--canvas-1, #F3F8FD);
+      border: 1px solid #C9D9EC; border-radius: 12px; }
+    .rr-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+    .rr-label { font-size: 0.9rem; font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .rr-select { font: inherit; font-size: 0.92rem; padding: 8px 12px; border-radius: 8px;
+      border: 1.5px solid #7D94AF; background: #fff; color: var(--navy); min-width: 230px; cursor: pointer; }
+    .rr-select:focus-visible { outline: 3px solid #005A9E; outline-offset: 2px; }
+    .rr-note { flex: 1 1 280px; margin: 0; font-size: 0.85rem; color: #4A5A6E; line-height: 1.55; }
+    .rr-note b { color: var(--navy); }
+    .rr-note a { color: #005A9E; }
+    .card-rate-switch { display: inline-block; margin-top: 10px; font-size: 0.82rem; font-weight: 600;
+      color: #005A9E; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+      background: none; border: 0; padding: 0; font-family: inherit; text-align: left; }
+    .card-rate-switch:hover { color: var(--navy); }
+    .card-rate-switch:focus-visible { outline: 2px solid #005A9E; outline-offset: 3px; border-radius: 3px; }
+    .price-local { display: block; font-size: 0.85rem; font-weight: 500; color: #4A5A6E; margin-top: 3px; }
 </style>
 </head>
 <body>
@@ -664,7 +674,7 @@
             <li><a href="/enquiry.html">Tell Us What You Need</a></li>
             <li><a href="/consulting.html">Azure Architecture &amp; Advisory</a></li>
             <li><a href="/assessments.html">Estate Deep-Dive Assessments</a></li>
-            <li><a href="/ai-exposure-audit.html">AI Exposure Audit</a></li>
+            <li><a href="/ai-exposure-audit.html" class="current">AI Exposure Audit</a></li>
             <li><a href="/msp-partnership.html">MSP White-Label</a></li>
           </ul>
         </li>
@@ -682,7 +692,7 @@
           <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">About <span class="caret" aria-hidden="true">▾</span></button>
           <ul class="nav-drop-menu">
             <li><a href="/about.html">Our Story</a></li>
-            <li><a href="/testimonials.html" class="current">Testimonials</a></li>
+            <li><a href="/testimonials.html">Testimonials</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
         </li>
@@ -695,32 +705,160 @@
   </nav>
 
 <main>
-  <section id="testimonials">
+  <section id="exposure">
     <div class="section-inner">
-      <div class="section-header" style="text-align:center;">
-        <span class="section-label" style="color:var(--orange-a11y)">Testimonials</span>
-        <h1>What Colleagues &amp; Learners Say</h1>
-        <p class="section-intro" style="margin:0 auto;">Twenty-five years of enterprise IT leaves a trail of people who've seen the work up close &mdash; from the executives who managed it to the people I have taught.</p>
+      <div class="section-header">
+        <span class="section-label" style="color:var(--orange-a11y)">Fixed-Price Engagements</span>
+        <h1>AI Exposure Audit</h1>
+        <p class="section-intro">Can you tell me what your staff are putting into AI? Almost nobody can &mdash; not because they are careless, but because nothing in most businesses was ever switched on to measure it. This answers the question properly: which AI tools are in use, by whom, with what data, and where that leaves you. Delivered by an AZ-305 and AZ-104 certified architect and Microsoft Certified Trainer with twenty-five years in enterprise infrastructure, remotely worldwide or in person across the Western Cape.</p>
+
+      <div class="rate-region" id="rateRegion">
+        <div class="rr-row">
+          <label class="rr-label" for="rrCountry">Show prices for</label>
+          <select class="rr-select" id="rrCountry" aria-describedby="rrNote"></select>
+          <p class="rr-note" id="rrNote">Choose your country to see the rate card that applies to you.</p>
+        </div>
+      </div>
       </div>
 
-      <div class="tm-wrap">
-        <div class="tm">
-          <span class="tm-quote-mark">&#8220;</span>
-          <p class="tm-quote">I managed Gustav at two different Sanlam Group companies over more than 15 years &mdash; first as CTO at Glacier, later as Head: End User Platform Services at Sanlam Group Technology. He is technically very strong, highly reliable and has a gift for making complex technology clear to everyone in the room. He&rsquo;s exactly who I&rsquo;d want on a critical cloud project, or in front of a team that needs to learn it.</p>
-          <div class="tm-author"><div class="tm-avatar">WL</div><div><div class="tm-name">Wynand Louw</div></div></div>
+      <div class="dd-block">
+        <div class="dd-head">
+          <span class="dd-label">The Honest Part First</span>
+          <h2>What You Can See Depends On What You Pay Microsoft</h2>
+          <p class="dd-intro">Most pages selling AI governance imply the tooling is already sitting in your tenant. For a lot of businesses that is simply not true, and you deserve to know which row you are in before you spend anything. Source: Microsoft&rsquo;s own <a href="https://learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-license-feature-overview" rel="noopener">E3 / E5 / E7 licence comparison</a>, checked 13 September 2026.</p>
         </div>
-        <div class="tm">
-          <span class="tm-quote-mark">&#8220;</span>
-          <p class="tm-quote">Gustav worked under the iSquared banner for years, largely on engagements he sourced and ran himself inside the Sanlam Group, and he delivered them to a standard that reflected well on us every time. He&rsquo;s entrepreneurial, technically excellent, and completely dependable with a client. Bam Cloud AI is the natural next step for him, and he has my full backing.</p>
-          <div class="tm-author"><div class="tm-avatar">JB</div><div><div class="tm-name">James Beaumont</div><div class="tm-role">CEO, iSquared</div></div></div>
-        </div>
-        <div class="tm">
-          <span class="tm-quote-mark">&#8220;</span>
-          <p class="tm-quote">As a social worker, I never imagined AI was for someone like me. Gustav changed that. He taught me to use Microsoft Copilot with patience and zero jargon, and showed me exactly how it fits my real work &mdash; from drafting reports to planning my week. He meets you at your level and makes it genuinely useful instead of intimidating.</p>
-          <div class="tm-author"><div class="tm-avatar">NA</div><div><div class="tm-name">Nicolene Andrews</div><div class="tm-role">Social Worker (MSW)</div></div></div>
+        <div class="dd-grid">
+          <div class="dd-card">
+            <div class="dd-platform">Microsoft 365 E5</div>
+            <h3>Full visibility</h3>
+            <p class="dd-desc">The complete tenant read.</p>
+            <ul class="dd-list">
+              <li>Which AI apps are in use, and by whom</li>
+              <li>The prompts and responses themselves</li>
+              <li>Third-party tools including ChatGPT, Gemini and DeepSeek</li>
+              <li>Oversharing assessment across SharePoint and OneDrive</li>
+            </ul>
+          </div>
+          <div class="dd-card">
+            <div class="dd-platform">Microsoft 365 E3</div>
+            <h3>Partial visibility</h3>
+            <p class="dd-desc">Useful, and genuinely better than nothing &mdash; but not the whole picture.</p>
+            <ul class="dd-list">
+              <li>Which AI apps are being used</li>
+              <li>Activity export and auditing</li>
+              <li class="no">Not the content of what was typed</li>
+              <li>Interviews fill the gap the licence leaves</li>
+            </ul>
+          </div>
+          <div class="dd-card">
+            <div class="dd-platform">Business Premium, Standard or Basic</div>
+            <h3>No tenant visibility</h3>
+            <p class="dd-desc">Where most small and mid-sized businesses sit. Third-party AI detection is not included, even with the Purview add-on.</p>
+            <ul class="dd-list">
+              <li>Run by interview, device and browser inventory</li>
+              <li>Same four deliverables, gathered differently</li>
+              <li>&ldquo;You have no way to see this&rdquo; becomes finding number one</li>
+              <li>An honest answer on whether a licence change is worth it &mdash; sometimes it is not</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <p class="tm-cta"><a href="https://www.linkedin.com/in/gustav-bam-ab8764199/" target="_blank" rel="noopener">View all recommendations on LinkedIn &rarr;</a></p>
+
+      <div class="dd-entry">
+        <div class="dd-entry-badge">Start Here</div>
+        <div>
+          <div class="dd-platform">Any Microsoft 365 tier, or none</div>
+          <h2>Exposure Scan</h2>
+          <div class="dd-price" data-intl="$1,100">R8,500<span class="dd-sub">fixed price &middot; one week</span></div>
+          <p class="dd-desc">About a day of my time across a one-week window. Discovery and a one-page memo, no policy and no briefing. The fastest way to find out whether you have a problem worth spending real money on.</p>
+          <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:6px;">
+            <a href="/enquiry.html?for=AI%20Exposure%20Scan" class="btn btn-primary" style="padding:9px 18px; font-size:0.86rem;">Tell us about your setup</a>
+          </div>
+          <p style="font-size:0.82rem; color:var(--muted); margin-top:8px;">Tell us your Microsoft 365 licence tier and what prompted the question, then book your free call &mdash; we&rsquo;ll agree the details and payment together.</p>
+        </div>
+        <ul class="dd-list">
+          <li>Discovery of what AI is actually in use, by whom, with what data</li>
+          <li>Run on Microsoft Purview where your licence allows it, by interview where it does not</li>
+          <li>A one-page exposure memo written for a director, not an engineer</li>
+          <li>The three things that would hurt most if they walked</li>
+          <li>A straight recommendation on whether the full audit is worth it for you</li>
+          <li>No agent to install and no credentials to hand over</li>
+        </ul>
+        <div class="dd-entry-upgrade">
+          <p data-intl-text="<strong>Credited against the full audit.</strong> The full $1,100 is credited against an Exposure Audit booked within 60 days, exactly as the Estate Health Check credits against a Deep Dive. If a week shows the problem is bigger than a week, you don't pay twice to find that out."><strong>Credited against the full audit.</strong> The full R8,500 is credited against an Exposure Audit booked within 60 days, exactly as the Estate Health Check credits against a Deep Dive. If a week shows the problem is bigger than a week, you don&rsquo;t pay twice to find that out.</p>
+          <p><strong>Payment.</strong> Arranged after our free call &mdash; instant by card or Instant EFT (PayFast, South Africa), or invoiced on booking with card via Payoneer internationally. 50% on written confirmation, balance within seven days of the final report.</p>
+        </div>
+      </div>
+
+      <div class="dd-block">
+        <div class="dd-head">
+          <span class="dd-label">The Full Engagement</span>
+          <h2>What Is Already Happening, And How To Contain It</h2>
+          <p class="dd-intro"><strong>How this differs from our Modern Work &amp; Copilot Deep Dive:</strong> that assessment answers &ldquo;are we ready to roll Copilot out?&rdquo;. This one answers &ldquo;what is already happening that nobody approved?&rdquo;. If you are planning a deployment, start there. If you do not know what your staff are already using, start here. The calendar window runs longer than the working days because Microsoft&rsquo;s tooling needs at least 24 hours to collect after policies are switched on, the oversharing assessment runs weekly, and interviews fit around your people.</p>
+        </div>
+        <div class="dd-grid">
+          <div class="dd-card dd-featured">
+            <div class="dd-badge">Most Chosen</div>
+            <div class="dd-platform">Two weeks &middot; about 3 days of my time</div>
+            <h3>Exposure Audit</h3>
+            <div class="dd-price" data-intl="$3,200">R22,500<span class="dd-sub">fixed price</span></div>
+            <p class="dd-desc">The full engagement, and the four things you walk away with whatever your licence tier allows.</p>
+            <ul class="dd-list">
+              <li><strong>An exposure memo</strong> &mdash; one page, what is in use, by whom, with what data</li>
+              <li><strong>An AI acceptable-use policy</strong> &mdash; naming the actual tools, the specific data that matters, and the person to ask</li>
+              <li><strong>A prioritised remediation list</strong> &mdash; what to fix, in what order, at what cost</li>
+              <li><strong>A leadership briefing</strong> &mdash; 45 minutes, plain language, English or Afrikaans</li>
+              <li>Oversharing assessment where your licence allows it</li>
+            </ul>
+          </div>
+          <div class="dd-card">
+            <div class="dd-platform">Four to six weeks &middot; 6&ndash;7 days of my time</div>
+            <h3>Contain &amp; Enable</h3>
+            <div class="dd-price">Quoted<span class="dd-sub">per engagement</span></div>
+            <p class="dd-desc">Scoped and quoted individually &mdash; no two estates need the same work, and I would rather price it after seeing yours than guess now.</p>
+            <ul class="dd-list">
+              <li>Everything in the Exposure Audit</li>
+              <li>The controls actually implemented, not just recommended</li>
+              <li>Staff trained on the new policy</li>
+              <li>A re-measure thirty days later to show it held</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dd-block">
+        <div class="dd-head">
+          <span class="dd-label">Who It&rsquo;s For</span>
+          <h2>Three Situations Where This Earns Its Money</h2>
+        </div>
+        <div class="dd-grid">
+          <div class="dd-card">
+            <div class="dd-platform">Stalled Copilot</div>
+            <h3>You bought the licences and nobody uses them</h3>
+            <p class="dd-desc">Usually the rollout stopped because Copilot started surfacing documents people forgot they had shared. That is an oversharing problem, not an AI problem, and it is fixable.</p>
+          </div>
+          <div class="dd-card">
+            <div class="dd-platform">A question you can&rsquo;t answer</div>
+            <h3>An insurer, an auditor or a board has asked</h3>
+            <p class="dd-desc">Renewal questionnaires and audit packs are starting to ask about AI use. If nobody can answer, the audit produces the document that does.</p>
+          </div>
+          <div class="dd-card">
+            <div class="dd-platform">Professional confidentiality</div>
+            <h3>You hold other people&rsquo;s information</h3>
+            <p class="dd-desc">Accounting practices, law firms, medical and financial services. Your staff are not reckless; they are busy, and the tool is in the next tab. That is exactly how it happens.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-free-banner">
+        <div class="price-free-text">
+          <h3>Start with a free 30-minute call</h3>
+          <p>Tell me your Microsoft 365 licence tier and what prompted the question. I will tell you honestly which version of this applies to you &mdash; including if the answer is that you do not need it yet.</p>
+        </div>
+        <a href="/enquiry.html" class="price-free-pill">Tell Us What You Need</a>
+      </div>
+      <p style="text-align:center; margin-top:22px; color:var(--muted); font-size:0.92rem;">Also available white-label to MSPs and IT providers &mdash; see <a href="/msp-partnership.html" class="card-link">MSP White-Label</a>.</p>
+
     </div>
   </section>
 </main>
@@ -768,7 +906,7 @@
           <div class="footer-col-links collapsible">
             <a href="/consulting.html">Azure Architecture</a>
             <a href="/assessments.html">Estate Assessments</a>
-            <a href="/ai-exposure-audit.html">AI Exposure Audit</a>
+            <a href="/ai-exposure-audit.html" class="current">AI Exposure Audit</a>
             <a href="/msp-partnership.html">MSP White-Label</a>
             <a href="/book.html">Book a Call</a>
           </div>
@@ -808,30 +946,144 @@
   </footer>
 
   <script>
-    // ── LIVE CURRENCY CONVERSION ──
-    (async function priceFx() {
-      if (!document.querySelectorAll('.price-fx').length) return;
+    // ── REGIONAL PRICING ──────────────────────────────────────────────────
+    // Two rate cards: ZAR for South Africa, USD everywhere else. The visitor
+    // picks their country; we never display two prices for one service. The
+    // applicable rate is confirmed on the invoice, not by the browser.
+    var BCI_MK = [
+      ['South Africa', 'zar', 'ZAR', 'R'],
+      ['— Africa —', '', '', ''],
+      ['Botswana', 'usd', 'BWP', 'P'], ['Egypt', 'usd', 'EGP', 'E£'],
+      ['Ghana', 'usd', 'GHS', 'GH₵'], ['Kenya', 'usd', 'KES', 'KSh'],
+      ['Lesotho', 'usd', 'ZAR', 'R'], ['Mauritius', 'usd', 'MUR', '₨'],
+      ['Morocco', 'usd', 'MAD', 'MAD'], ['Namibia', 'usd', 'NAD', 'N$'],
+      ['Nigeria', 'usd', 'NGN', '₦'], ['Rwanda', 'usd', 'RWF', 'FRw'],
+      ['Tanzania', 'usd', 'TZS', 'TSh'], ['Uganda', 'usd', 'UGX', 'USh'],
+      ['Zambia', 'usd', 'ZMW', 'K'], ['Zimbabwe', 'usd', 'USD', '$'],
+      ['— Europe —', '', '', ''],
+      ['Euro area', 'usd', 'EUR', '€'], ['United Kingdom', 'usd', 'GBP', '£'],
+      ['Switzerland', 'usd', 'CHF', 'CHF'], ['Norway', 'usd', 'NOK', 'kr'],
+      ['Sweden', 'usd', 'SEK', 'kr'], ['Denmark', 'usd', 'DKK', 'kr'],
+      ['Poland', 'usd', 'PLN', 'zł'], ['Czechia', 'usd', 'CZK', 'Kč'],
+      ['Hungary', 'usd', 'HUF', 'Ft'], ['Romania', 'usd', 'RON', 'lei'],
+      ['Türkiye', 'usd', 'TRY', '₺'], ['Iceland', 'usd', 'ISK', 'kr'],
+      ['— Middle East & Asia —', '', '', ''],
+      ['United Arab Emirates', 'usd', 'AED', 'AED'], ['Saudi Arabia', 'usd', 'SAR', 'SAR'],
+      ['Israel', 'usd', 'ILS', '₪'], ['India', 'usd', 'INR', '₹'],
+      ['Singapore', 'usd', 'SGD', 'S$'], ['Malaysia', 'usd', 'MYR', 'RM'],
+      ['Japan', 'usd', 'JPY', '¥'],
+      ['— Americas & Pacific —', '', '', ''],
+      ['United States', 'usd', 'USD', '$'], ['Canada', 'usd', 'CAD', 'C$'],
+      ['Brazil', 'usd', 'BRL', 'R$'], ['Mexico', 'usd', 'MXN', 'MX$'],
+      ['Australia', 'usd', 'AUD', 'A$'], ['New Zealand', 'usd', 'NZD', 'NZ$'],
+      ['— Other —', '', '', ''],
+      ['Anywhere else (USD)', 'usd', 'USD', '$']
+    ];
+
+    var bciPick = (function () {
+      try { var s = localStorage.getItem('bci-country'); if (s) { return s; } } catch (_) {}
       try {
-        const rZar = await fetch('https://open.er-api.com/v6/latest/ZAR').then(r => r.json());
-        if (rZar.result !== 'success') throw new Error('rate error');
-        const zarToUsd = rZar.rates.USD, zarToEur = rZar.rates.EUR;
-        const fmt = (n, d = 0) => Number(n.toFixed(d)).toLocaleString('en-ZA');
+        var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (/Johannesburg/.test(tz)) { return 'South Africa'; }
+        if (/Africa\/Windhoek/.test(tz)) { return 'Namibia'; }
+        if (/Africa\/Gaborone/.test(tz)) { return 'Botswana'; }
+        if (/Africa\/Maseru/.test(tz)) { return 'Lesotho'; }
+        if (/Africa\/Nairobi/.test(tz)) { return 'Kenya'; }
+        if (/Africa\/Lagos/.test(tz)) { return 'Nigeria'; }
+        if (/Europe\/London/.test(tz)) { return 'United Kingdom'; }
+        if (/^America\//.test(tz)) { return 'United States'; }
+        if (/^Europe\//.test(tz)) { return 'Euro area'; }
+      } catch (_) {}
+      return 'South Africa';
+    })();
 
-        document.querySelectorAll('.price-fx[data-zar]').forEach(el => {
-          const z = +el.dataset.zar;
-          el.textContent = '≈ $' + fmt(z * zarToUsd) + ' · €' + fmt(z * zarToEur);
+    function bciMarket(name) {
+      for (var i = 0; i < BCI_MK.length; i++) { if (BCI_MK[i][0] === name && BCI_MK[i][1]) { return BCI_MK[i]; } }
+      return BCI_MK[0];
+    }
+
+    (function bciRegionalPricing() {
+      var sel = document.getElementById('rrCountry');
+      var note = document.getElementById('rrNote');
+      var mk = bciMarket(bciPick);
+      // A page with no data-intl attributes prices in USD for everyone
+      // (Business English on the international platforms).
+      var usdOnly = !document.querySelectorAll('[data-intl]').length;
+      var isZA = mk[1] === 'zar' && !usdOnly;
+
+      // 1. Swap the rate card. ZAR stays as authored; USD comes from data-intl.
+      if (!isZA) {
+        document.documentElement.setAttribute('data-rate', 'usd');
+        document.querySelectorAll('[data-intl]').forEach(function (el) {
+          var n = el.firstChild;
+          if (n && n.nodeType === 3) { n.nodeValue = el.dataset.intl; }
         });
-
-        const note = document.getElementById('priceRateNote');
-        if (note) {
-          const d = new Date(rZar.time_last_update_utc).toLocaleDateString('en-ZA', {day:'numeric', month:'short', year:'numeric'});
-          note.innerHTML = 'Indicative USD · EUR rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> · ' + d + ' · Invoiced in ZAR';
-        }
-      } catch (_) {
-        document.querySelectorAll('.price-fx').forEach(el => el.textContent = '');
-        const note = document.getElementById('priceRateNote');
-        if (note) note.textContent = '';
+        document.querySelectorAll('[data-intl-text]').forEach(function (el) {
+          el.innerHTML = el.dataset.intlText;
+        });
       }
+
+      // 2. Build the country selector.
+      if (sel) {
+        var grp = null;
+        BCI_MK.forEach(function (m) {
+          if (!m[1]) { grp = document.createElement('optgroup'); grp.label = m[0].replace(/—/g, '').trim(); sel.appendChild(grp); return; }
+          var o = document.createElement('option');
+          o.value = m[0]; o.textContent = m[0];
+          if (m[0] === mk[0]) { o.selected = true; }
+          (grp || sel).appendChild(o);
+        });
+        sel.addEventListener('change', function () {
+          try { localStorage.setItem('bci-country', sel.value); } catch (_) {}
+          location.reload();
+        });
+      }
+
+      // 3. Per-card switch — flips the whole page, as requested.
+      var other = isZA ? 'United States' : 'South Africa';
+      var otherLabel = isZA ? 'See the international rate (USD)' : 'See the South African rate (ZAR)';
+      document.querySelectorAll('[data-intl]').forEach(function (el) {
+        var host = el.parentNode;
+        if (!host || host.querySelector('.card-rate-switch')) { return; }
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'card-rate-switch'; b.textContent = otherLabel;
+        b.addEventListener('click', function () {
+          try { localStorage.setItem('bci-country', other); } catch (_) {}
+          location.reload();
+        });
+        el.insertAdjacentElement('afterend', b);
+      });
+
+      // 4. Note line + indicative conversion into the visitor's own currency.
+      var cardCur = isZA ? 'ZAR' : 'USD';
+      var priceEls = document.querySelectorAll('[data-intl], [data-price-usd]');
+      var payLine = isZA
+        ? 'Rates in <b>South African rand</b>, invoiced in ZAR &mdash; EFT or card/Instant EFT via PayFast. No VAT is added.'
+        : 'Rates on the <b>international schedule in US dollars</b>, invoiced in USD via Payoneer. This is a separate rate card for remote international delivery, not a currency conversion of the ZAR rate. No VAT or South African tax is added.';
+      if (note) { note.innerHTML = payLine + ' The rate that applies is set by your billing country and confirmed on your invoice.'; }
+
+      if (mk[2] === cardCur) { return; }
+      fetch('https://open.er-api.com/v6/latest/' + cardCur)
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!d || d.result !== 'success' || !d.rates || !d.rates[mk[2]]) { return; }
+          var rate = d.rates[mk[2]];
+          var fmt = function (n) { return Number(n.toFixed(0)).toLocaleString('en-US'); };
+          priceEls.forEach(function (el) {
+            var txt = (el.firstChild && el.firstChild.nodeValue) || '';
+            var num = parseFloat(txt.replace(/[^0-9.]/g, ''));
+            if (!num) { return; }
+            var s = document.createElement('span');
+            s.className = 'price-local';
+            s.textContent = '≈ ' + mk[3] + fmt(num * rate) + ' ' + mk[2] + ' at today’s rate';
+            el.appendChild(s);
+          });
+          if (note) {
+            var when = new Date(d.time_last_update_utc).toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' });
+            note.innerHTML += ' ' + mk[2] + ' figures are indicative only, converted at the rate published by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> on ' + when + '.';
+          }
+        })
+        .catch(function () {});
     })();
 
     // Scroll progress bar
