@@ -1,6 +1,6 @@
 # Bam Cloud AI
 
-> Microsoft-certified Azure and AI training, and cloud consulting for businesses, run by Gustav Bam — AZ-305 (Azure Solutions Architect Expert) and AZ-104 (Azure Administrator) certified, Microsoft Certified Trainer (MCT), 25+ years in enterprise infrastructure. Based in Durbanville, Cape Town, South Africa. Delivers training online globally and consulting/workshops in-person across South Africa.
+> Microsoft-certified Azure and AI training, and cloud consulting for businesses, run by Gustav Bam — AZ-305 (Azure Solutions Architect Expert) and AZ-104 (Azure Administrator) certified, Microsoft Certified Trainer (MCT), 30+ years in enterprise infrastructure. Based in Durbanville, Cape Town, South Africa. Delivers training online globally and consulting/workshops in-person across South Africa.
 
 ## Services
 
