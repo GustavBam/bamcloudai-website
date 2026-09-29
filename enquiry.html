@@ -46,7 +46,7 @@
   .logo .logo-wordmark .bam{ font-weight:800; color:var(--orange); }
   .logo .logo-wordmark .cai{ font-weight:300; color:#FFFFFF; }
   .logo .logo-tagline{ display:flex; justify-content:space-between; align-items:center; font-size:10px; letter-spacing:0.8px; font-weight:500; color:rgba(255,255,255,0.65); }
-  .logo .logo-tagline .initial{ color:rgba(232,98,26,0.88); font-weight:700; }
+  .logo .logo-tagline .initial{ color:#EA6520; font-weight:700; }
   .logo .logo-tagline .dot{ color:rgba(255,255,255,0.55); letter-spacing:0; font-size:12px; }
   .logo .logo-tagline .last-r{ letter-spacing:0; }
   .nav-links{ display:flex; align-items:center; gap:0; list-style:none; white-space:nowrap; }
@@ -114,6 +114,7 @@
   .choice:hover{ border-color:var(--azure-light); }
   .choice.selected{ background:rgba(212,100,28,0.18); border-color:var(--orange); color:#f0a978; font-weight:600; }
   .choice.single.selected{ background:var(--azure); border-color:var(--azure); color:#fff; }
+  .choice:focus-visible{ outline:2px solid var(--azure-light); outline-offset:2px; }
 
   .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:22px; gap:12px; }
   button{ font-family:inherit; cursor:pointer; border:none; border-radius:22px; font-weight:700; font-size:14px; padding:11px 22px; }
@@ -204,11 +205,11 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
 .footer-col a { color:rgba(255,255,255,0.72); text-decoration:none; font-size:0.85rem; transition:color .2s; }
 .footer-col a:hover { color:#fff; }
 .footer-copyright { font-size:0.82rem; color:rgba(255,255,255,0.5); margin-top:8px; }
-.footer-popia { color:rgba(255,255,255,0.42) !important; }
+.footer-popia { color:rgba(255,255,255,0.5) !important; }
 .footer-hint { display:none; }
 
 @media (hover:hover) and (min-width:1181px) {
-  .footer-hint { display:block; font-size:0.72rem; color:rgba(255,255,255,0.32); font-style:italic; margin-top:-6px; transition:opacity .2s ease; }
+  .footer-hint { display:block; font-size:0.72rem; color:rgba(255,255,255,0.5); font-style:italic; margin-top:-6px; transition:opacity .2s ease; }
   .footer-col-links.collapsible { opacity:0; max-height:0; overflow:hidden; pointer-events:none; transition:opacity .25s ease, max-height .25s ease; }
   footer:hover .footer-col-links.collapsible, footer:focus-within .footer-col-links.collapsible { opacity:1; max-height:420px; pointer-events:auto; }
   footer:hover .footer-hint, footer:focus-within .footer-hint { opacity:0; height:0; margin:0; overflow:hidden; pointer-events:none; }
@@ -313,12 +314,12 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       <div class="step-title">Who's This For? <span class="optional-tag">Optional</span></div>
       <div class="step-sub">Helps me prepare the right conversation before we even talk.</div>
 
-      <label class="field-label">Booking as</label>
-      <div class="choicegrid single" data-name="audience_type">
-        <div class="choice">Just me (individual)</div>
-        <div class="choice">Me, for my company</div>
-        <div class="choice">A group / multiple attendees</div>
-        <div class="choice">Not sure yet</div>
+      <label id="lbl_audience_type" class="field-label">Booking as</label>
+      <div role="radiogroup" aria-labelledby="lbl_audience_type" class="choicegrid single" data-name="audience_type">
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Just me (individual)</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Me, for my company</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">A group / multiple attendees</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Not sure yet</div>
       </div>
 
       <label class="field-label" for="companyField">Company name <span class="field-hint">(if applicable)</span></label>
@@ -338,18 +339,18 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       <div class="step-title">What You're Looking For <span class="optional-tag">Optional</span></div>
       <div class="step-sub">Rough answers are fine — we'll nail down the details on the call.</div>
 
-      <label class="field-label">What kind of enquiry is this?</label>
-      <div class="choicegrid single" data-name="enquiry_type">
-        <div class="choice">AI exposure / AI governance audit</div>
-        <div class="choice">Certification training</div>
-        <div class="choice">Team / group workshop</div>
-        <div class="choice">Custom workshop</div>
-        <div class="choice">Azure consulting</div>
-        <div class="choice">Estate assessment</div>
-        <div class="choice">MSP / reseller partnership</div>
-        <div class="choice">Automation</div>
-        <div class="choice">Business English</div>
-        <div class="choice">Not sure yet</div>
+      <label id="lbl_enquiry_type" class="field-label">What kind of enquiry is this?</label>
+      <div role="radiogroup" aria-labelledby="lbl_enquiry_type" class="choicegrid single" data-name="enquiry_type">
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">AI exposure / AI governance audit</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Certification training</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Team / group workshop</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Custom workshop</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Azure consulting</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Estate assessment</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">MSP / reseller partnership</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Automation</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Business English</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Not sure yet</div>
       </div>
 
       <label class="field-label" for="topicField">Specifics <span class="field-hint">(which course, workshop, or project)</span></label>
@@ -358,11 +359,11 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       <label class="field-label" for="environmentField">Current Microsoft / Azure setup <span class="field-hint">(if relevant)</span></label>
       <input type="text" name="current_environment" id="environmentField" placeholder="e.g. Microsoft 365 E3, Azure with ~40 VMs, on-prem AD not yet migrated, existing MSP/reseller relationship...">
 
-      <label class="field-label">Preferred format</label>
-      <div class="choicegrid single" data-name="format_pref">
-        <div class="choice">Online</div>
-        <div class="choice">In-person (South Africa)</div>
-        <div class="choice">Either works</div>
+      <label id="lbl_format_pref" class="field-label">Preferred format</label>
+      <div role="radiogroup" aria-labelledby="lbl_format_pref" class="choicegrid single" data-name="format_pref">
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Online</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">In-person (South Africa)</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Either works</div>
       </div>
 
       <label class="field-label" for="timeframeField">Rough timeframe or dates in mind</label>
@@ -551,9 +552,15 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       var choice = e.target.closest('.choice');
       if(!choice) return;
       var val = choice.textContent.trim();
-      Array.from(grid.children).forEach(function(c){ c.classList.remove('selected'); });
+      Array.from(grid.children).forEach(function(c){ c.classList.remove('selected'); c.setAttribute('aria-checked','false'); });
       choice.classList.add('selected');
+      choice.setAttribute('aria-checked','true');
       state.choices[name] = val;
+    });
+    grid.addEventListener('keydown', function(e){
+      var choice = e.target.closest('.choice');
+      if(!choice) return;
+      if(e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){ e.preventDefault(); choice.click(); }
     });
   });
 

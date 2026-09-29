@@ -46,7 +46,7 @@
   .logo .logo-wordmark .bam{ font-weight:800; color:var(--orange); }
   .logo .logo-wordmark .cai{ font-weight:300; color:#FFFFFF; }
   .logo .logo-tagline{ display:flex; justify-content:space-between; align-items:center; font-size:10px; letter-spacing:0.8px; font-weight:500; color:rgba(255,255,255,0.65); }
-  .logo .logo-tagline .initial{ color:rgba(232,98,26,0.88); font-weight:700; }
+  .logo .logo-tagline .initial{ color:#EA6520; font-weight:700; }
   .logo .logo-tagline .dot{ color:rgba(255,255,255,0.55); letter-spacing:0; font-size:12px; }
   .logo .logo-tagline .last-r{ letter-spacing:0; }
   .nav-links{ display:flex; align-items:center; gap:0; list-style:none; white-space:nowrap; }
@@ -95,10 +95,10 @@
   /* --- level scoring key --- */
   .levels{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:22px; }
   .level-card{ border:1px solid var(--line); border-top:4px solid var(--lc); border-radius:6px; padding:10px 9px; background:var(--panel2); }
-  .level-card .lnum{ font-size:10px; font-weight:700; color:var(--lc); text-transform:uppercase; letter-spacing:.5px;}
+  .level-card .lnum{ font-size:10px; font-weight:700; color:var(--lct); text-transform:uppercase; letter-spacing:.5px;}
   .level-card .ltitle{ font-size:13px; font-weight:700; color:var(--txt); margin:2px 0 4px 0;}
   .level-card .ldesc{ font-size:11px; color:var(--dim); }
-  .l1{ --lc:var(--azure-light); } .l2{ --lc:var(--violet); } .l3{ --lc:var(--orange); } .l4{ --lc:var(--green); }
+  .l1{ --lc:var(--azure-light); --lct:#62AAE0; } .l2{ --lc:var(--violet); --lct:#B097FA; } .l3{ --lc:var(--orange); --lct:#E8844A; } .l4{ --lc:var(--green); --lct:var(--green); }
 
   /* --- function rating rows --- */
   .func-row{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:10px; background:var(--panel2); }
@@ -137,6 +137,8 @@
   .choice:hover{ border-color:var(--azure-light); }
   .choice.selected{ background:rgba(212,100,28,0.18); border-color:var(--orange); color:#f0a978; font-weight:600; }
   .choice.single.selected{ background:var(--azure); border-color:var(--azure); color:#fff; }
+  .choice:focus-visible{ outline:2px solid var(--azure-light); outline-offset:2px; }
+  .pill:focus-visible{ outline:2px solid var(--azure-light); outline-offset:2px; }
 
   .deepdive-note{
     font-size:13px; color:var(--dim); background:rgba(212,100,28,0.1); border-left:3px solid var(--orange);
@@ -144,7 +146,7 @@
   }
   .dd-block{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:14px; background:var(--panel2); }
   .dd-block .ddhead{ display:inline-block; background:var(--azure); color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:4px; margin-bottom:10px; }
-  .dd-block .ddq{ font-size:13px; color:var(--txt); margin:0 0 6px 0; font-weight:600; }
+  .dd-block .ddq{ display:block; font-size:13px; color:var(--txt); margin:0 0 6px 0; font-weight:600; }
 
   .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:22px; gap:12px; }
   button{ font-family:inherit; cursor:pointer; border:none; border-radius:22px; font-weight:700; font-size:14px; padding:11px 22px; }
@@ -253,7 +255,7 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
 .footer-col a { color:rgba(255,255,255,0.72); text-decoration:none; font-size:0.85rem; transition:color .2s; }
 .footer-col a:hover { color:#fff; }
 .footer-copyright { font-size:0.82rem; color:rgba(255,255,255,0.5); margin-top:8px; }
-.footer-popia { color:rgba(255,255,255,0.42) !important; }
+.footer-popia { color:rgba(255,255,255,0.5) !important; }
 .footer-hint { display:none; }
 
 /* Footer collapse-on-default, hover/focus-to-reveal (desktop only). ALL FIVE
@@ -267,7 +269,7 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
    tallest cell, now 0 everywhere) — that's what actually frees up space.
    Touch/narrow screens (no hover) get the full footer expanded by default. */
 @media (hover:hover) and (min-width:1181px) {
-  .footer-hint { display:block; font-size:0.72rem; color:rgba(255,255,255,0.32); font-style:italic; margin-top:-6px; transition:opacity .2s ease; }
+  .footer-hint { display:block; font-size:0.72rem; color:rgba(255,255,255,0.5); font-style:italic; margin-top:-6px; transition:opacity .2s ease; }
   .footer-col-links.collapsible { opacity:0; max-height:0; overflow:hidden; pointer-events:none; transition:opacity .25s ease, max-height .25s ease; }
   footer:hover .footer-col-links.collapsible, footer:focus-within .footer-col-links.collapsible { opacity:1; max-height:420px; pointer-events:auto; }
   footer:hover .footer-hint, footer:focus-within .footer-hint { opacity:0; height:0; margin:0; overflow:hidden; pointer-events:none; }
@@ -382,8 +384,8 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
 
       <div id="funcRows"></div>
 
-      <label class="field-label">Your single next step <span class="field-hint">(optional — one sentence)</span></label>
-      <textarea name="assessment_next_step" placeholder="What's the one task, in your weakest area, that's begging to move up a level?"></textarea>
+      <label for="fld_assessment_next_step" class="field-label">Your single next step <span class="field-hint">(optional — one sentence)</span></label>
+      <textarea name="assessment_next_step" id="fld_assessment_next_step" placeholder="What's the one task, in your weakest area, that's begging to move up a level?"></textarea>
     </div>
   </div>
 
@@ -393,21 +395,21 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       <div class="step-title">Your Company Profile <span class="optional-tag">Optional</span></div>
       <div class="step-sub">Helps me scope the right conversation before we even talk.</div>
 
-      <label class="field-label">What does your company do? <span class="field-hint">(industry / type)</span></label>
-      <input type="text" name="company_type" placeholder="e.g. accounting firm, retailer, logistics, MSP...">
+      <label for="fld_company_type" class="field-label">What does your company do? <span class="field-hint">(industry / type)</span></label>
+      <input type="text" name="company_type" id="fld_company_type" placeholder="e.g. accounting firm, retailer, logistics, MSP...">
 
-      <label class="field-label">Company size <span class="field-hint">(headcount)</span></label>
-      <div class="choicegrid single" data-name="company_size_range">
-        <div class="choice">1–9</div>
-        <div class="choice">10–49</div>
-        <div class="choice">50–199</div>
-        <div class="choice">200–499</div>
-        <div class="choice">500+</div>
-        <div class="choice">Not sure</div>
+      <label id="lbl_company_size_range" class="field-label">Company size <span class="field-hint">(headcount)</span></label>
+      <div role="radiogroup" aria-labelledby="lbl_company_size_range" class="choicegrid single" data-name="company_size_range">
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">1–9</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">10–49</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">50–199</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">200–499</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">500+</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Not sure</div>
       </div>
 
-      <label class="field-label">Current Microsoft 365 / Copilot licensing</label>
-      <select name="current_ms_license">
+      <label for="fld_current_ms_license" class="field-label">Current Microsoft 365 / Copilot licensing</label>
+      <select name="current_ms_license" id="fld_current_ms_license">
         <option value="">— Select —</option>
         <option>No Microsoft 365 currently</option>
         <option>Microsoft 365 Business Basic</option>
@@ -419,12 +421,12 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
         <option>Not sure what we have</option>
       </select>
 
-      <label class="field-label">Who would this be for, if we moved ahead?</label>
-      <div class="choicegrid single" data-name="rollout_scope">
-        <div class="choice">Just me right now</div>
-        <div class="choice">One team / department</div>
-        <div class="choice">The whole company</div>
-        <div class="choice">Not decided yet</div>
+      <label id="lbl_rollout_scope" class="field-label">Who would this be for, if we moved ahead?</label>
+      <div role="radiogroup" aria-labelledby="lbl_rollout_scope" class="choicegrid single" data-name="rollout_scope">
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Just me right now</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">One team / department</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">The whole company</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Not decided yet</div>
       </div>
     </div>
   </div>
@@ -444,45 +446,45 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       <div class="step-title">Context For Our Call <span class="optional-tag">Optional but recommended</span></div>
       <div class="step-sub">The single biggest reason these calls run long is missing context. Save us both time.</div>
 
-      <label class="field-label">Biggest concern, or what's held you back so far?</label>
-      <textarea name="biggest_concern" placeholder="Cost, data privacy, staff pushback, not knowing where to start..."></textarea>
+      <label for="fld_biggest_concern" class="field-label">Biggest concern, or what's held you back so far?</label>
+      <textarea name="biggest_concern" id="fld_biggest_concern" placeholder="Cost, data privacy, staff pushback, not knowing where to start..."></textarea>
 
-      <label class="field-label">If this works, what does success look like in 12 months?</label>
-      <textarea name="success_vision_12mo" placeholder="Hours saved, revenue per employee, faster close, something else..."></textarea>
+      <label for="fld_success_vision_12mo" class="field-label">If this works, what does success look like in 12 months?</label>
+      <textarea name="success_vision_12mo" id="fld_success_vision_12mo" placeholder="Hours saved, revenue per employee, faster close, something else..."></textarea>
 
-      <label class="field-label">What's the biggest win you're hoping for? <span class="field-hint">(pick as many as apply)</span></label>
-      <div class="choicegrid multi" data-name="expected_biggest_wins">
-        <div class="choice">Time saved</div>
-        <div class="choice">Revenue growth</div>
-        <div class="choice">Cost reduction</div>
-        <div class="choice">Competitive edge</div>
-        <div class="choice">Staff retention / morale</div>
-        <div class="choice">Compliance & risk reduction</div>
-        <div class="choice">Other</div>
+      <label id="lbl_expected_biggest_wins" class="field-label">What's the biggest win you're hoping for? <span class="field-hint">(pick as many as apply)</span></label>
+      <div role="group" aria-labelledby="lbl_expected_biggest_wins" class="choicegrid multi" data-name="expected_biggest_wins">
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Time saved</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Revenue growth</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Cost reduction</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Competitive edge</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Staff retention / morale</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Compliance & risk reduction</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Other</div>
       </div>
 
-      <label class="field-label">Is this business-critical, or are you exploring?</label>
-      <div class="choicegrid single" data-name="urgency_level">
-        <div class="choice">Business-critical right now</div>
-        <div class="choice">Important, not urgent</div>
-        <div class="choice">Just exploring</div>
+      <label id="lbl_urgency_level" class="field-label">Is this business-critical, or are you exploring?</label>
+      <div role="radiogroup" aria-labelledby="lbl_urgency_level" class="choicegrid single" data-name="urgency_level">
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Business-critical right now</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Important, not urgent</div>
+        <div class="choice" role="radio" aria-checked="false" tabindex="0">Just exploring</div>
       </div>
 
-      <label class="field-label">What kind of help do you think you'll need? <span class="field-hint">(pick as many as apply)</span></label>
-      <div class="choicegrid multi" data-name="help_needed">
-        <div class="choice">Strategy & training</div>
-        <div class="choice">Technical implementation</div>
-        <div class="choice">Design / UX</div>
-        <div class="choice">Data migration</div>
-        <div class="choice">Ongoing managed support</div>
-        <div class="choice">Not sure yet</div>
+      <label id="lbl_help_needed" class="field-label">What kind of help do you think you'll need? <span class="field-hint">(pick as many as apply)</span></label>
+      <div role="group" aria-labelledby="lbl_help_needed" class="choicegrid multi" data-name="help_needed">
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Strategy & training</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Technical implementation</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Design / UX</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Data migration</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Ongoing managed support</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Not sure yet</div>
       </div>
 
-      <label class="field-label">Who else should be involved? <span class="field-hint">(on the first call, or affected across the business)</span></label>
-      <textarea name="call_stakeholders" placeholder="e.g. my ops manager should be on the call; finance and support teams would be affected"></textarea>
+      <label for="fld_call_stakeholders" class="field-label">Who else should be involved? <span class="field-hint">(on the first call, or affected across the business)</span></label>
+      <textarea name="call_stakeholders" id="fld_call_stakeholders" placeholder="e.g. my ops manager should be on the call; finance and support teams would be affected"></textarea>
 
-      <label class="field-label">Anything else worth knowing before our call?</label>
-      <textarea name="additional_notes" placeholder="Optional — anything that doesn't fit above"></textarea>
+      <label for="fld_additional_notes" class="field-label">Anything else worth knowing before our call?</label>
+      <textarea name="additional_notes" id="fld_additional_notes" placeholder="Optional — anything that doesn't fit above"></textarea>
     </div>
   </div>
 
@@ -492,24 +494,24 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       <div class="step-title">Your Details</div>
       <div class="step-sub">This is the only part that's required — so I know who to prepare the call for.</div>
 
-      <label class="field-label req">First name</label>
-      <input type="text" name="firstname" required>
+      <label for="fld_firstname" class="field-label req">First name</label>
+      <input type="text" name="firstname" id="fld_firstname" required>
 
-      <label class="field-label req">Last name</label>
-      <input type="text" name="lastname" required>
+      <label for="fld_lastname" class="field-label req">Last name</label>
+      <input type="text" name="lastname" id="fld_lastname" required>
 
-      <label class="field-label req">Email</label>
-      <input type="email" name="email" required>
+      <label for="fld_email" class="field-label req">Email</label>
+      <input type="email" name="email" id="fld_email" required>
       <div class="err-msg" id="emailErr">Please enter a valid email address.</div>
 
-      <label class="field-label">Phone <span class="field-hint">(optional)</span></label>
-      <input type="tel" name="phone">
+      <label for="fld_phone" class="field-label">Phone <span class="field-hint">(optional)</span></label>
+      <input type="tel" name="phone" id="fld_phone">
 
-      <label class="field-label">Company name</label>
-      <input type="text" name="company">
+      <label for="fld_company" class="field-label">Company name</label>
+      <input type="text" name="company" id="fld_company">
 
-      <label class="field-label">Your role / title</label>
-      <input type="text" name="jobtitle">
+      <label for="fld_jobtitle" class="field-label">Your role / title</label>
+      <input type="text" name="jobtitle" id="fld_jobtitle">
 
       <input type="hidden" name="company_website" id="hp_field" value=""> <!-- honeypot -->
     </div>
@@ -686,8 +688,8 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
   FUNCS.forEach(function(f){
     var row = document.createElement('div');
     row.className = 'func-row';
-    row.innerHTML = '<div class="fname">'+f.label+'</div><div class="pillgroup" data-func="'+f.id+'">' +
-      [1,2,3,4].map(function(l){ return '<div class="pill" data-level="'+l+'">Level '+l+'</div>'; }).join('') +
+    row.innerHTML = '<div class="fname" id="fname_'+f.id+'">'+f.label+'</div><div class="pillgroup" role="radiogroup" aria-labelledby="fname_'+f.id+'" data-func="'+f.id+'">' +
+      [1,2,3,4].map(function(l){ return '<div class="pill" role="radio" aria-checked="false" tabindex="0" data-level="'+l+'">Level '+l+'</div>'; }).join('') +
       '</div>';
     rowsEl.appendChild(row);
   });
@@ -699,9 +701,17 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
     var group = pill.closest('.pillgroup');
     var func = group.getAttribute('data-func');
     var level = pill.getAttribute('data-level');
-    Array.from(group.children).forEach(function(p){ p.className = 'pill'; });
+    Array.from(group.children).forEach(function(p){ p.className = 'pill'; p.setAttribute('aria-checked','false'); });
     pill.classList.add('sel-l'+level);
+    pill.setAttribute('aria-checked','true');
     state.levels[func] = parseInt(level,10);
+  });
+
+  // Keyboard: Enter / Space activate a focused level pill
+  rowsEl.addEventListener('keydown', function(e){
+    var pill = e.target.closest('.pill');
+    if(!pill) return;
+    if(e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){ e.preventDefault(); pill.click(); }
   });
 
   // Generic choice grids (single + multi) across steps 2 & 4
@@ -715,13 +725,20 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       var val = choice.textContent.trim();
       if(isMulti){
         choice.classList.toggle('selected');
+        choice.setAttribute('aria-checked', choice.classList.contains('selected') ? 'true' : 'false');
         var arr = Array.from(grid.querySelectorAll('.choice.selected')).map(function(c){return c.textContent.trim();});
         state.choices[name] = arr;
       } else {
-        Array.from(grid.children).forEach(function(c){ c.classList.remove('selected'); });
+        Array.from(grid.children).forEach(function(c){ c.classList.remove('selected'); c.setAttribute('aria-checked','false'); });
         choice.classList.add('selected');
+        choice.setAttribute('aria-checked','true');
         state.choices[name] = val;
       }
+    });
+    grid.addEventListener('keydown', function(e){
+      var choice = e.target.closest('.choice');
+      if(!choice) return;
+      if(e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){ e.preventDefault(); choice.click(); }
     });
   });
 
@@ -741,7 +758,7 @@ footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.
       block.className = 'dd-block';
       block.innerHTML = '<div class="ddhead">'+f.label+'</div>' +
         f.q.map(function(q,i){
-          return '<div class="ddq">'+q+'</div><textarea data-dd="'+f.id+'_'+i+'" placeholder="Optional"></textarea>';
+          return '<label class="ddq" for="dd_'+f.id+'_'+i+'">'+q+'</label><textarea id="dd_'+f.id+'_'+i+'" data-dd="'+f.id+'_'+i+'" placeholder="Optional"></textarea>';
         }).join('');
       container.appendChild(block);
     });
