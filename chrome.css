@@ -133,7 +133,7 @@ nav .logo .logo-tagline .dot { font-size: 12px; }
   white-space: nowrap;
 }
 .nav-links > li { display: flex; align-items: center; }
-.nav-links li:last-child { margin-left: 6px; }
+.nav-links > li:last-child { margin-left: 6px; }
 .nav-links a {
   color: rgba(255,255,255,0.75);
   text-decoration: none;
@@ -289,8 +289,10 @@ footer {
   .nav-links {
     display: none; position: absolute; top: 80px; left: 0; right: 0;
     background: rgba(15,27,45,0.98); backdrop-filter: blur(12px);
-    flex-direction: column; padding: 8px 24px 20px; gap: 0;
+    flex-direction: column; align-items: stretch; padding: 8px 24px 20px; gap: 0;
     border-bottom: 1px solid rgba(255,255,255,0.08);
+    max-height: calc(100vh - 80px); max-height: calc(100dvh - 80px);
+    overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain;
   }
   .nav-links.open { display: flex; }
   .nav-links li { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.07); white-space: normal; }
@@ -300,13 +302,14 @@ footer {
   .nav-cta { display: inline-block; margin-top: 4px; }
   .nav-drop-toggle { width: 100%; justify-content: space-between; font-size: 1rem; padding: 0; color: rgba(255,255,255,0.75); }
   .nav-dropdown::after { content: none; }
+  .nav-links > li.nav-dropdown { flex-direction: column; align-items: stretch; }
   .nav-drop-menu {
     position: static; transform: none; opacity: 1; visibility: visible; pointer-events: auto;
     margin: 0; padding: 4px 0 2px 14px; min-width: 0; gap: 0;
     background: none; border: none; box-shadow: none; backdrop-filter: none;
     display: none;
   }
-  .nav-drop-menu.open { display: flex; }
+  .nav-drop-menu.open { display: flex; transform: none; }
   .nav-links .nav-drop-menu li { border-bottom: none; }
   .nav-drop-menu a { padding: 11px 0; font-size: 0.95rem; }
 }
@@ -322,5 +325,5 @@ footer {
   nav .logo .logo-wordmark { font-size: 22px; }
   nav .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
   nav .logo .logo-tagline .dot { font-size: 10px; }
-  .nav-links { top: 72px; }
+  .nav-links { top: 72px; max-height: calc(100vh - 72px); max-height: calc(100dvh - 72px); }
 }

@@ -62,7 +62,7 @@
     width:100%; border:1.5px solid var(--line); border-radius:6px; padding:10px 12px;
     font-size:14px; font-family:inherit; color:var(--txt); background:var(--panel2);
   }
-  input::placeholder, textarea::placeholder{ color:#5c6d8a; }
+  input::placeholder, textarea::placeholder{ color:var(--dim); }
   input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--azure-light); }
   textarea{ resize:vertical; min-height:64px; }
   .req::after{ content:" *"; color:var(--orange); }
@@ -189,7 +189,7 @@
     </div>
   </nav>
 
-<div class="wrap" role="main">
+<main class="wrap">
   <div class="hero">
     <div class="kicker">Tell Us What You Need · 2 minutes · everything optional</div>
     <h1 id="heroTitle">Tell Us What You Need</h1>
@@ -314,7 +314,7 @@
     </div>
     <p class="tagline">"Built It. Ran It. Now I'll Teach You to Master It." — Gustav Bam</p>
   </div>
-</div>
+</main>
 
 <footer>
     <div class="footer-inner">
@@ -430,7 +430,12 @@
       hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     });
     navLinks.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ navLinks.classList.remove('open'); });
+      a.addEventListener('click', function(){
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open menu');
+      });
     });
   }
 
@@ -609,15 +614,19 @@
     toggle.addEventListener('click', function(e){
       e.stopPropagation(); clearTimeout(closeTimer);
       if(hoverCapable()){ openMenu(); } else { menu.classList.contains('open') ? closeMenu() : openMenu(); }
-      document.querySelectorAll('.nav-dropdown').forEach(function(other){
-        if(other !== drop){ other.querySelector('.nav-drop-menu').classList.remove('open'); other.querySelector('.nav-drop-toggle').setAttribute('aria-expanded','false'); }
-      });
     });
-    document.addEventListener('click', function(e){
-      if(!drop.contains(e.target)) closeMenu();
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-drop-menu.open').forEach(function(menu){
+      if(!menu.parentElement.contains(e.target)){ menu.classList.remove('open'); var t=menu.previousElementSibling; if(t) t.setAttribute('aria-expanded','false'); }
     });
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') closeMenu();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key !== 'Escape') return;
+    document.querySelectorAll('.nav-drop-menu.open').forEach(function(menu){
+      menu.classList.remove('open');
+      var t = menu.previousElementSibling;
+      if(t){ t.setAttribute('aria-expanded','false'); t.focus(); }
     });
   });
 })();

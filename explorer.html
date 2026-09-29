@@ -61,7 +61,7 @@
   #tabs button{background:var(--panel); color:var(--dim); border:1px solid var(--line); border-radius:20px; padding:8px 16px; cursor:pointer; font-size:.85rem; transition:.2s;}
   #tabs button:hover{color:var(--txt); border-color:var(--cyan);}
   #tabs button.active{background:var(--cyan); color:#04222c; border-color:var(--cyan); font-weight:600;}
-  main{padding:24px 28px 60px; max-width:1140px; margin:0 auto;}
+  .explorer-scenes{padding:24px 28px 60px; max-width:1140px; margin:0 auto;}
   @media (max-width:640px){ body{padding-top:72px;} #tabs{top:72px;} }
 
   section{display:none; animation:fade .35s ease;}
@@ -244,6 +244,7 @@
     </div>
   </nav>
 
+<main>
 <div class="explorer-header">
   <div class="explorer-badge">Free Interactive Tool &middot; Microsoft Certified &middot; Cape Town, SA</div>
   <h1><span>SME AI Decision Explorer</span> — Copilot, licensing &amp; the flat organisation</h1>
@@ -260,7 +261,7 @@
   <button data-t="s6">6 · Built to Last</button>
 </div>
 
-<main>
+<div class="explorer-scenes">
 
 <!-- ============ SCENE 1 : IDEA FLOW ============ -->
 <section id="s1" class="show">
@@ -426,7 +427,7 @@
   <div class="note"><b>How to teach AI that isn't outdated in 6 months:</b> make layers 2–3 the curriculum spine (evergreen), and treat layer 1 as a rotating current-affairs segment. Your material stays valid; only the demos refresh.</div>
 </section>
 
-</main>
+</div>
 
 <div style="max-width:1140px; margin:0 auto 40px; padding:0 28px;">
   <div class="card" style="text-align:center; padding:30px 24px; border-color:var(--cyan);">
@@ -438,6 +439,7 @@
     <p style="margin-top:16px;"><a href="/assessment.html" style="color:var(--dim); font-size:.85rem; text-decoration:underline;">Not ready to talk yet? Take the free 4 Levels of AI assessment first &rarr;</a></p>
   </div>
 </div>
+</main>
 
 <footer>
     <div class="footer-inner">
@@ -532,7 +534,7 @@ tabs.addEventListener('click',e=>{
   if(e.target.tagName!=='BUTTON')return;
   tabs.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
   e.target.classList.add('active');
-  document.querySelectorAll('main > section').forEach(s=>s.classList.remove('show'));
+  document.querySelectorAll('.explorer-scenes > section').forEach(s=>s.classList.remove('show'));
   document.getElementById(e.target.dataset.t).classList.add('show');
 });
 
@@ -551,6 +553,7 @@ tabs.addEventListener('click',e=>{
       navLinks.classList.remove('open');
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded','false');
+      hamburger.setAttribute('aria-label','Open menu');
     }));
   }
 })();
@@ -624,7 +627,10 @@ personas.forEach(p=>{
   const c=document.createElement('div');
   c.className='card pcard';
   c.innerHTML=`<div class="role">${p.r}</div><div class="worry">${p.w}</div><div class="detail">${p.d}</div>`;
-  c.onclick=()=>c.classList.toggle('open');
+  c.setAttribute('role','button'); c.tabIndex=0; c.setAttribute('aria-expanded','false');
+  const togglePersona=()=>{ const o=c.classList.toggle('open'); c.setAttribute('aria-expanded',o); };
+  c.onclick=togglePersona;
+  c.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); togglePersona(); } };
   pg.appendChild(c);
 });
 
@@ -696,7 +702,10 @@ let mi=0;
 const stepsEl=document.getElementById('mechsteps');
 mech.forEach((m,idx)=>{
   const d=document.createElement('div'); d.className='s'; d.textContent=m.s;
-  d.onclick=()=>{mi=idx; renderMech();}; stepsEl.appendChild(d);
+  d.setAttribute('role','button'); d.tabIndex=0;
+  d.onclick=()=>{mi=idx; renderMech();};
+  d.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); mi=idx; renderMech(); } };
+  stepsEl.appendChild(d);
 });
 function mechGo(d){ mi=Math.min(mech.length-1,Math.max(0,mi+d)); renderMech(); }
 function renderMech(){

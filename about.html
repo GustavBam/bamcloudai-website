@@ -31,6 +31,9 @@
       --azure: #0078D4;
       --azure-light: #50A0DC;
       --azure-dark: #005A9E;
+      --azure-a11y: #0068B9;
+      --azure-a11y-deep: #005697;
+      --muted-deep: #4E5D72;
       --orange: #D4641C;
       --orange-light: #E8844A;
       --orange-dark: #B0510E;
@@ -39,7 +42,7 @@
       --navy-mid: #1A2D44;
       --slate: #2D4059;
       --text: #1E293B;
-      --muted: #586980;
+      --muted: #536278;
       --light: #DCEAF8;
       --white: #FFFFFF;
       --border: #E2E8F0;
@@ -289,7 +292,7 @@
     .section-inner { max-width: 1140px; margin: 0 auto; }
     .section-label {
       display: inline-block;
-      color: var(--azure);
+      color: var(--azure-a11y);
       font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -374,7 +377,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: var(--azure);
+      color: var(--azure-a11y);
       font-size: 0.88rem;
       font-weight: 600;
       text-decoration: none;
@@ -591,7 +594,7 @@
       justify-content: center;
       font-size: 0.7rem;
       font-weight: 700;
-      color: var(--azure-light);
+      color: var(--light);
       z-index: 1;
     }
     .tl-content strong {
@@ -978,12 +981,14 @@
       border-width: 1.5px;
       grid-column: span 2;
     }
+    .cert-badge.cert-mct .cert-verify { color: var(--azure-a11y-deep); }
+    .cert-badge.cert-mct .cert-sub { color: var(--muted-deep); }
     .cert-mct-label {
       display: inline-flex;
       align-items: center;
       gap: 4px;
       background: rgba(0,120,212,0.12);
-      color: var(--azure);
+      color: var(--azure-a11y-deep);
       font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;

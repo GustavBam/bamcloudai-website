@@ -31,6 +31,7 @@
       --azure: #0078D4;
       --azure-light: #50A0DC;
       --azure-dark: #005A9E;
+      --azure-a11y: #0068B9;
       --orange: #D4641C;
       --orange-light: #E8844A;
       --orange-dark: #B0510E;
@@ -39,7 +40,7 @@
       --navy-mid: #1A2D44;
       --slate: #2D4059;
       --text: #1E293B;
-      --muted: #586980;
+      --muted: #536278;
       --light: #DCEAF8;
       --white: #FFFFFF;
       --border: #E2E8F0;
@@ -374,7 +375,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: var(--azure);
+      color: var(--azure-a11y);
       font-size: 0.88rem;
       font-weight: 600;
       text-decoration: none;
@@ -1066,7 +1067,7 @@
   .hf-node-icon svg { width: 30px; height: 30px; }
   .hf-node:hover .hf-node-icon, .hf-node.active .hf-node-icon { transform: translateY(-4px) scale(1.06); box-shadow: 0 0 0 4px rgba(255,255,255,0.16), 0 14px 30px rgba(0,0,0,0.5); }
   .hf-node-label { color: var(--white); font-weight: 700; font-size: 0.92rem; text-align: center; }
-  .hf-node-sub { color: rgba(255,255,255,0.5); font-size: 0.72rem; text-align: center; max-width: 130px; line-height: 1.3; }
+  .hf-node-sub { color: rgba(255,255,255,0.6); font-size: 0.72rem; text-align: center; max-width: 130px; line-height: 1.3; }
   .hf-node-hub .hf-node-icon { width: 68px; height: 68px; border-radius: 18px; }
 
   .hf-connector { position: relative; height: 6px; border-radius: 4px; margin-top: -20px; background: linear-gradient(90deg, var(--c1, var(--azure)) 0%, var(--c2, var(--azure)) 100%); background-size: 200% 100%; animation: hfShimmer 2.4s linear infinite; cursor: pointer; outline: none; }
@@ -1079,7 +1080,7 @@
   @keyframes hfPacketMove { 0% { left: 0%; opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
 
   .hf-panel { background: var(--light); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 28px; max-width: 780px; margin: 0 auto 20px; }
-  .hf-panel h4 { font-size: 1.1rem; color: var(--navy); margin-bottom: 10px; }
+  .hf-panel .hf-panel-title { font-size: 1.1rem; font-weight: 700; letter-spacing: normal; line-height: inherit; color: var(--navy); margin-bottom: 10px; }
   .hf-panel p { font-size: 0.95rem; color: var(--text); line-height: 1.65; margin-bottom: 14px; }
   .hf-tags { display: flex; flex-wrap: wrap; gap: 10px; }
   .hf-tag { display: flex; align-items: center; gap: 7px; font-size: 0.85rem; font-weight: 500; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; color: var(--slate); }
@@ -1097,7 +1098,7 @@
   .hf-domain-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--hd-color, var(--azure)); color: var(--white); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .hf-domain-icon svg { width: 22px; height: 22px; }
   .hf-domain-titles { flex: 1; min-width: 0; }
-  .hf-domain-titles h4 { font-size: 1.02rem; color: var(--navy); margin-bottom: 2px; }
+  .hf-domain-titles .hf-domain-name { display: block; font-size: 1.02rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
   .hf-domain-titles p { font-size: 0.83rem; color: var(--muted); }
   .hf-domain-chevron { flex-shrink: 0; font-size: 1.1rem; color: var(--muted); transition: transform 0.2s; }
   .hf-domain.open .hf-domain-chevron { transform: rotate(180deg); }
@@ -1336,14 +1337,14 @@ body { background: var(--canvas-1) !important; }
     clearActive();
     var el = canvasEl.querySelector('[data-id="' + id + '"]'); if (el) el.classList.add('active');
     var n = HF_NODES[id];
-    panelEl.innerHTML = '<h4>' + n.icon + ' ' + n.name + '</h4><p>' + n.outcome + '</p><div class="hf-tags"><span class="hf-tag">👤 Typically owned by: <b>' + n.owner + '</b></span><span class="hf-tag">' + n.tag + '</span></div>';
+    panelEl.innerHTML = '<h2 class="hf-panel-title">' + n.icon + ' ' + n.name + '</h2><p>' + n.outcome + '</p><div class="hf-tags"><span class="hf-tag">👤 Typically owned by: <b>' + n.owner + '</b></span><span class="hf-tag">' + n.tag + '</span></div>';
   }
 
   function showEdge(id) {
     clearActive();
     var el = canvasEl.querySelector('[data-id="' + id + '"]'); if (el) el.classList.add('active');
     var e = HF_EDGES[id];
-    panelEl.innerHTML = '<h4>🔗 ' + e.name + '</h4><p>' + e.detail + '</p>';
+    panelEl.innerHTML = '<h2 class="hf-panel-title">🔗 ' + e.name + '</h2><p>' + e.detail + '</p>';
   }
 
   canvasEl.querySelectorAll('.hf-node').forEach(function (btn) {
@@ -1496,7 +1497,7 @@ body { background: var(--canvas-1) !important; }
     domainsHtml += '<div class="hf-domain" id="domain-' + d.id + '" style="--hd-color:' + d.color + '">' +
       '<button type="button" class="hf-domain-header">' +
         '<span class="hf-domain-icon">' + iconSvg(d.icon) + '</span>' +
-        '<span class="hf-domain-titles"><h4>' + d.name + '</h4><p>' + d.summary + '</p></span>' +
+        '<span class="hf-domain-titles"><span class="hf-domain-name">' + d.name + '</span><p>' + d.summary + '</p></span>' +
         '<span class="hf-domain-chevron">▾</span>' +
       '</button>' +
       '<div class="hf-domain-body" hidden></div>' +
@@ -1532,14 +1533,14 @@ body { background: var(--canvas-1) !important; }
       if (section.type === 'sequence') {
         html += '<div class="hf-chain" data-section="' + section.label + '">';
         section.items.forEach(function (item, i) {
-          html += '<div class="hf-chain-node" data-idx="' + i + '">' + item.name + '</div>';
+          html += '<div class="hf-chain-node" data-idx="' + i + '" tabindex="0" role="button">' + item.name + '</div>';
           if (i < section.items.length - 1) html += '<div class="hf-chain-arrow">→</div>';
         });
         html += '</div>';
       } else {
         html += '<div class="hf-options" data-section="' + section.label + '">';
         section.items.forEach(function (item, i) {
-          html += '<div class="hf-option-card" data-idx="' + i + '">' + item.name + '</div>';
+          html += '<div class="hf-option-card" data-idx="' + i + '" tabindex="0" role="button">' + item.name + '</div>';
           if (i < section.items.length - 1) html += '<div class="hf-option-divider">' + (section.divider || 'or') + '</div>';
         });
         html += '</div>';
@@ -1564,6 +1565,7 @@ body { background: var(--canvas-1) !important; }
           detailEl.innerHTML = '<b>' + item.name + ':</b> ' + item.detail;
           detailEl.className = 'hf-chain-detail' + (item.warn ? ' hf-warn' : '');
         });
+        nodeEl.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); nodeEl.click(); } });
       });
     });
   }

@@ -85,7 +85,7 @@
     width:100%; border:1.5px solid var(--line); border-radius:6px; padding:10px 12px;
     font-size:14px; font-family:inherit; color:var(--txt); background:var(--panel2);
   }
-  input::placeholder, textarea::placeholder{ color:#5c6d8a; }
+  input::placeholder, textarea::placeholder{ color:var(--dim); }
   input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--azure-light); }
   textarea{ resize:vertical; min-height:64px; }
   .req::after{ content:" *"; color:var(--orange); }
@@ -225,7 +225,7 @@
     </div>
   </nav>
 
-<div class="wrap" role="main">
+<main class="wrap">
   <div class="hero">
     <div class="kicker">Self-Assessment · 10 minutes · online</div>
     <h1>The 4 Levels of AI — Where Does Your Organisation Really Stand?</h1>
@@ -403,7 +403,7 @@
     </div>
     <p class="tagline">"Built It. Ran It. Now I'll Teach You to Master It." — Gustav Bam</p>
   </div>
-</div>
+</main>
 
 <footer>
     <div class="footer-inner">
@@ -509,7 +509,12 @@
       hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     });
     navLinks.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ navLinks.classList.remove('open'); });
+      a.addEventListener('click', function(){
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open menu');
+      });
     });
   }
 
