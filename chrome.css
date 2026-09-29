@@ -1,0 +1,326 @@
+/* ==========================================================================
+   chrome.css — shared site chrome (top navigation + footer) for bamcloudai.com
+
+   Single source of truth. Every page links this file BEFORE its own inline
+   <style>; page styles must not redefine nav/footer/logo rules.
+   The component rules in section 3 are taken verbatim from index.html (the
+   reference page). Dead `.footer-links` rules that no markup uses were left out.
+
+   Nothing here depends on the page it is loaded into:
+     1. colour tokens are declared on nav/footer themselves;
+     2. the "isolation" block sets font, line-height, list margins and box
+        model explicitly, at a specificity that page-level element rules
+        (ul, ol, li, p, a, button ... and body line-height 1.5 / 1.7) cannot
+        beat, so the chrome renders the same on every page.
+   ========================================================================== */
+
+/* 1. Tokens — scoped so a page that omits or redefines :root tokens (e.g. --navy) cannot change the chrome */
+nav, footer {
+  --azure: #0078D4;
+  --azure-light: #50A0DC;
+  --azure-dark: #005A9E;
+  --orange: #D4641C;
+  --navy: #0F1B2D;
+  --white: #FFFFFF;
+}
+
+/* 2. Isolation */
+nav, footer {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: left;
+  color: #1E293B;
+  -webkit-font-smoothing: antialiased;
+}
+/* box model + list margins/padding reset (the "html " prefix lifts specificity above page rules such as `ul, ol { padding-left: 22px }`) */
+html nav *, html nav *::before, html nav *::after,
+html footer *, html footer *::before, html footer *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* typography starts from the chrome root, never from a page's `li`, `p`, `a` ... rules; chrome component rules below override as needed */
+html nav :is(ul, ol, li, p, a, span, div, img, svg),
+html footer :is(ul, ol, li, p, a, span, div, img, svg) {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+}
+html nav :is(ul, ol), html footer :is(ul, ol) { list-style: none; }
+/* buttons keep browser-default line metrics, as on the reference page */
+html nav button, html footer button {
+  font-family: revert;
+  font-size: 13.3333px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: center;
+  border-radius: 0;
+}
+
+/* 3. Components (from index.html) */
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(15, 27, 45, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.nav-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  line-height: 1;
+}
+.logo .logo-icon { height: 48px; width: auto; display: block; flex-shrink: 0; }
+.logo .logo-text { display: inline-grid; row-gap: 6px; }
+.logo .logo-wordmark {
+  white-space: nowrap;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+.logo .logo-wordmark .bam { font-weight: 800; color: var(--orange); }
+.logo .logo-wordmark .cai { font-weight: 300; color: #FFFFFF; }
+.logo .logo-tagline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+}
+.logo .logo-tagline .initial { color: #EA6520; font-weight: 700; }
+.logo .logo-tagline .dot { color: rgba(255,255,255,0.55); letter-spacing: 0; font-size: 12px; }
+.logo .logo-tagline .last-r { letter-spacing: 0; }
+nav .logo { gap: 14px; }
+nav .logo .logo-icon { height: 48px; }
+nav .logo .logo-wordmark { font-size: 28px; }
+nav .logo .logo-tagline { font-size: 10px; letter-spacing: 0.8px; }
+nav .logo .logo-tagline .dot { font-size: 12px; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  white-space: nowrap;
+}
+.nav-links > li { display: flex; align-items: center; }
+.nav-links li:last-child { margin-left: 6px; }
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a.current { color: var(--white); }
+.nav-cta {
+  background: var(--azure);
+  color: var(--white) !important;
+  padding: 8px 18px;
+  border-radius: 8px;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--azure-dark) !important; }
+/* ── NAV DROPDOWN ── */
+.nav-dropdown { position: relative; }
+.nav-drop-toggle {
+  background: none; border: none; cursor: pointer; padding: 0;
+  font-family: inherit; font-size: 0.9rem; font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  display: inline-flex; align-items: center; gap: 5px;
+  transition: color 0.2s;
+}
+.nav-drop-toggle:hover,
+.nav-drop-toggle[aria-expanded="true"] { color: var(--white); }
+.nav-drop-toggle .caret { font-size: 0.62rem; transition: transform 0.2s; }
+.nav-drop-toggle[aria-expanded="true"] .caret { transform: rotate(180deg); }
+.nav-drop-menu {
+  position: absolute; top: 100%; left: 50%; margin-top: 12px;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(15,27,45,0.98); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+  padding: 8px; min-width: 190px; list-style: none;
+  display: flex; flex-direction: column; gap: 2px;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  z-index: 110; box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+.nav-drop-menu.open {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-links .nav-drop-menu li { padding: 0 !important; }
+.nav-links .nav-drop-menu li::after { content: none !important; }
+.nav-drop-menu a {
+  display: block; padding: 9px 14px; border-radius: 8px; white-space: nowrap;
+  color: rgba(255,255,255,0.8) !important; font-size: 0.88rem; font-weight: 500;
+}
+.nav-drop-menu a:hover { background: rgba(255,255,255,0.08); color: var(--white) !important; }
+.nav-drop-menu a.current { color: var(--azure-light) !important; }
+@media (max-width: 1180px) {
+  .nav-links { display: none; }
+}
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 -24px 40px -24px rgba(0,0,0,0.55);
+  color: rgba(255,255,255,0.6);
+  padding: 48px 24px 32px;
+  margin-top: 0;
+  position: relative;
+}
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.footer-inner .logo { margin-bottom: 4px; }
+.footer-inner p { font-size: 0.85rem; }
+.footer-blurb { color: rgba(255,255,255,0.55); font-size: 0.86rem; line-height: 1.6; max-width: 620px; margin: 2px 0 6px; }
+.footer-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px;
+  width: 100%; max-width: 1000px; margin: 6px 0 8px; text-align: left;
+}
+@media (max-width: 860px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 30px; }
+}
+@media (max-width: 460px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+.footer-col { display: flex; flex-direction: column; gap: 9px; }
+/* Column labels are a <p>, not a heading — a footer's column labels
+   shouldn't participate in the page's document outline (they'd create
+   spurious "skipped heading level" errors on pages whose own content
+   doesn't happen to reach h3 before the footer, e.g. 404.html and
+   book.html — caught by W3C validation on 2026-08-25). */
+.footer-col-heading {
+  font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin: 0 0 4px; font-weight: 700;
+}
+.footer-col-links { display: flex; flex-direction: column; gap: 9px; }
+.footer-col a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+.footer-col a:hover { color: var(--white); }
+.footer-copyright { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 8px; }
+.footer-popia { color: rgba(255,255,255,0.5) !important; }
+.footer-hint { display: none; }
+/* Footer collapse-on-default, hover/focus-to-reveal (desktop only).
+   ALL FIVE columns' link lists (marked .collapsible, including Legal &
+   Payment) collapse to zero height by default — only the column
+   headings, logo/blurb and the copyright + POPIA paragraph stay
+   visible, matching Gustav's reference screenshots. The copyright/
+   POPIA paragraph is permanently visible and carries the core POPIA
+   disclosure + contact email, so the required notice is never behind
+   an interaction — only the Payment/Terms/Refund Policy/Email
+   shortcut LINKS require a hover to reach, same as every other
+   column's links. Because every column collapses together, the whole
+   grid ROW shrinks (grid row height = tallest cell, and now every
+   cell is 0) — that's what actually frees up the real estate; a
+   single exempt column previously forced the whole row to stay tall
+   even while the others faded out. Touch/narrow screens (no hover)
+   get the full footer expanded by default, same as before — there is
+   no reliable "hover" gesture there to reveal anything. */
+@media (hover: hover) and (min-width: 1181px) {
+  .footer-hint {
+    display: block; font-size: 0.72rem; color: rgba(255,255,255,0.5);
+    font-style: italic; margin-top: -6px; transition: opacity 0.2s ease;
+  }
+  .footer-col-links.collapsible {
+    opacity: 0; max-height: 0; overflow: hidden; pointer-events: none;
+    transition: opacity 0.25s ease, max-height 0.25s ease;
+  }
+  footer:hover .footer-col-links.collapsible,
+  footer:focus-within .footer-col-links.collapsible {
+    opacity: 1; max-height: 420px; pointer-events: auto;
+  }
+  footer:hover .footer-hint,
+  footer:focus-within .footer-hint {
+    opacity: 0; height: 0; margin: 0; overflow: hidden; pointer-events: none;
+  }
+}
+/* ── HAMBURGER NAV ── */
+.nav-hamburger {
+  display: none; flex-direction: column; justify-content: center;
+  gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; border-radius: 6px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: rgba(255,255,255,0.85); border-radius: 2px; transition: all 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+@media (max-width: 1180px) {
+  .nav-hamburger { display: flex; }
+  .nav-links {
+    display: none; position: absolute; top: 80px; left: 0; right: 0;
+    background: rgba(15,27,45,0.98); backdrop-filter: blur(12px);
+    flex-direction: column; padding: 8px 24px 20px; gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.07); white-space: normal; }
+  .nav-links li:last-child { border-bottom: none; }
+  .nav-links li::after { content: none !important; }
+  .nav-links a { font-size: 1rem; }
+  .nav-cta { display: inline-block; margin-top: 4px; }
+  .nav-drop-toggle { width: 100%; justify-content: space-between; font-size: 1rem; padding: 0; color: rgba(255,255,255,0.75); }
+  .nav-dropdown::after { content: none; }
+  .nav-drop-menu {
+    position: static; transform: none; opacity: 1; visibility: visible; pointer-events: auto;
+    margin: 0; padding: 4px 0 2px 14px; min-width: 0; gap: 0;
+    background: none; border: none; box-shadow: none; backdrop-filter: none;
+    display: none;
+  }
+  .nav-drop-menu.open { display: flex; }
+  .nav-links .nav-drop-menu li { border-bottom: none; }
+  .nav-drop-menu a { padding: 11px 0; font-size: 0.95rem; }
+}
+@media (max-width: 640px) {
+  .nav-inner { height: 72px; }
+  .logo { gap: 8px; }
+  .logo .logo-icon { height: 40px; }
+  .logo .logo-wordmark { font-size: 22px; }
+  .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
+  .logo .logo-tagline .dot { font-size: 10px; }
+  nav .logo { gap: 10px; }
+  nav .logo .logo-icon { height: 40px; }
+  nav .logo .logo-wordmark { font-size: 22px; }
+  nav .logo .logo-tagline { font-size: 9px; letter-spacing: 0.6px; }
+  nav .logo .logo-tagline .dot { font-size: 10px; }
+  .nav-links { top: 72px; }
+}

@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/chrome.css" />
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bamcloudai.com/explorer">
 <meta property="og:title" content="SME AI Decision Explorer | Bam Cloud AI">
@@ -63,53 +64,6 @@
   main{padding:24px 28px 60px; max-width:1140px; margin:0 auto;}
   @media (max-width:640px){ body{padding-top:72px;} #tabs{top:72px;} }
 
-  /* ── SITE NAV (matches bamcloudai.com) ── */
-  nav{
-    position: fixed; top:0; left:0; right:0; z-index:100;
-    background: rgba(15,27,45,0.95); backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .nav-inner{ max-width:1140px; margin:0 auto; padding:0 24px; height:80px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
-  .logo{ display:inline-flex; align-items:center; gap:14px; text-decoration:none; line-height:1; }
-  .logo .logo-icon{ height:48px; width:auto; display:block; flex-shrink:0; }
-  .logo .logo-text{ display:inline-grid; row-gap:6px; }
-  .logo .logo-wordmark{ white-space:nowrap; font-size:28px; letter-spacing:-0.5px; line-height:1; }
-  .logo .logo-wordmark .bam{ font-weight:800; color:var(--orange); }
-  .logo .logo-wordmark .cai{ font-weight:300; color:#FFFFFF; }
-  .logo .logo-tagline{ display:flex; justify-content:space-between; align-items:center; font-size:10px; letter-spacing:0.8px; font-weight:500; color:rgba(255,255,255,0.65); }
-  .logo .logo-tagline .initial{ color:#EA6520; font-weight:700; }
-  .logo .logo-tagline .dot{ color:rgba(255,255,255,0.55); letter-spacing:0; font-size:12px; }
-  .logo .logo-tagline .last-r{ letter-spacing:0; }
-  nav .logo{ gap:14px; }
-  .nav-links{ display:flex; align-items:center; gap:0; list-style:none; white-space:nowrap; }
-  .nav-links li:not(:last-child):not(:nth-last-child(2))::after{ content:"\00b7"; margin:0 4px; color:rgba(255,255,255,.35); font-weight:400; }
-  .nav-links li:last-child{ margin-left:16px; }
-  .nav-links a{ color:rgba(255,255,255,0.75); text-decoration:none; font-size:.9rem; font-weight:500; transition:color .2s; }
-  .nav-links a:hover{ color:var(--white); }
-  .nav-links a.current{ color:var(--cyan); font-weight:700; }
-  .nav-cta{ background:var(--azure); color:var(--white) !important; padding:8px 18px; border-radius:8px; transition:background .2s !important; }
-  .nav-cta:hover{ background:var(--azure-dark) !important; }
-  .nav-hamburger{ display:none; flex-direction:column; justify-content:center; gap:5px; cursor:pointer; background:none; border:none; padding:6px; border-radius:6px; }
-  .nav-hamburger span{ display:block; width:22px; height:2px; background:rgba(255,255,255,0.85); border-radius:2px; transition:all .3s; }
-  .nav-hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-  .nav-hamburger.open span:nth-child(2){ opacity:0; transform:scaleX(0); }
-  .nav-hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-  @media (max-width:1180px){
-    .nav-links{ display:none; position:absolute; top:80px; left:0; right:0; background:rgba(15,27,45,0.98); backdrop-filter:blur(12px); flex-direction:column; padding:8px 24px 20px; gap:0; border-bottom:1px solid rgba(255,255,255,0.08); }
-    .nav-links.open{ display:flex; }
-    .nav-links li{ padding:13px 0; border-bottom:1px solid rgba(255,255,255,0.07); white-space:normal; }
-    .nav-links li:last-child{ border-bottom:none; }
-    .nav-links a{ font-size:1rem; }
-    .nav-cta{ display:inline-block; margin-top:4px; }
-    .nav-hamburger{ display:flex; }
-  }
-  @media (max-width:640px){
-    .nav-inner{ height:72px; }
-    .logo{ gap:8px; }
-    .logo .logo-icon{ height:40px; }
-    .logo .logo-wordmark{ font-size:22px; }
-    .logo .logo-tagline{ font-size:9px; letter-spacing:0.6px; }
-  }
   section{display:none; animation:fade .35s ease;}
   section.show{display:block;}
   @keyframes fade{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;}}
@@ -209,100 +163,8 @@
   .ticker .inner{display:inline-block; white-space:nowrap; animation:scroll 26s linear infinite; font-size:.8rem; color:var(--dim);}
   .ticker .inner b{color:var(--cyan);}
   @keyframes scroll{from{transform:translateX(15%);} to{transform:translateX(-100%);}}
-  footer {
-      background: var(--bg);
-      color: rgba(255,255,255,0.6);
-      padding: 48px 24px 32px;
-      margin-top: 0;
-    }
-    .footer-inner {
-      max-width: 1140px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      text-align: center;
-    }
-    .footer-inner .logo { margin-bottom: 4px; }
-    .footer-inner p { font-size: 0.85rem; }
-    .footer-links {
-      display: flex; flex-wrap: wrap; gap: 20px;
-      justify-content: center;
-    }
-    .footer-links a {
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      font-size: 0.83rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--white); }
-  
 
 /* ===== NEW SITE CHROME (retrofit) ===== */
-/* Some retrofitted pages (explorer.html, assessment.html) have their own dark
-   theme whose --bg equals the same navy the site footer uses, so the footer's
-   OWN pre-existing "background: var(--bg)" rule made it blend invisibly into
-   the page above it. Force the real footer color + a visible seam so the
-   footer always reads as a distinct, separate band regardless of what the
-   page's own theme happens to use. */
-footer { background:#0F1B2D !important; border-top:1px solid rgba(255,255,255,0.18) !important; box-shadow:0 -24px 40px -24px rgba(0,0,0,0.55) !important; position:relative !important; }
-.nav-links { display:flex; align-items:center; gap:22px; list-style:none; white-space:nowrap; }
-.nav-links > li { display:flex; align-items:center; }
-.nav-links li:last-child { margin-left:6px; }
-.nav-links li::after { content:none !important; }
-.nav-links a.current { color:#fff; }
-.nav-dropdown { position:relative; }
-.nav-drop-toggle { background:none; border:none; cursor:pointer; padding:0; font-family:inherit; font-size:0.9rem; font-weight:500; color:rgba(255,255,255,0.75); display:inline-flex; align-items:center; gap:5px; transition:color .2s; }
-.nav-drop-toggle:hover, .nav-drop-toggle[aria-expanded="true"] { color:#fff; }
-.nav-drop-toggle .caret { font-size:0.62rem; transition:transform .2s; }
-.nav-drop-toggle[aria-expanded="true"] .caret { transform:rotate(180deg); }
-.nav-drop-menu { position:absolute; top:100%; left:50%; margin-top:12px; transform:translateX(-50%) translateY(6px); background:rgba(15,27,45,0.98); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:8px; min-width:190px; list-style:none; display:flex; flex-direction:column; gap:2px; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s, transform .2s, visibility .2s; z-index:110; box-shadow:0 12px 40px rgba(0,0,0,0.4); }
-.nav-drop-menu.open { opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
-.nav-links .nav-drop-menu li { padding:0 !important; }
-.nav-links .nav-drop-menu li::after { content:none !important; }
-.nav-drop-menu a { display:block; padding:9px 14px; border-radius:8px; white-space:nowrap; color:rgba(255,255,255,0.8) !important; font-size:0.88rem; font-weight:500; }
-.nav-drop-menu a:hover { background:rgba(255,255,255,0.08); color:#fff !important; }
-.nav-drop-menu a.current { color:var(--azure-light) !important; }
-@media (max-width:1180px) {
-  .nav-links { display:none; }
-  .nav-links.open { display:flex; flex-direction:column; }
-  .nav-drop-toggle { width:100%; justify-content:space-between; font-size:1rem; padding:0; color:rgba(255,255,255,0.75); }
-  .nav-dropdown::after { content:none; }
-  .nav-drop-menu { position:static; transform:none; opacity:1; visibility:visible; pointer-events:auto; margin:0; padding:4px 0 2px 14px; min-width:0; gap:0; background:none; border:none; box-shadow:none; backdrop-filter:none; display:none; }
-  .nav-drop-menu.open { display:flex; }
-  .nav-links .nav-drop-menu li { border-bottom:none; }
-  .nav-drop-menu a { padding:11px 0; font-size:0.95rem; }
-}
-.footer-blurb { color:rgba(255,255,255,0.55); font-size:0.86rem; line-height:1.6; max-width:620px; margin:2px 0 6px; }
-.footer-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:26px; width:100%; max-width:1000px; margin:6px 0 8px; text-align:left; }
-@media (max-width:860px) { .footer-grid { grid-template-columns:repeat(2,1fr); gap:24px 30px; } }
-@media (max-width:460px) { .footer-grid { grid-template-columns:1fr; } }
-.footer-col { display:flex; flex-direction:column; gap:9px; }
-.footer-col-heading { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin:0 0 4px; font-weight:700; }
-.footer-col-links { display:flex; flex-direction:column; gap:9px; }
-.footer-col a { color:rgba(255,255,255,0.72); text-decoration:none; font-size:0.85rem; transition:color .2s; }
-.footer-col a:hover { color:#fff; }
-.footer-copyright { font-size:0.82rem; color:rgba(255,255,255,0.5); margin-top:8px; }
-.footer-popia { color:rgba(255,255,255,0.5) !important; }
-.footer-hint { display:none; }
-
-/* Footer collapse-on-default, hover/focus-to-reveal (desktop only). ALL FIVE
-   columns' link lists (marked .collapsible, including Legal & Payment)
-   collapse to zero height by default — only headings, logo/blurb and the
-   copyright + POPIA paragraph stay visible. The copyright/POPIA paragraph
-   is permanently visible and carries the core POPIA disclosure + contact
-   email, so the required notice is never behind an interaction; only the
-   Payment/Terms/Refund Policy/Email shortcut links need a hover. Because
-   every column collapses together the whole grid ROW shrinks (row height =
-   tallest cell, now 0 everywhere) — that's what actually frees up space.
-   Touch/narrow screens (no hover) get the full footer expanded by default. */
-@media (hover:hover) and (min-width:1181px) {
-  .footer-hint { display:block; font-size:0.72rem; color:rgba(255,255,255,0.5); font-style:italic; margin-top:-6px; transition:opacity .2s ease; }
-  .footer-col-links.collapsible { opacity:0; max-height:0; overflow:hidden; pointer-events:none; transition:opacity .25s ease, max-height .25s ease; }
-  footer:hover .footer-col-links.collapsible, footer:focus-within .footer-col-links.collapsible { opacity:1; max-height:420px; pointer-events:auto; }
-  footer:hover .footer-hint, footer:focus-within .footer-hint { opacity:0; height:0; margin:0; overflow:hidden; pointer-events:none; }
-}
 
 </style>
 </head>
