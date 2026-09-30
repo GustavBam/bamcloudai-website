@@ -232,6 +232,7 @@
     }
     .dd-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; letter-spacing: -0.02em; }
     .dd-intro { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+    .dd-intro a { color: var(--azure-dark); text-decoration: underline; text-underline-offset: 2px; }
     .dd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
     @media (max-width: 900px) { .dd-grid { grid-template-columns: 1fr; } }
     .dd-card {
@@ -452,7 +453,7 @@
       <div class="section-header">
         <span class="section-label" style="color:var(--orange-a11y)">Fixed-Price Engagements</span>
         <h1>AI Exposure Audit</h1>
-        <p class="section-intro">Can you tell me what your staff are putting into AI? Almost nobody can &mdash; not because they are careless, but because nothing in most businesses was ever switched on to measure it. This answers the question properly: which AI tools are in use, by whom, with what data, and where that leaves you. Delivered by an AZ-305 and AZ-104 certified architect and Microsoft Certified Trainer with thirty years in enterprise infrastructure, remotely worldwide or in person across the Western Cape.</p>
+        <p class="section-intro">Can you tell me what your staff are putting into AI? Almost nobody can &mdash; not because they are careless, but because nothing in many businesses was ever switched on to measure it. This answers the question properly: which AI tools are in use, by whom, with what data, and where that leaves you. Delivered by an AZ-305 and AZ-104 certified architect and Microsoft Certified Trainer with thirty years in enterprise infrastructure, remotely worldwide or in person across the Western Cape.</p>
 
       <div class="rate-region" id="rateRegion">
         <div class="rr-row">
@@ -467,18 +468,17 @@
         <div class="dd-head">
           <span class="dd-label">The Honest Part First</span>
           <h2>What You Can See Depends On What You Pay Microsoft</h2>
-          <p class="dd-intro">Most pages selling AI governance imply the tooling is already sitting in your tenant. For a lot of businesses that is simply not true, and you deserve to know which row you are in before you spend anything. Source: Microsoft&rsquo;s own <a href="https://learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-license-feature-overview" rel="noopener">E3 / E5 / E7 licence comparison</a>, checked 13 September 2026.</p>
+          <p class="dd-intro">It is easy to assume the AI-monitoring tooling is already sitting in your Microsoft 365 tenant. For some businesses it is not, and you deserve to know which row you are in before you spend anything. What you can see depends on your licence and on what else you switch on and pay for. Microsoft&rsquo;s documentation says that watching third-party AI tools such as ChatGPT, Gemini and DeepSeek mostly needs devices onboarded to Microsoft Purview and a browser extension, and, for AI apps other than Microsoft&rsquo;s own Copilot, pay-as-you-go billing tied to an Azure subscription. Sources, checked 30 September 2026: Microsoft Learn&rsquo;s <a href="https://learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-license-feature-overview" rel="noopener">E3 / E5 / E7 licence comparison</a>, the <a href="https://learn.microsoft.com/purview/dspm-for-ai-considerations" rel="noopener">prerequisites for Data Security Posture Management for AI</a> and the <a href="https://learn.microsoft.com/purview/purview-billing-models" rel="noopener">Purview billing models</a>. Licensing changes, so check with Microsoft or your reseller before you decide anything.</p>
         </div>
         <div class="dd-grid">
           <div class="dd-card">
             <div class="dd-platform">Microsoft 365 E5</div>
-            <h3>Full visibility</h3>
-            <p class="dd-desc">The complete tenant read.</p>
+            <h3>Fuller visibility</h3>
+            <p class="dd-desc">The most Microsoft lists for AI activity.</p>
             <ul class="dd-list">
               <li>Which AI apps are in use, and by whom</li>
               <li>The prompts and responses themselves</li>
-              <li>Third-party tools including ChatGPT, Gemini and DeepSeek</li>
-              <li>Oversharing assessment across SharePoint and OneDrive</li>
+              <li>Third-party tools such as ChatGPT, Gemini and DeepSeek can be watched too, with the extra set-up and billing described above</li>
             </ul>
           </div>
           <div class="dd-card">
@@ -488,18 +488,18 @@
             <ul class="dd-list">
               <li>Which AI apps are being used</li>
               <li>Activity export and auditing</li>
-              <li class="no">Not the content of what was typed</li>
+              <li class="no">Seeing the content of what was typed is not on Microsoft&rsquo;s list</li>
               <li>Interviews fill the gap the licence leaves</li>
             </ul>
           </div>
           <div class="dd-card">
             <div class="dd-platform">Business Premium, Standard or Basic</div>
-            <h3>No tenant visibility</h3>
-            <p class="dd-desc">Where most small and mid-sized businesses sit. Third-party AI detection is not included, even with the Purview add-on.</p>
+            <h3>Not stated by Microsoft</h3>
+            <p class="dd-desc">Microsoft&rsquo;s comparison does not list these tiers, and a Microsoft Q&amp;A answer from the preview period says third-party AI detection needs E5 Compliance or an equivalent add-on. Do not assume either way: ask your Microsoft reseller to confirm in writing.</p>
             <ul class="dd-list">
-              <li>Run by interview, device and browser inventory</li>
-              <li>Same four deliverables, gathered differently</li>
-              <li>&ldquo;You have no way to see this&rdquo; becomes finding number one</li>
+              <li>Copilot activity is recorded in the standard audit log on these tiers when Copilot is licensed and in use</li>
+              <li>Run by interview, device and browser inventory, with the same four deliverables</li>
+              <li>&ldquo;Here is what you can see today, and what you cannot&rdquo; becomes finding number one</li>
               <li>An honest answer on whether a licence change is worth it &mdash; sometimes it is not</li>
             </ul>
           </div>
@@ -577,7 +577,7 @@
           <div class="dd-card">
             <div class="dd-platform">Stalled Copilot</div>
             <h3>You bought the licences and nobody uses them</h3>
-            <p class="dd-desc">Usually the rollout stopped because Copilot started surfacing documents people forgot they had shared. That is an oversharing problem, not an AI problem, and it is fixable.</p>
+            <p class="dd-desc">Copilot shows each person whatever they already have permission to open, so a rollout can stall when it starts surfacing documents people forgot they had shared. Microsoft&rsquo;s own deployment guidance makes fixing oversharing the first step. That is an oversharing problem, not an AI problem, and it is fixable.</p>
           </div>
           <div class="dd-card">
             <div class="dd-platform">A question you can&rsquo;t answer</div>
@@ -587,7 +587,7 @@
           <div class="dd-card">
             <div class="dd-platform">Professional confidentiality</div>
             <h3>You hold other people&rsquo;s information</h3>
-            <p class="dd-desc">Accounting practices, law firms, medical and financial services. Your staff are not reckless; they are busy, and the tool is in the next tab. That is exactly how it happens.</p>
+            <p class="dd-desc">Accounting practices, law firms, medical and financial services. Your staff are not reckless; they are busy, and the tool is in the next tab. That is how it can happen.</p>
           </div>
         </div>
       </div>
