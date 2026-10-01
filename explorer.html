@@ -322,7 +322,7 @@
 
 <!-- ============ SCENE 3 : LICENSING ============ -->
 <section id="s3">
-  <h2>What your licence actually unlocks <small style="color:var(--dim); font-weight:400; font-size:.75rem;">(pricing verified July 2026, USD, annual commitment)</small></h2>
+  <h2>What your licence actually unlocks <small style="color:var(--dim); font-weight:400; font-size:.75rem;">(list prices verified October 2026, USD, annual commitment)</small></h2>
   <p class="lead">Pick a base plan, then toggle the Copilot add-on. Capabilities light up as they become available. This is the conversation to have <i>before</i> buying licences.</p>
   <div class="licbar" id="licbar">
     <button data-l="basic">Business Basic</button>
@@ -337,7 +337,7 @@
     <div class="price" id="priceOut"></div>
   </div>
   <div class="capgrid" id="capgrid"></div>
-  <div class="note"><b>SME sweet spot:</b> Business Standard + Copilot bundle at $23.50/user/mo (new SKU, July 2026) — but Business Premium + Copilot ($32) buys Intune, Entra ID P1 and Defender for Business, i.e. the governance you need <i>before</i> Copilot amplifies your permissions problems. Cheapest is rarely safest.</div>
+  <div class="note"><b>SME sweet spot:</b> Business Standard + Copilot bundle at $23.50/user/mo (new SKU, July 2026) — but Business Premium + Copilot ($32) buys Intune, Entra ID P1 and Defender for Business, i.e. the governance you need <i>before</i> Copilot amplifies your permissions problems. Cheapest is rarely safest. <b>Pricing watch:</b> standalone Copilot Business lists at $21/user/mo; Microsoft's time-limited promotions to 31 December 2026 bring it to $18, and Business Basic + Copilot Business to $21. New Copilot Business licences bought through a CSP (Cloud Solution Provider) reseller get usage-based billing switched on by default from 1 December 2026 (rolling out market by market), with a default cap of 4,000 Copilot Credits per user per month that your admin can change.</div>
 </section>
 
 <!-- ============ SCENE 4 : WHERE DOES IT LIVE ============ -->
@@ -636,9 +636,9 @@ personas.forEach(p=>{
 
 /* ---------- scene 3 licensing ---------- */
 const plans={
- basic:{name:'Business Basic',price:6,cop:21,copName:'Copilot Business',caps:['chat','web']},
- std:{name:'Business Standard',price:12.5,cop:21,copName:'Copilot Business',bundle:'Bundle: $23.50 all-in',caps:['chat','web','desk']},
- prem:{name:'Business Premium',price:22,cop:21,copName:'Copilot Business',bundle:'Bundle: $32 all-in',caps:['chat','web','desk','gov1']},
+ basic:{name:'Business Basic',price:7,cop:21,copName:'Copilot Business',caps:['chat','web']},
+ std:{name:'Business Standard',price:14,cop:21,copName:'Copilot Business',bundlePrice:23.5,caps:['chat','web','desk']},
+ prem:{name:'Business Premium',price:22,cop:21,copName:'Copilot Business',bundlePrice:32,caps:['chat','web','desk','gov1']},
  e3:{name:'Enterprise E3',price:39,cop:30,copName:'M365 Copilot',caps:['chat','web','desk','gov1']},
  e5:{name:'Enterprise E5',price:60,cop:30,copName:'M365 Copilot',caps:['chat','web','desk','gov1','gov2']},
  e7:{name:'E7 Frontier Suite',price:99,cop:0,copName:'included',caps:['chat','web','desk','gov1','gov2','cop','agents','models','studio','a365','entra']},
@@ -675,8 +675,8 @@ function renderLic(){
   const active=new Set(p.caps);
   if(copOn||curPlan==='e7'){ copCaps.forEach(c=>active.add(c)); }
   capDefs.forEach(c=>document.getElementById('cap-'+c.id).classList.toggle('on',active.has(c.id)));
-  const total=curPlan==='e7'?p.price:(p.price+(copOn?p.cop:0));
-  let txt=`$${total.toFixed(2)} <small>/user/month · ${p.name}${copOn&&curPlan!=='e7'?' + '+p.copName+' ($'+p.cop+')':''}${curPlan==='e7'?' (Copilot, Agent 365 & Entra Suite included)':''}${p.bundle&&copOn?' · '+p.bundle:''}</small>`;
+  const total=curPlan==='e7'?p.price:(copOn&&p.bundlePrice?p.bundlePrice:p.price+(copOn?p.cop:0));
+  let txt=`$${total.toFixed(2)} <small>/user/month · ${p.name}${copOn&&curPlan!=='e7'?(p.bundlePrice?' with Copilot (bundle)':' + '+p.copName+' ($'+p.cop+')'):''}${curPlan==='e7'?' (Copilot, Agent 365 & Entra Suite included)':''}</small>`;
   document.getElementById('priceOut').innerHTML=txt;
   const btn=document.getElementById('copBtn');
   btn.textContent=curPlan==='e7'?'Copilot included in E7':(copOn?'− Remove Copilot add-on':'+ Add Microsoft 365 Copilot');
