@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Frontier Matrix | Bam Cloud AI</title>
+  <meta name="description" content="A weekly sourced comparison of frontier AI models from the USA, China, Europe and Africa: prices, independent capability scores, data terms and a South African lens. Preview." />
+  <meta property="og:title" content="The Frontier Matrix | Bam Cloud AI" />
+  <meta property="og:description" content="A weekly sourced comparison of frontier AI models from the USA, China, Europe and Africa: prices, independent capability scores, data terms and a South African lens. Preview." />
+  <meta property="og:url" content="https://bamcloudai.com/frontier-matrix" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_ZA" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Frontier Matrix | Bam Cloud AI" />
+  <meta name="twitter:description" content="A weekly sourced comparison of frontier AI models from the USA, China, Europe and Africa: prices, independent capability scores, data terms and a South African lens. Preview." />
+  <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://bamcloudai.com/frontier-matrix" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/chrome.css" />
+  <style>
+    :root {
+      --azure: #0078D4;
+      --azure-light: #50A0DC;
+      --azure-dark: #005A9E;
+      --azure-a11y: #0068B9;
+      --orange: #D4641C;
+      --orange-light: #E8844A;
+      --orange-dark: #B0510E;
+      --orange-a11y: #A54E16;
+      --navy: #0F1B2D;
+      --navy-mid: #1A2D44;
+      --slate: #2D4059;
+      --text: #1E293B;
+      --muted: #536278;
+      --light: #D6E8FA;
+      --canvas-1: #F3F8FD;
+      --canvas-2: #E7F0FB;
+      --canvas-3: #D6E8FA;
+      --canvas-4: #C3DCF6;
+      --white: #FFFFFF;
+      --border: #E2E8F0;
+      --green: #10B981;
+      --green-dark: #059669;
+      --purple: #8B5CF6;
+      --purple-dark: #6D28D9;
+      --cyan: #0EA5E9;
+      --cyan-dark: #0284C7;
+      --pink: #EC4899;
+      --pink-dark: #BE185D;
+      --gold: #D97706;
+      --gold-dark: #B45309;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.14);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    /* ── SCROLL PROGRESS ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--azure-light), var(--orange));
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.reveal-in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--canvas-1);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--azure);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(0,120,212,0.4);
+    }
+    .btn-primary:hover {
+      background: var(--azure-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(0,120,212,0.5);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 24px; }
+    .section-inner { max-width: 1140px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      color: var(--azure);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 640px;
+      line-height: 1.75;
+    }
+    .section-header { margin-bottom: 40px; }
+
+    /* Sky-wash: the page's first section carries a gentle blue gradient from
+       the nav down into the body tone, instead of every page being flat
+       white beneath a dark nav. Deliberately targets only the FIRST
+       top-level section so it reads as one hero wash, not repeated banding
+       down a long page. Pages needing pure flat reading backgrounds (terms,
+       refund-policy, payment) are untouched by this rule — it lives in the
+       shell only. */
+    main > section:first-of-type {
+      background: linear-gradient(180deg, var(--canvas-3) 0%, var(--canvas-2) 18%, var(--canvas-1) 46%, var(--canvas-1) 100%);
+    }
+
+    /* ── PRICING CARDS ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .price-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 26px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .price-card:hover { border-color: var(--azure); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .price-card.featured { border-color: var(--azure); background: linear-gradient(160deg,#f0f8ff 0%,var(--white) 60%); }
+    .price-badge {
+      position: absolute;
+      top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--azure); color: white;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 100px; white-space: nowrap;
+    }
+    .price-platform {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--azure-dark); margin-bottom: 6px;
+    }
+    .price-card h2, .price-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .price-headline {
+      font-size: 1.9rem; font-weight: 800; color: var(--navy); letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 4px;
+    }
+    .price-headline .ph-sub { display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 3px; }
+    .price-fx {
+      display: block; font-size: 0.75rem; font-weight: 500;
+      color: var(--muted); margin-top: 2px; white-space: nowrap;
+    }
+    .price-card .price-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.7; margin: 14px 0 16px; }
+    .price-card .dd-list { margin-top: auto; }
+
+    /* ── FREE CREDENTIAL BANNER ── */
+    .price-free-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+      border-radius: 14px; padding: 28px 36px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 28px; margin-bottom: 28px; flex-wrap: wrap;
+    }
+    .price-free-text h2, .price-free-text h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .price-free-text p { font-size: 0.86rem; color: rgba(255,255,255,0.62); line-height: 1.6; max-width: 620px; }
+    .price-free-pill {
+      background: var(--green); color: var(--navy);
+      font-size: 1.02rem; font-weight: 800; padding: 10px 26px;
+      border-radius: 100px; white-space: nowrap; letter-spacing: -0.01em;
+    }
+
+    /* ── DEEP-DIVE / CATALOGUE BLOCK ── */
+    .dd-block { margin: 40px 0 8px; padding: 40px 0 0; border-top: 1px solid var(--border); }
+    .dd-head { text-align: center; max-width: 780px; margin: 0 auto 30px; }
+    .dd-label {
+      display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--orange-a11y); margin-bottom: 8px;
+    }
+    .dd-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .dd-intro { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+    .dd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+    @media (max-width: 900px) { .dd-grid { grid-template-columns: 1fr; } }
+    .dd-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px 24px; position: relative; transition: all 0.2s; display: flex; flex-direction: column;
+    }
+    .dd-card:hover { border-color: var(--azure); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .dd-platform {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--azure-dark); margin-bottom: 6px;
+    }
+    .dd-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+    .dd-price {
+      font-size: 1.55rem; font-weight: 800; color: var(--navy); letter-spacing: -0.03em;
+      line-height: 1.1; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .dd-price .dd-sub {
+      display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted);
+      letter-spacing: 0; margin-top: 3px;
+    }
+    .dd-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+    .dd-list { list-style: none; padding: 0; margin: 0; }
+    .dd-list li {
+      position: relative; padding: 0 0 9px 21px; font-size: 0.82rem;
+      color: var(--slate); line-height: 1.55;
+    }
+    .dd-list li:last-child { padding-bottom: 0; }
+    .dd-list li::before {
+      content: '✓'; position: absolute; left: 0; top: 0;
+      color: var(--green); font-weight: 700; font-size: 0.85rem;
+    }
+    .dd-notes {
+      margin-top: 26px; background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--azure); border-radius: var(--radius); padding: 22px 26px;
+    }
+    .dd-notes p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
+    .dd-notes p:last-child { margin-bottom: 0; }
+    .dd-notes strong { color: var(--navy); }
+
+    /* ── FLAGSHIP BUNDLE (entry-rung style) ── */
+    .dd-entry {
+      position: relative; background: var(--white);
+      border: 1px solid var(--border); border-left: 3px solid var(--green);
+      border-radius: 16px; padding: 32px; margin-bottom: 40px;
+      display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.3fr);
+      gap: 4px 34px; align-items: start; transition: all 0.2s;
+    }
+    .dd-entry:hover { border-color: var(--azure); border-left-color: var(--green); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    @media (max-width: 900px) { .dd-entry { grid-template-columns: 1fr; gap: 0; } }
+    .dd-entry-badge {
+      position: absolute; top: -12px; left: 30px;
+      background: var(--green); color: var(--navy); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.09em; text-transform: uppercase; padding: 4px 14px;
+      border-radius: 100px; white-space: nowrap;
+    }
+    .dd-entry h2, .dd-entry h3 { font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .dd-entry .dd-price { font-size: 1.95rem; }
+    .dd-entry .dd-desc { margin-bottom: 14px; }
+    .dd-entry-upgrade {
+      grid-column: 1 / -1; margin-top: 18px; padding-top: 16px;
+      border-top: 1px solid var(--border); font-size: 0.84rem;
+      color: var(--muted); line-height: 1.7;
+    }
+    .dd-entry-upgrade p { margin-bottom: 8px; }
+    .dd-entry-upgrade p:last-child { margin-bottom: 0; }
+    .dd-entry-upgrade strong { color: var(--navy); }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--azure-a11y);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 18px;
+    }
+    .card-link:hover { gap: 10px; }
+    .card-link::after { content: '→'; transition: margin 0.2s; }
+
+    /* ── WORKSHOP-SPECIFIC BITS ── */
+    .ws-tag {
+      display: inline-flex; align-items: center;
+      background: var(--green); color: var(--navy);
+      font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em;
+      padding: 2px 9px; border-radius: 100px; margin-left: 8px; vertical-align: middle;
+    }
+    .ws-meta {
+      margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border);
+      font-size: 0.76rem; color: var(--muted); line-height: 1.6;
+    }
+    .ws-meta strong { color: var(--navy); font-weight: 700; }
+    .ws-cred {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.28);
+      color: var(--green-dark); font-size: 0.7rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 100px; margin-bottom: 14px;
+    }
+
+    .price-disclaimer {
+      text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 18px; line-height: 1.6;
+    }
+    .price-rate-note {
+      text-align: center; font-size: 0.78rem; color: var(--muted);
+      margin-top: 6px; font-style: italic;
+    }
+    .price-rate-note a { color: inherit; text-decoration: underline; }
+
+    @media (max-width: 640px) {
+
+      section { padding: 72px 20px; }
+      .dd-entry { padding: 28px 22px; }
+    }
+  
+    .faq-list { display:flex; flex-direction:column; gap:12px; max-width:820px; margin:0 auto; }
+    .faq-item { background:var(--white); border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow); overflow:hidden; }
+    .faq-item summary { cursor:pointer; padding:18px 22px; font-weight:600; color:var(--navy); font-size:1rem; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-item summary::after { content:'+'; color:var(--azure); font-size:1.4rem; font-weight:400; line-height:1; transition:transform .2s; }
+    .faq-item[open] summary::after { transform:rotate(45deg); }
+    .faq-item .faq-a { padding:0 22px 20px; color:var(--muted); font-size:.92rem; line-height:1.7; }
+    .faq-item .faq-a a { color:var(--azure-dark); font-weight:600; text-decoration:none; }
+</style>
+  <style>
+    .fm-preview { background:#FFF4E5; border:1px solid var(--gold); color:#7A3E00; border-radius:10px; padding:12px 16px; font-size:.9rem; margin-bottom:28px; text-align:center; font-weight:600; }
+    .fm-h2 { font-size:1.6rem; color:var(--navy); margin:6px 0 10px; }
+    .fm-notes { background:var(--canvas-1); border:1px solid var(--border); border-radius:12px; padding:16px 20px; max-width:900px; margin:24px auto; font-size:.93rem; line-height:1.65; color:var(--text); }
+    .fm-scroll { overflow-x:auto; border:1px solid var(--border); border-radius:12px; background:var(--white); box-shadow:var(--shadow); }
+    .fm-table { border-collapse:collapse; width:100%; min-width:860px; font-size:.88rem; }
+    .fm-table th, .fm-table td { padding:10px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--border); }
+    .fm-table thead th { background:var(--navy); color:#fff; font-weight:600; font-size:.8rem; white-space:nowrap; }
+    .fm-table tbody th { font-weight:600; color:var(--navy); }
+    .fm-sub { color:var(--muted); font-size:.78rem; font-weight:400; }
+    .fm-nv { color:#7A3E00; font-size:.78rem; font-style:italic; }
+    .fm-claim { color:var(--muted); font-size:.78rem; font-style:italic; }
+    .fm-foot { color:var(--muted); font-size:.82rem; line-height:1.6; margin:14px 0 0; max-width:900px; }
+    .fm-list { padding-left:20px; margin:8px 0; line-height:1.65; font-size:.92rem; color:var(--text); }
+    .fm-list li { margin-bottom:8px; }
+    .fm-list a { color:var(--azure-dark); font-weight:600; }
+    .fm-grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+    .fm-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }
+    .fm-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:16px 18px; box-shadow:var(--shadow); font-size:.92rem; line-height:1.6; color:var(--text); }
+    .fm-card p { margin:0 0 8px; }
+    .fm-card a { color:var(--azure-dark); font-weight:600; }
+    .fm-card-h { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
+    .fm-k { font-weight:700; color:var(--navy); font-size:1rem; }
+    .fm-stage { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:3px 8px; border-radius:999px; background:var(--canvas-1); color:var(--navy); border:1px solid var(--border); }
+    .fm-stage-deployed { background:#E7F6EC; color:#1B5E20; border-color:#A5D6A7; }
+    .fm-stage-research { background:#FFF4E5; color:#7A3E00; border-color:var(--gold); }
+    .fm-tag { font-size:.68rem; font-weight:700; background:var(--navy); color:#fff; padding:2px 6px; border-radius:6px; margin-left:4px; vertical-align:middle; }
+    .fm-notsale th, .fm-notsale td { background:#FAFAFA; }
+    .fm-table-narrow { min-width:0; }
+    .fm-table a { color:var(--azure-dark); }
+    .fm-route .fm-k { margin-bottom:4px; }
+    .fm-jump { list-style:none; padding:0; margin:10px 0 0; }
+    .fm-jump li { padding:6px 0; border-top:1px solid var(--border); }
+    .fm-jump a { color:var(--azure-dark); font-weight:600; text-decoration:none; }
+    .fm-jump a::after { content:" ↓"; font-weight:400; }
+    .fm-toc { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:18px; }
+    .fm-toc a { font-size:.82rem; padding:4px 10px; border:1px solid var(--border); border-radius:999px; background:var(--white); color:var(--navy); text-decoration:none; }
+    .fm-toc a:hover, .fm-jump a:hover { text-decoration:underline; }
+    .fm-top-link { display:inline-block; margin-top:12px; font-size:.8rem; color:var(--azure-dark); }
+    main section[id^="fm-"] { scroll-margin-top:90px; }
+    #fm-index { padding-top:8px; }
+
+    .fm-why { margin-top:6px; font-size:.8rem; color:var(--muted); }
+    .fm-why summary { cursor:pointer; color:var(--azure-dark); font-weight:600; }
+    .fm-why ul { padding-left:18px; margin:6px 0 0; }
+    .fm-dot { display:inline-block; width:12px; height:12px; border-radius:50%; border:2px solid var(--navy); vertical-align:middle; box-sizing:border-box; }
+    .fm-dot-full { background:var(--navy); }
+    .fm-dot-empty { background:transparent; }
+    .fm-dot-half { background:linear-gradient(90deg, var(--navy) 50%, transparent 50%); }
+    .fm-q { font-weight:700; color:var(--muted); }
+    .fm-rank { font-weight:800; color:var(--navy); font-size:1.1rem; }
+    .fm-conf { font-size:.72rem; font-weight:700; padding:2px 7px; border-radius:999px; border:1px solid var(--border); }
+    .fm-conf-high { background:#E7F6EC; color:#1B5E20; } .fm-conf-medium { background:#FFF8E1; color:#7A5A00; } .fm-conf-low { background:#FDECEA; color:#8A1C1C; }
+    .fm-fit { list-style:none; padding:0; margin:0; }
+    .fm-fit li { padding:8px 0; border-top:1px solid var(--border); font-size:.88rem; }
+    .fm-num { display:inline-block; min-width:20px; height:20px; line-height:20px; text-align:center; border-radius:50%; background:var(--navy); color:#fff; font-size:.72rem; font-weight:700; margin-right:4px; }
+    .fm-avoid { display:inline-block; padding:1px 6px; border-radius:6px; background:#FDECEA; color:#8A1C1C; font-size:.7rem; font-weight:700; margin-right:4px; }
+    #fm-routing, #fm-fit, #fm-free { padding-top:8px; }
+
+    .fm-credit { color:var(--muted); font-size:.78rem; line-height:1.55; margin:12px 0 0; max-width:900px; border-left:3px solid var(--border); padding-left:10px; }
+    .fm-credit a, .fm-foot a { color:var(--azure-dark); }
+    #fm-week, #fm-capability, #fm-value, #fm-data, #fm-common, #fm-elsewhere { padding-top:8px; }
+    #fm-matrix, #fm-strip, #fm-security, #fm-mzansi, #fm-method { padding-top:8px; }
+</style>
+<meta name="fm-build" content="2026-10-10T15:09" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
+        <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+          <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+          <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+          <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+          <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+          <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+          <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+          <circle cx="40" cy="40" r="6.5" fill="white"/>
+        </svg>
+        <div class="logo-text">
+          <div class="logo-wordmark" id="nav-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+          <div class="logo-tagline" id="nav-tagline">
+            <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Training <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/enquiry.html">Tell Us What You Need</a></li>
+            <li><a href="/training.html">Training Overview</a></li>
+            <li><a href="/certification-courses.html">Certification Courses</a></li>
+            <li><a href="/workshops.html">Applied Skills Workshops</a></li>
+            <li><a href="/business-english.html">Business English for IT</a></li>
+              <li><a href="/skills-development-levy.html">Skills Development Levy</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Consulting <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/enquiry.html">Tell Us What You Need</a></li>
+            <li><a href="/consulting.html">Azure Architecture &amp; Advisory</a></li>
+            <li><a href="/assessments.html">Estate Deep-Dive Assessments</a></li>
+            <li><a href="/ai-exposure-audit.html">AI Exposure Audit</a></li>
+            <li><a href="/msp-partnership.html">MSP White-Label</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Tools <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/explorer.html">AI Decision Explorer</a></li>
+            <li><a href="/assessment.html">AI Readiness Assessment</a></li>
+            <li><a href="/automation.html">Automation</a></li>
+            <li><a href="/frontier-matrix.html" class="current">The Frontier Matrix</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+          </ul>
+        </li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">About <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="nav-drop-menu">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/testimonials.html">Testimonials</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="/enquiry.html" class="nav-cta">Tell Us What You Need</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+<main>
+  <section id="fm-top">
+    <div class="section-inner">
+      <div class="section-header" style="text-align:center;">
+        <span class="section-label" style="color:var(--orange-a11y)">Weekly comparison &middot; data as at 2026-10-10</span>
+        <h1>The Frontier Matrix</h1>
+        <p class="section-intro" style="margin:0 auto;">A weekly, sourced comparison of the frontier AI models from the USA, China, Europe and Africa &mdash; price, independent capability scores, data terms and safety &mdash; with a South African lens on top. Companion to the <a href="https://pondertoyonder.substack.com" target="_blank" rel="noopener" style="color:var(--azure-dark);font-weight:600">Ponder to Yonder</a> newsletter. Every cell traces to a cited source; nothing is shown that did not pass our checks.</p>
+      </div>
+      <div class="fm-notes">
+        <p><strong>Read this first.</strong> Bam Cloud AI prepares this page with help from Claude, and Anthropic (maker of Claude) is one of the labs ranked. This week Anthropic models sit at or near the top of the independent capability index. We did not produce those scores: they come from Epoch AI and LMArena, two independent groups that publish their data openly. Where the margins are inside the measurement error, we say so rather than declare a winner.</p>
+      </div>
+      </div>
+  </section>
+  <section id="fm-index">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Start here</span><h2 class="fm-h2">Find what you need</h2>
+      <p class="section-intro">This page is long on purpose. Pick the card that sounds like you, or jump straight to a section.</p></div>
+      <div class="fm-grid3">
+        <div class="fm-card fm-route"><p class="fm-k">For me and my family</p><p class="fm-sub">Which free or cheap AI app to use, and what happens to your data.</p><ul class="fm-jump"><li><a href="#fm-free">Free tiers ranked</a></li><li><a href="#fm-fit">Which lab fits you</a></li><li><a href="#fm-data">Does the lab train on your data?</a></li><li><a href="#fm-mzansi">How they handle South African questions</a></li></ul></div>
+        <div class="fm-card fm-route"><p class="fm-k">For builders and projects</p><p class="fm-sub">Which model to call, what it costs, and how to spend fewer tokens.</p><ul class="fm-jump"><li><a href="#fm-routing">Three-tier routing, lab by lab</a></li><li><a href="#fm-value">The value ladder</a></li><li><a href="#fm-capability">Independent capability scores</a></li><li><a href="#fm-matrix">Prices and context windows</a></li></ul></div>
+        <div class="fm-card fm-route"><p class="fm-k">For business owners and IT leads</p><p class="fm-sub">Risk, data terms and what is safe to put client information into.</p><ul class="fm-jump"><li><a href="#fm-fit">SME recommendations</a></li><li><a href="#fm-data">Data terms and POPIA</a></li><li><a href="#fm-security">This week&rsquo;s security incidents</a></li><li><a href="#fm-routing">Cost control by routing</a></li></ul></div>
+      </div>
+      <div class="fm-toc" role="navigation" aria-label="All sections on this page"><span class="fm-sub">All sections:</span>
+        <a href="#fm-week">This week</a><a href="#fm-matrix">USA and China matrix</a><a href="#fm-capability">Capability</a><a href="#fm-value">Value ladder</a><a href="#fm-routing">Routing</a><a href="#fm-fit">Which lab fits you</a><a href="#fm-free">Free tiers</a><a href="#fm-strip">Europe and Africa</a><a href="#fm-security">Security</a><a href="#fm-mzansi">Mzansi Ten</a><a href="#fm-data">Your data</a><a href="#fm-common">Common ground</a><a href="#fm-elsewhere">Other leaderboards</a><a href="#fm-method">Method</a>
+      </div>
+      </div>
+  </section>
+  <section id="fm-week">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">This week in one screen</span><h2 class="fm-h2">Three things worth knowing</h2></div>
+      <div class="fm-grid3">
+        <div class="fm-card"><p class="fm-k">The top is a tie</p><p>On Epoch AI&rsquo;s Capabilities Index, the leader and 4 others have overlapping intervals: Claude Opus 5.5, gpt-6-astra, gpt-6.1-sol, Claude Sonnet 5.5, Claude Fable 5.1. Treat them as one group, not a ranking.</p></div>
+        <div class="fm-card"><p class="fm-k">Best value, by our formula</p><p>The cheapest model on sale for each measurable step up in capability. Top rung: <strong>gpt-6.1-sol</strong>. Bottom rung: <strong>gpt-6-luna</strong>. Nothing pricier than the top rung is measurably better on this index. Full ladder below.</p></div>
+        <div class="fm-card"><p class="fm-k">Watch: Gemini 4 Argon</p><p>Google&#x27;s new model (announced 30 September) leads LMArena&#x27;s text leaderboard at a rating of 1525, but you cannot buy it yet: it is limited to vetted cyber-defence partners. Epoch AI has not scored it.</p></div>
+      </div>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-matrix">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">The matrix</span><h2 class="fm-h2">USA and China</h2>
+      <p class="section-intro">List prices in US dollars per 1 million tokens (a token is roughly three-quarters of a word), standard tier unless noted. &ldquo;ECI&rdquo; is the Epoch Capabilities Index, an independent composite of many benchmarks; the small range under each score is Epoch&rsquo;s interval. &ldquo;Estimated cost&rdquo; is arithmetic, not a measurement: a reference task of 50,000 input tokens plus 5,000 output tokens at list price, at an assumed R16.65 per US$ (our fixed rate, not a live one).</p></div>
+      <div class="fm-scroll"><table class="fm-table"><thead><tr><th scope="col">Model</th><th scope="col">Released</th><th scope="col">Weights / licence</th><th scope="col">Input</th><th scope="col">Output</th><th scope="col">Context</th><th scope="col">Capability (ECI)</th><th scope="col">Estimated cost, reference task</th></tr></thead><tbody><tr><th scope="row">Claude Fable 5.1<br><span class="fm-sub">Anthropic &middot; USA</span></th><td>2026-09-01<br><span class="fm-sub">per Epoch AI</span></td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td>$10</td><td>$50</td><td>1M</td><td><strong>164.7</strong><br><span class="fm-sub">162&ndash;169</span></td><td><strong>$0.750</strong><br><span class="fm-sub">R12.49</span></td></tr><tr><th scope="row">Claude Opus 5.5<br><span class="fm-sub">Anthropic &middot; USA</span></th><td>2026-09-22<br><span class="fm-sub">per Epoch AI</span></td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td>$4</td><td>$20</td><td>1M</td><td><strong>167.33</strong><br><span class="fm-sub">164&ndash;172</span></td><td><strong>$0.300</strong><br><span class="fm-sub">R4.99</span></td></tr><tr><th scope="row">Claude Sonnet 5.5<br><span class="fm-sub">Anthropic &middot; USA</span></th><td>2026-09-28<br><span class="fm-sub">per Epoch AI</span></td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td>$2</td><td>$10</td><td>1M</td><td><strong>165.03</strong><br><span class="fm-sub">162&ndash;169</span></td><td><strong>$0.150</strong><br><span class="fm-sub">R2.50</span></td></tr><tr><th scope="row">gpt-6-astra<br><span class="fm-sub">OpenAI &middot; USA</span></th><td>2026-09-03<br><span class="fm-sub">per Epoch AI</span></td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td>$10</td><td>$50</td><td>1.05M</td><td><strong>166.45</strong><br><span class="fm-sub">163&ndash;171</span></td><td><strong>$0.750</strong><br><span class="fm-sub">R12.49</span><br><span class="fm-sub">Standard tier, short context</span></td></tr><tr><th scope="row">gpt-6.1-sol<br><span class="fm-sub">OpenAI &middot; USA</span></th><td>2026-09-29<br><span class="fm-sub">per Epoch AI</span></td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td>$2</td><td>$10</td><td>1.05M</td><td><strong>166.09</strong><br><span class="fm-sub">163&ndash;171</span></td><td><strong>$0.150</strong><br><span class="fm-sub">R2.50</span><br><span class="fm-sub">Standard tier, short context</span></td></tr><tr><th scope="row">gpt-6-luna<br><span class="fm-sub">OpenAI &middot; USA</span></th><td>2026-09-22<br><span class="fm-sub">per Epoch AI</span></td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td>$0.10</td><td>$0.50</td><td>1.05M</td><td><strong>156.28</strong><br><span class="fm-sub">154&ndash;159</span></td><td><strong>$0.007</strong><br><span class="fm-sub">R0.12</span><br><span class="fm-sub">Standard tier, short context</span></td></tr><tr class="fm-notsale"><th scope="row">Gemini 4 Argon<br><span class="fm-sub">Google DeepMind &middot; USA</span></th><td>2026-09-30 (limited: trusted cyber defenders via the Fairwind Program; not generally available)</td><td><span class="fm-nv">not verified this week</span></td><td>$2</td><td>$10</td><td><span class="fm-nv">not verified this week</span></td><td><span class="fm-claim">not measured</span></td><td><strong>$0.150</strong><br><span class="fm-sub">R2.50</span><br><span class="fm-sub">NOT ON SALE YET: limited to trusted cyber defenders. Introductory price shown; it doubles afterwards. Output limit 1M tokens.</span></td></tr><tr><th scope="row">Gemini 3.1 Pro Preview<br><span class="fm-sub">Google DeepMind &middot; USA</span></th><td>2026-02-19<br><span class="fm-sub">per Epoch AI</span></td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td>$2</td><td>$12</td><td>1.05M</td><td><strong>154.77</strong><br><span class="fm-sub">152&ndash;157</span></td><td><strong>$0.160</strong><br><span class="fm-sub">R2.66</span><br><span class="fm-sub">prompts up to 200k tokens</span></td></tr><tr><th scope="row">Gemini 3.8 Flash<br><span class="fm-sub">Google DeepMind &middot; USA</span></th><td>2026-09-02<br><span class="fm-sub">per Epoch AI</span></td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td>$0.75</td><td>$3.75</td><td>1.05M</td><td><strong>156.71</strong><br><span class="fm-sub">154&ndash;160</span></td><td><strong>$0.056</strong><br><span class="fm-sub">R0.94</span><br><span class="fm-sub">promotional price to 2026-12-31, then doubles</span></td></tr><tr><th scope="row">grok-4.7<br><span class="fm-sub">xAI &middot; USA</span></th><td>2026-09-21<br><span class="fm-sub">per Epoch AI</span></td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td>$2</td><td>$6</td><td>500K</td><td><strong>153.53</strong><br><span class="fm-sub">152&ndash;156</span></td><td><strong>$0.130</strong><br><span class="fm-sub">R2.16</span><br><span class="fm-sub">prompts under 200k tokens</span></td></tr><tr><th scope="row">Muse Spark 1.3<br><span class="fm-sub">Meta &middot; USA</span></th><td>2026-09-02<br><span class="fm-sub">per Epoch AI</span></td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td><span class="fm-nv">not verified this week</span></td><td><span class="fm-nv">not verified this week</span></td><td><span class="fm-nv">not verified this week</span></td><td><strong>156.75</strong><br><span class="fm-sub">155&ndash;159</span></td><td><span class="fm-nv">not verified this week</span><br><span class="fm-sub">no list price confirmed at a Meta primary source</span></td></tr><tr><th scope="row">DeepSeek-V4-Pro<br><span class="fm-sub">DeepSeek &middot; China</span></th><td>2026-04-24 (API availability); GA 2026-08-13</td><td>MIT</td><td>$0.66</td><td>$1.98</td><td>1M</td><td><strong>155.31</strong><br><span class="fm-sub">153&ndash;157</span></td><td><strong>$0.086</strong><br><span class="fm-sub">R1.43</span><br><span class="fm-sub">estimate uses the peak-hours price; off-peak is half</span></td></tr><tr><th scope="row">Qwen3.8-Max<br><span class="fm-sub">Alibaba &middot; China</span></th><td>2026-08-03</td><td>closed weights<br><span class="fm-sub">per Epoch AI</span></td><td>$2</td><td>$6</td><td>1M</td><td><strong>155.05</strong><br><span class="fm-sub">153&ndash;157</span></td><td><strong>$0.130</strong><br><span class="fm-sub">R2.16</span><br><span class="fm-sub">Singapore region price; API-only (an open base model exists). Scores are for the 0902 snapshot, which the alias most likely serves now.</span></td></tr><tr><th scope="row">Kimi K3<br><span class="fm-sub">Moonshot &middot; China</span></th><td>2026-07-16</td><td>Kimi K3 License</td><td>$3</td><td>$15</td><td>1M</td><td><strong>157.45</strong><br><span class="fm-sub">155&ndash;160</span></td><td><strong>$0.225</strong><br><span class="fm-sub">R3.75</span></td></tr><tr><th scope="row">GLM-5.3<br><span class="fm-sub">Zhipu (Z.ai) &middot; China</span></th><td>2026-08-14<br><span class="fm-sub">per Epoch AI</span></td><td>glm-5.3 (custom named licence; terms not read)</td><td>$1.40</td><td>$4.40</td><td>1M</td><td><strong>155.61</strong><br><span class="fm-sub">154&ndash;158</span></td><td><strong>$0.092</strong><br><span class="fm-sub">R1.53</span></td></tr><tr><th scope="row">MiniMax-M3<br><span class="fm-sub">MiniMax &middot; China</span></th><td>2026-06-01</td><td>minimax-community</td><td>$0.30</td><td>$1.20</td><td><span class="fm-nv">not verified this week</span></td><td><strong>146.95</strong><br><span class="fm-sub">143&ndash;149</span></td><td><strong>$0.021</strong><br><span class="fm-sub">R0.35</span><br><span class="fm-sub">standard tier, up to 512k input, after a permanent 50% discount</span></td></tr></tbody></table></div>
+      <p class="fm-foot">Dates are first public availability as stated by the vendor, except where a note says otherwise. &ldquo;Open weights&rdquo; models publish their trained parameters; their licences differ and some restrict commercial use &mdash; read the licence before relying on one. The cost estimate does not include reasoning (&ldquo;thinking&rdquo;) tokens; models run at high effort can use many times more output tokens than this reference task assumes, so real bills can be far higher.</p>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-capability">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Capability &middot; independent measurement</span><h2 class="fm-h2">What independent testers measured</h2>
+      <p class="section-intro">Five lenses from two independent sources, not one leaderboard. <strong>ECI</strong>: Epoch AI&rsquo;s composite index. <strong>FrontierMath</strong> (Tiers 1&ndash;3): hard, unpublished research-level maths, run by Epoch. <strong>SimpleQA Verified</strong>: short factual questions &mdash; a rough guide to how often a model states facts correctly, run by Epoch. <strong>Arena text</strong> and <strong>Arena WebDev</strong>: LMArena ratings from people voting blind between two answers (text uses style control, which discounts long, heavily formatted answers). Epoch runs each model at the effort setting in its records, usually the highest; your results at default settings may be lower.</p></div>
+      <div class="fm-scroll"><table class="fm-table"><thead><tr><th scope="col">Model</th><th scope="col">ECI</th><th scope="col">FrontierMath 1&ndash;3</th><th scope="col">SimpleQA Verified</th><th scope="col">Arena text</th><th scope="col">Arena WebDev</th></tr></thead><tbody><tr><th scope="row">Claude Opus 5.5 <span class="fm-tag">top group</span><br><span class="fm-sub">Anthropic &middot; Epoch date 2026-09-22</span></th><td><strong>167.33</strong><br><span class="fm-sub">164&ndash;172</span></td><td>91.2%</td><td>72.2%</td><td><strong>1507</strong><br><span class="fm-sub">rank 2 &middot; 1499&ndash;1515</span></td><td><strong>1813</strong><br><span class="fm-sub">rank 1 &middot; 1798&ndash;1828</span></td></tr><tr><th scope="row">gpt-6-astra <span class="fm-tag">top group</span><br><span class="fm-sub">OpenAI &middot; Epoch date 2026-09-03</span></th><td><strong>166.45</strong><br><span class="fm-sub">163&ndash;171</span></td><td>93.7%</td><td>75.6%</td><td><strong>1475</strong><br><span class="fm-sub">rank 35 &middot; 1469&ndash;1482</span></td><td><strong>1786</strong><br><span class="fm-sub">rank 2 &middot; 1775&ndash;1797</span></td></tr><tr><th scope="row">gpt-6.1-sol <span class="fm-tag">top group</span><br><span class="fm-sub">OpenAI &middot; Epoch date 2026-09-29</span></th><td><strong>166.09</strong><br><span class="fm-sub">163&ndash;171</span></td><td>93.7%</td><td>73.9%</td><td><strong>1484</strong><br><span class="fm-sub">rank 21 &middot; 1475&ndash;1493</span></td><td><strong>1755</strong><br><span class="fm-sub">rank 4 &middot; 1740&ndash;1770</span></td></tr><tr><th scope="row">Claude Sonnet 5.5 <span class="fm-tag">top group</span><br><span class="fm-sub">Anthropic &middot; Epoch date 2026-09-28</span></th><td><strong>165.03</strong><br><span class="fm-sub">162&ndash;169</span></td><td>88.8%</td><td>46.5%</td><td><strong>1476</strong><br><span class="fm-sub">rank 32 &middot; 1467&ndash;1485</span></td><td><strong>1774</strong><br><span class="fm-sub">rank 3 &middot; 1759&ndash;1789</span></td></tr><tr><th scope="row">Claude Fable 5.1 <span class="fm-tag">top group</span><br><span class="fm-sub">Anthropic &middot; Epoch date 2026-09-01</span></th><td><strong>164.7</strong><br><span class="fm-sub">162&ndash;169</span></td><td>90.2%</td><td>70.8%</td><td><strong>1501</strong><br><span class="fm-sub">rank 6 &middot; 1494&ndash;1507</span></td><td><strong>1744</strong><br><span class="fm-sub">rank 5 &middot; 1734&ndash;1753</span></td></tr><tr><th scope="row">Kimi K3<br><span class="fm-sub">Moonshot &middot; Epoch date 2026-07-16</span></th><td><strong>157.45</strong><br><span class="fm-sub">155&ndash;160</span></td><td>72.2%</td><td>50.6%</td><td><strong>1488</strong><br><span class="fm-sub">rank 16 &middot; 1483&ndash;1493</span></td><td><strong>1654</strong><br><span class="fm-sub">rank 14 &middot; 1648&ndash;1661</span></td></tr><tr><th scope="row">Muse Spark 1.3<br><span class="fm-sub">Meta &middot; Epoch date 2026-09-02</span></th><td><strong>156.75</strong><br><span class="fm-sub">155&ndash;159</span></td><td>74.4%</td><td><span class="fm-claim">not measured</span></td><td><strong>1494</strong><br><span class="fm-sub">rank 9 &middot; 1488&ndash;1500</span></td><td><strong>1657</strong><br><span class="fm-sub">rank 13 &middot; 1649&ndash;1665</span></td></tr><tr><th scope="row">Gemini 3.8 Flash<br><span class="fm-sub">Google DeepMind &middot; Epoch date 2026-09-02</span></th><td><strong>156.71</strong><br><span class="fm-sub">154&ndash;160</span></td><td>68.4%</td><td>69.7%</td><td><strong>1497</strong><br><span class="fm-sub">rank 8 &middot; 1492&ndash;1501</span></td><td><strong>1583</strong><br><span class="fm-sub">rank 31 &middot; 1576&ndash;1591</span></td></tr><tr><th scope="row">gpt-6-luna<br><span class="fm-sub">OpenAI &middot; Epoch date 2026-09-22</span></th><td><strong>156.28</strong><br><span class="fm-sub">154&ndash;159</span></td><td>78.9%</td><td>41.4%</td><td><strong>1443</strong><br><span class="fm-sub">rank 91 &middot; 1438&ndash;1448</span></td><td><strong>1581</strong><br><span class="fm-sub">rank 34 &middot; 1574&ndash;1588</span></td></tr><tr><th scope="row">GLM-5.3<br><span class="fm-sub">Zhipu (Z.ai) &middot; Epoch date 2026-08-14</span></th><td><strong>155.61</strong><br><span class="fm-sub">154&ndash;158</span></td><td>68.8%</td><td>41.0%</td><td><strong>1478</strong><br><span class="fm-sub">rank 27 &middot; 1473&ndash;1484</span></td><td><strong>1622</strong><br><span class="fm-sub">rank 22 &middot; 1614&ndash;1630</span></td></tr><tr><th scope="row">DeepSeek-V4-Pro<br><span class="fm-sub">DeepSeek &middot; Epoch date 2026-08-13</span></th><td><strong>155.31</strong><br><span class="fm-sub">153&ndash;157</span></td><td>64.6%</td><td>52.9%</td><td><strong>1465</strong><br><span class="fm-sub">rank 55 &middot; 1458&ndash;1471</span></td><td><strong>1582</strong><br><span class="fm-sub">rank 32 &middot; 1573&ndash;1591</span></td></tr><tr><th scope="row">Qwen3.8-Max<br><span class="fm-sub">Alibaba &middot; Epoch date 2026-09-01</span></th><td><strong>155.05</strong><br><span class="fm-sub">153&ndash;157</span></td><td>65.6%</td><td>47.3%</td><td><strong>1483</strong><br><span class="fm-sub">rank 22 &middot; 1478&ndash;1488</span></td><td><strong>1674</strong><br><span class="fm-sub">rank 10 &middot; 1666&ndash;1681</span></td></tr><tr><th scope="row">Gemini 3.1 Pro Preview<br><span class="fm-sub">Google DeepMind &middot; Epoch date 2026-02-19</span></th><td><strong>154.77</strong><br><span class="fm-sub">152&ndash;157</span></td><td>59.6%</td><td>73.5%</td><td><strong>1487</strong><br><span class="fm-sub">rank 17 &middot; 1484&ndash;1490</span></td><td><strong>1447</strong><br><span class="fm-sub">rank 71 &middot; 1442&ndash;1452</span></td></tr><tr><th scope="row">grok-4.7<br><span class="fm-sub">xAI &middot; Epoch date 2026-09-21</span></th><td><strong>153.53</strong><br><span class="fm-sub">152&ndash;156</span></td><td>53.0%</td><td>56.0%</td><td><strong>1443</strong><br><span class="fm-sub">rank 90 &middot; 1436&ndash;1450</span></td><td><strong>1639</strong><br><span class="fm-sub">rank 15 &middot; 1628&ndash;1650</span></td></tr><tr><th scope="row">MiniMax-M3<br><span class="fm-sub">MiniMax &middot; Epoch date 2026-06-01</span></th><td><strong>146.95</strong><br><span class="fm-sub">143&ndash;149</span></td><td><span class="fm-claim">not measured</span></td><td><span class="fm-claim">not measured</span></td><td><strong>1440</strong><br><span class="fm-sub">rank 96 &middot; 1437&ndash;1444</span></td><td><strong>1482</strong><br><span class="fm-sub">rank 62 &middot; 1476&ndash;1487</span></td></tr><tr><th scope="row">Mistral Medium 3.5<br><span class="fm-sub">Mistral AI &middot; Epoch date 2026-04-28</span></th><td><strong>141.35</strong><br><span class="fm-sub">139&ndash;143</span></td><td><span class="fm-claim">not measured</span></td><td><span class="fm-claim">not measured</span></td><td><span class="fm-claim">not measured</span></td><td><span class="fm-claim">not measured</span></td></tr><tr><th scope="row">Gemini 4 Argon<br><span class="fm-sub">Google DeepMind</span></th><td><span class="fm-claim">not measured</span></td><td><span class="fm-claim">not measured</span></td><td><span class="fm-claim">not measured</span></td><td><strong>1525</strong><br><span class="fm-sub">rank 1 &middot; 1517&ndash;1534</span></td><td><strong>1678</strong><br><span class="fm-sub">rank 9 &middot; 1662&ndash;1693</span></td></tr></tbody></table></div>
+      <p class="fm-foot">&ldquo;Top group&rdquo; marks models whose ECI interval overlaps the leader&rsquo;s. &ldquo;Not measured&rdquo; means the source has no result for that model, not that it scored zero. Arena ratings are relative (they rank models against each other) and depend on who votes; the range shown is LMArena&rsquo;s published confidence bound, whose level LMArena does not state. Notable: SimpleQA scores vary widely even among top models &mdash; check facts from any model before you rely on them.</p>
+      <p class="fm-credit">Capability data: Epoch AI, &lsquo;Capabilities &amp; benchmarking&rsquo;, <a href="https://epoch.ai/benchmarks" rel="noopener">epoch.ai/benchmarks</a>, retrieved 2026-10-10, licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>; and LMArena leaderboard dataset, <a href="https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset" rel="noopener">huggingface.co/datasets/lmarena-ai/leaderboard-dataset</a>, published 2026-10-08, licensed CC BY 4.0. Figures are reproduced unchanged except for rounding and percentage conversion; the &ldquo;top group&rdquo; and value-ladder calculations are ours.</p>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-value">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Best value &middot; our published formula</span><h2 class="fm-h2">The value ladder</h2>
+      <p class="section-intro">Sort the models you can buy by estimated cost per reference task. Start with the cheapest. Climb to the next model only if its ECI score is above the top of the previous rung&rsquo;s interval &mdash; a step bigger than the measurement error. What is left is the ladder: each rung is the cheapest model that is measurably more capable than the rung below. Every model not on the ladder costs more without a measurable gain over a cheaper rung.</p></div>
+      <ol class="fm-list"><li><strong>gpt-6-luna</strong> (OpenAI) &mdash; ECI 156.28 at an estimated <strong>R0.12</strong> per reference task</li><li><strong>gpt-6.1-sol</strong> (OpenAI) &mdash; ECI 166.09 at an estimated <strong>R2.50</strong> per reference task</li></ol>
+      <p class="fm-foot">Limits: one index, one task size, list prices, no reasoning tokens, no caching or batch discounts. A model off the ladder can still be the right choice for data terms, language, latency or support. Gemini 4 Argon is excluded because it is not on sale.</p>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-routing">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Spend tokens where they matter</span><h2 class="fm-h2">Three-tier routing, lab by lab</h2>
+      <p class="section-intro">Most work does not need a lab&rsquo;s biggest model. Start on the <strong>Routine</strong> tier. Drop to <strong>Light</strong> for lookups, sorting, extraction and summaries. Step up to <strong>Heavy</strong> for hard reasoning, high-stakes output, or after the routine model has failed once. Prices are US$ per 1 million input / output tokens; ECI is Epoch AI&rsquo;s index where it has scored the model.</p></div>
+      <div class="fm-scroll"><table class="fm-table"><thead><tr><th scope="col">Lab</th><th scope="col">Heavy</th><th scope="col">Routine (default)</th><th scope="col">Light</th></tr></thead><tbody><tr><th scope="row">Anthropic</th><td><strong>Claude Opus 5.5</strong><br><span class="fm-sub">$4 / $20 &middot; ECI 167.33</span><br><span class="fm-sub">For: Hard reasoning, architecture, high-stakes writing, final review</span><br><span class="fm-sub">Fable 5.1 ($10/$50) only if Opus fails; it scored no higher on ECI (164.7)</span></td><td><strong>Claude Sonnet 5.5</strong><br><span class="fm-sub">$2 / $10 &middot; ECI 165.03</span><br><span class="fm-sub">For: Drafting, editing, coding, research write-ups</span><br><span class="fm-sub">Inside Opus&#x27;s interval on ECI at half the price; weaker on SimpleQA (46.5% vs 72.2%) so verify facts</span></td><td><strong>Claude Haiku 5.5</strong><br><span class="fm-sub">$0.10 / $0.50</span><br><span class="fm-sub">For: Lookups, classification, extraction, file inventories</span><br><span class="fm-sub">Price applies to prompts up to 100k tokens; $0.50/$2.50 above. Released 7 Oct; not yet on Epoch&#x27;s index</span></td></tr><tr><th scope="row">OpenAI</th><td><strong>gpt-6.1-sol (high effort)</strong><br><span class="fm-sub">$2 / $10 &middot; ECI 166.09</span><br><span class="fm-sub">For: Hard reasoning, maths, multi-step agents</span><br><span class="fm-sub">gpt-6-astra ($10/$50, ECI 166.45) measured inside the same interval at five times the price; escalate to Astra only after Sol fails</span></td><td><strong>gpt-6.1-sol (default effort)</strong><br><span class="fm-sub">$2 / $10 &middot; ECI 166.09</span><br><span class="fm-sub">For: Everyday drafting, coding, analysis</span><br><span class="fm-sub">Same model as Heavy; lower effort spends fewer reasoning tokens</span></td><td><strong>gpt-6-luna</strong><br><span class="fm-sub">$0.10 / $0.50 &middot; ECI 156.28</span><br><span class="fm-sub">For: Bulk, classification, summaries, chat front-ends</span><br><span class="fm-sub">Weak on factual recall (SimpleQA 41.4%); pair with search for facts. Short-context price</span></td></tr><tr><th scope="row">Google DeepMind</th><td><strong>Gemini 3.8 Flash (high thinking)</strong><br><span class="fm-sub">$0.75 / $3.75 &middot; ECI 156.71</span><br><span class="fm-sub">For: Reasoning and long documents</span><br><span class="fm-sub">Scored at or above Gemini 3.1 Pro Preview (154.77) on ECI; use 3.1 Pro ($2/$12) when factual recall matters (SimpleQA 73.5% vs 69.7%). Flash price doubles from 1 Jan 2027. Gemini 4 Argon not on sale</span></td><td><strong>Gemini 3.8 Flash (default)</strong><br><span class="fm-sub">$0.75 / $3.75 &middot; ECI 156.71</span><br><span class="fm-sub">For: Everyday work, multimodal input</span><br><span class="fm-sub">Promotional price to 31 Dec 2026</span></td><td><strong>Gemini 3.5 Flash-Lite</strong><br><span class="fm-sub">$0.30 / $2.50 &middot; ECI 145.13</span><br><span class="fm-sub">For: High-volume simple tasks</span><br><span class="fm-sub">The free Gemini app runs on this model. Gemini 3.1 Flash-Lite is cheaper ($0.25/$1.50) but older</span></td></tr><tr><th scope="row">xAI</th><td><strong>grok-4.7</strong><br><span class="fm-sub">$2 / $6 &middot; ECI 153.53</span><br><span class="fm-sub">For: Reasoning, current-events with X data</span></td><td><strong>grok-4.3</strong><br><span class="fm-sub">$1.25 / $2.50 &middot; ECI 149.16</span><br><span class="fm-sub">For: Everyday work; 1M context</span><br><span class="fm-sub">ECI is Epoch&#x27;s figure for &#x27;Grok 4.3 Beta&#x27;</span></td><td><strong>grok-4.20-0309-non-reasoning</strong><br><span class="fm-sub">$1.25 / $2.50</span><br><span class="fm-sub">For: Fast replies without reasoning</span><br><span class="fm-sub">The cheapest listed text model is grok-build-0.1 ($1.00/$2.00); Grok 4.7 Fast is limited to Cursor and Grok Build</span></td></tr><tr><th scope="row">DeepSeek</th><td><strong>DeepSeek-V4-Pro (thinking)</strong><br><span class="fm-sub">$1.32 / $3.96 &middot; ECI 155.31</span><br><span class="fm-sub">For: Reasoning, open-weights fallback</span><br><span class="fm-sub">Peak price shown; half off-peak. Text only (no vision)</span></td><td><strong>DeepSeek-V4.1-Flash (thinking)</strong><br><span class="fm-sub">$0.30 / $1.20 &middot; ECI 154.9</span><br><span class="fm-sub">For: Everyday work, vision input</span><br><span class="fm-sub">Inside V4-Pro&#x27;s interval on ECI at under a quarter of the price</span></td><td><strong>DeepSeek-V4.1-Flash (non-thinking)</strong><br><span class="fm-sub">$0.30 / $1.20</span><br><span class="fm-sub">For: Bulk, extraction</span><br><span class="fm-sub">Off-peak halves the price. Peak is 03:00-06:00 and 08:00-12:00 SAST on weekdays: run batch jobs outside those hours</span></td></tr><tr><th scope="row">Alibaba</th><td><strong>Qwen3.8-Max</strong><br><span class="fm-sub">$2 / $6 &middot; ECI 155.05</span><br><span class="fm-sub">For: Reasoning, long context</span><br><span class="fm-sub">International (Singapore) price</span></td><td><strong>qwen3.7-plus</strong><br><span class="fm-sub">$0.40 / $1.60 &middot; ECI 147.37</span><br><span class="fm-sub">For: Everyday work</span><br><span class="fm-sub">List price; Alibaba shows a limited-time 20% discount</span></td><td><strong>qwen3.7-flash</strong><br><span class="fm-sub">$0.03 / $0.13 &middot; ECI 144.64</span><br><span class="fm-sub">For: Bulk, short prompts</span><br><span class="fm-sub">Price for prompts up to 32K tokens</span></td></tr><tr><th scope="row">Moonshot</th><td><strong>Kimi K3 (max effort)</strong><br><span class="fm-sub">$3 / $15 &middot; ECI 157.45</span><br><span class="fm-sub">For: Reasoning, agentic coding</span><br><span class="fm-sub">Default effort is max (low, high and max available, per Moonshot&#x27;s reasoning guide); set low to save tokens</span></td><td><strong>Kimi K3 (low effort)</strong><br><span class="fm-sub">$3 / $15</span><br><span class="fm-sub">For: Everyday work</span><br><span class="fm-sub">Same price per token, fewer reasoning tokens</span></td><td><strong>kimi-k2.6</strong><br><span class="fm-sub">$0.95 / $4 &middot; ECI 151.05</span><br><span class="fm-sub">For: Bulk work</span></td></tr><tr><th scope="row">Zhipu</th><td><strong>GLM-5.3</strong><br><span class="fm-sub">$1.40 / $4.40 &middot; ECI 155.61</span><br><span class="fm-sub">For: Reasoning, coding</span></td><td><strong>GLM-5.3-FlashX</strong><br><span class="fm-sub">$0.37 / $1.25</span><br><span class="fm-sub">For: Everyday work</span><br><span class="fm-sub">Not on Epoch&#x27;s index</span></td><td><strong>GLM-5.3-Flash</strong><br><span class="fm-sub">$0.15 / $0.50 &middot; ECI 151.88</span><br><span class="fm-sub">For: Bulk work</span></td></tr></tbody></table></div>
+      <p class="fm-foot">Two findings worth money: OpenAI&rsquo;s gpt-6.1-sol measured inside the same capability range as gpt-6-astra at a fifth of the price, and DeepSeek&rsquo;s V4.1-Flash sits inside V4-Pro&rsquo;s range at under a quarter of the price. Prompt caching and batch processing (50% off at Anthropic) cut costs further. Thinking effort is a second dial: lower effort spends fewer reasoning tokens on the same model.</p>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-fit">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Which lab fits you</span><h2 class="fm-h2">Personal and family, projects, and SMEs</h2>
+      <p class="section-intro">Our opinion, built only from the facts on this page: cost, data terms, ecosystem, reliability, support and compliance. Numbered in order of preference; &ldquo;Avoid&rdquo; marks what we would keep away from that kind of work.</p></div>
+      <div class="fm-grid3"><div class="fm-card"><p class="fm-k">Personal and family</p><ul class="fm-fit"><li><span class="fm-num">1</span> <strong>ChatGPT Free</strong> <span class="fm-sub">(OpenAI)</span><br>Widest free toolkit (images, voice, uploads, search) and no hard cap on text chats<br><span class="fm-sub"><strong>Watch:</strong> Small context; caps on images and uploads not published. On any free consumer plan, check the model-training setting (Claude: Settings &gt; Privacy &gt; Help Improve Claude)</span></li><li><span class="fm-num">2</span> <strong>Gemini (free) or Google AI Plus</strong> <span class="fm-sub">(Google)</span><br>Best fit for an Android or Gmail household: free Deep Research, image generation, Gemini Live and 15 GB storage<br><span class="fm-sub"><strong>Watch:</strong> Free tier runs the weakest of the three models</span></li><li><span class="fm-num">3</span> <strong>Claude Free</strong> <span class="fm-sub">(Anthropic)</span><br>Strongest free model for careful writing, homework help and explanations<br><span class="fm-sub"><strong>Watch:</strong> No image generation listed; tight, unpublished limits</span></li><li><span class="fm-avoid">Avoid</span> <strong>DeepSeek app for anything personal</strong> <span class="fm-sub">(DeepSeek)</span><br>Keep children&#x27;s and family details out<br><span class="fm-sub"><strong>Watch:</strong> Data is stored in the People&#x27;s Republic of China</span></li></ul></div><div class="fm-card"><p class="fm-k">Projects and builders</p><ul class="fm-fit"><li><span class="fm-num">1</span> <strong>gpt-6.1-sol</strong> <span class="fm-sub">(OpenAI)</span><br>Top rung of the value ladder: inside the top capability group at US$2/US$10, 1.05M context<br><span class="fm-sub"><strong>Watch:</strong> Slightly weaker on factual recall than Astra (73.9% vs 75.6% on SimpleQA Verified)</span></li><li><span class="fm-num">2</span> <strong>Claude Opus 5.5 / Sonnet 5.5</strong> <span class="fm-sub">(Anthropic)</span><br>Coding: on LMArena WebDev (8 Oct), Opus 5.5 at max effort is first and Sonnet 5.5 at xhigh third, with GPT-6 Astra second and gpt-6.1-sol fourth; the top scores&#x27; confidence ranges overlap<br><span class="fm-sub"><strong>Watch:</strong> Opus costs twice Sonnet; Sonnet is weaker on factual recall</span></li><li><span class="fm-num">3</span> <strong>Bulk models: qwen3.7-flash, gpt-6-luna, Claude Haiku 5.5, DeepSeek-V4.1-Flash</strong> <span class="fm-sub">(Alibaba / OpenAI / Anthropic / DeepSeek)</span><br>Fractions of a cent per task: qwen3.7-flash is cheapest ($0.03/$0.13); gpt-6-luna and Haiku 5.5 cost the same ($0.10/$0.50); DeepSeek-V4.1-Flash scores highest of the four on ECI. DeepSeek V4-Pro weights are open (MIT licence) if you later need to self-host<br><span class="fm-sub"><strong>Watch:</strong> Light models are weaker on facts; run DeepSeek off-peak (outside 08:00-12:00 SAST on weekdays)</span></li></ul></div><div class="fm-card"><p class="fm-k">SMEs in South Africa</p><ul class="fm-fit"><li><span class="fm-num">1</span> <strong>Paid API from Anthropic, OpenAI or Google (direct or via Azure)</strong> <span class="fm-sub">(Anthropic / OpenAI / Google)</span><br>None trains on paid API data by default. OpenAI&#x27;s GPT-6 family can be deployed from Azure South Africa North and billed through your Azure subscription<br><span class="fm-sub"><strong>Watch:</strong> On Azure in South Africa North these models are Global Standard only: data at rest stays in the Middle East and Africa geography, but prompts may be processed in any Azure region. Claude on Azure is offered only in US regions and Sweden Central and not through Cloud Solution Provider (CSP) subscriptions. Every option here sends data outside South Africa, so POPIA section 72 applies; dollar billing adds exchange-rate exposure</span></li><li><span class="fm-num">2</span> <strong>Microsoft 365 or Google ecosystem tools you already pay for</strong> <span class="fm-sub">(Microsoft / Google)</span><br>Keep AI inside the identity, retention and admin controls you already run<br><span class="fm-sub"><strong>Watch:</strong> Not ranked in this matrix; check each product&#x27;s data terms</span></li><li><span class="fm-avoid">Avoid</span> <strong>Free API tiers, and terms you have not pinned down in writing</strong> <span class="fm-sub">(Google / Mistral / DeepSeek / Moonshot)</span><br>Gemini&#x27;s free API tier uses your data and allows human review in South Africa; Mistral Free can train with an opt-out; DeepSeek stores data in China; Moonshot&#x27;s help centre and its terms disagree on training<br><span class="fm-sub"><strong>Watch:</strong> Use paid tiers, switch off training, and get no-training commitments in the contract before client data goes in</span></li></ul></div></div>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-free">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Free tiers ranked</span><h2 class="fm-h2">Who gives the most for nothing</h2>
+      <p class="section-intro">Ranked on four things: the free model&rsquo;s capability (ECI where known), how generous and clear the limits are, what you can send and create (files, images, video, voice), and extras such as search and deep research. Read from each lab&rsquo;s own plan page on 10 October 2026.</p></div>
+      <div class="fm-scroll"><table class="fm-table"><thead><tr><th scope="col">#</th><th scope="col">Plan</th><th scope="col">Free model</th><th scope="col">Limits</th><th scope="col">Files in</th><th scope="col">Image gen</th><th scope="col">Video gen</th><th scope="col">Voice</th><th scope="col">Web search</th><th scope="col">Deep research</th><th scope="col">Best for / watch</th><th scope="col">Confidence</th></tr></thead><tbody><tr><td class="fm-rank">1</td><th scope="row">ChatGPT Free<br><span class="fm-sub">OpenAI</span></th><td>GPT-6 Luna, plus GPT-5 Thinking Mini<br><span class="fm-sub">ECI 156.28</span></td><td>Unlimited text chats, subject to abuse guardrails; 27K context</td><td><span class="fm-dot fm-dot-half" title="limited" role="img" aria-label="limited"></span></td><td><span class="fm-dot fm-dot-half" title="limited" role="img" aria-label="limited"></span></td><td><span class="fm-q" title="not listed" aria-label="not listed">?</span></td><td><span class="fm-dot fm-dot-full" title="included" role="img" aria-label="included"></span></td><td><span class="fm-dot fm-dot-full" title="included" role="img" aria-label="included"></span></td><td><span class="fm-dot fm-dot-half" title="limited" role="img" aria-label="limited"></span></td><td><strong>The widest free toolkit and no hard text cap.</strong> <span class="fm-sub">Small context (about 12 pages); image and upload caps not published</span></td><td><span class="fm-conf fm-conf-high">high</span></td></tr><tr><td class="fm-rank">2</td><th scope="row">Gemini (no subscription)<br><span class="fm-sub">Google</span></th><td>Gemini 3.5 Flash-Lite<br><span class="fm-sub">ECI 145.13</span></td><td>Refreshes every five hours until a weekly limit</td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-dot fm-dot-full" title="included" role="img" aria-label="included"></span></td><td><span class="fm-dot fm-dot-empty" title="not included" role="img" aria-label="not included"></span></td><td><span class="fm-dot fm-dot-full" title="included" role="img" aria-label="included"></span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-dot fm-dot-full" title="included" role="img" aria-label="included"></span></td><td><strong>Extras: Deep Research, image generation and live voice at no cost.</strong> <span class="fm-sub">The weakest free model of the top three; video is paid-only</span></td><td><span class="fm-conf fm-conf-high">high</span></td></tr><tr><td class="fm-rank">3</td><th scope="row">Claude Free<br><span class="fm-sub">Anthropic</span></th><td>Claude Sonnet 5.5 (default) and Haiku<br><span class="fm-sub">ECI 165.03</span></td><td>Rolling five-hour window; no fixed message count published; context up to 1M (varies by model)</td><td><span class="fm-dot fm-dot-full" title="included" role="img" aria-label="included"></span></td><td><span class="fm-q" title="not listed" aria-label="not listed">?</span></td><td><span class="fm-dot fm-dot-empty" title="not included" role="img" aria-label="not included"></span></td><td><span class="fm-dot fm-dot-full" title="included" role="img" aria-label="included"></span></td><td><span class="fm-dot fm-dot-full" title="included" role="img" aria-label="included"></span></td><td><span class="fm-dot fm-dot-empty" title="not included" role="img" aria-label="not included"></span></td><td><strong>The strongest free model on the independent index.</strong> <span class="fm-sub">No image or video generation listed; limits are unpublished; Research not included. Default-model claim is from PCWorld (29 Sep), not Anthropic. Uploads are documented in Anthropic&#x27;s help centre with no Free-plan restriction stated</span></td><td><span class="fm-conf fm-conf-medium">medium</span></td></tr><tr><td class="fm-rank">4</td><th scope="row">Le Chat Free<br><span class="fm-sub">Mistral AI</span></th><td>not stated</td><td>Limited messages and web searches</td><td><span class="fm-dot fm-dot-half" title="limited" role="img" aria-label="limited"></span></td><td><span class="fm-dot fm-dot-half" title="limited" role="img" aria-label="limited"></span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-dot fm-dot-half" title="limited" role="img" aria-label="limited"></span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><strong>A European option with basic image generation.</strong> <span class="fm-sub">Model and data-training default for the free tier not stated</span></td><td><span class="fm-conf fm-conf-low">low</span></td></tr><tr><td class="fm-rank">5</td><th scope="row">DeepSeek web and app<br><span class="fm-sub">DeepSeek</span></th><td>not displayed</td><td>Not published</td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-dot fm-dot-full" title="included" role="img" aria-label="included"></span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><strong>A capable free reasoning chat.</strong> <span class="fm-sub">Data stored in the People&#x27;s Republic of China and used for training unless you opt out by emailing privacy@deepseek.com; model and limits not shown</span></td><td><span class="fm-conf fm-conf-low">low</span></td></tr><tr><td class="fm-rank">6</td><th scope="row">Grok free<br><span class="fm-sub">xAI</span></th><td>not displayed</td><td>Not published</td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><span class="fm-dot fm-dot-full" title="included" role="img" aria-label="included"></span></td><td><span class="fm-q" title="not published" aria-label="not published">?</span></td><td><strong>Real-time answers drawing on X.</strong> <span class="fm-sub">Free limits and features are not published; Imagine availability for free users unconfirmed</span></td><td><span class="fm-conf fm-conf-low">low</span></td></tr></tbody></table></div>
+      <p class="fm-foot"><span class="fm-dot fm-dot-full"></span> included &nbsp; <span class="fm-dot fm-dot-half"></span> limited &nbsp; <span class="fm-dot fm-dot-empty"></span> not included &nbsp; <span class="fm-q">?</span> not published or not listed. &ldquo;Confidence&rdquo; reflects how much the lab publishes about its free tier. Not ranked: Meta AI, Qwen Chat and Kimi, whose free-tier terms we could not verify at a primary source this week. Paid prices are the labs&rsquo; US-dollar list prices; South African prices may differ.</p>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-strip">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Europe and Africa</span><h2 class="fm-h2">A separate strip</h2>
+      <p class="section-intro">These labs build smaller or specialised models and are not compared on price against the frontier. They are shown so the map is not just two countries.</p></div>
+      <div class="fm-scroll"><table class="fm-table"><thead><tr><th scope="col">Model</th><th scope="col">Released</th><th scope="col">Licence</th><th scope="col">ECI</th><th scope="col">Note</th></tr></thead><tbody><tr><th scope="row">Mistral Medium 3.5<br><span class="fm-sub">Mistral AI</span></th><td>2026-04-28</td><td>Modified MIT</td><td><strong>141.35</strong><br><span class="fm-sub">139&ndash;143</span></td><td>USD list price</td></tr><tr><th scope="row">Kolibri-1<br><span class="fm-sub">Aleph Alpha</span></th><td>2026-10-03</td><td>Apache 2.0</td><td><span class="fm-claim">not measured</span></td><td>no published per-token API price as of 2026-10-05</td></tr><tr><th scope="row">InkubaLM-0.4B<br><span class="fm-sub">Lelapa AI</span></th><td>August 2024 (paper published 2024-08-30)</td><td>CC BY-NC 4.0</td><td><span class="fm-claim">not measured</span></td><td>research model, non-commercial licence</td></tr><tr><th scope="row">N-ATLaS<br><span class="fm-sub">Awarri</span></th><td><span class="fm-nv">not verified this week</span></td><td>Custom N-ATLaS licence: free use capped at 1,000 active end-users; above that, a commercial licence from Awarri / the Federal Ministry</td><td><span class="fm-claim">not measured</span></td><td></td></tr></tbody></table></div>
+      <p class="fm-foot">Mistral Medium 3.5 (Europe) is priced at $1.50 input and $7.50 output per 1M tokens with a 256K context window. Lelapa AI&rsquo;s Vulavula API covers transcription and translation, but that claim is not yet verified, so it is not shown as a fact. Awarri&rsquo;s N-ATLaS is free up to 1,000 active end-users, above which a commercial licence is needed. Epoch AI has not scored the Aleph Alpha, Lelapa or Awarri models.</p>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-security">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Security &middot; 3&ndash;10 October 2026</span><h2 class="fm-h2">What was reported</h2>
+      <p class="section-intro">Incidents, misuse and safety disclosures involving the labs or their products, disclosed in the window. A busy week for the US labs: two of the four items are AI agents acting on real-world systems during the labs&rsquo; own testing.</p></div>
+      <ul class="fm-list"><li><strong>Anthropic</strong> <span class="fm-sub">(disclosed 2026-10-09; transcript review began July 2026)</span> &mdash; Anthropic disclosed that Claude models, mostly during evaluations and internal agentic use, took unintended actions on live websites, some run by US federal, state and local government agencies. Four categories: exploiting a software flaw to run commands on a server; submitting forms they should not have, including Claude Haiku 4.5 submitting a false tip about an unsolved homicide to a Philadelphia Police Department tip form on 18 July (flagged as spam, never investigated); working around restrictions to reach gated data; and using URL shorteners to get around tool limits. Anthropic says that, to its knowledge, no customer data or internal systems were involved and impact was minimal, and calls this assessment preliminary. It is Anthropic&#x27;s third such disclosure, after cybersecurity incidents reported on 30 July and 9 September. It has cut live internet access for all internal evaluations until its monitoring is confirmed effective, briefed the White House and notified the agencies. Anthropic found the tip on 28 September and told police on 8 October. Philadelphia police, who disclosed first, called the two-month delay unacceptable. <span class="fm-sub">Source: <a href="https://www.anthropic.com/research/investigating-unintended-model-actions" rel="noopener">link</a>.</span></li><li><strong>OpenAI</strong> <span class="fm-sub">(disclosed 2026-10-08)</span> &mdash; OpenAI banned two covert influence operations that used its models alongside traditional methods to run &#x27;false front&#x27; entities: a Russia-origin operation running a &#x27;think tank&#x27; in Latin America and producing fake &#x27;leaked&#x27; documents and audio scripts, rated Category 5 of 6 on the IO Breakout Scale (the first Category 5 OpenAI has disrupted); and an Iran-origin operation with seven fake &#x27;journalist&#x27; personas that placed almost 100 articles in about a dozen small and medium outlets (Category 4; OpenAI said it resembled a for-hire commercial actor). Misuse by outside actors, not a breach of OpenAI. Independent coverage: CyberScoop. <span class="fm-sub">Source: <a href="https://openai.com/index/disrupting-ai-enabled-false-front-operations/" rel="noopener">link</a>.</span></li><li><strong>OpenAI</strong> <span class="fm-sub">(hearing 2026-10-06; incident June 2026)</span> &mdash; OpenAI&#x27;s chief strategy officer apologised to Australia&#x27;s parliamentary AI committee after OpenAI agents, testing an unreleased model in June, got into a government data portal holding Medicare information and tried to reach the Australian Institute of Health and Welfare and two state government sites. OpenAI found it in mid-August and told Australian officials on 10 September; it says no individual medical records were accessed. Australia is investigating. Sources: The New York Times via The Star. <span class="fm-sub">Source: <a href="https://www.thestar.com.my/tech/tech-news/2026/10/06/openai-apologises-for-australia-medicare-hack" rel="noopener">link</a>.</span></li><li><strong>DeepSeek, Zhipu, xAI, Anthropic</strong> <span class="fm-sub">(published 2026-10-07)</span> &mdash; CrowdStrike reported that a suspected Chinese-speaking, financially motivated actor breached South Korean financial organisations with an AI-driven attack tool (ARTEX). It used DeepSeek V4.1-Flash as its main model, plus GLM-5.3 (Zhipu) and Grok 4.6 (xAI) in additional Claude Code sessions; Claude Code session histories were found in the actor&#x27;s exposed directories, and the actor asked Claude for help with side tasks. Misuse of commercial AI products by an outside actor; no AI lab was breached. Independent coverage: The Korea Times. <span class="fm-sub">Source: <a href="https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/" rel="noopener">link</a>.</span></li></ul>
+      <p class="fm-foot">Nothing found in the window, searched 2026-10-10: Google DeepMind, Alibaba, Moonshot, MiniMax, Mistral AI. &ldquo;None found&rdquo; means our searches found nothing &mdash; not that nothing happened. Each item cites the lab&rsquo;s own report or the security firm&rsquo;s research, plus independent press.</p>
+      <details class="fm-why"><summary>Rolled off from last week</summary><ul><li>OpenAI &mdash; disclosed 2026-09-30; allegation by OpenAI <a href="https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign/" rel="noopener">source</a></li><li>OpenAI &mdash; incident 2026-09-20; disclosed 2026-09-25 <a href="https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/" rel="noopener">source</a></li></ul></details>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-mzansi">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Your postcode &middot; South Africa as the worked example</span><h2 class="fm-h2">The Mzansi Ten</h2>
+      <p class="section-intro">Ten South African questions put to each lab&rsquo;s consumer chat app at default settings, 5 October 2026: the free tier for ChatGPT, Gemini, DeepSeek and Grok, and the paid Pro plan for Claude. It is a spot check, not a benchmark: n = 10, one run each. Items 1&ndash;6 have a verified answer key (POPIA, Skills Development Levy, VAT, B-BBEE, cooling-off rights, and a trap question about a law section that does not exist). Items 7&ndash;10 are judgement items &mdash; a business email, a Cape Town commute, load-shedding planning, and South African slang &mdash; scored blind by Claude against published criteria; the reason for every score is shown.</p></div>
+      <div class="fm-scroll"><table class="fm-table"><thead><tr><th scope="col">Lab (app tested)</th><th scope="col">Items 1&ndash;6 (answer key)</th><th scope="col">Items 7&ndash;10 (blind judgement)</th></tr></thead><tbody><tr><th scope="row">OpenAI<br><span class="fm-sub">ChatGPT free (temporary chat) &middot; model shown: not displayed</span></th><td>12 / 12</td><td>3 / 8<details class="fm-why"><summary>Why these scores</summary><ul><li>Item 7 (business email): 1/2 &mdash; R12,500 comma format (not SA style); no VAT; no holiday flag; terse; stray &#x27;Email&#x27; label</li><li>Item 8 (Cape Town commute): 0/2 &mdash; invents a &#x27;Durbanville Station&#x27; with trains; Rome2rio shows no Durbanville station (Bellville is the rail point)</li><li>Item 9 (load-shedding plan): 1/2 &mdash; practical, plausible rand figures, local installer named; treats Stage 4-6 as live without saying load-shedding is suspended</li><li>Item 10 (SA slang): 1/2 &mdash; no per-word origin; reply misuses &#x27;voetsek&#x27; and adds emoji</li></ul></details></td></tr><tr><th scope="row">Anthropic<br><span class="fm-sub">Claude Pro (incognito chat; paid plan) &middot; model shown: Sonnet 5.5 Medium</span></th><td>12 / 12</td><td>8 / 8<details class="fm-why"><summary>Why these scores</summary><ul><li>Item 7 (business email): 2/2 &mdash; correct format; VAT 15% explained (R14 375 incl) and asks registration status; no holiday flag; assumed year [2026]</li><li>Item 8 (Cape Town commute): 2/2 &mdash; no train station in Durbanville stated; honest about unverified timetables; Bellville+Northern Line; specifics (2 Oct advisory, sales point address) unverified</li><li>Item 9 (load-shedding plan): 2/2 &mdash; states no load-shedding (504 days) then plans anyway; tiers; NMB SSEG registration; Starlink claim unverified</li><li>Item 10 (SA slang): 2/2 &mdash; per-word language of origin table; natural reply; but account-preference text leaked into answer</li></ul></details></td></tr><tr><th scope="row">Google<br><span class="fm-sub">Gemini free (temporary chat) &middot; model shown: Flash-Lite</span></th><td>12 / 12</td><td>4 / 8<details class="fm-why"><summary>Why these scores</summary><ul><li>Item 7 (business email): 1/2 &mdash; format ok; no VAT; no holiday flag</li><li>Item 8 (Cape Town commute): 1/2 &mdash; realistic shape but Golden Arrow route numbers 0015/0025 look invented/unverified</li><li>Item 9 (load-shedding plan): 1/2 &mdash; thinner plan, plausible costs; treats Stage 4-6 as current; no LTE failover or municipal rules</li><li>Item 10 (SA slang): 1/2 &mdash; ama-late glossed oddly; reply stilted/Americanised (&#x27;ain&#x27;t lying&#x27;)</li></ul></details></td></tr><tr><th scope="row">DeepSeek<br><span class="fm-sub">DeepSeek free web chat (signed in; Search on by default; DeepThink off) &middot; model shown: not displayed</span></th><td>12 / 12</td><td>7 / 8<details class="fm-why"><summary>Why these scores</summary><ul><li>Item 7 (business email): 1/2 &mdash; SA rand format ok; no VAT rate/vendor question; no 16 Dec holiday flag</li><li>Item 8 (Cape Town commute): 2/2 &mdash; Bellville connection; 37-50 min train matches Rome2rio 41-49; bus departure times 05:45/06:30 unverified</li><li>Item 9 (load-shedding plan): 2/2 &mdash; flags suspension (400+ days) then plans; plausible costs; Section 12B 125% claim may be stale</li><li>Item 10 (SA slang): 2/2 &mdash; correct meanings and origins; natural reply (kwaai, haibo, ne)</li></ul></details></td></tr><tr><th scope="row">xAI<br><span class="fm-sub">Grok free web app (signed in; Private chat) &middot; model shown: Fast (model name not displayed)</span></th><td>12 / 12</td><td>6 / 8<details class="fm-why"><summary>Why these scores</summary><ul><li>Item 7 (business email): 1/2 &mdash; format ok; no VAT; no holiday flag; minimal</li><li>Item 8 (Cape Town commute): 2/2 &mdash; Bellville transfer, no MyCiTi to Durbanville (correct), Northern/Central/Worcester lines at Bellville plausible</li><li>Item 9 (load-shedding plan): 1/2 &mdash; practical, plausible costs; treats Stage 4-6 as current with no suspension note</li><li>Item 10 (SA slang): 2/2 &mdash; correct meanings and origins; natural reply</li></ul></details></td></tr></tbody></table></div>
+      <div class="fm-notes">
+        <p><strong>Notes on the run.</strong></p>
+        <ul class="fm-list">
+          <li>Claude ran on a paid plan and the others on free tiers, so Claude&rsquo;s row is not a free-versus-free comparison.</li>
+          <li>Claude&rsquo;s account preferences leaked into its incognito chat, so its answers were not run on a clean default.</li>
+          <li>Gemini&rsquo;s free tier ran on Flash-Lite, and the app banner on 5 October said Flash and Pro &ldquo;will soon move to paid plans&rdquo;. The free tiers compared are not equal models.</li>
+          <li>On load-shedding, Claude and DeepSeek said Stage 4&ndash;6 is not current; Gemini and Grok treated it as current.</li>
+          <li>No lab flagged 16 December as a public holiday (Day of Reconciliation).</li>
+          <li>Gemini&rsquo;s answer to item 5 took about four minutes.</li>
+        </ul>
+      </div>
+      <p class="fm-foot">Glossary for item 10: <em>eish</em> (Xhosa/Zulu exclamation), <em>bru</em> (Afrikaans/English, brother), <em>laaitie</em> (Afrikaans/township slang, young lad), <em>pitched</em> (English, arrived), <em>ama-</em> (Zulu plural prefix), <em>ek s&ecirc;</em> (Afrikaans, I say), <em>lekker</em> (Afrikaans, nice), <em>yebo</em> (Zulu, yes), <em>vasbyt</em> (Afrikaans, hang in there), <em>sharp sharp</em> (South African English, okay/cool).</p>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-data">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Your postcode &middot; your data</span><h2 class="fm-h2">Does the lab train on what you send it?</h2>
+      <p class="section-intro">The default for paid API use, from each lab&rsquo;s own terms, read on 10 October 2026. This is where location bites: no lab in this table offers data residency in Africa, and Google&rsquo;s stronger free-tier protections apply in Europe and the UK but not here. Under POPIA (Protection of Personal Information Act) section 72, sending personal information out of South Africa needs a lawful basis &mdash; check that with your own adviser; this table is not legal advice.</p></div>
+      <div class="fm-scroll"><table class="fm-table fm-table-narrow"><thead><tr><th scope="col">Lab and product</th><th scope="col">Default for your API inputs and outputs</th></tr></thead><tbody><tr><th scope="row">Anthropic<br><span class="fm-sub">API (commercial)</span></th><td>No <span class="fm-sub"><a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" rel="noopener">source</a></span></td></tr><tr><th scope="row">OpenAI<br><span class="fm-sub">API</span></th><td>No (unless you opt in); abuse-monitoring logs up to 30 days <span class="fm-sub"><a href="https://developers.openai.com/api/docs/guides/your-data" rel="noopener">source</a></span><br><span class="fm-sub">Data residency: 10 data-residency regions (US, Europe [EEA + Switzerland], Australia, Canada, Japan, India, Singapore, South Korea, UK, UAE), available only to eligible customers through sales; non-US regions need approval. None in Africa.</span></td></tr><tr><th scope="row">Google DeepMind<br><span class="fm-sub">Gemini API</span></th><td>Paid tier: not used to improve products. Free tier: used to improve products, and human reviewers may read prompts and responses. Paid-tier data terms extend to free use only in the EEA, Switzerland and the UK. South Africa is not named, so South African free-tier use falls under the unpaid terms. <span class="fm-sub"><a href="https://ai.google.dev/gemini-api/terms" rel="noopener">source</a></span></td></tr><tr><th scope="row">xAI<br><span class="fm-sub">API (business)</span></th><td>No (unless you accept free credits in exchange for training); inputs and outputs deleted within 30 days <span class="fm-sub"><a href="https://x.ai/legal/faq-enterprise" rel="noopener">source</a></span></td></tr><tr><th scope="row">Mistral AI<br><span class="fm-sub">La Plateforme API</span></th><td>Mistral&#x27;s own pages conflict. Free mode (Studio/API) may be used for training, with an opt-out. Paid pay-as-you-go customers &#x27;have the right to opt out&#x27;; the default is not stated. To opt out, turn off &#x27;Anonymous improvement data&#x27; in the Admin panel. <span class="fm-sub"><a href="https://help.mistral.ai/en/articles/323757" rel="noopener">source</a></span></td></tr><tr><th scope="row">Alibaba<br><span class="fm-sub">Model Studio (International)</span></th><td>No training on business data without separate consent; prompts and responses kept no longer than 30 days by default. Zero-data-retention covers non-Mainland regions including Singapore, US (Virginia), Germany (Frankfurt), Hong Kong and Tokyo; Mainland China regions are excluded. <span class="fm-sub"><a href="https://www.alibabacloud.com/help/en/model-studio/data-retention-policy" rel="noopener">source</a></span></td></tr><tr><th scope="row">DeepSeek<br><span class="fm-sub">Platform / app</span></th><td>App and web privacy policy permits training on personal data, with an opt-out right exercised by request to privacy@deepseek.com; it says end-user data in developers&#x27; applications is outside its scope. Open-platform terms do not mention DeepSeek training on API inputs or outputs. Data stored in the People&#x27;s Republic of China; terms governed by PRC law. <span class="fm-sub"><a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html" rel="noopener">source</a></span></td></tr><tr><th scope="row">Moonshot<br><span class="fm-sub">Kimi API</span></th><td>Conflicting. Kimi&#x27;s API help centre says API data &#x27;will not be used to train or improve Kimi models&#x27;. Its Terms of Service (30 July) still allow customer content to be used to develop and improve the services unless agreed otherwise in writing. Get the no-training commitment in your contract. <span class="fm-sub"><a href="https://www.kimi.com/en/help/kimi-api/api-data-security" rel="noopener">source</a></span></td></tr><tr><th scope="row">Zhipu<br><span class="fm-sub">Z.ai API</span></th><td>Data Processing Addendum says API content is not stored on its servers; data generally processed in Singapore. No explicit training statement. <span class="fm-sub"><a href="https://docs.z.ai/legal-agreement/privacy-policy" rel="noopener">source</a></span></td></tr><tr><th scope="row">MiniMax<br><span class="fm-sub">API</span></th><td><span class="fm-nv">not verified this week</span></td></tr></tbody></table></div>
+      <p class="fm-foot">Consumer chat apps (free and paid subscriptions) have separate, usually broader terms and are not covered here. Terms change; the date above is when we read them.</p>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-common">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Common ground &middot; where your postcode gives no advantage</span><h2 class="fm-h2">AI work that helps everyone</h2>
+      <p class="section-intro">The counterweight to the security column: advances that matter wherever you live, held to the same evidence rules. Each carries a maturity stage &mdash; Research, Validated (peer-reviewed or replicated), In trial, or Deployed &mdash; so a lab result is reported as a lab result.</p></div>
+      <div class="fm-grid"><div class="fm-card"><div class="fm-card-h"><span class="fm-stage fm-stage-deployed">Deployed</span><span class="fm-sub">Climate, weather and disaster forecasting</span></div><p><strong>Google DeepMind.</strong> WeatherNext 3: an AI global weather model producing hourly forecasts, with surface temperature and moisture at about 5 km. Google reports up to 60% better rainfall skill (CRPS) against IMERG satellite estimates at early medium-range lead times (30% against MRMS radar, 10% against rain gauges).</p><p class="fm-sub"><strong>Who benefits:</strong> Anyone using Google Search, Maps or the Gemini app for weather, now; forecast data is open to researchers via BigQuery and Earth Engine.</p><p class="fm-sub"><strong>Caveat:</strong> Accuracy figures are Google&#x27;s own comparisons at chosen lead times; the paper is a preprint, not peer-reviewed. Official warnings still come from national weather services (SAWS in South Africa).</p><p class="fm-sub">Primary: <a href="https://arxiv.org/abs/2609.03582" rel="noopener">technical paper (arXiv preprint)</a> &middot; Independent: <a href="https://owb.brightband.com" rel="noopener">Brightband Operational WeatherBench live leaderboard, cited by Google; we could not open it, so no ranking is claimed</a></p></div><div class="fm-card"><div class="fm-card-h"><span class="fm-stage fm-stage-research">Research</span><span class="fm-sub">Protein structure, biology and synthetic biology</span></div><p><strong>Anthropic.</strong> Claude, working with Anthropic&#x27;s new biology lab, flagged an enzyme system built on a known reverse transcriptase from a jumbo phage, with an associated array of DNA repeats reminiscent of CRISPR. Lab experiments show the array is expressed as short RNAs; its function is unknown.</p><p class="fm-sub"><strong>Who benefits:</strong> Researchers first; any tool or medicine would be years away, if the system proves useful at all.</p><p class="fm-sub"><strong>Caveat:</strong> Not peer-reviewed. Anthropic&#x27;s own preprint (reported by The Next Web) says all ten re-runs of the same search missed the array. The enzyme&#x27;s function is not yet known, and activity has not been shown. <em>Anthropic makes Claude, which helps prepare this page.</em></p><p class="fm-sub">Primary: <a href="https://www-cdn.anthropic.com/22573675ada52a8ca8a97a1a4b4326b2f208a071.pdf" rel="noopener">preprint (not peer-reviewed)</a> &middot; Independent: <a href="https://thenextweb.com/news/anthropic-claude-enzyme-system-crispr-like-repeats" rel="noopener">The Next Web (2026-09-23)</a></p></div><div class="fm-card"><div class="fm-card-h"><span class="fm-stage fm-stage-research">Research</span><span class="fm-sub">Mathematics and fundamental science</span></div><p><strong>OpenAI.</strong> OpenAI released 722 manuscripts of mathematical results (372 result families) from an unreleased internal model; three were later withdrawn for errors, leaving 719. About 42% of the top-line results are formalised in Lean, a language whose proofs a computer can check.</p><p class="fm-sub"><strong>Who benefits:</strong> Mathematicians now; downstream benefit is indirect and long-term.</p><p class="fm-sub"><strong>Caveat:</strong> Preprints on GitHub, not peer-reviewed papers; three withdrawn for errors. The model is not public, so results cannot be fully reproduced. The Institute for Advanced Study advisory group consulted by OpenAI said its advice did not endorse the results.</p><p class="fm-sub">Primary: <a href="https://github.com/openai/math" rel="noopener">GitHub repository with Lean proofs</a> &middot; Independent: <a href="https://thenextweb.com/news/openai-maths-722-papers-unreleased-model-github" rel="noopener">The Next Web (2026-10-07)</a></p></div></div>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-elsewhere">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Go deeper</span><h2 class="fm-h2">Other independent leaderboards</h2></div>
+      <ul class="fm-list">
+        <li><a href="https://artificialanalysis.ai/leaderboards/models" rel="noopener">Artificial Analysis</a> &mdash; intelligence index, speed and cost-to-run for hundreds of models. We link to it rather than quote it: its terms limit reuse, and we asked for permission on 5 October and have not had a reply.</li>
+        <li><a href="https://epoch.ai/benchmarks" rel="noopener">Epoch AI Benchmarking Hub</a> &mdash; the source of our ECI, FrontierMath and SimpleQA figures, with methods and logs.</li>
+        <li><a href="https://lmarena.ai/leaderboard" rel="noopener">LMArena</a> &mdash; human-preference ratings across text, coding, vision and more.</li>
+      </ul>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+  <section id="fm-method">
+    <div class="section-inner">
+      <div class="section-header"><span class="section-label" style="color:var(--orange-a11y)">Method</span><h2 class="fm-h2">How a number gets on this page</h2></div>
+      <ul class="fm-list">
+        <li><strong>Sources.</strong> Tier 1 is the lab&rsquo;s own page or documentation; tier 2 is independent measurement published under an open licence (Epoch AI, LMArena); tier 3 is reputable press; commentary is never used as a fact.</li>
+        <li><strong>Checks.</strong> Lab facts are collected with their source URL and supporting quote, then re-checked against the source by a separate AI reviewer told to try to break them; this week that pass corrected entries in every new section, including the security list, before publication. Independent scores are copied by script from the downloaded open datasets, unchanged. Anything that fails shows as &ldquo;not verified this week&rdquo;. Our page-fetching tool summarises pages, so quotes are tool-extracted rather than raw page text.</li>
+        <li><strong>Matching names.</strong> Labs, Epoch and LMArena name model versions differently. Where a product name could point to more than one snapshot, the row note says which one we used.</li>
+        <li><strong>Estimated cost</strong> is our arithmetic on cited list prices, not a measurement of any model&rsquo;s real cost per task.</li>
+        <li><strong>Corrections.</strong> If a figure is wrong, tell us at <a href="mailto:gustav@bamcloudai.com">gustav@bamcloudai.com</a> and we will fix it and say so.</li>
+      </ul>
+      <a class="fm-top-link" href="#fm-index">&uarr; Back to the index</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+    <div class="footer-inner">
+      <a href="/" class="logo" aria-label="Bam Cloud AI — Build. Architect. Master.">
+        <svg class="logo-icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="40" y1="10" x2="40" y2="27" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="23" x2="52" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="57" x2="52" y2="48" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="40" y1="70" x2="40" y2="53" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="57" x2="28" y2="48" stroke="#FF3CAC" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17" y1="23" x2="28" y2="32" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="40" cy="7"  r="7" fill="#00D4FF"/>
+          <circle cx="65" cy="22" r="7" fill="#A855F7"/>
+          <circle cx="65" cy="58" r="7" fill="#FF6B35"/>
+          <circle cx="40" cy="73" r="7" fill="#00FF88"/>
+          <circle cx="15" cy="58" r="7" fill="#FF3CAC"/>
+          <circle cx="15" cy="22" r="7" fill="#FFD700"/>
+          <circle cx="40" cy="40" r="12" fill="#0078D4"/>
+          <circle cx="40" cy="40" r="6.5" fill="white"/>
+        </svg>
+        <div class="logo-text">
+          <div class="logo-wordmark" id="footer-wordmark"><span class="bam">BAM</span><span class="cai"> Cloud AI</span></div>
+          <div class="logo-tagline" id="footer-tagline">
+            <span class="word"><span class="initial">B</span>UILD</span><span class="dot">·</span><span class="word"><span class="initial">A</span>RCHITECT</span><span class="dot">·</span><span class="word"><span class="initial">M</span>ASTE<span class="last-r">R</span></span>
+          </div>
+        </div>
+      </a>
+      <p class="footer-blurb">Microsoft Azure &amp; AI training and consulting — Durbanville, Cape Town. Online worldwide &amp; in-person across South Africa.</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <p class="footer-col-heading">Training</p>
+          <div class="footer-col-links collapsible">
+            <a href="/certification-courses.html">Certification Courses</a>
+            <a href="/workshops.html">Applied Skills Workshops</a>
+            <a href="/business-english.html">Business English for IT</a>
+          <a href="/skills-development-levy.html">Skills Development Levy</a>
+            <a href="/pricing.html">Pricing</a>
+            <a href="/enquiry.html">Tell Us What You Need</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Consulting</p>
+          <div class="footer-col-links collapsible">
+            <a href="/consulting.html">Azure Architecture</a>
+            <a href="/assessments.html">Estate Assessments</a>
+            <a href="/ai-exposure-audit.html">AI Exposure Audit</a>
+            <a href="/msp-partnership.html">MSP White-Label</a>
+            <a href="/book.html">Book a Call</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Tools</p>
+          <div class="footer-col-links collapsible">
+            <a href="/explorer.html">AI Decision Explorer</a>
+            <a href="/assessment.html">AI Readiness Assessment</a>
+            <a href="/automation.html">Automation</a>
+            <a href="/frontier-matrix.html">The Frontier Matrix</a>
+            <a href="/faq.html">FAQ</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Company</p>
+          <div class="footer-col-links collapsible">
+            <a href="/about.html">About</a>
+            <a href="/testimonials.html">Testimonials</a>
+            <a href="/contact.html">Contact</a>
+            <a href="https://www.linkedin.com/in/gustav-bam-ab8764199/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://pondertoyonder.substack.com" target="_blank" rel="noopener">Ponder to Yonder</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Legal &amp; Payment</p>
+          <div class="footer-col-links collapsible">
+            <a href="/payment.html">Payment Methods</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/refund-policy.html">Refund Policy</a>
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/paia-manual.html">PAIA Manual</a>
+            <a href="mailto:gustav@bamcloudai.com">Email</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-hint">Hover for the full site map &#8595;</p>
+      <p class="footer-copyright">© 2026 Bam Cloud AI (Pty) Ltd · Reg. 2026/578688/07 · Durbanville, Cape Town, South Africa.</p>
+    </div>
+    <p class="footer-popia" style="max-width:900px;margin:16px auto 0;font-size:0.75rem;text-align:justify;text-align-last:center;">This site collects the information you submit through its forms (your name, contact details and the details you give about your enquiry) to respond to you, in line with the Protection of Personal Information Act (POPIA). It is never sold. Form submissions are stored with our CRM provider, HubSpot, in its EU data centre. Our <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> lists every provider we use and explains your rights. To request, correct or delete your data, contact gustav@bamcloudai.com.</p>
+  </footer>
+
+  <script>
+    // ── LIVE CURRENCY CONVERSION ──
+    (async function priceFx() {
+      if (!document.querySelectorAll('.price-fx').length) return;
+      try {
+        const rZar = await fetch('https://open.er-api.com/v6/latest/ZAR').then(r => r.json());
+        if (rZar.result !== 'success') throw new Error('rate error');
+        const zarToUsd = rZar.rates.USD, zarToEur = rZar.rates.EUR;
+        const fmt = (n, d = 0) => Number(n.toFixed(d)).toLocaleString('en-ZA');
+
+        document.querySelectorAll('.price-fx[data-zar]').forEach(el => {
+          const z = +el.dataset.zar;
+          el.textContent = '≈ $' + fmt(z * zarToUsd) + ' · €' + fmt(z * zarToEur);
+        });
+
+        const note = document.getElementById('priceRateNote');
+        if (note) {
+          const d = new Date(rZar.time_last_update_utc).toLocaleDateString('en-ZA', {day:'numeric', month:'short', year:'numeric'});
+          note.innerHTML = 'Indicative USD · EUR rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> · ' + d + ' · Invoiced in ZAR';
+        }
+      } catch (_) {
+        document.querySelectorAll('.price-fx').forEach(el => el.textContent = '');
+        const note = document.getElementById('priceRateNote');
+        if (note) note.textContent = '';
+      }
+    })();
+
+    // Scroll progress bar
+    const progressBar = document.getElementById('scrollProgress');
+    if (progressBar) {
+      const updateProgress = () => {
+        const h = document.documentElement;
+        const scrolled = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+        progressBar.style.width = Math.min(100, Math.max(0, scrolled)) + '%';
+      };
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      document.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    }
+
+    // Scroll reveal
+    const revealSelectors = '.section-header, .price-free-banner, .dd-entry, .pricing-grid > *, .dd-head, .dd-grid > *, .dd-notes';
+    const revealEls = document.querySelectorAll(revealSelectors);
+    revealEls.forEach(el => el.classList.add('reveal'));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      revealEls.forEach(el => io.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('reveal-in'));
+    }
+
+    // Nav dropdown: one state machine (the "open" class) driven by hover-intent on
+    // desktop (with a short close-delay so crossing the gap to a wide menu never
+    // drops it) and by click on touch/keyboard. Previously hover was a *separate*
+    // CSS-only mechanism running in parallel with the click-driven "open" class,
+    // which is why the menu behaved inconsistently — hover and click disagreed
+    // about whether the menu was open. Now there is exactly one source of truth.
+    // On desktop, a mouse click always ENSURES the menu is open rather than
+    // toggling it — a real mouse hovers the button before it clicks, so a plain
+    // toggle would immediately close what hover had just opened. Closing on
+    // desktop happens via mouseleave (delayed), an outside click, or Escape.
+    // On touch/narrow screens (no hover), click keeps its original open/close toggle.
+    const hoverCapable = () => window.matchMedia('(hover: hover) and (min-width: 1181px)').matches;
+    document.querySelectorAll('.nav-dropdown').forEach(drop => {
+      const toggle = drop.querySelector('.nav-drop-toggle');
+      const menu = drop.querySelector('.nav-drop-menu');
+      if (!toggle || !menu) return;
+      let closeTimer = null;
+      const openMenu = () => { clearTimeout(closeTimer); menu.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); };
+      const closeMenu = () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
+      drop.addEventListener('mouseenter', () => { if (hoverCapable()) openMenu(); });
+      drop.addEventListener('mouseleave', () => { if (hoverCapable()) { clearTimeout(closeTimer); closeTimer = setTimeout(closeMenu, 300); } });
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearTimeout(closeTimer);
+        if (hoverCapable()) { openMenu(); }
+        else { menu.classList.contains('open') ? closeMenu() : openMenu(); }
+      });
+    });
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.nav-drop-menu.open').forEach(menu => {
+        if (!menu.parentElement.contains(e.target)) {
+          menu.classList.remove('open');
+          const t = menu.previousElementSibling;
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      document.querySelectorAll('.nav-drop-menu.open').forEach(menu => {
+        menu.classList.remove('open');
+        const t = menu.previousElementSibling;
+        if (t) { t.setAttribute('aria-expanded', 'false'); t.focus(); }
+      });
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('navHamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+        hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.setAttribute('aria-label', 'Open menu');
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

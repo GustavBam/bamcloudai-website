@@ -16,6 +16,7 @@
 
 - [SME AI Decision Explorer](https://bamcloudai.com/explorer) — interactive tool covering Copilot licensing, persona-based use cases, data storage and governance for Microsoft 365 Copilot adoption.
 - [4 Levels of AI — Self-Assessment](https://bamcloudai.com/assessment) — a short wizard that scores an organisation's AI maturity.
+- [The Frontier Matrix](https://bamcloudai.com/frontier-matrix) — weekly, sourced comparison of frontier AI models (USA, China, Europe, Africa): prices, independent capability scores, data terms, security incidents, free tiers and model routing, with a South African lens.
 
 ## Key pages
 
