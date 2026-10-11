@@ -327,3 +327,36 @@ footer {
   nav .logo .logo-tagline .dot { font-size: 10px; }
   .nav-links { top: 72px; max-height: calc(100vh - 72px); max-height: calc(100dvh - 72px); }
 }
+
+
+/* 4. Mobile contact bar (added 2026-10-11, free-channels plan FC-09)
+   Phones and small tablets only: a fixed bottom bar with tap-to-call, tap-to-WhatsApp and Enquire.
+   Both numbers were already public (081 025 3722 on privacy/terms/PAIA as the ECTA contact number;
+   083 290 7722 as the WhatsApp link on the Google Business Profile). The spacer stops the bar
+   covering the footer. Hidden on wider screens and in print. */
+.mcb, .mcb-spacer { display: none; }
+@media (max-width: 860px) {
+  .mcb-spacer { display: block; height: calc(64px + env(safe-area-inset-bottom, 0px)); }
+  .mcb {
+    --mcb-navy: #0F1B2D; --mcb-azure: #0078D4; --mcb-wa: #128C4A;
+    display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 99; /* below nav (100) so an open menu always wins */
+    gap: 8px; padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px));
+    background: var(--mcb-navy); border-top: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 -6px 18px rgba(15,27,45,0.22);
+    box-sizing: border-box; margin: 0;
+    font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.2; letter-spacing: normal;
+  }
+  .mcb a.mcb-btn {
+    flex: 1 1 0; display: flex; align-items: center; justify-content: center; gap: 7px;
+    min-height: 48px; padding: 0 8px; box-sizing: border-box; margin: 0;
+    border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 15px;
+    color: #FFFFFF; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mcb a.mcb-btn.mcb-wa { background: var(--mcb-wa); border-color: var(--mcb-wa); }
+  .mcb a.mcb-btn.mcb-primary { background: var(--mcb-azure); border-color: var(--mcb-azure); }
+  .mcb a.mcb-btn:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+  .mcb svg { width: 18px; height: 18px; flex: none; }
+  body:has(.nav-links.open) .mcb { display: none; }
+}
+@media print { .mcb, .mcb-spacer { display: none !important; } }
