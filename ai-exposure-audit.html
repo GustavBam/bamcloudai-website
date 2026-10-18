@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Exposure Audit | Bam Cloud AI — What Staff Put Into AI</title>
-  <meta name="description" content="Fixed-price AI exposure audit: which AI tools staff use, with what data, and where that leaves you. AZ-305 and AZ-104 certified Microsoft Certified Trainer." />
+  <meta name="description" content="Fixed-price AI exposure audit: which AI tools and agents your staff use, with what data, and where that leaves you. AZ-305 and AZ-104 certified Microsoft Certified Trainer." />
   <meta property="og:title" content="AI Exposure Audit | Bam Cloud AI — What Staff Put Into AI" />
-  <meta property="og:description" content="Fixed-price AI exposure audit: which AI tools staff use, with what data, and where that leaves you. AZ-305 and AZ-104 certified Microsoft Certified Trainer." />
+  <meta property="og:description" content="Fixed-price AI exposure audit: which AI tools and agents your staff use, with what data, and where that leaves you. AZ-305 and AZ-104 certified Microsoft Certified Trainer." />
   <meta property="og:url" content="https://bamcloudai.com/ai-exposure-audit" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
@@ -15,7 +15,7 @@
   <meta property="og:locale" content="en_ZA" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AI Exposure Audit | Bam Cloud AI — What Staff Put Into AI" />
-  <meta name="twitter:description" content="Fixed-price AI exposure audit: which AI tools staff use, with what data, and where that leaves you. AZ-305 and AZ-104 certified Microsoft Certified Trainer." />
+  <meta name="twitter:description" content="Fixed-price AI exposure audit: which AI tools and agents your staff use, with what data, and where that leaves you. AZ-305 and AZ-104 certified Microsoft Certified Trainer." />
   <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://bamcloudai.com/ai-exposure-audit" />
@@ -235,6 +235,10 @@
     .dd-intro a { color: var(--azure-dark); text-decoration: underline; text-underline-offset: 2px; }
     .dd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
     @media (max-width: 900px) { .dd-grid { grid-template-columns: 1fr; } }
+    .dd-grid.dd-grid-2 { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 900px) { .dd-grid.dd-grid-2 { grid-template-columns: 1fr; } }
+    .dd-footnote { text-align: center; max-width: 780px; margin: 22px auto 30px; font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
+    .dd-footnote a { color: var(--azure-dark); text-decoration: underline; text-underline-offset: 2px; }
     .dd-card {
       background: var(--white); border: 1px solid var(--border); border-radius: 16px;
       padding: 28px 24px; position: relative; transition: all 0.2s; display: flex; flex-direction: column;
@@ -454,7 +458,7 @@
       <div class="section-header">
         <span class="section-label" style="color:var(--orange-a11y)">Fixed-Price Engagements</span>
         <h1>AI Exposure Audit</h1>
-        <p class="section-intro">Can you tell me what your staff are putting into AI? Almost nobody can &mdash; not because they are careless, but because nothing in many businesses was ever switched on to measure it. This answers the question properly: which AI tools are in use, by whom, with what data, and where that leaves you. Delivered by an AZ-305 and AZ-104 certified architect and Microsoft Certified Trainer with thirty years in enterprise infrastructure, remotely worldwide or in person across the Western Cape.</p>
+        <p class="section-intro">Can you tell me what your staff are putting into AI? Almost nobody can &mdash; not because they are careless, but because nothing in many businesses was ever switched on to measure it. This answers the question properly: which AI tools and agents are in use, by whom, with what data, what those agents can reach, and where that leaves you. Delivered by an AZ-305 and AZ-104 certified architect and Microsoft Certified Trainer with thirty years in enterprise infrastructure, remotely worldwide or in person across the Western Cape.</p>
 
       <div class="rate-region" id="rateRegion">
         <div class="rr-row">
@@ -469,17 +473,18 @@
         <div class="dd-head">
           <span class="dd-label">The Honest Part First</span>
           <h2>What You Can See Depends On What You Pay Microsoft</h2>
-          <p class="dd-intro">It is easy to assume the AI-monitoring tooling is already sitting in your Microsoft 365 tenant. For some businesses it is not, and you deserve to know which row you are in before you spend anything. What you can see depends on your licence and on what else you switch on and pay for. Microsoft&rsquo;s documentation says that watching third-party AI tools such as ChatGPT, Gemini and DeepSeek mostly needs devices onboarded to Microsoft Purview and a browser extension, and, for AI apps other than Microsoft&rsquo;s own Copilot, pay-as-you-go billing tied to an Azure subscription. Sources, checked 2 October 2026: Microsoft Learn&rsquo;s <a href="https://learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-license-feature-overview" rel="noopener">E3 / E5 / E7 licence comparison</a>, the <a href="https://learn.microsoft.com/purview/dspm-for-ai-considerations" rel="noopener">prerequisites for Data Security Posture Management for AI</a>, the <a href="https://learn.microsoft.com/purview/purview-billing-models" rel="noopener">Purview billing models</a>, the <a href="https://learn.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-purview-service-description" rel="noopener">Purview service description</a> and Microsoft&rsquo;s <a href="https://www.microsoft.com/en-us/security/small-medium-business/microsoft-purview-suite-business-premium" rel="noopener">Purview Suite for Business Premium</a> page. Licensing changes, so check with Microsoft or your reseller before you decide anything.</p>
+          <p class="dd-intro">It is easy to assume the AI-monitoring tooling is already sitting in your Microsoft 365 tenant. For some businesses it is not, and you deserve to know which row you are in before you spend anything. What you can see depends on your licence and on what else you switch on and pay for. Microsoft has replaced its &ldquo;DSPM for AI&rdquo; tool with a new Data Security Posture Management that also lists the AI agents at work in your tenant; the old version is now labelled classic. Microsoft&rsquo;s documentation says that watching third-party AI tools such as ChatGPT, Gemini and DeepSeek mostly needs devices onboarded to Microsoft Purview and a browser extension, and, for AI apps other than Microsoft&rsquo;s own Copilot, pay-as-you-go billing tied to an Azure subscription. Nothing in your tenant can see what staff do on a personal phone or a home laptop the business does not manage, so that part is always answered by interview and by policy. Sources, checked 19 October 2026: Microsoft Learn&rsquo;s <a href="https://learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-license-feature-overview" rel="noopener">E3 / E5 / E7 licence comparison</a>, the <a href="https://learn.microsoft.com/purview/data-security-posture-management-learn-about" rel="noopener">new Data Security Posture Management</a>, the <a href="https://learn.microsoft.com/purview/dspm-for-ai-considerations" rel="noopener">prerequisites for DSPM for AI (classic)</a>, the <a href="https://learn.microsoft.com/purview/purview-billing-models" rel="noopener">Purview billing models</a>, the <a href="https://learn.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-purview-service-description" rel="noopener">Purview service description</a> and Microsoft&rsquo;s <a href="https://www.microsoft.com/en-us/security/small-medium-business/microsoft-purview-suite-business-premium" rel="noopener">Purview Suite for Business Premium</a> page. Licensing changes, so check with Microsoft or your reseller before you decide anything.</p>
         </div>
         <div class="dd-grid">
           <div class="dd-card">
-            <div class="dd-platform">Microsoft 365 E5</div>
+            <div class="dd-platform">Microsoft 365 E5 or E7</div>
             <h3>Fuller visibility</h3>
-            <p class="dd-desc">The most Microsoft lists for AI activity.</p>
+            <p class="dd-desc">The most Microsoft lists for AI activity. E7, on sale since 1 May 2026, is E5 plus Copilot, the Entra Suite and Agent 365.</p>
             <ul class="dd-list">
-              <li>Which AI apps are in use, and by whom</li>
-              <li>The prompts and responses themselves</li>
+              <li>Which AI apps and agents are in use, and by whom</li>
+              <li>Prompts and responses for Microsoft 365 Copilot and its agents; for other AI tools, only once a capture policy is switched on, and for some sites in Edge only the typed prompt</li>
               <li>Third-party tools such as ChatGPT, Gemini and DeepSeek can be watched too, with the extra set-up and billing described above</li>
+              <li>E7 adds Agent 365: one register of your agents, each with its own identity and access rules</li>
             </ul>
           </div>
           <div class="dd-card">
@@ -521,12 +526,12 @@
           <p style="font-size:0.82rem; color:var(--muted); margin-top:8px;">Tell us your Microsoft 365 licence tier and what prompted the question, then book your free call &mdash; we&rsquo;ll agree the details and payment together.</p>
         </div>
         <ul class="dd-list">
-          <li>Discovery of what AI is actually in use, by whom, with what data</li>
+          <li>Discovery of the AI tools and agents actually in use, by whom, with what data</li>
           <li>Run on Microsoft Purview where your licence allows it, by interview where it does not</li>
           <li>A one-page exposure memo written for a director, not an engineer</li>
           <li>The three things that would hurt most if they walked</li>
           <li>A straight recommendation on whether the full audit is worth it for you</li>
-          <li>No agent to install and no credentials to hand over</li>
+          <li>No software to install and no passwords to hand over</li>
         </ul>
         <div class="dd-entry-upgrade">
           <p data-intl-text="<strong>Credited against the full audit.</strong> The full $1,100 is credited against an Exposure Audit booked within 60 days, exactly as the Estate Health Check credits against a Deep Dive. If a week shows the problem is bigger than a week, you don't pay twice to find that out."><strong>Credited against the full audit.</strong> The full R8,500 is credited against an Exposure Audit booked within 60 days, exactly as the Estate Health Check credits against a Deep Dive. If a week shows the problem is bigger than a week, you don&rsquo;t pay twice to find that out.</p>
@@ -538,17 +543,17 @@
         <div class="dd-head">
           <span class="dd-label">The Full Engagement</span>
           <h2>What Is Already Happening, And How To Contain It</h2>
-          <p class="dd-intro"><strong>How this differs from our Modern Work &amp; Copilot Deep Dive:</strong> that assessment answers &ldquo;are we ready to roll Copilot out?&rdquo;. This one answers &ldquo;what is already happening that nobody approved?&rdquo;. If you are planning a deployment, start there. If you do not know what your staff are already using, start here. The calendar window runs longer than the working days because Microsoft&rsquo;s tooling needs at least 24 hours to collect after policies are switched on, the oversharing assessment runs weekly, and interviews fit around your people.</p>
+          <p class="dd-intro"><strong>How this differs from our Modern Work &amp; Copilot Deep Dive:</strong> that assessment answers &ldquo;are we ready to roll Copilot out?&rdquo;. This one answers &ldquo;what is already happening that nobody approved?&rdquo;. If you are planning a deployment, start there. If you do not know what your staff are already using, start here. The calendar window runs longer than the working days because Microsoft&rsquo;s tooling needs about a day to start collecting after policies are switched on, its oversharing assessment runs weekly, and interviews fit around your people.</p>
         </div>
         <div class="dd-grid">
           <div class="dd-card dd-featured">
-            <div class="dd-badge">Most Chosen</div>
+            <div class="dd-badge">Recommended</div>
             <div class="dd-platform">Two weeks &middot; about 3 days of my time</div>
             <h3>Exposure Audit</h3>
             <div class="dd-price" data-intl="$3,200">R22,500<span class="dd-sub">fixed price</span></div>
             <p class="dd-desc">The full engagement, and the four things you walk away with whatever your licence tier allows.</p>
             <ul class="dd-list">
-              <li><strong>An exposure memo</strong> &mdash; one page, what is in use, by whom, with what data</li>
+              <li><strong>An exposure memo</strong> &mdash; one page, what is in use, by whom, with what data, and which agents and connected apps act with your staff&rsquo;s access</li>
               <li><strong>An AI acceptable-use policy</strong> &mdash; naming the actual tools, the specific data that matters, and the person to ask</li>
               <li><strong>A prioritised remediation list</strong> &mdash; what to fix, in what order, at what cost</li>
               <li><strong>A leadership briefing</strong> &mdash; 45 minutes, plain language, English or Afrikaans</li>
@@ -563,6 +568,7 @@
             <ul class="dd-list">
               <li>Everything in the Exposure Audit</li>
               <li>The controls actually implemented, not just recommended</li>
+              <li>Every agent given an owner, only the access it needs and an off switch</li>
               <li>Staff trained on the new policy</li>
               <li>A re-measure thirty days later to show it held</li>
             </ul>
@@ -573,13 +579,13 @@
       <div class="dd-block">
         <div class="dd-head">
           <span class="dd-label">Who It&rsquo;s For</span>
-          <h2>Three Situations Where This Earns Its Money</h2>
+          <h2>Four Situations Where This Earns Its Money</h2>
         </div>
-        <div class="dd-grid">
+        <div class="dd-grid dd-grid-2">
           <div class="dd-card">
             <div class="dd-platform">Stalled Copilot</div>
             <h3>You bought the licences and nobody uses them</h3>
-            <p class="dd-desc">Copilot shows each person whatever they already have permission to open, so a rollout can stall when it starts surfacing documents people forgot they had shared. Microsoft&rsquo;s own deployment guidance makes fixing oversharing the first step. That is an oversharing problem, not an AI problem, and it is fixable.</p>
+            <p class="dd-desc">Copilot shows each person whatever they already have permission to open, so a rollout can stall when it starts surfacing documents people forgot they had shared. Microsoft&rsquo;s own deployment guidance makes fixing oversharing the first step. That is an oversharing problem, not an AI problem, and it is fixable. Microsoft includes SharePoint Advanced Management, which finds and fences off overshared sites, with its Copilot licence.</p>
           </div>
           <div class="dd-card">
             <div class="dd-platform">A question you can&rsquo;t answer</div>
@@ -591,7 +597,38 @@
             <h3>You hold other people&rsquo;s information</h3>
             <p class="dd-desc">Accounting practices, law firms, medical and financial services. Your staff are not reckless; they are busy, and the tool is in the next tab. That is how it can happen.</p>
           </div>
+          <div class="dd-card">
+            <div class="dd-platform">Agents already switched on</div>
+            <h3>Someone connected AI to your mailbox or files</h3>
+            <p class="dd-desc">An agent built in Copilot, or an AI app a staff member connected to their mailbox, works with that person&rsquo;s access, and some keep running on a schedule when nobody is watching. If nobody can list your agents, who owns each one and what it can reach, the audit starts there.</p>
+          </div>
         </div>
+      </div>
+
+      <div class="dd-block">
+        <div class="dd-head">
+          <span class="dd-label">Why It Matters</span>
+          <h2>The Rules That Already Apply</h2>
+          <p class="dd-intro">AI did not need a new law to become a compliance question. South Africa&rsquo;s Protection of Personal Information Act (POPIA) already covers it. This is the position in plain words, not legal advice.</p>
+        </div>
+        <div class="dd-grid">
+          <div class="dd-card">
+            <div class="dd-platform">POPIA section 19</div>
+            <h3>Keeping personal information secure</h3>
+            <p class="dd-desc">You must take reasonable measures to identify foreseeable internal and external risks to the personal information you hold, put safeguards in place, check that they work and keep them up to date. Client details pasted into an AI tool nobody approved is one of those risks.</p>
+          </div>
+          <div class="dd-card">
+            <div class="dd-platform">POPIA section 71</div>
+            <h3>Decisions about people</h3>
+            <p class="dd-desc">A decision with legal or substantial effects on a person may not rest solely on automated profiling, apart from narrow exceptions. If AI screens CVs, scores credit or sets an individual&rsquo;s price, keep a person making the call, or confirm that an exception applies.</p>
+          </div>
+          <div class="dd-card">
+            <div class="dd-platform">POPIA section 72</div>
+            <h3>Sending it across the border</h3>
+            <p class="dd-desc">Many AI tools process what is typed into them outside South Africa. Personal information may go to a third party abroad only under the conditions in section 72, such as adequate legal protection on the other side, the person&rsquo;s consent, or a contract that needs it.</p>
+          </div>
+        </div>
+        <p class="dd-footnote">Selling into Europe? The EU AI Act&rsquo;s transparency duties have applied since 2 August 2026, and its high-risk rules for stand-alone systems were deferred to 2 December 2027. South Africa&rsquo;s Draft National AI Policy closed for public comment on 10 June 2026 and is not yet law. Sources: POPIA sections <a href="https://popia.co.za/section-19-security-measures-on-integrity-and-confidentiality-of-personal-information/" rel="noopener">19</a>, <a href="https://popia.co.za/section-71-automated-decision-making/" rel="noopener">71</a> and <a href="https://popia.co.za/section-72-transfers-of-personal-information-outside-republic/" rel="noopener">72</a>; <a href="https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/eu-ai-act-unpacked-34-the-final-digital-omnibus-on-ai-key-amendments-to-the-a-102nber" rel="noopener">Freshfields</a> on the final AI Omnibus; <a href="https://bowmanslaw.com/insights/south-africa-draft-national-artificial-intelligence-policy-published-for-public-comment/" rel="noopener">Bowmans</a> on the draft policy.</p>
       </div>
 
       <div class="price-free-banner">
@@ -602,6 +639,7 @@
         <a href="/enquiry.html" class="price-free-pill">Tell Us What You Need</a>
       </div>
       <p style="text-align:center; margin-top:22px; color:var(--muted); font-size:0.92rem;">Also available white-label to MSPs and IT providers &mdash; see <a href="/msp-partnership.html" class="card-link">MSP White-Label</a>.</p>
+      <p style="text-align:center; margin-top:10px; color:var(--muted); font-size:0.92rem;">Not ready to talk yet? Take the free <a href="/assessment.html" class="card-link">4 Levels of AI self-assessment</a></p>
 
     </div>
   </section>

@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The 4 Levels of AI — Self-Assessment | Bam Cloud AI</title>
-<meta name="description" content="A 10-minute self-assessment for business leaders — rate 8 functions, then book your free 30-minute call already knowing your biggest opportunity.">
+<meta name="description" content="A free 5–10 minute self-assessment for business leaders: rate AI use in 8 business functions, check 8 foundations from data access to oversight, and get your result on screen.">
   <meta property="og:title" content="The 4 Levels of AI — Self-Assessment | Bam Cloud AI" />
-  <meta property="og:description" content="A 10-minute self-assessment for business leaders — rate 8 functions, then book your free 30-minute call already knowing your biggest opportunity." />
+  <meta property="og:description" content="A free 5–10 minute self-assessment for business leaders: rate AI use in 8 business functions, check 8 foundations from data access to oversight, and get your result on screen." />
   <meta property="og:url" content="https://bamcloudai.com/assessment" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bamcloudai.com/og-image-v2.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The 4 Levels of AI — Self-Assessment | Bam Cloud AI" />
-  <meta name="twitter:description" content="A 10-minute self-assessment for business leaders — rate 8 functions, then book your free 30-minute call already knowing your biggest opportunity." />
+  <meta name="twitter:description" content="A free 5–10 minute self-assessment for business leaders: rate AI use in 8 business functions, check 8 foundations from data access to oversight, and get your result on screen." />
   <meta name="twitter:image" content="https://bamcloudai.com/og-image-v2.png" />
 <link rel="canonical" href="https://bamcloudai.com/assessment">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -29,6 +29,7 @@
     --green:#4ade80; --red:#f87171; --violet:#a78bfa;
     --azure:#0078D4; --azure-light:#50A0DC; --azure-dark:#005A9E;
     --orange:#D4641C; --orange-dark:#B0510E; --white:#FFFFFF;
+    --slate:#64748b; --slate-dark:#475569;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{background:var(--bg); color:var(--txt); font-family:'Inter',system-ui,sans-serif; line-height:1.5; padding-top:80px;}
@@ -42,7 +43,9 @@
     padding:6px 14px; border-radius:100px; margin-bottom:16px;
   }
   .hero h1{ font-size:clamp(1.5rem, 3.4vw, 2rem); margin:0 0 8px 0; font-weight:800; line-height:1.25; }
-  .hero p{ font-size:14.5px; color:var(--dim); margin:0; max-width:560px; }
+  .hero p{ font-size:14.5px; color:var(--dim); margin:0; max-width:580px; }
+  .hero .updated-note{ font-size:12.5px; margin-top:10px; }
+  .hero .updated-note a{ color:var(--cyan); text-decoration:none; border-bottom:1px solid rgba(56,200,232,0.4); }
 
   .progress-bar{ background:var(--bg); padding:14px 24px; border-bottom:1px solid var(--line); position:sticky; top:80px; z-index:10;}
   .progress-track{ height:6px; background:var(--line); border-radius:6px; overflow:hidden; }
@@ -54,28 +57,39 @@
   .step-sub{ font-size:13.5px; color:var(--dim); margin:0 0 20px 0; }
   .optional-tag{ display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--dim); background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:2px 8px; margin-left:8px; vertical-align:middle;}
 
-  /* --- level scoring key --- */
-  .levels{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:22px; }
+  /* --- level scoring key (Level 0 added, v2) --- */
+  .levels{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-bottom:12px; }
   .level-card{ border:1px solid var(--line); border-top:4px solid var(--lc); border-radius:6px; padding:10px 9px; background:var(--panel2); }
   .level-card .lnum{ font-size:10px; font-weight:700; color:var(--lct); text-transform:uppercase; letter-spacing:.5px;}
   .level-card .ltitle{ font-size:13px; font-weight:700; color:var(--txt); margin:2px 0 4px 0;}
   .level-card .ldesc{ font-size:11px; color:var(--dim); }
-  .l1{ --lc:var(--azure-light); --lct:#62AAE0; } .l2{ --lc:var(--violet); --lct:#B097FA; } .l3{ --lc:var(--orange); --lct:#E8844A; } .l4{ --lc:var(--green); --lct:var(--green); }
+  .l0{ --lc:var(--slate); --lct:#a3b1c6; } .l1{ --lc:var(--azure-light); --lct:#62AAE0; } .l2{ --lc:var(--violet); --lct:#B097FA; } .l3{ --lc:var(--orange); --lct:#E8844A; } .l4{ --lc:var(--green); --lct:var(--green); }
+  .evidence-note{ font-size:12.5px; color:var(--dim); margin:0 0 20px 0; border-left:3px solid var(--azure-light); padding:6px 12px; background:rgba(80,160,220,0.08); border-radius:0 6px 6px 0; }
+  .evidence-note strong{ color:var(--txt); }
 
-  /* --- function rating rows --- */
+  /* --- function + foundation rating rows --- */
   .func-row{ border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:10px; background:var(--panel2); }
   .func-row .fname{ font-weight:700; color:var(--txt); font-size:14.5px; margin-bottom:8px; }
+  .fnd-tag{ display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:var(--cyan); margin-bottom:3px; }
+  .fnd-q{ font-weight:600; color:var(--txt); font-size:14px; margin-bottom:4px; }
+  .fnd-hint{ font-size:12px; color:var(--dim); margin-bottom:10px; }
   .pillgroup{ display:flex; gap:8px; flex-wrap:wrap; }
   .pill{
-    flex:1; min-width:110px; text-align:center; border:1.5px solid var(--line); border-radius:20px;
+    flex:1; min-width:88px; text-align:center; border:1.5px solid var(--line); border-radius:20px;
     padding:7px 6px; font-size:12.5px; font-weight:600; color:var(--dim); cursor:pointer; user-select:none;
     transition:all .15s ease; background:var(--panel);
   }
   .pill:hover{ border-color:var(--azure-light); }
+  .pill.sel-l0{ background:var(--slate-dark); border-color:var(--slate-dark); color:#fff; }
   .pill.sel-l1{ background:var(--azure); border-color:var(--azure); color:#fff; }
   .pill.sel-l2{ background:var(--violet); border-color:var(--violet); color:#1a1330; }
   .pill.sel-l3{ background:var(--orange-dark); border-color:var(--orange-dark); color:#fff; }
   .pill.sel-l4{ background:var(--green); border-color:var(--green); color:#062712; }
+  .pill.sel-unsure{ background:rgba(245,185,66,0.16); border-color:var(--amber); color:var(--amber); }
+  .pill.sel-yes{ background:var(--green); border-color:var(--green); color:#062712; }
+  .pill.sel-partly{ background:var(--azure); border-color:var(--azure); color:#fff; }
+  .pill.sel-no{ background:var(--orange-dark); border-color:var(--orange-dark); color:#fff; }
+  .pill.sel-na{ background:var(--slate-dark); border-color:var(--slate-dark); color:#fff; }
 
   /* --- generic form fields --- */
   label.field-label{ display:block; font-size:13px; font-weight:700; color:var(--txt); margin:16px 0 6px 0; }
@@ -110,7 +124,8 @@
   .dd-block .ddhead{ display:inline-block; background:var(--azure); color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:4px; margin-bottom:10px; }
   .dd-block .ddq{ display:block; font-size:13px; color:var(--txt); margin:0 0 6px 0; font-weight:600; }
 
-  .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:22px; gap:12px; }
+  .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:22px; gap:12px; flex-wrap:wrap; }
+  .btn-group{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin-left:auto; }
   button{ font-family:inherit; cursor:pointer; border:none; border-radius:22px; font-weight:700; font-size:14px; padding:11px 22px; }
   .btn-primary{ background:var(--azure); color:#fff; }
   .btn-primary:hover{ background:var(--azure-dark); }
@@ -118,16 +133,54 @@
   .btn-ghost{ background:transparent; color:var(--dim); border:1.5px solid var(--line); }
   .btn-ghost:hover{ border-color:var(--azure-light); color:var(--txt); }
 
-  .skip-note{ font-size:11.5px; color:var(--dim); text-align:center; margin-top:14px; }
+  .skip-note{ font-size:11.5px; color:var(--dim); text-align:center; margin-top:14px; padding:0 24px; }
 
   .step{ display:none; }
   .step.active{ display:block; }
 
-  .success-card{ text-align:center; padding:40px 26px; }
-  .success-card .ico{ width:56px; height:56px; border-radius:50%; background:var(--green); color:#062712; font-size:28px; line-height:56px; margin:0 auto 16px auto; }
-  .success-card h2{ color:var(--txt); font-size:21px; margin:0 0 10px 0; }
-  .success-card p{ color:var(--dim); font-size:14px; max-width:440px; margin:0 auto 18px auto; }
-  .success-card .btn-primary{ display:inline-block; text-decoration:none; }
+  /* --- result preview (step 6) and full result --- */
+  .preview-card{ border:1px solid rgba(56,200,232,0.35); background:rgba(56,200,232,0.07); border-radius:8px; padding:12px 14px; margin:0 0 18px 0; font-size:13px; color:var(--dim); }
+  .preview-card strong{ color:var(--txt); }
+  .result-card h2{ color:var(--txt); font-size:21px; margin:0 0 6px 0; }
+  .result-kicker{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:var(--cyan); margin-bottom:6px; }
+  .profile-text{ font-size:14px; color:var(--dim); margin:0 0 18px 0; }
+  .meters{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:18px; }
+  .meter{ border:1px solid var(--line); border-radius:8px; padding:12px 14px; background:var(--panel2); }
+  .meter-label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--dim); }
+  .meter-value{ font-size:20px; font-weight:800; color:var(--txt); margin:2px 0 8px 0; }
+  .meter-sub{ font-size:12px; color:var(--dim); margin-top:6px; }
+  .meter-track{ height:6px; background:var(--line); border-radius:6px; overflow:hidden; }
+  .meter-fill{ height:100%; border-radius:6px; background:linear-gradient(90deg, var(--azure), var(--cyan)); }
+  .result-h3{ font-size:13px; font-weight:700; color:var(--txt); text-transform:uppercase; letter-spacing:.5px; margin:18px 0 10px 0; }
+  .rbar-row{ display:grid; grid-template-columns:150px 1fr 92px; gap:10px; align-items:center; font-size:12.5px; margin-bottom:7px; }
+  .rbar-name{ color:var(--txt); }
+  .rbar-track{ height:8px; background:var(--line); border-radius:6px; overflow:hidden; }
+  .rbar-fill{ height:100%; border-radius:6px; background:var(--lc, var(--azure-light)); }
+  .rbar-val{ color:var(--dim); text-align:right; }
+  .lever{ font-size:13px; color:var(--txt); background:rgba(74,222,128,0.08); border-left:3px solid var(--green); padding:10px 14px; border-radius:0 6px 6px 0; margin-top:12px; }
+  .gap-list{ list-style:none; }
+  .gap-item{ border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin-bottom:8px; background:var(--panel2); font-size:13px; color:var(--dim); }
+  .gap-item strong{ color:var(--txt); }
+  .gap-status{ display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; padding:1px 7px; border-radius:10px; margin-left:6px; border:1px solid var(--line); color:var(--amber); }
+  .flag-note{ font-size:13px; color:var(--txt); background:rgba(245,185,66,0.1); border-left:3px solid var(--amber); padding:10px 14px; border-radius:0 6px 6px 0; margin-top:12px; }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+  .cta-row a{ display:inline-block; text-decoration:none; border-radius:22px; font-weight:700; font-size:14px; padding:11px 22px; }
+  .cta-row .btn-ghost{ color:var(--txt); }
+  .honesty-note{ font-size:12px; color:var(--dim); margin-top:18px; border-top:1px solid var(--line); padding-top:12px; }
+  .honesty-note a{ color:var(--cyan); }
+  .send-warning{ font-size:13px; color:var(--txt); background:rgba(248,113,113,0.12); border-left:3px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; margin-bottom:16px; }
+  .send-warning a{ color:var(--txt); }
+
+  /* --- how this assessment is built --- */
+  .method{ margin:24px 24px 0 24px; border:1px solid var(--line); border-radius:12px; background:var(--panel); }
+  .method summary{ cursor:pointer; padding:15px 20px; font-weight:700; font-size:14px; color:var(--txt); }
+  .method summary:focus-visible{ outline:2px solid var(--azure-light); outline-offset:2px; border-radius:12px; }
+  .method-body{ padding:0 20px 18px 20px; font-size:13px; color:var(--dim); }
+  .method-body p{ margin:0 0 10px 0; }
+  .method-body ul{ margin:0 0 10px 18px; }
+  .method-body li{ margin:0 0 8px 0; }
+  .method-body a{ color:var(--cyan); }
+  .method-body strong{ color:var(--txt); }
 
   .credentials{ margin:24px 24px 0 24px; padding-top:16px; border-top:1px solid var(--line); text-align:center; }
   .credchips{ display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-bottom:10px; }
@@ -139,8 +192,16 @@
 
   @media (max-width:600px){
     .levels{ grid-template-columns:repeat(2,1fr); }
-    .pillgroup{ flex-direction:column; }
+    .pillgroup{ display:grid; grid-template-columns:repeat(3,1fr); }
+    .pillgroup.fnd{ grid-template-columns:repeat(2,1fr); }
+    .pill{ min-width:0; }
     .hero h1{ font-size:21px; }
+    .card{ margin:16px 16px; padding:20px 16px; }
+    .method, .credentials{ margin-left:16px; margin-right:16px; }
+    .progress-bar{ padding:12px 16px; }
+    .nav-row{ margin:0 16px !important; }
+    .meters{ grid-template-columns:1fr; }
+    .rbar-row{ grid-template-columns:110px 1fr 74px; gap:8px; font-size:12px; }
   }
 
 /* ===== NEW SITE CHROME (retrofit) ===== */
@@ -226,45 +287,58 @@
     </div>
   </nav>
 
+
 <main class="wrap">
   <div class="hero">
-    <div class="kicker">Self-Assessment · 10 minutes · online</div>
+    <div class="kicker">Self-Assessment · 5–10 minutes · instant result</div>
     <h1>The 4 Levels of AI — Where Does Your Organisation Really Stand?</h1>
-    <p>Fill it in online, at your own pace. The more you share, the more useful your free 30-minute call will be — but only your name and email are required to send it through.</p>
+    <p>Rate how far AI has really got in each part of your business, then check the eight foundations that decide whether it pays off or puts your data at risk. Your result appears on screen as soon as you finish. Only your name and email are required.</p>
+    <p class="updated-note">Updated October 2026 for AI agents, data exposure and measurable value. <a href="#method">How it's built</a></p>
   </div>
 
   <div class="progress-bar">
-    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:20%;"></div></div>
-    <div class="progress-label"><span id="stepLabel">Step 1 of 5</span><span id="stepName">Rate your organisation</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:16.7%;"></div></div>
+    <div class="progress-label"><span id="stepLabel">Step 1 of 6</span><span id="stepName">Rate your functions</span></div>
   </div>
 
   <form id="assessForm">
 
-  <!-- STEP 1 — MATRIX -->
+  <!-- STEP 1 — USAGE LEVELS PER FUNCTION -->
   <div class="step active" data-step="1">
     <div class="card">
       <div class="step-title">Rate Every Function You Own</div>
-      <div class="step-sub">Tick the highest level genuinely reached today — not where you'd like to be.</div>
+      <div class="step-sub">Pick the highest level that is true today, not the one that's planned. If you don't know, choose "Not sure". That tells us something too.</div>
 
       <div class="levels">
-        <div class="level-card l1"><div class="lnum">Level 1</div><div class="ltitle">Chat</div><div class="ldesc">Ask AI questions, use the answer. Nothing saved or repeatable.</div></div>
-        <div class="level-card l2"><div class="lnum">Level 2</div><div class="ltitle">Automate</div><div class="ldesc">One repeated task now runs the same way every time.</div></div>
-        <div class="level-card l3"><div class="lnum">Level 3</div><div class="ltitle">Build</div><div class="ldesc">A small tool/app removes real friction — usually no code.</div></div>
-        <div class="level-card l4"><div class="lnum">Level 4</div><div class="ltitle">Shared Apps</div><div class="ldesc">Teammates or customers rely on it daily.</div></div>
+        <div class="level-card l0"><div class="lnum">Level 0</div><div class="ltitle">None yet</div><div class="ldesc">No AI use in this function that you know of.</div></div>
+        <div class="level-card l1"><div class="lnum">Level 1</div><div class="ltitle">Chat</div><div class="ldesc">People ask AI to draft, summarise or search. Results depend on the person.</div></div>
+        <div class="level-card l2"><div class="lnum">Level 2</div><div class="ltitle">Automate</div><div class="ldesc">A recurring task runs the same way every time, with AI in it and a named owner.</div></div>
+        <div class="level-card l3"><div class="lnum">Level 3</div><div class="ltitle">Delegate</div><div class="ldesc">An agent or tool you built does multi-step work in your systems. A person approves or spot-checks it.</div></div>
+        <div class="level-card l4"><div class="lnum">Level 4</div><div class="ltitle">Operate</div><div class="ldesc">It's how the function runs: shared, permission-controlled, owned and measured.</div></div>
       </div>
+      <p class="evidence-note"><strong>The evidence test:</strong> could you show it to me on a screen-share tomorrow? If not, choose the level below.</p>
 
       <div id="funcRows"></div>
 
-      <label for="fld_assessment_next_step" class="field-label">Your single next step <span class="field-hint">(optional — one sentence)</span></label>
-      <textarea name="assessment_next_step" id="fld_assessment_next_step" placeholder="What's the one task, in your weakest area, that's begging to move up a level?"></textarea>
+      <label for="fld_assessment_next_step" class="field-label">Your single next step <span class="field-hint">(optional, one sentence)</span></label>
+      <textarea name="assessment_next_step" id="fld_assessment_next_step" placeholder="Which task in your weakest area is ready to move up a level?"></textarea>
     </div>
   </div>
 
-  <!-- STEP 2 — COMPANY PROFILE -->
+  <!-- STEP 2 — FOUNDATIONS -->
   <div class="step" data-step="2">
     <div class="card">
+      <div class="step-title">The Eight Foundations</div>
+      <div class="step-sub">These decide whether your AI use turns into value or into a data leak. Answer for the business as a whole. "Partly" is an honest answer, and so is "Not sure".</div>
+      <div id="fndRows"></div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — COMPANY PROFILE -->
+  <div class="step" data-step="3">
+    <div class="card">
       <div class="step-title">Your Company Profile <span class="optional-tag">Optional</span></div>
-      <div class="step-sub">Helps me scope the right conversation before we even talk.</div>
+      <div class="step-sub">This helps me scope the right conversation before we talk. Your licence also decides what can be checked from inside your Microsoft 365 tenant.</div>
 
       <label for="fld_company_type" class="field-label">What does your company do? <span class="field-hint">(industry / type)</span></label>
       <input type="text" name="company_type" id="fld_company_type" placeholder="e.g. accounting firm, retailer, logistics, MSP...">
@@ -279,18 +353,32 @@
         <div class="choice" role="radio" aria-checked="false" tabindex="0">Not sure</div>
       </div>
 
-      <label for="fld_current_ms_license" class="field-label">Current Microsoft 365 / Copilot licensing</label>
+      <label for="fld_current_ms_license" class="field-label">Main Microsoft 365 licence</label>
       <select name="current_ms_license" id="fld_current_ms_license">
         <option value="">— Select —</option>
-        <option>No Microsoft 365 currently</option>
+        <option>No Microsoft 365 (Google Workspace or other)</option>
         <option>Microsoft 365 Business Basic</option>
         <option>Microsoft 365 Business Standard</option>
         <option>Microsoft 365 Business Premium</option>
-        <option>Enterprise E3</option>
-        <option>Enterprise E5</option>
-        <option>Already have Copilot add-on</option>
+        <option>Business Premium + Purview Suite add-on</option>
+        <option>Microsoft 365 E3</option>
+        <option>Microsoft 365 E5</option>
+        <option>Microsoft 365 E7 (Frontier Suite)</option>
+        <option>Frontline plans (F1 / F3)</option>
+        <option>A mix of plans</option>
         <option>Not sure what we have</option>
       </select>
+
+      <label id="lbl_paid_ai_tools" class="field-label">Which AI assistants does the business pay for today? <span class="field-hint">(pick as many as apply)</span></label>
+      <div role="group" aria-labelledby="lbl_paid_ai_tools" class="choicegrid multi" data-name="paid_ai_tools">
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">None, free tools only</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Microsoft Copilot (paid licence)</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">ChatGPT (business plan)</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Claude (business plan)</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Gemini (Google Workspace)</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Other</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Not sure</div>
+      </div>
 
       <label id="lbl_rollout_scope" class="field-label">Who would this be for, if we moved ahead?</label>
       <div role="radiogroup" aria-labelledby="lbl_rollout_scope" class="choicegrid single" data-name="rollout_scope">
@@ -302,26 +390,26 @@
     </div>
   </div>
 
-  <!-- STEP 3 — DEEP DIVE (dynamic) -->
-  <div class="step" data-step="3">
+  <!-- STEP 4 — DEEP DIVE (dynamic) -->
+  <div class="step" data-step="4">
     <div class="card">
       <div class="step-title">Look Deeper <span class="optional-tag">Optional</span></div>
-      <div class="deepdive-note">Based on your ratings, these are your two weakest areas. A couple of honest lines here means we skip the small talk on the call.</div>
+      <div class="deepdive-note">From your ratings, these are your two weakest or least visible areas. A couple of honest lines here means we can skip the small talk on the call.</div>
       <div id="deepdiveBlocks"></div>
     </div>
   </div>
 
-  <!-- STEP 4 — MOTIVATION & CONTEXT -->
-  <div class="step" data-step="4">
+  <!-- STEP 5 — MOTIVATION & CONTEXT -->
+  <div class="step" data-step="5">
     <div class="card">
       <div class="step-title">Context For Our Call <span class="optional-tag">Optional but recommended</span></div>
-      <div class="step-sub">The single biggest reason these calls run long is missing context. Save us both time.</div>
+      <div class="step-sub">The most common reason these calls run long is missing context. A few answers here save us both time.</div>
 
       <label for="fld_biggest_concern" class="field-label">Biggest concern, or what's held you back so far?</label>
       <textarea name="biggest_concern" id="fld_biggest_concern" placeholder="Cost, data privacy, staff pushback, not knowing where to start..."></textarea>
 
       <label for="fld_success_vision_12mo" class="field-label">If this works, what does success look like in 12 months?</label>
-      <textarea name="success_vision_12mo" id="fld_success_vision_12mo" placeholder="Hours saved, revenue per employee, faster close, something else..."></textarea>
+      <textarea name="success_vision_12mo" id="fld_success_vision_12mo" placeholder="Hours saved, faster turnaround, fewer errors, revenue per employee..."></textarea>
 
       <label id="lbl_expected_biggest_wins" class="field-label">What's the biggest win you're hoping for? <span class="field-hint">(pick as many as apply)</span></label>
       <div role="group" aria-labelledby="lbl_expected_biggest_wins" class="choicegrid multi" data-name="expected_biggest_wins">
@@ -330,7 +418,7 @@
         <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Cost reduction</div>
         <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Competitive edge</div>
         <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Staff retention / morale</div>
-        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Compliance & risk reduction</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Compliance &amp; risk reduction</div>
         <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Other</div>
       </div>
 
@@ -343,11 +431,13 @@
 
       <label id="lbl_help_needed" class="field-label">What kind of help do you think you'll need? <span class="field-hint">(pick as many as apply)</span></label>
       <div role="group" aria-labelledby="lbl_help_needed" class="choicegrid multi" data-name="help_needed">
-        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Strategy & training</div>
-        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Technical implementation</div>
-        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Design / UX</div>
-        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Data migration</div>
-        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Ongoing managed support</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Find out what data is going into AI</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">AI use policy &amp; guardrails</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Staff training</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Strategy &amp; roadmap</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Build an automation or agent</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Microsoft 365 / Copilot setup</div>
+        <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Ongoing support</div>
         <div class="choice" role="checkbox" aria-checked="false" tabindex="0">Not sure yet</div>
       </div>
 
@@ -355,34 +445,37 @@
       <textarea name="call_stakeholders" id="fld_call_stakeholders" placeholder="e.g. my ops manager should be on the call; finance and support teams would be affected"></textarea>
 
       <label for="fld_additional_notes" class="field-label">Anything else worth knowing before our call?</label>
-      <textarea name="additional_notes" id="fld_additional_notes" placeholder="Optional — anything that doesn't fit above"></textarea>
+      <textarea name="additional_notes" id="fld_additional_notes" placeholder="Optional. Anything that doesn't fit above."></textarea>
     </div>
   </div>
 
-  <!-- STEP 5 — CONTACT (GATE) -->
-  <div class="step" data-step="5">
+  <!-- STEP 6 — CONTACT (GATE) -->
+  <div class="step" data-step="6">
     <div class="card">
       <div class="step-title">Your Details</div>
-      <div class="step-sub">This is the only part that's required — so I know who to prepare the call for.</div>
+      <div class="step-sub">Only your name and email are required. Your answers come to me, so the call starts where you actually are instead of with a generic pitch.</div>
+
+      <div class="preview-card" id="resultPreview" aria-live="polite"></div>
 
       <label for="fld_firstname" class="field-label req">First name</label>
-      <input type="text" name="firstname" id="fld_firstname" required>
+      <input type="text" name="firstname" id="fld_firstname" autocomplete="given-name" required>
 
       <label for="fld_lastname" class="field-label req">Last name</label>
-      <input type="text" name="lastname" id="fld_lastname" required>
+      <input type="text" name="lastname" id="fld_lastname" autocomplete="family-name" required>
+      <div class="err-msg" id="nameErr" role="alert">Please fill in your first and last name.</div>
 
       <label for="fld_email" class="field-label req">Email</label>
-      <input type="email" name="email" id="fld_email" required>
-      <div class="err-msg" id="emailErr">Please enter a valid email address.</div>
+      <input type="email" name="email" id="fld_email" autocomplete="email" required>
+      <div class="err-msg" id="emailErr" role="alert">Please enter a valid email address.</div>
 
       <label for="fld_phone" class="field-label">Phone <span class="field-hint">(optional)</span></label>
-      <input type="tel" name="phone" id="fld_phone">
+      <input type="tel" name="phone" id="fld_phone" autocomplete="tel">
 
       <label for="fld_company" class="field-label">Company name</label>
-      <input type="text" name="company" id="fld_company">
+      <input type="text" name="company" id="fld_company" autocomplete="organization">
 
       <label for="fld_jobtitle" class="field-label">Your role / title</label>
-      <input type="text" name="jobtitle" id="fld_jobtitle">
+      <input type="text" name="jobtitle" id="fld_jobtitle" autocomplete="organization-title">
 
       <input type="hidden" name="company_website" id="hp_field" value=""> <!-- honeypot -->
     </div>
@@ -392,9 +485,33 @@
 
   <div class="nav-row" style="margin:0 24px;">
     <button type="button" class="btn-ghost" id="btnBack" style="visibility:hidden;">Back</button>
-    <button type="button" class="btn-primary" id="btnNext">Continue</button>
+    <div class="btn-group">
+      <button type="button" class="btn-ghost" id="btnSkip" style="display:none;">Skip to my result</button>
+      <button type="button" class="btn-primary" id="btnNext">Continue</button>
+    </div>
   </div>
-  <div class="skip-note" id="skipNote">Steps 1–4 are optional — skip anything you'd rather answer live on the call.</div>
+  <div class="skip-note" id="skipNote">Your result is built from steps 1 and 2. Everything except your name and email is optional.</div>
+
+  <details class="method" id="method">
+    <summary>How this assessment is built, and its limits</summary>
+    <div class="method-body">
+      <p><strong>Version 2, October 2026.</strong> The first version measured how sophisticated your AI tools were (Chat, Automate, Build, Shared apps). Current research and Microsoft's own adoption guidance measure more than tool use. They look at whether the controls and the measurement are in place too. So this version changes three things:</p>
+      <ul>
+        <li><strong>Levels are evidence-based and run from zero.</strong> Level 0 and "Not sure" are now options, and Level 3 is about delegating multi-step work to agents rather than just building apps. Each level asks for something you could show.</li>
+        <li><strong>A second axis: eight foundations.</strong> Visibility, rules, data access, human oversight, agent control, measurement, skills and ownership.</li>
+        <li><strong>An instant result.</strong> You get a profile, your weakest areas and your biggest gaps on screen as soon as you finish.</li>
+      </ul>
+      <p><strong>The evidence behind the foundations:</strong></p>
+      <ul>
+        <li>McKinsey, <a href="https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/the%20state%20of%20ai/the-state-of-ai-in-2026-on-the-road-to-roi-aug-2026.pdf" target="_blank" rel="noopener"><em>The state of AI in 2026</em></a> (August 2026, 1,719 respondents): 37% attribute any EBIT impact to AI. The roughly 6% of "high performers" are twice as likely to have defined processes for measuring AI's impact, and nearly three-quarters of them have fundamentally redesigned workflows.</li>
+        <li>MIT CISR <a href="https://cisr.mit.edu/sites/default/files/2024-12/EnterpriseAIMaturityModel_CISRpressrelease_121924_0.pdf" target="_blank" rel="noopener">Enterprise AI Maturity Model</a> (survey of 721 companies): most enterprises studied were in the first two of four stages, and their financial performance was below their industry average. Firms in stages three and four performed well above it.</li>
+        <li>Microsoft <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">Work Trend Index 2026</a> (20,000 AI users in 10 countries): organisational factors (culture, managers and talent practices) accounted for 67% of reported AI impact, and individual effort for 32%. These are associations, not proof of cause and effect.</li>
+        <li>Microsoft's <a href="https://learn.microsoft.com/agents/adoption-maturity-model/" target="_blank" rel="noopener">agentic AI adoption maturity model</a> assesses strategy, process and value, governance and security, technology and data, and culture together, not tool use alone.</li>
+        <li>The <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI Risk Management Framework</a> (Govern, Map, Measure, Manage), and <a href="https://popia.co.za/section-71-automated-decision-making/" target="_blank" rel="noopener">POPIA section 71</a>, which restricts decisions with legal or substantial effects on a person that rest solely on automated profiling. South Africa's <a href="https://bowmanslaw.com/insights/south-africa-draft-national-artificial-intelligence-policy-published-for-public-comment/" target="_blank" rel="noopener">Draft National AI Policy</a> proposes risk-based oversight. Public comment closed on 10 June 2026, and it is not yet law.</li>
+      </ul>
+      <p><strong>Its limits.</strong> This is a self-assessment, not an audit, and it does not compare you with other companies. People rate themselves generously. A peer-reviewed study found that people using AI overestimated their own performance, and that those with more AI knowledge assessed themselves <em>less</em> accurately (<a href="https://doi.org/10.1016/j.chb.2025.108779" target="_blank" rel="noopener">Fernandes et al., 2026, <em>Computers in Human Behavior</em></a>). That is why every level asks for evidence and why "Not sure" counts as a gap. Treat a high score as a claim to check, not a conclusion.</p>
+    </div>
+  </details>
 
   <div class="credentials">
     <div class="credchips">
@@ -499,6 +616,7 @@
   var HUBSPOT_PORTAL_ID = "148801143";
   var HUBSPOT_FORM_GUID = "11859039-c4da-4bb9-97d4-81e5b2c290ac";
   var BOOKING_URL = "https://bookings.cloud.microsoft/book/BamCloudAI1@bamcloudai.com/s/g0HRMkvQP0y41PNLTJLQcw2?ismsaljsauthenabled";
+  var MODEL_VERSION = "4 Levels of AI v2 (October 2026)";
 
   // ---- site nav hamburger ----
   var hamburger = document.getElementById('navHamburger');
@@ -520,34 +638,44 @@
     });
   }
 
+  // ---- MODEL ----
+  // Usage levels per function. 0-4 plus "Not sure" (stored as 'unsure').
+  var LEVELS = [
+    {v:0, short:"0 · None",     name:"None yet", color:"var(--slate)"},
+    {v:1, short:"1 · Chat",     name:"Chat",     color:"var(--azure-light)"},
+    {v:2, short:"2 · Automate", name:"Automate", color:"var(--violet)"},
+    {v:3, short:"3 · Delegate", name:"Delegate", color:"var(--orange)"},
+    {v:4, short:"4 · Operate",  name:"Operate",  color:"var(--green)"}
+  ];
+
   var FUNCS = [
     {id:"sales", label:"Sales / Business Dev", q:[
-      "When a lead comes in, how much of the qualifying, research, and first-draft follow-up is still typed by a human — and how long before first contact?",
+      "When a lead comes in, how much of the qualifying, research and first-draft follow-up is still typed by a person, and how long before first contact?",
       "If your best salesperson disappeared for a month, could someone else reproduce their process from something written down?"
     ]},
     {id:"marketing", label:"Marketing", q:[
-      "Could you triple content output in 90 days without hiring — and if not, is the bottleneck ideas, drafting, or approval?",
+      "Could you triple content output in 90 days without hiring? If not, is the bottleneck ideas, drafting or approval?",
       "Do you have a repeatable way to turn one client win into five pieces of content, or does every post start from a blank page?"
     ]},
     {id:"finance", label:"Finance / Admin", q:[
-      "How many hours a month go into reconciliation, invoice chasing, or expense categorising that a system could do unattended?",
+      "How many hours a month go into reconciliation, invoice chasing or expense categorising that a system could do unattended?",
       "If a key supplier's price changed tomorrow, how long would it take to see the margin impact across the business?"
     ]},
     {id:"operations", label:"Operations", q:[
-      "Name the one manual process that — if the person doing it left tomorrow — would stop or badly delay the business.",
+      "Name the one manual process that would stop or badly delay the business if the person doing it left tomorrow.",
       "Where does information get re-typed from one system into another purely because the systems don't talk to each other?"
     ]},
     {id:"hr", label:"HR / People", q:[
       "Is onboarding a repeatable checklist, or does it depend on whoever has time that week?",
-      "How much of screening, scheduling, or policy Q&A interrupts a manager's day that a well-built assistant could handle?"
+      "How much scheduling and policy Q&A interrupts a manager's day that an assistant could handle, and which decisions about people must always stay with a person?"
     ]},
     {id:"support", label:"Customer Support", q:[
-      "What percentage of incoming questions are repeats of something you've answered ten times before?",
-      "When a support answer is wrong or out of date, how would you find out, and how long to fix it everywhere it appears?"
+      "What percentage of incoming questions repeat something you've already answered ten times?",
+      "When a support answer is wrong or out of date, how would you find out, and how long would it take to fix it everywhere it appears?"
     ]},
     {id:"it", label:"IT / Engineering", q:[
-      "How many AI tools are already in use across the team that IT never approved or knows about — and what data have they touched?",
-      "If a client or regulator asked what AI tools touch their data today, could you produce that list this afternoon?"
+      "How many AI tools, browser extensions or agents are already in use that IT never approved or knows about, and what data have they touched?",
+      "If a client or regulator asked which AI tools touch their data today, could you produce that list this afternoon?"
     ]},
     {id:"leadership", label:"Leadership / Strategy", q:[
       "Do you actually know which parts of the business have adopted AI, or is adoption invisible right now?",
@@ -555,43 +683,105 @@
     ]}
   ];
 
-  var state = { levels:{} , choices:{}, deepdive:{} };
-  var currentStep = 1;
-  var totalSteps = 5;
-  var stepNames = {1:"Rate your organisation",2:"Company profile",3:"Look deeper",4:"Context for our call",5:"Your details"};
+  // Foundations: scored Yes 2 / Partly 1 / Not yet 0 / Not sure 0 (flagged). 'na' is excluded from the maximum.
+  var FOUNDATIONS = [
+    {id:"visibility", tag:"Visibility",
+     q:"We know which AI tools our people use for work, including free personal accounts, and what data goes into them.",
+     hint:"Yes means a current list exists. Partly means you know only the tools you approved.",
+     act:"Find out which AI tools are in use and what data has already gone into them.", offer:"audit"},
+    {id:"rules", tag:"Rules",
+     q:"We have a written AI use policy, and staff know which data must never go into an AI tool.",
+     hint:"For example client records, ID numbers, salaries, contracts and passwords.",
+     act:"Write a one-page AI use policy covering approved tools, data that never goes in, and who to ask.", offer:"audit"},
+    {id:"data", tag:"Data access",
+     q:"Shared files, sites and mailboxes are permission-controlled tightly enough that an AI assistant would only surface what each person is meant to see.",
+     hint:"An AI assistant can reach everything the user can open. Old “anyone with the link” shares become instant leaks.",
+     act:"Fix oversharing before switching on an AI assistant across the business.", offer:"audit"},
+    {id:"oversight", tag:"Human oversight",
+     q:"When AI output reaches a customer, or helps decide something about a person (hiring, pricing, credit), a named person checks it first.",
+     hint:"POPIA section 71 restricts decisions with legal or substantial effects on a person that rest solely on automated profiling.",
+     act:"Name a reviewer for every AI output that reaches a customer or decides something about a person.", offer:"call"},
+    {id:"agents", tag:"Agent control", na:true,
+     q:"Every automation or agent that can act on its own has a named owner, only the access it needs, and a way to switch it off.",
+     hint:"If none run yet, choose “No agents yet”.",
+     act:"Give every agent and automation an owner, the least access it needs and an off switch.", offer:"audit"},
+    {id:"measure", tag:"Measurement",
+     q:"At least one AI use has a before-and-after number, such as hours saved, turnaround time, error rate or revenue.",
+     hint:"A number you recorded, not an impression.",
+     act:"Pick one use case and record a before-and-after number for it.", offer:"call"},
+    {id:"skills", tag:"Skills",
+     q:"Staff have had practical training in using AI well and safely, not just a licence and a login.",
+     hint:"Including how to check AI output before relying on it.",
+     act:"Train people to use AI well and safely, not just to log in.", offer:"training"},
+    {id:"owner", tag:"Ownership",
+     q:"One named leader owns the AI plan, its budget and its risks.",
+     hint:"Not a committee. One person who answers for it.",
+     act:"Make one leader accountable for the AI plan, its budget and its risks.", offer:"call"}
+  ];
+  var FND_OPTS = [
+    {v:"yes", label:"Yes", score:2},
+    {v:"partly", label:"Partly", score:1},
+    {v:"no", label:"Not yet", score:0},
+    {v:"unsure", label:"Not sure", score:0}
+  ];
+  var NA_OPT = {v:"na", label:"No agents yet", score:null};
+  function fndOpts(f){ return f.na ? FND_OPTS.concat([NA_OPT]) : FND_OPTS; }
+  function optLabel(f, v){ var o = fndOpts(f).filter(function(x){return x.v===v;})[0]; return o ? o.label : 'Not answered'; }
 
-  // Build function rows for step 1
+  var state = { levels:{}, fnd:{}, choices:{}, deepdive:{} };
+  var currentStep = 1;
+  var totalSteps = 6;
+  var stepNames = {1:"Rate your functions",2:"Foundations",3:"Company profile",4:"Look deeper",5:"Context for our call",6:"Your details"};
+
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  // ---- Build step 1: function rows ----
   var rowsEl = document.getElementById('funcRows');
   FUNCS.forEach(function(f){
     var row = document.createElement('div');
     row.className = 'func-row';
-    row.innerHTML = '<div class="fname" id="fname_'+f.id+'">'+f.label+'</div><div class="pillgroup" role="radiogroup" aria-labelledby="fname_'+f.id+'" data-func="'+f.id+'">' +
-      [1,2,3,4].map(function(l){ return '<div class="pill" role="radio" aria-checked="false" tabindex="0" data-level="'+l+'">Level '+l+'</div>'; }).join('') +
-      '</div>';
+    var pills = LEVELS.map(function(l){
+      return '<div class="pill" role="radio" aria-checked="false" tabindex="0" data-value="'+l.v+'" data-cls="sel-l'+l.v+'" aria-label="Level '+l.v+', '+l.name+'">'+l.short+'</div>';
+    }).join('') + '<div class="pill" role="radio" aria-checked="false" tabindex="0" data-value="unsure" data-cls="sel-unsure">Not sure</div>';
+    row.innerHTML = '<div class="fname" id="fname_'+f.id+'">'+f.label+'</div><div class="pillgroup" role="radiogroup" aria-labelledby="fname_'+f.id+'" data-kind="level" data-key="'+f.id+'">'+pills+'</div>';
     rowsEl.appendChild(row);
   });
 
-  // Pill click handling (single-select per row)
-  rowsEl.addEventListener('click', function(e){
+  // ---- Build step 2: foundation rows ----
+  var fndEl = document.getElementById('fndRows');
+  FOUNDATIONS.forEach(function(f){
+    var row = document.createElement('div');
+    row.className = 'func-row';
+    var pills = fndOpts(f).map(function(o){
+      return '<div class="pill" role="radio" aria-checked="false" tabindex="0" data-value="'+o.v+'" data-cls="sel-'+o.v+'">'+o.label+'</div>';
+    }).join('');
+    row.innerHTML = '<div class="fnd-tag">'+f.tag+'</div><div class="fnd-q" id="fq_'+f.id+'">'+f.q+'</div><div class="fnd-hint">'+f.hint+'</div>' +
+      '<div class="pillgroup fnd" role="radiogroup" aria-labelledby="fq_'+f.id+'" data-kind="fnd" data-key="'+f.id+'">'+pills+'</div>';
+    fndEl.appendChild(row);
+  });
+
+  // ---- Pill handling (single-select per row), shared by steps 1 and 2 ----
+  function onPill(e){
     var pill = e.target.closest('.pill');
     if(!pill) return;
     var group = pill.closest('.pillgroup');
-    var func = group.getAttribute('data-func');
-    var level = pill.getAttribute('data-level');
+    var kind = group.getAttribute('data-kind');
+    var key = group.getAttribute('data-key');
+    var val = pill.getAttribute('data-value');
     Array.from(group.children).forEach(function(p){ p.className = 'pill'; p.setAttribute('aria-checked','false'); });
-    pill.classList.add('sel-l'+level);
+    pill.classList.add(pill.getAttribute('data-cls'));
     pill.setAttribute('aria-checked','true');
-    state.levels[func] = parseInt(level,10);
-  });
-
-  // Keyboard: Enter / Space activate a focused level pill
-  rowsEl.addEventListener('keydown', function(e){
+    if(kind === 'level'){ state.levels[key] = (val === 'unsure') ? 'unsure' : parseInt(val,10); }
+    else { state.fnd[key] = val; }
+  }
+  function onPillKey(e){
     var pill = e.target.closest('.pill');
     if(!pill) return;
     if(e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){ e.preventDefault(); pill.click(); }
-  });
+  }
+  [rowsEl, fndEl].forEach(function(el){ el.addEventListener('click', onPill); el.addEventListener('keydown', onPillKey); });
 
-  // Generic choice grids (single + multi) across steps 2 & 4
+  // ---- Generic choice grids (single + multi) across steps 3 & 5 ----
   document.querySelectorAll('.choicegrid').forEach(function(grid){
     var name = grid.getAttribute('data-name');
     var isMulti = grid.classList.contains('multi');
@@ -603,8 +793,7 @@
       if(isMulti){
         choice.classList.toggle('selected');
         choice.setAttribute('aria-checked', choice.classList.contains('selected') ? 'true' : 'false');
-        var arr = Array.from(grid.querySelectorAll('.choice.selected')).map(function(c){return c.textContent.trim();});
-        state.choices[name] = arr;
+        state.choices[name] = Array.from(grid.querySelectorAll('.choice.selected')).map(function(c){return c.textContent.trim();});
       } else {
         Array.from(grid.children).forEach(function(c){ c.classList.remove('selected'); c.setAttribute('aria-checked','false'); });
         choice.classList.add('selected');
@@ -619,17 +808,140 @@
     });
   });
 
+  // ---- Scoring ----
+  function levelName(v){ return v === 'unsure' ? 'Not sure' : (v === undefined ? 'Not rated' : ('Level '+v+' · '+LEVELS[v].name)); }
+
+  // Weakest two: rated functions first ("Not sure" ranks as weakest, it is a visibility gap);
+  // unrated functions only fill in when fewer than two were rated.
   function weakestTwo(){
-    var entries = FUNCS.map(function(f){ return {id:f.id, label:f.label, level: state.levels[f.id] || 0}; });
-    entries.sort(function(a,b){ return a.level - b.level; });
-    return entries.slice(0,2);
+    var rated = [], unrated = [];
+    FUNCS.forEach(function(f, i){
+      var v = state.levels[f.id];
+      if(v === undefined){ unrated.push({id:f.id, label:f.label, rank:99, i:i}); }
+      else { rated.push({id:f.id, label:f.label, rank:(v === 'unsure' ? -0.5 : v), i:i}); }
+    });
+    rated.sort(function(a,b){ return (a.rank - b.rank) || (a.i - b.i); });
+    return rated.concat(unrated).slice(0,2);
   }
 
+  function computeResult(){
+    var r = {};
+    var vals = [], unsureFuncs = [], ratedCount = 0;
+    FUNCS.forEach(function(f){
+      var v = state.levels[f.id];
+      if(v === undefined) return;
+      ratedCount++;
+      if(v === 'unsure'){ unsureFuncs.push(f.label); } else { vals.push({label:f.label, v:v}); }
+    });
+    r.ratedCount = ratedCount;
+    r.unsureFuncs = unsureFuncs;
+    r.usage = vals.length >= 3 ? vals.reduce(function(s,x){return s+x.v;},0) / vals.length : null;
+    if(vals.length){
+      var sorted = vals.slice().sort(function(a,b){ return b.v - a.v; });
+      r.strongest = sorted[0];
+      r.weakest = sorted[sorted.length-1];
+    }
+    var score = 0, max = 0, answered = 0, gaps = [];
+    FOUNDATIONS.forEach(function(f){
+      var a = state.fnd[f.id];
+      if(!a || a === 'na') return;
+      answered++;
+      var opt = FND_OPTS.filter(function(o){return o.v===a;})[0];
+      score += opt.score; max += 2;
+      if(a !== 'yes'){ gaps.push({f:f, a:a, order:(a==='unsure'?0:(a==='no'?1:2))}); }
+    });
+    r.fndAnswered = answered; r.fndScore = score; r.fndMax = max;
+    r.fndPct = answered >= 4 ? Math.round(score / max * 100) : null;
+    r.fndBand = r.fndPct === null ? null : (r.fndPct >= 75 ? 'Solid' : (r.fndPct >= 40 ? 'Partial' : 'Exposed'));
+    gaps.sort(function(a,b){ return a.order - b.order; });
+    r.gaps = gaps;
+    // 'Partly' = only the approved tools are known, so unapproved (shadow) AI use is invisible: still a gap.
+    r.visibilityFlag = (['unsure','no','partly'].indexOf(state.fnd.visibility) !== -1 || unsureFuncs.length >= 2);
+    r.profile = profileFor(r.usage, r.fndPct);
+    return r;
+  }
+
+  function profileFor(u, f){
+    if(u === null || f === null){
+      return {name:"Partial picture", text:"Rate at least three functions and answer at least four foundations to see your profile. The detail below is built from what you did answer."};
+    }
+    var hiU = u >= 2, hiF = f >= 50;
+    if(hiU && !hiF) return {name:"Running ahead of the guardrails", text:"AI is already doing real work in your business, but visibility, rules and oversight haven't caught up. Of the four profiles this one carries the most risk, because the exposure grows with every person who adopts AI without guardrails. It is also the cheapest stage at which to fix it."};
+    if(hiU && hiF)  return {name:"Scaling with control", text:"You have real use and the foundations to support it. Your next gains come from measuring the value of each use case, copying what works in your strongest function, and handing work to agents carefully, one owned and permission-limited agent at a time."};
+    if(!hiU && hiF) return {name:"Ready, not yet moving", text:"Your guardrails are in better shape than your usage. Pick one recurring task in your weakest function and get it to Level 2 within 30 days: repeatable, owned and measured."};
+    return {name:"At the starting line", text:"AI use is still early or patchy, and the foundations are thin. It's a common place to start, and the cheapest to fix if you go in the right order: visibility and rules first, then one measured use case."};
+  }
+
+  function previewHTML(r){
+    if(r.usage === null || r.fndPct === null){
+      return '<strong>Not enough answers for a full profile yet.</strong> Rate at least three functions in step 1 and answer at least four foundations in step 2 (use Back). Or carry on: you\'ll still see a breakdown of what you did answer.';
+    }
+    var bits = [];
+    if(r.usage !== null) bits.push('usage <strong>'+r.usage.toFixed(1)+' / 4</strong>');
+    if(r.fndPct !== null) bits.push('foundations <strong>'+r.fndPct+'%</strong>');
+    return '<strong>Your result is ready: '+esc(r.profile.name)+'.</strong>' + (bits.length ? ' ('+bits.join(', ')+')' : '') +
+      '<br>Add your details to see the full breakdown: your weakest areas, your top gaps and the next step for each.';
+  }
+
+  function resultHTML(r, sent){
+    var h = '';
+    if(!sent){
+      h += '<div class="send-warning" role="alert">Your answers didn\'t reach me. Your result is below, but please email <a href="mailto:gustav@bamcloudai.com">gustav@bamcloudai.com</a> or book the call directly so I can prepare.</div>';
+    }
+    h += '<div class="result-kicker">Your result · '+MODEL_VERSION+'</div>';
+    h += '<h2>'+esc(r.profile.name)+'</h2>';
+    h += '<p class="profile-text">'+esc(r.profile.text)+'</p>';
+
+    h += '<div class="meters">';
+    h += '<div class="meter"><div class="meter-label">AI usage</div><div class="meter-value">'+(r.usage!==null ? r.usage.toFixed(1)+' / 4' : '—')+'</div>' +
+         '<div class="meter-track"><div class="meter-fill" style="width:'+(r.usage!==null ? Math.round(r.usage/4*100) : 0)+'%"></div></div>' +
+         '<div class="meter-sub">Average across '+(r.ratedCount - r.unsureFuncs.length)+' rated function'+((r.ratedCount - r.unsureFuncs.length)===1?'':'s')+(r.unsureFuncs.length ? ', '+r.unsureFuncs.length+' "not sure"' : '')+'</div></div>';
+    h += '<div class="meter"><div class="meter-label">Foundations</div><div class="meter-value">'+(r.fndPct!==null ? r.fndPct+'% · '+r.fndBand : '—')+'</div>' +
+         '<div class="meter-track"><div class="meter-fill" style="width:'+(r.fndPct!==null ? r.fndPct : 0)+'%"></div></div>' +
+         '<div class="meter-sub">'+r.fndScore+' of '+r.fndMax+' points from '+r.fndAnswered+' answered</div></div>';
+    h += '</div>';
+
+    h += '<div class="result-h3">By function</div>';
+    FUNCS.forEach(function(f){
+      var v = state.levels[f.id];
+      var pct = (typeof v === 'number') ? Math.max(4, v/4*100) : 0;
+      var col = (typeof v === 'number') ? LEVELS[v].color : 'var(--amber)';
+      var lab = (typeof v === 'number') ? (v+' · '+LEVELS[v].name) : (v === 'unsure' ? 'Not sure' : 'Not rated');
+      h += '<div class="rbar-row"><span class="rbar-name">'+f.label+'</span><span class="rbar-track"><span class="rbar-fill" style="display:block;width:'+pct+'%;--lc:'+col+'"></span></span><span class="rbar-val">'+lab+'</span></div>';
+    });
+    if(r.strongest && r.weakest && (r.strongest.v - r.weakest.v) >= 2){
+      h += '<p class="lever"><strong>Your biggest lever:</strong> '+esc(r.strongest.label)+' is at Level '+r.strongest.v+' and '+esc(r.weakest.label)+' is at Level '+r.weakest.v+'. Copying a pattern that already works inside your own business is usually the fastest and cheapest step up.</p>';
+    }
+    if(r.visibilityFlag){
+      h += '<p class="flag-note"><strong>Visibility gap:</strong> you can\'t govern AI use you can\'t see. Find out which tools are in use and what has gone into them first. That is exactly what the <a href="/ai-exposure-audit.html" style="color:var(--txt)">AI Exposure Audit</a> answers.</p>';
+    }
+
+    if(r.gaps.length){
+      h += '<div class="result-h3">Your top gaps</div><ul class="gap-list">';
+      r.gaps.slice(0,3).forEach(function(g){
+        h += '<li class="gap-item"><strong>'+g.f.tag+'</strong><span class="gap-status">'+optLabel(g.f, g.a)+'</span><br>'+esc(g.f.act)+'</li>';
+      });
+      h += '</ul>';
+    } else if(r.fndAnswered){
+      h += '<div class="result-h3">Your top gaps</div><p class="profile-text">No gaps in the foundations you answered. Check that each "Yes" would stand up to a screen-share.</p>';
+    }
+
+    var top = r.gaps.slice(0,3).map(function(g){ return g.f.offer; });
+    h += '<div class="cta-row"><a class="btn-primary" href="'+BOOKING_URL+'" target="_blank" rel="noopener">Book your free 30-minute call &rarr;</a>';
+    if(top.indexOf('audit') !== -1 || r.visibilityFlag){ h += '<a class="btn-ghost" href="/ai-exposure-audit.html">See the AI Exposure Audit</a>'; }
+    if(top.indexOf('training') !== -1){ h += '<a class="btn-ghost" href="/training.html">See training options</a>'; }
+    h += '</div>';
+
+    h += '<p class="honesty-note">'+(sent ? 'I\'ll read your answers before we speak, so the call goes straight to your weakest areas. ' : '') +
+         'This is a self-assessment, not an audit or a benchmark against other companies. People who use AI tend to over-rate their own results, so treat each high score as a claim to check. <a href="#method">How it\'s built</a></p>';
+    return h;
+  }
+
+  // ---- Deep dive (step 4) ----
   function buildDeepDive(){
     var container = document.getElementById('deepdiveBlocks');
     container.innerHTML = '';
-    var weak = weakestTwo();
-    weak.forEach(function(w, idx){
+    weakestTwo().forEach(function(w){
       var f = FUNCS.filter(function(x){return x.id===w.id;})[0];
       var block = document.createElement('div');
       block.className = 'dd-block';
@@ -640,10 +952,13 @@
       container.appendChild(block);
     });
     container.querySelectorAll('textarea').forEach(function(ta){
-      ta.addEventListener('input', function(){ state.deepdive[ta.getAttribute('data-dd')] = ta.value; });
+      var k = ta.getAttribute('data-dd');
+      if(state.deepdive[k]) ta.value = state.deepdive[k];
+      ta.addEventListener('input', function(){ state.deepdive[k] = ta.value; });
     });
   }
 
+  // ---- Step display ----
   function showStep(n){
     document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
     document.querySelector('.step[data-step="'+n+'"]').classList.add('active');
@@ -651,71 +966,75 @@
     document.getElementById('stepLabel').textContent = 'Step '+n+' of '+totalSteps;
     document.getElementById('stepName').textContent = stepNames[n];
     document.getElementById('btnBack').style.visibility = n===1 ? 'hidden' : 'visible';
-    document.getElementById('btnNext').textContent = n===totalSteps ? 'Send my assessment' : 'Continue';
-    document.getElementById('skipNote').style.display = n===totalSteps ? 'none' : 'block';
-    if(n===3) buildDeepDive();
+    document.getElementById('btnSkip').style.display = (n>=2 && n<=5) ? 'inline-block' : 'none';
+    document.getElementById('btnNext').textContent = n===totalSteps ? 'Show my result' : 'Continue';
+    var note = document.getElementById('skipNote');
+    note.style.display = n===totalSteps ? 'none' : 'block';
+    note.textContent = n<=2 ? 'Your result is built from steps 1 and 2. Everything except your name and email is optional.'
+                            : 'Steps 3 to 5 make the call sharper. Skip them if you would rather talk it through live.';
+    if(n===4) buildDeepDive();
+    if(n===6) document.getElementById('resultPreview').innerHTML = previewHTML(computeResult());
     window.scrollTo({top:0, behavior:'smooth'});
   }
 
   // ---- Browser history integration ----
-  // Establish a base history entry for step 1 (replaceState, so a Back press
-  // while on step 1 leaves the page normally — it never got a pushed entry).
-  // Every forward step pushes a new entry, so the physical Back button and
-  // the in-page Back button both walk through the wizard identically.
+  // Step 1 gets a replaced (not pushed) entry, so Back on step 1 leaves the page normally.
+  // Every forward move pushes an entry, so the browser Back button and the in-page Back
+  // button walk through the wizard identically.
   if(window.history && window.history.replaceState){
     history.replaceState({step:1}, '', location.pathname + location.search);
   }
-
   window.addEventListener('popstate', function(e){
     var step = (e.state && e.state.step) ? e.state.step : 1;
     currentStep = step;
     showStep(step);
   });
-
+  function goTo(n){
+    currentStep = n;
+    if(window.history && window.history.pushState){ history.pushState({step:n}, '', location.pathname + location.search); }
+    showStep(n);
+  }
   document.getElementById('btnBack').addEventListener('click', function(){
     if(currentStep>1){
       if(window.history && window.history.length){ history.back(); }
       else { currentStep--; showStep(currentStep); }
     }
   });
-
+  document.getElementById('btnSkip').addEventListener('click', function(){ goTo(totalSteps); });
   document.getElementById('btnNext').addEventListener('click', function(){
-    if(currentStep < totalSteps){
-      currentStep++;
-      if(window.history && window.history.pushState){
-        history.pushState({step:currentStep}, '', location.pathname + location.search);
-      }
-      showStep(currentStep);
-    } else {
-      submitAssessment();
-    }
+    if(currentStep < totalSteps){ goTo(currentStep+1); } else { submitAssessment(); }
   });
 
   function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
-  function collectFieldValues(){
+  // ---- HubSpot payload ----
+  // HubSpot free tier caps custom properties, so all qualitative context is packed into the
+  // same 3 multi-line text properties as v1 (ai_levels_summary, deepdive_responses,
+  // assessment_context). No new HubSpot properties are needed.
+  function collectFieldValues(r){
     var form = document.getElementById('assessForm');
     var fields = [];
-
-    // Standard contact fields only — everything else gets consolidated below
-    // (HubSpot free tier caps custom properties, so all qualitative context
-    // is packed into 3 text-blob properties instead of ~20 discrete ones)
     ['firstname','lastname','email','phone','company','jobtitle'].forEach(function(name){
       var el = form.querySelector('[name="'+name+'"]');
       fields.push({name: name, value: el ? (el.value || '') : ''});
     });
 
-    // 1. AI Levels Summary — all 8 function ratings in one field
-    var levelsLines = FUNCS.map(function(f){
-      var lvl = state.levels[f.id];
-      return f.label + ': ' + (lvl ? ('Level ' + lvl) : 'Not rated');
-    });
-    fields.push({name:'ai_levels_summary', value: levelsLines.join('\n')});
+    // 1. AI Levels Summary: model version, all 8 function ratings, foundations, computed result
+    var L = [MODEL_VERSION, '--- Usage by function ---'];
+    FUNCS.forEach(function(f){ L.push(f.label + ': ' + levelName(state.levels[f.id])); });
+    L.push('--- Foundations ---');
+    FOUNDATIONS.forEach(function(f){ L.push(f.tag + ': ' + optLabel(f, state.fnd[f.id])); });
+    L.push('--- Result ---');
+    L.push('Profile: ' + r.profile.name);
+    L.push('Usage average: ' + (r.usage!==null ? r.usage.toFixed(1)+' / 4' : 'insufficient answers') + ' (' + r.ratedCount + ' rated, ' + r.unsureFuncs.length + ' not sure)');
+    L.push('Foundations: ' + (r.fndPct!==null ? r.fndScore+'/'+r.fndMax+' = '+r.fndPct+'% ('+r.fndBand+')' : 'insufficient answers'));
+    L.push('Top gaps: ' + (r.gaps.length ? r.gaps.slice(0,3).map(function(g){return g.f.tag+' ('+optLabel(g.f,g.a)+')';}).join('; ') : 'none'));
+    if(r.visibilityFlag) L.push('Flag: visibility gap - Exposure Audit candidate');
+    fields.push({name:'ai_levels_summary', value: L.join('\n')});
 
-    // 2. Deep Dive Responses — the two weakest areas + whatever they answered
-    var weak = weakestTwo();
+    // 2. Deep Dive Responses: the two weakest areas + whatever they answered
     var ddLines = [];
-    weak.forEach(function(w){
+    weakestTwo().forEach(function(w){
       var f = FUNCS.filter(function(x){return x.id===w.id;})[0];
       ddLines.push('=== ' + f.label + ' ===');
       f.q.forEach(function(q,i){
@@ -725,26 +1044,25 @@
     });
     fields.push({name:'deepdive_responses', value: ddLines.join('\n')});
 
-    // 3. Assessment Context — company profile + motivation, one labeled blob
-    var ctxLines = [];
-    function addLine(label, value){
-      if(value && String(value).trim()){ ctxLines.push(label + ': ' + value); }
-    }
+    // 3. Assessment Context: company profile + motivation, one labelled blob
+    var ctx = [];
+    function addLine(label, value){ if(value && String(value).trim()){ ctx.push(label + ': ' + value); } }
     function fieldVal(name){ var el = form.querySelector('[name="'+name+'"]'); return el ? el.value : ''; }
+    function joined(name){ return Array.isArray(state.choices[name]) ? state.choices[name].join('; ') : ''; }
     addLine('What they do', fieldVal('company_type'));
     addLine('Company size', state.choices['company_size_range']);
     addLine('Current MS license', fieldVal('current_ms_license'));
+    addLine('Paid AI assistants', joined('paid_ai_tools'));
     addLine('Rollout scope', state.choices['rollout_scope']);
     addLine('Biggest concern', fieldVal('biggest_concern'));
     addLine('Success vision (12mo)', fieldVal('success_vision_12mo'));
-    addLine('Expected biggest wins', Array.isArray(state.choices['expected_biggest_wins']) ? state.choices['expected_biggest_wins'].join('; ') : '');
+    addLine('Expected biggest wins', joined('expected_biggest_wins'));
     addLine('Urgency', state.choices['urgency_level']);
-    addLine('Help needed', Array.isArray(state.choices['help_needed']) ? state.choices['help_needed'].join('; ') : '');
+    addLine('Help needed', joined('help_needed'));
     addLine('Call stakeholders', fieldVal('call_stakeholders'));
     addLine('Additional notes', fieldVal('additional_notes'));
     addLine('Single next step', fieldVal('assessment_next_step'));
-    fields.push({name:'assessment_context', value: ctxLines.join('\n')});
-
+    fields.push({name:'assessment_context', value: ctx.join('\n')});
     return fields;
   }
 
@@ -754,54 +1072,39 @@
     var lastname = form.lastname.value.trim();
     var email = form.email.value.trim();
     var honeypot = document.getElementById('hp_field').value;
-
-    document.getElementById('emailErr').style.display = 'none';
-    if(!firstname || !lastname || !validEmail(email)){
-      document.getElementById('emailErr').style.display = 'block';
-      if(!firstname || !lastname){ alert('Please fill in your first and last name.'); }
-      return;
-    }
+    var nameOk = !!(firstname && lastname), emailOk = validEmail(email);
+    document.getElementById('nameErr').style.display = nameOk ? 'none' : 'block';
+    document.getElementById('emailErr').style.display = emailOk ? 'none' : 'block';
+    if(!nameOk){ (firstname ? form.lastname : form.firstname).focus(); return; }
+    if(!emailOk){ form.email.focus(); return; }
     if(honeypot){ return; } // bot trap, silently drop
 
     var btn = document.getElementById('btnNext');
     btn.disabled = true; btn.textContent = 'Sending...';
-
-    var payload = {
-      fields: collectFieldValues(),
-      context: {
-        pageUri: window.location.href,
-        pageName: document.title
-      }
-    };
+    var r = computeResult();
+    var payload = { fields: collectFieldValues(r), context: { pageUri: window.location.href, pageName: document.title } };
 
     fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HUBSPOT_PORTAL_ID+'/'+HUBSPOT_FORM_GUID, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(payload)
+      method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)
     }).then(function(res){
-      if(res.ok){ showSuccess(); }
-      else { res.text().then(function(t){ console.error('HubSpot submit failed', t); showError(); }); }
-    }).catch(function(err){ console.error(err); showError(); });
+      if(res.ok){ showResult(r, true); }
+      else { res.text().then(function(t){ console.error('HubSpot submit failed', t); showResult(r, false); }); }
+    }).catch(function(err){ console.error(err); showResult(r, false); });
   }
 
-  function showSuccess(){
+  function showResult(r, sent){
     document.querySelectorAll('.step').forEach(function(s){ s.style.display='none'; });
     document.querySelector('.progress-bar').style.display='none';
     document.querySelector('.nav-row').style.display='none';
     document.getElementById('skipNote').style.display='none';
     var card = document.createElement('div');
-    card.className = 'card success-card';
-    card.innerHTML = '<div class="ico">&#10003;</div>' +
-      '<h2>Got it — thank you.</h2>' +
-      '<p>I\'ll review your answers before we speak, so we can spend the full 30 minutes on your two weakest areas instead of a generic pitch.</p>' +
-      '<a class="btn-primary" href="'+BOOKING_URL+'" target="_blank" rel="noopener">Book your free 30-minute call &rarr;</a>';
-    document.querySelector('.wrap').insertBefore(card, document.querySelector('.credentials'));
-  }
-
-  function showError(){
-    var btn = document.getElementById('btnNext');
-    btn.disabled = false; btn.textContent = 'Send my assessment';
-    alert('Something went wrong sending your assessment — please try again, or email gustav@bamcloudai.com directly.');
+    card.className = 'card result-card';
+    card.id = 'resultCard';
+    card.setAttribute('tabindex','-1');
+    card.innerHTML = resultHTML(r, sent);
+    document.querySelector('.wrap').insertBefore(card, document.getElementById('method'));
+    window.scrollTo({top:0, behavior:'smooth'});
+    card.focus({preventScroll:true});
   }
 
   showStep(1);

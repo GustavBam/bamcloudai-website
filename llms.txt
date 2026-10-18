@@ -4,6 +4,7 @@
 
 ## Services
 
+- **[AI Exposure Audit](https://bamcloudai.com/ai-exposure-audit)** — fixed-price diagnostic of which AI tools and agents staff use, with what data, and what those agents can reach. Run on Microsoft Purview where the client's Microsoft 365 licence allows it and by interview where it does not; delivers an exposure memo, an AI acceptable-use policy, a prioritised remediation list and a leadership briefing. Remote worldwide or in person in the Western Cape.
 - **Azure & AI Certification Training** — 1-on-1 and group coaching for AZ-900, AZ-104 and AZ-305. Online globally.
 - **Azure Architecture & Cloud Consulting** — AZ-305 and AZ-104 level architecture design, landing zones, governance, hybrid/multi-cloud, security and identity (Entra ID, Zero Trust), cost optimisation.
 - **Azure Administration & Operations** — AZ-104-level hands-on management, monitoring, automation, backup/DR, infrastructure-as-code (Bicep/ARM).
@@ -15,7 +16,7 @@
 ## Free tools (ungated, no signup required)
 
 - [SME AI Decision Explorer](https://bamcloudai.com/explorer) — interactive tool covering Copilot licensing, persona-based use cases, data storage and governance for Microsoft 365 Copilot adoption.
-- [4 Levels of AI — Self-Assessment](https://bamcloudai.com/assessment) — a short wizard that scores an organisation's AI maturity.
+- [4 Levels of AI — Self-Assessment](https://bamcloudai.com/assessment) — a free 5–10 minute wizard that rates AI use across 8 business functions (Levels 0–4: None, Chat, Automate, Delegate, Operate) and 8 foundations (visibility, rules, data access, human oversight, agent control, measurement, skills, ownership), with an instant on-screen result.
 - [The Frontier Matrix](https://bamcloudai.com/frontier-matrix) — weekly, sourced comparison of frontier AI models (USA, China, Europe, Africa): prices, independent capability scores, data terms, security incidents, free tiers and model routing, with a South African lens.
 
 ## Key pages
